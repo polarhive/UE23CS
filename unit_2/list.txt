@@ -1,0 +1,45 @@
+list: mutable type
+
+Functions:
+append()
+extend()
+insert()
+sort(), reverse()
+remove(), pop()
+copy()
+clear()
+
+Examples:
+
+▸ empty list
+varname = []
+
+▸ filled list
+lst = [ 1, 2, 3, 5, 12, 18 ]
+
+▸ extending a list
+lst.extend([ 21, 22 ])
+
+▸ appending to a list
+lst.append([ 21, 22 ])
+- raw appends the list inside of a list
+
+▸ insert item to a list
+lst.append([ pos, item ])
+
+▸ sorts items in a list
+doesn't take ([1,2,4,5,10,3,0]) as argument
+lst.sort()
+
+▸ removes an item in a list
+lst.remove(pos)
+
+▸ slice and removes the sublist
+del lst[2:4]
+
+▸ slice a list
+[start:end] and [start:and:step]
+
+examples -- lst[2:]
+examples -- lst[:4]
+
