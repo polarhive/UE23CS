@@ -1,0 +1,6 @@
+fp=open("sample.txt", 'a+')
+fp.write("entry\n")
+fp.seek(0,0)
+a=fp.read()
+print(a)
+fp.close()
