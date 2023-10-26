@@ -117,4 +117,16 @@ for i in range (n):
         so+=i
 print("Odd =",so,"Even =",se)
 
-# 1 and n and not divisible by 2
+# 3 lists are given, new list should have the remainder of every element divided by 10
+l1=list(eval(input("enter list of numbers: ")))
+l2=list(eval(input("enter list of numbers: ")))
+l3=list(eval(input("enter list of numbers: ")))
+
+length = [len(l1), len(l2), len(l3)]
+len1=min(length)
+l=[]
+for i in range(len1):
+    element = [l1[i]%10, l2[i]%10, l3[i]%10]
+    l.append(element)
+print(l)
+
