@@ -53,7 +53,4 @@ fileob.seek(offset,whence)
   0: start of the stream (the default); offset should be zero or positive
   1: current stream position; offset may be negative
   2: end of the stream; offset is usually negative
-
-
-
 ```
