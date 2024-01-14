@@ -12,9 +12,8 @@ b=[45,67,54,20]
 
 print(sum(a) > sum(b))
 
-complemented_list = [100 - num for num in a]
-print(complemented_list)
+print([100 - num for num in a])
 
-# not sure
-product_of_a = 1 if not a else eval('*'.join(map(str, a)))
-print(product_of_a)
+# import isn't a line :/
+from functools import reduce
+print(reduce(lambda x, y: x * y, a, 1) if a else 1)
