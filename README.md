@@ -19,5 +19,5 @@ src
 
 If you detect any mistakes of any kind, open a PR or use my [/contact](https://polarhive.net/contact) form.
 
-[![license: GPLv3 or Later](https://polarhive.net/assets/badges/gpl-3.svg)](https://www.gnu.org/licenses/gpl-3.0.txt)
+[![GPL enforced badge](https://img.shields.io/badge/GPL-enforced-blue.svg "This project enforces the GPL.")](https://gplenforced.org)
 
