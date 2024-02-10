@@ -1,6 +1,6 @@
 # UE23CS241B: Design and Analysis of Algorithms
 
-> Algorithms play a key role in science and practice of computing. Learning algorithm design technique is a valuable endeavour from practical standpoint and algorithm design techniques have considerable utility as general problem solving strategies, applicable to problems beyond computing. This course includes classic problems of computer science, application of design techniques and analysis in terms of time and space.
+> Algorithms play a key role in science and practice of computing. Learning algorithm design technique is a valuable endeavor from practical standpoint and algorithm design techniques have considerable utility as general problem solving strategies, applicable to problems beyond computing. This course includes classic problems of computer science, application of design techniques and analysis in terms of time and space.
 
 ## Course Objectives
 

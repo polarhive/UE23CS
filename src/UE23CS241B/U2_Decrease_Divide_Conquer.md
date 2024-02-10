@@ -49,3 +49,45 @@ Start permuting by a smaller subset, and then gradually expanding it. It should 
 25
 63|2541
 ```
+
+---
+
+# Generating Subsets
+
+1. `1 to n-1`
+2. Adding element `n` to each of them
+3. `2^n-1`
+
+---
+
+# Russian Peasant Problem
+
+No addition / Multi
+
+---
+
+# Josephus Problem
+
+> [!Warning]
+> Instead of surrendering, they decided to kill them-selves.
+
+Every alternate person dies.
+
+> [!Example]
+> When `n=13`
+> $J(n)=2L+1$
+> $2^m$: largest power of $2 <= n$
+> $L=n-2^m$
+
+> [!Example] $n=8$
+> Pos of survivor = $1$
+
+---
+
+# Divide and Conquer
+
+Take a large problem and solve the sub-problems.
+
+>  Sub problems
+
+## Merge Sort
