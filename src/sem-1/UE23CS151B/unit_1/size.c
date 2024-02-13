@@ -4,7 +4,7 @@ int main()
     int a,b;
     a=16;b=78;
     float c=2.5;
-    printf("%d %d\n", sizeof(a), sizeof(short int));
+    printf("%lu %lu\n", sizeof(a), sizeof(short int)); // use long unsigned
     printf("%4.2f\n",c);
     printf("%2.1f\n",c);
     printf("%-5d %d\n",16,b); // This line prints the value of a left-aligned in a field of width 5, and the value of b.
