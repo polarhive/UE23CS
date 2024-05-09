@@ -6,7 +6,8 @@ This monorepo contains notes for the ``UE23CSXXX`` courses at PESU. [Patches](ma
 src
 ├── sem-1,2
 │  ├── UE23CS151A: Python for Computational Problem Solving
-│  └── UE23CS151B: Problem Solving with C
+│  ├── UE23CS151B: Problem Solving with C
+│  └── UE23CS141B: MATLAB
 └── sem-3
    ├── UE23CS241A
    ├── UE23CS242A
