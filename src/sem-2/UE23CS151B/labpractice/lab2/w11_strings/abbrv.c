@@ -3,7 +3,7 @@
 // achieve the same effect, prompting the user for a string of text and then displaying that
 // text without any vowels, whether in uppercase or lowercase.
 // (NOTE: You are allowed to use the tolower( ) function from “ctype.h” to header file to
-// convert characters to lowercase , if required)
+// convert characters to lowercase, if required)
 
 #include <stdio.h>
 #include <ctype.h>
@@ -17,7 +17,7 @@ int isVowel(char ch)
 void removeVowels(char *text)
 {
     char *readPtr = text;
-    char *writePtr = text;
+    char *writePtr = text; // write to new string (with vowels removed)
     while (*readPtr)
     {
         if (!isVowel(*readPtr))
@@ -25,7 +25,7 @@ void removeVowels(char *text)
             *writePtr = *readPtr;
             writePtr++;
         }
-        readPtr++;
+        readPtr++; // move to the next character in the input string.
     }
     *writePtr = '\0'; // Null-terminate the modified string
 }

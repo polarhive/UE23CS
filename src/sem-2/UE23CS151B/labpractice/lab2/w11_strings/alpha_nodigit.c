@@ -3,15 +3,19 @@
 // use any String built-in functions).
 
 #include <stdio.h>
+
 int main()
 {
     char str[150];
     int i, j;
     scanf("%[^\n]s", str);
+    
     for (i = 0; str[i] != '\0'; i++)
     {
+        // check if the current character !alphabet
         while (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') || str[i] == '\0'))
         {
+            // shift all characters to the left by one position
             for (j = i; str[j] != '\0'; j++)
             {
                 str[j] = str[j + 1];

@@ -7,23 +7,26 @@
 
 #include <stdio.h>
 #include <string.h>
+
 void reverseString(char *str)
 {
     int length = strlen(str);
-    for (int i = 0; i < length / 2; i++)
+    for (int i = 0; i < length / 2; i++) // reverse the string by swapping characters
     {
-        char temp = str[i];
-
-        str[i] = str[length - i - 1];
-        str[length - i - 1] = temp;
+        char temp = str[i];           // tmp variable to hold the character
+        str[i] = str[length - i - 1]; // swap the character from the end
+        str[length - i - 1] = temp;   // complete the swap with the tmp variable
     }
 }
+
 int main()
 {
     char string1[101], string2[101];
     scanf("%s", string1);
     scanf("%s", string2);
+
     reverseString(string1);
+
     if (strcmp(string1, string2) == 0)
     {
         printf("True");
