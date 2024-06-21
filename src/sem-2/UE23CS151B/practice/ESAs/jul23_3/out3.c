@@ -1,5 +1,5 @@
-#include<stdio.h>
-int what(int x, int y, int (*op)(int,int))
+#include <stdio.h>
+int what(int x, int y, int (*op)(int, int))
 {
 	return op(x, y);
 }

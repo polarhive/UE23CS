@@ -9,7 +9,6 @@ int main()
     int arr[n];
     readArray(arr, n);
     reverseArray(arr, n);
-    // printf("Reversed Array is\n");
     printArray(arr, n);
     return 0;
 }

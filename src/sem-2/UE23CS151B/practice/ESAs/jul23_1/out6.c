@@ -3,9 +3,12 @@
 
 union A
 {
-    int x; float y; char z;
+    int x;
+    float y;
+    char z;
 };
 
-int main () {
+int main()
+{
     printf("%lu", offsetof(union A, z));
 }

@@ -1,5 +1,6 @@
 #include <stdio.h>
-int main() {
+int main()
+{
     printf("Time: %s\n", __TIME__);
     printf("STDC Version: %ld\n", __STDC_VERSION__);
     printf("STDC Compliant?: %d\n", __STDC__);

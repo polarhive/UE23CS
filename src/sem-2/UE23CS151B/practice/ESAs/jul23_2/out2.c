@@ -2,6 +2,6 @@
 
 int main()
 {
-	int auto=8;
+	int auto = 8;
 	printf("%d", auto);
 }

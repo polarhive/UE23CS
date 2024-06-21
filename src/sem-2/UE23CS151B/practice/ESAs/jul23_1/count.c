@@ -16,13 +16,15 @@
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int number, digit, count = 0;
 
     printf("Enter a number: ");
     scanf("%d", &number);
 
-    while (number > 0) {
+    while (number > 0)
+    {
         digit = number % 10;
         printf("%d is %s\n", digit, (digit % 2 == 0) ? "even" : "odd");
         number /= 10;

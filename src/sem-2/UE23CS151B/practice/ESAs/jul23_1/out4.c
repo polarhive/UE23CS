@@ -1,5 +1,6 @@
 #include <stdio.h>
-int main() {
+int main()
+{
     char a = 'z';
     char b = 'w';
     const char *c = &b;
@@ -7,4 +8,3 @@ int main() {
     printf("%c", *c);
     return 0;
 }
-

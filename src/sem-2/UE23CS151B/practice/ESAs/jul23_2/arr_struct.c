@@ -2,13 +2,15 @@
 #include <string.h>
 #include <stdlib.h>
 
-struct Book {
+struct Book
+{
     char title[50];
     char author[50];
     int year;
 };
-int main() {
-    struct Book* books[3]; // alloc mem
+int main()
+{
+    struct Book *books[3]; // alloc mem
     books[0] = malloc(sizeof(struct Book));
     books[1] = malloc(sizeof(struct Book));
     books[2] = malloc(sizeof(struct Book));
@@ -23,12 +25,14 @@ int main() {
     strcpy(books[2]->author, "Harper Lee");
     books[2]->year = 1960;
 
-    for(int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         printf("Title: %s\nAuthor: %s\nYear: %d\n", books[i]->title, books[i]->author, books[i]->year);
     }
 
     // dont forget to free
-    for(int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         free(books[i]);
     }
 }

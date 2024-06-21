@@ -1,12 +1,15 @@
 #include <stdio.h>
 
-void my_strcat(char *dest, const char *src) {
+void my_strcat(char *dest, const char *src)
+{
     // Find the end of the destination string
-    while (*dest) {
+    while (*dest)
+    {
         dest++;
     }
     // Copy the source string to the end of the destination string
-    while (*src) {
+    while (*src)
+    {
         *dest = *src;
         dest++;
         src++;
@@ -15,7 +18,8 @@ void my_strcat(char *dest, const char *src) {
     *dest = '\0';
 }
 
-int main() {
+int main()
+{
     char str1[100], str2[100];
 
     printf("Enter str1: ");

@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-void my_strcat(char* a, char* b);
-int main() {
+void my_strcat(char *a, char *b);
+int main()
+{
     char str1[20] = "Hello, ";
     char str2[] = "world!";
 
@@ -13,7 +14,7 @@ int main() {
     printf("str1: %s\n", str1);
 }
 
-void my_strcat(char* a, char* b)
+void my_strcat(char *a, char *b)
 {
     while (*a)
     {
@@ -21,7 +22,7 @@ void my_strcat(char* a, char* b)
     }
     while (*b)
     {
-        *a = *b; 
+        *a = *b;
         a++;
         b++;
     }

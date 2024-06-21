@@ -1,9 +1,10 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int num = 10;
     int *p;
-    p = &num; 
+    p = &num;
 
     printf("Value of num: %d\n", num);
     printf("Address of num: %p\n", &num);

@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 void fun();
 int main()
 {
@@ -9,5 +9,5 @@ void fun()
 {
     static int a = -1;
     a--;
-    printf("%d\t",a);
+    printf("%d\t", a);
 }
