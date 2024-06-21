@@ -9,16 +9,16 @@ src
 │  ├── UE23CS151B: Problem Solving with C
 │  └── UE23CS141B: MATLAB
 └── sem-3
-   ├── UE23CS241A
-   ├── UE23CS242A
-   ├── UE23CS243A
-   ├── UE23CS251A
-   └── UE23CS252A
+   ├── UE23CS241A: Statistics for Data Science
+   ├── UE23CS242A: Web Technologies
+   ├── UE23CS243A: Automata Formal Languages and Logic
+   ├── UE23CS251A: Digital Design and Computer Organization
+   └── UE23CS252A: Data Structures and its Applications
 ```
 
 ## Erratum
 
-If you detect any mistakes of any kind, open a PR or use my [/contact](https://polarhive.net/contact) form.
+If you detect any mistake of any kind, open a PR or use my [/contact](https://polarhive.net/contact) form.
 
 [![GPL enforced badge](https://img.shields.io/badge/GPL-enforced-blue.svg "This project enforces the GPL.")](https://gplenforced.org)
 
