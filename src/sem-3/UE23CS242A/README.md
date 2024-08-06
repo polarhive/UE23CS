@@ -1,32 +1,35 @@
-# UE23CS242A: Web Technologies
+# UE23CS242A: Automata Formal Languages and Logic
 
-> Web Technologies course demonstrates an in-depth understanding of the technologies necessary for designing and developing a rich web application in an efficient way.
+> The course introduces fundamental concepts in Automata and Formal Languages and their application to Logic. The course covers the notions of Finite State Automaton, Regular expression, Push down Automaton, Context Free Languages and Turing Machines. These abstract and formal models and their usage in Propositional and First Order Predicate Logic, allow for solving problems in Formal language Generation and Recognition.
+
 ### Course Objectives:
 
-- Basic web technologies and building blocks of a website using HTML, CSS, JavaScript and Advanced JavaScript
-- The core concepts of HTML5, JQuery and AJAX, MERN (MongoDB, ExpressJS, ReactJS and NodeJS) stack and build an UI of the application using React JS.
-- Building a multi-tier application by interfacing UI to NodeJS
-- Integrate database MongoDB through Express JS Framework and Web services.
+- Teach students to construct basic machines like DFA, NFA which represent Regular Languages, Regular Expressions, and Regular Grammars and to identify Non – Regular Languages.
+- To familiarize students to construct Teach students to identify Context Free Languages, to construct Push down Automata which represent Context Free Languages, to convert the given grammar to various normal forms and to make use of Membership Algorithm.
+- Teach students to understand closure properties of Context Free Languages, to identify Non – Context Free Languages and to construct Turing Machines and
+- To familiarize students with concepts like Recursively Enumerable languages, Recursive Languages, Undecidable Problems. And to familiarize notions of mathematical logic: logical notations (syntax) and how to assign meaning to them (semantics).
+
 ### Course Outcomes:
-- Understand basic web technologies like HTML, CSS and JavaScript
-- Achieve rich user experience by implementing HTML5 features and Asynchronous communication using AJAX, JQuery and MERN stack layers (MongoDB, ExpressJS, ReactJS and NodeJS) and Create rich User Interface using React JS.
-- Understand and Integrate the UI with NodeJS
-- Create RESTful Web services using ExpressJS and MongoDB database
+
+- Design simple machines like DFA, NFA, convert NFA to DFA and minimize a given DFA, construct regular expressions for different languages, verify that some languages are regular and some are not.
+- Analyze the difference between Regular Languages and Context Free Languages, design Push Down automata,construct Context Free Grammars, and convert one form of the grammar to another form.
+- Enumerate the properties of Context Free Grammars, verify that some languages are context free and some are not, design Turing Machines, and analyze the difference between acceptability and decidability
+- Analyze the difference between Recursive and Recursively Enumerable Languages, Decidable Languages,Turing – Recognizable and Co – Turing – Recognizable, some problems that cannot be solved by Turing Machines, reduce one Undesirables Problem to another, Undeniable Problems for Recursively Enumerable Languages. And make use of Propositional Logic and Predicate Logic in knowledge representation and truth verification.
 
 ## Course Contents:
 
- >**Unit 1**: HTML, CSS and Client Side Scripting
+>**Unit 1**: Introduction
+   
+Mathematical Preliminaries and Notation, Three Basic Concepts. Finite Automata: Deterministic Finite Accepters, Non- Deterministic Finite Accepters, Equivalence of Deterministic and Non-Deterministic Finite Accepters, Reduction of the number of states in Finite Automata. Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars.
+  
+>**Unit 2**: Regular Languages and Context Free Languages
 
-   Introduction to Web Architecture and Web protocols (HTTP Request Response Formats, URLs), Basic Mark-ups & syntax, HTML elements & attributes, Web Form, HTML5 (New Tags, Inputs, Elements and Controls), CSS3.0 - Styles and Style sheets, Selectors, Style properties, Box Model, JavaScript Basics(variables, scope, Builtin Objects), JavaScript objects, DOM Manipulations, Events and Event Handling in JavaScript
+Properties of Regular Languages: Closure Properties of Regular Languages, Elementary Questions about Regular Languages, Identifying Non Regular Languages. Definitions of PDA and CFL, Deterministic Pushdown Automata,Non-Deterministic Pushdown Automata, Pushdown Automata and Context Free Languages, Context Free Grammars.
 
->**Unit 2**: HTML5, JQuery and Ajax
+> **Unit 3**: Properties of Context Free Languages and Turing Machine
 
-HTML5 (APIs), JQuery Introduction, Callbacks and Promises, Introduction to Single Page Application, XML Vs JSON, Asynchronous Communication using AJAX and fetch API. **ReactJS** – MERN Introduction, React Classes and Components, JSX, Rendering of elements
+Parsing and Ambiguity. Simplification of Context–Free Grammars and Normal Forms: Methods for Transforming Grammars, Two Important Normal Forms, A Membership algorithm for Context Free Grammar. Properties of Context-Free Languages: Closure Properties and Questions about Context–Free Languages, Pumping Lemma for Context–Free Languages. Turing Machines: The Standard Turing Machine, Constructing Turing Machines, Combining Turing Machines for Complicated Tasks, Turing’s Thesis, Rice theorem.
 
-> **Unit 3**: ReactJS
+>**Unit 4**: Undecidability and design of a declarative language.
 
-Properties, State, Context, Component lifecycle methods, Refs & Keys, Event Handling, Stateless components, React Forms, React Hook **NodeJS** – Understanding Node JS Architecture, Set up Node JS app, Node Modules, call-backs, File system Module, HTTP Module, Handling HTTP Requests
-
->**Unit 4**: MongoDB
-
-MongoDB-Documents, Collections, Reading and Writing to MongoDB, MongoDB NodeJS Driver, Running a react application on NodeJS, React Router. **ExpressJS** – Introduction to Web services and REST API’s, Express Framework Overview, Routing and URL building, Error Handling, Express Middleware, Form Data and File Upload.
+Hierarchy of Formal Languages and Automata: Recursive and Recursively Enumerable Languages, the Chomsky Hierarchy. Limits of Algorithmic Computation: Some Problems that cannot be solved by Turing Machines,Undecidable Problem for Recursively Enumerable Languages, idea of reduction. A very simple Logic, Syntax, Semantics, A simple knowledge Base, A simple inference procedure. Propositional Theorem Proving: Inference and Proofs, Proof by Resolution, Conjunctive Normal Form, A resolution algorithm.Syntax and Semantics of First Order Logic: Models for First Order Logic Symbols and interpretations, Terms,Atomic Sentences, Complex Sentences Quantifiers, Equality, Numbers, sets and Lists. Example - The electronic circuits’ domain.

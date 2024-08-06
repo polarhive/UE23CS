@@ -11,9 +11,9 @@ src
 └── sem-3
    ├── UE23CS251A: Digital Design and Computer Organization
    ├── UE23CS252A: Data Structures and its Applications
-   ├── UE23CS241A: Mathematics for Computer Science and Engineering
-   ├── UE23CS242A: Web Technologies
-   └── UE23CS243A: Automata Formal Languages and Logic
+   ├── UE23CS241A: Web Technologies
+   ├── UE23CS242A: Automata Formal Languages and Logic
+   └── UE23MA242A: Mathematics for Computer Science Engineers
 ```
 
 ## Erratum
