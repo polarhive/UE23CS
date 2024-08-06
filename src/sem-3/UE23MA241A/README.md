@@ -1,4 +1,4 @@
-# UE23CS241A: Statistics for Data Science
+# UE23CS241A: Mathematics for Computer Science and Engineering
 
 > Data Science is the study of data. It is about extracting, analyzing, visualizing, managing, and storing data to create insights. This course covers both Descriptive statistics to understand the data and the inferential statistics which seeks to infer something about a population on the basis of a statistical sample and build a simple linear regression model.
 ### Course Objectives:
@@ -14,7 +14,7 @@
 ## Course Contents:
 
  >**Unit 1**: Introduction to Data Science and Data Visualization
-   
+
 Introduction, Motivating Examples and Scope, Getting and Analyzing Data: Reading Files, Scraping the Web, Need for Data Preprocessing and its Basics. Statistics: Introduction, Types of Statistics, Types of Data, Types of Experiments – Controlled and Observational study, Data Visualization and Interpretation: Histogram, Line plots, Bar Charts, Box Plots, Scatter Plots, Heat Maps, Good vs. Bad Visualization, Sampling: Sampling Methods, Sampling Errors, Case Study.
 
 >**Unit 2**: Applications of Probability Distributions and Principles of Point Estimation

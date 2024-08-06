@@ -1,19 +1,19 @@
 # UE23CS
 
-This monorepo contains notes for the ``UE23CSXXX`` courses at PESU. [Patches](mailto:mail@polarhive.net?subject=UE23CS) welcome!
+This monorepo contains notes for the `UE23CSXXX` courses at PESU. [Patches](mailto:mail@polarhive.net?subject=UE23CS) welcome!
 
 ```
 src
 ├── sem-1,2
 │  ├── UE23CS151A: Python for Computational Problem Solving
 │  ├── UE23CS151B: Problem Solving with C
-│  └── UE23CS141B: MATLAB
+│  └── UE23CS141B: MATLAB (Engineering Mathematics)
 └── sem-3
-   ├── UE23CS241A: Statistics for Data Science
-   ├── UE23CS242A: Web Technologies
-   ├── UE23CS243A: Automata Formal Languages and Logic
    ├── UE23CS251A: Digital Design and Computer Organization
-   └── UE23CS252A: Data Structures and its Applications
+   ├── UE23CS252A: Data Structures and its Applications
+   ├── UE23CS241A: Mathematics for Computer Science and Engineering
+   ├── UE23CS242A: Web Technologies
+   └── UE23CS243A: Automata Formal Languages and Logic
 ```
 
 ## Erratum

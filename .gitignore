@@ -1,0 +1,10 @@
+.o
+.obsidian
+.out
+*.bin
+*.elf
+*.hex
+*.svf
+*.vcd
+build/
+node_modules/

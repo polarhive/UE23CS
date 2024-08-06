@@ -1,4 +1,4 @@
-# UE23CS251A : Digital Design and Computer Organization
+# UE23CS251A: Digital Design and Computer Organization
 
 > This course focuses on the structure, design and operation of a computer system at different levels of abstraction. The digital design part of the course describes low level digital logic building blocks while the computer organization part explains the structure and operation of microprocessors.
 
