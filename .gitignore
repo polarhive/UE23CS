@@ -1,9 +1,9 @@
-.o
-.obsidian
-.out
 *.bin
 *.elf
 *.hex
+*.o
+*.obsidian
+*.out
 *.svf
 *.vcd
 build/
