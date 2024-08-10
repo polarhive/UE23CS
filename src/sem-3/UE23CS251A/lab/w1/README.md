@@ -21,7 +21,7 @@ Verilog offers four levels of abstraction:
 1. Circuit Level
 2. Gate Level
 3. Data Flow Level
-4. Behavioural Level
+4. Behavioral Level
 
 ## Module Definition
 
