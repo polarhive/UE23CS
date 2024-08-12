@@ -8,3 +8,4 @@
 *.vcd
 build/
 node_modules/
+**/pdfs
