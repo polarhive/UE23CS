@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        body {
+            font-family: "Inter Display", sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Understanding CSS Selectors</h1>
+    <p>CSS selectors are used to "select" the HTML elements you want to style. There are several different types of
+        selectors in CSS, each serving a different purpose. Here are some of the most common ones:</p>
+
+    <h2>1. Universal Selector</h2>
+    <p>The universal selector (<code>*</code>) applies to all elements on the page.</p>
+    <p><code>* { color: red; }</code></p>
+
+    <h2>2. Type Selector</h2>
+    <p>The type selector targets elements by their tag name.</p>
+    <p><code>p { font-size: 16px; }</code></p>
+
+    <h2>3. Class Selector</h2>
+    <p>The class selector targets elements with a specific class attribute. Use a dot (<code>.</code>) before the class
+        name.</p>
+    <p><code>.classname { background-color: yellow; }</code></p>
+
+    <h2>4. ID Selector</h2>
+    <p>The ID selector targets a single element with a specific ID. Use a hash (#) before the ID name.</p>
+    <p><code>#idname { margin: 20px; }</code></p>
+
+    <h2>5. Attribute Selector</h2>
+    <p>The attribute selector targets elements with a specific attribute and value.</p>
+    <p><code>input[type="text"] { border: 1px solid #ccc; }</code></p>
+
+    <h2>6. Descendant Selector</h2>
+    <p>The descendant selector targets elements that are descendants of a specified element.</p>
+    <p><code>div p { color: blue; }</code></p>
+
+    <h2>7. Child Selector</h2>
+    <p>The child selector targets elements that are direct children of a specified element.</p>
+    <p><code>ul > li { list-style: none; }</code></p>
+
+    <h2>8. Sibling Selectors</h2>
+    <p>The adjacent sibling selector (<code>+</code>) targets an element that is the immediate next sibling of a
+        specified element.</p>
+    <p><code>h1 + p { font-size: 14px; }</code></p>
+    <p>The general sibling selector (<code>~</code>) targets all siblings of a specified element.</p>
+    <p><code>h1 ~ p { color: green; }</code></p>
+
+    <h2>9. Pseudo-classes</h2>
+    <p>Pseudo-classes target elements based on their state.</p>
+    <p><code>a:hover { color: red; }</code></p>
+
+    <h2>10. Pseudo-elements</h2>
+    <p>Pseudo-elements target specific parts of an element.</p>
+    <p><code>p::first-line { font-weight: bold; }</code></p>
+
+    <p>
+        By combining these selectors, you can apply styles to exactly the elements you want, giving you fine-grained
+        control over the look and feel of your web pages.
+    </p>
+
+</body>
+
+</html>
