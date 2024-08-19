@@ -26,15 +26,6 @@ int main() {
 
     int len = strlen(s);
 
-    // Sort the string in ascending order
-    for (int i = 0; i < len - 1; i++) {
-        for (int j = i + 1; j < len; j++) {
-            if (s[i] > s[j]) {
-                swap(&s[i], &s[j]);
-            }
-        }
-    }
-
     generatePermutations(s, 0, len - 1);
 
     return 0;
