@@ -18,18 +18,18 @@
 
 ## Course Contents:
 
->**Unit 1**: Gate-Level Minimization and Combinational logic-1
+>**Unit 1**: Combinational Logic Design
 
-Introduction, The map method Four variable K-map, Product of Sums simplification, Don't Care conditions, NAND and NOR implementation, Combinational circuits, Analysis procedure Design Procedure. Combinational logic-1: Binary Combinational logic: Adder- Subtractor, Decimal Adder, Binary multiplier, Magnitude comparator Decoders Encoders, Multiplexers.
+Introduction, Boolean Functions, Truth Tables, The map method Four variable K-map, Product of Sums Simplification, Don't Care conditions, NAND and NOR implementation, Analysis procedure Design Procedure, Combinational logic-1: Binary Combinational logic: Adder- Subtractor, Decimal Adder, Binary multiplier, Magnitude comparator Decoders Encoders, Multiplexers.
 
 >**Unit 2**: Synchronous Sequential Logic-I
 
-Synchronous Sequential Logic: Introduction, Sequential circuits, Storage elements: Latches, Flip flops, Analysis of clocked sequential circuits, State reduction and assignment, Design procedure. Registers and counters: Registers, Shift register, Ripple counters, Synchronous counters Other counters.
+Introduction, Sequential circuits, Storage elements: Latches, Flip flops, Analysis of clocked sequential circuits, State reduction and assignment, Design procedure, Registers, Shift register, Ripple counters, Synchronous counters, Other counters.
 
 >**Unit 3**: Basic structure of computers, Standard I/O interface, Interrupts
 
-Computer Types, Functional Units: Input Unit, Memory Unit, ALU, Output Unit, Control Unit, Basic operational concepts, Number representation and arithmetic Operations, Character representation, Memory locations and addresses, Memory Operations, Instruction and instruction sequencing, Addressing modes, Assembly Languages, I/O Operations: Accessing I/O Devices, Interrupts Standard I/O Interfaces.
+Computer Types, Functional Units: Input Unit, Memory Unit, ALU, Output Unit, Control Unit, Basic operational concepts, Number representation and arithmetic Operations, Character representation, Memory locations and addresses, Memory Operations, Instruction and instruction sequencing,Addressing modes,Assembly Languages, I/O Operations,Accessing I/O Devices, Interrupts,Standard I/O Interfaces
 
->**Unit 4**: Arithmetic Processing Unit and Control Unit Design
+>**Unit 4**: Arithmetic and Control Unit Design 
 
-Arithmetic: Multiplication of Positive numbers, Signed operand Multiplication, Fast multiplication, Integer division, floating point numbers operation and architecture, Some fundamental concepts, Execution of a complete instruction, Multiple Bus Organization, Hardwired control ,Single-cycle, Multi-cycle processor data path and control.
+Shift / add Multiplier / Divider, Integer division, Floating point number and operations with architecture. Some fundamental concepts, Execution of a complete instruction, Multiple Bus Organization,Hardwired control, Micro programmed control, Single-cycle, Multi-cycle processor data path and control.

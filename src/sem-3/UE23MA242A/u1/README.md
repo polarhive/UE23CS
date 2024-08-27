@@ -103,10 +103,9 @@ This technique is used in qualitative research
 2. Convenience
 3. Quota
 4. Judgmental
-
 ### Sampling Errors
 
-### Chebyshev's inequality
+### Chebyshev's inequality?
 
 ### Normal Probability Plots
 
