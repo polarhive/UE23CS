@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Listener Example</title>
+</head>
+
+<body>
+    <button id="copyButton">Copy Text</button>
+    <input type="text" id="textInput" value="Hello, World!">
+
+    <script>
+        document.getElementById("copyButton").addEventListener("click", function () {
+            var textToCopy = document.getElementById("textInput").value;
+            navigator.clipboard.writeText(textToCopy).then(
+                function () { console.log("Text copied successfully!"); },
+                function () { console.log("Failed to copy text!"); }
+            );
+        });
+    </script>
+</body>
+
+</html>
