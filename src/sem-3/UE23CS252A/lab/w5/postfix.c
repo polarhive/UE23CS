@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-
 #define MAX 30
 
-// Stack structure
 typedef struct {
     int data[MAX];
     int top;
@@ -13,6 +11,7 @@ typedef struct {
 void init(Stack *s) {
     s->top = -1;
 }
+
 int isEmpty(Stack *s) {
     return s->top == -1;
 }
@@ -21,7 +20,6 @@ int isFull(Stack *s) {
     return s->top == MAX - 1;
 }
 
-// Function to push an element onto the stack
 void push(Stack *s, int val) {
     if (isFull(s)) {
         printf("Stack is full\n");
@@ -30,7 +28,6 @@ void push(Stack *s, int val) {
     }
 }
 
-// Function to pop an element from the stack
 int pop(Stack *s) {
     if (isEmpty(s)) {
         printf("Stack is empty\n");
@@ -40,21 +37,23 @@ int pop(Stack *s) {
     }
 }
 
-// Function to evaluate a postfix expression
 int eval(char *postfix) {
     Stack s;
     init(&s);
+    int i = 0;
 
-    for (int i = 0; postfix[i] != '\0'; i++) {
-        // If the character is a digit, push it to the stack
+    while (postfix[i] != '\0') {
         if (isdigit(postfix[i])) {
-            push(&s, postfix[i] - '0'); // Convert char to int by subtracting '0'
-        }
-        // If the character is an operator, pop two elements and apply the operator
-        else {
+            // Convert the single digit character to its corresponding integer value
+            push(&s, postfix[i] - '0');
+        } else {
+            // Pop two operands for the operator
             int val2 = pop(&s);
+            if (val2 == -1) return -1;  // Stack was empty during pop
             int val1 = pop(&s);
-            
+            if (val1 == -1) return -1;  // Stack was empty during pop
+
+            // Perform the operation based on the operator
             switch (postfix[i]) {
                 case '+':
                     push(&s, val1 + val2);
@@ -75,14 +74,18 @@ int eval(char *postfix) {
                     break;
             }
         }
+        i++;
     }
-    
+
+    // Final result should be the last item in the stack
     return pop(&s);
 }
 
 void disp(char *postfix) {
     int result = eval(postfix);
-    printf("%d\n", result);
+    if (result != -1) {
+        printf("%d\n", result);
+    }
 }
 
 int main() {
