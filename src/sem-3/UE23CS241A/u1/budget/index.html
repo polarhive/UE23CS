@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Budget 2024 Highlights</title>
+  <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+</head>
+
+<body>
+  <h1>Indian Budget 2024 Highlights</h1>
+
+  <img src="https://indiaincgroup.com/wp-content/uploads/2018/05/Decoding-the-Indian-Budget-2018-for-UK-businesses.jpg"
+    alt="Indian Budget 2024 Highlights" style="width:20%; height:auto; margin-bottom: 20px;">
+
+  <h2>Budget and Sector wise Allocations</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Highlights</th>
+          <th>Metrics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">Economy</td>
+          <td>GDP Growth</td>
+          <td>9.7%</td>
+        </tr>
+        <tr>
+          <td>Inflation</td>
+          <td>5.09%</td>
+        </tr>
+        <tr>
+          <td>Education</td>
+          <td>Institutions, jobs and skilling</td>
+          <td>Rs 73,008 crore</td>
+        </tr>
+        <tr>
+          <td>Healthcare</td>
+          <td>Public Health</td>
+          <td>Rs 90,958.63 crore</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>List of Schemes Announced</h2>
+  <ul>
+    <li>PM Awas Yojana</li>
+    <li>Skill Loan Scheme</li>
+    <li>Pradhan Mantri Gram Sadak Yojana (PMGSY)</li>
+  </ul>
+
+
+  <a href="detailed_info.html" target="_blank">More Detailed Information on the Budget</a>
+
+  <p>
+    <hr>
+  </p>
+  <form id="feedbackForm">
+    <h2>Feedback Form</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label>Gender:</label>
+    <label for="male">Male</label>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender" value="female" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" pattern="\d{10}" required><br>
+
+    <label for="state">State:</label>
+    <select id="state" name="state" required>
+      <option value="default" selected>Maharashtra</option>
+      <option value="kerala">Kerala</option>
+      <option value="karnataka">Karnataka</option>
+      <option value="tamil_nadu">Tamil Nadu</option>
+      <option value="other">Other</option>
+    </select><br>
+
+    <label for="feedback">Feedback:</label>
+    <textarea id="feedback" name="feedback" required></textarea><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+
+  <script>
+    document.getElementById('feedbackForm').onsubmit = function (event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      alert('Thank you for your feedback, ' + name + '!');
+    };
+  </script>
+</body>
+
+</html>
