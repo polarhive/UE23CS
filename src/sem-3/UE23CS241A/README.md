@@ -20,7 +20,7 @@
 
 >**Unit 1**: HTML, CSS and Client Side Scripting
 
-ntroduction to Web Architecture and Web protocols (HTTP Request Response Formats, URLs), Basic Mark-ups & syntax, HTML elements & attributes, Web Form, HTML5 (New Tags, Inputs, Elements and Controls), CSS3.0 - Styles and Style sheets, Selectors, Style properties, Box Model, JavaScript Basics(variables, scope, Builtin Objects), JavaScript objects and Prototypal Inheritance, DOM Manipulations, Events and Event Handling in JavaScript
+Introduction to Web Architecture and Web protocols (HTTP Request Response Formats, URLs), Basic Mark-ups & syntax, HTML elements & attributes, Web Form, HTML5 (New Tags, Inputs, Elements and Controls), CSS3.0 - Styles and Style sheets, Selectors, Style properties, Box Model, JavaScript Basics(variables, scope, Builtin Objects), JavaScript objects and Prototypal Inheritance, DOM Manipulations, Events and Event Handling in JavaScript
 
 >**Unit 2**: HTML5, JQuery and Ajax
 
