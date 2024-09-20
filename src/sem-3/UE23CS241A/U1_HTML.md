@@ -106,7 +106,6 @@ Three-digit number: first digit specifies the general status
 > - 404 Not found => Server couldn’t find the file.
 
 ---
-
 ## Basic Mark-up & syntax
 
 **Markup** lets you define elements within a document using tags.
@@ -125,7 +124,6 @@ Three-digit number: first digit specifies the general status
 - The container and its content together are called an element
 
 ---
-
 ## HTML elements & attributes
 
 | Element | Description                                                        |
@@ -136,11 +134,9 @@ Three-digit number: first digit specifies the general status
 | body    | Content of your website, all visible parts of the page live here   |
 
 ---
-
 ## HTML5 New Tags
 
-Introduces 28 new elements such as: 
-`<header><footer>,<article>,<nav>,<section>,<time>,<audio>,<video>,<output>`
+Introduces 28 new elements such as:  `<header><footer>,<article>,<nav>,<section>,<time>,<audio>,<video>,<output>`
 
 | Element | Descrption                  |
 | ------- | --------------------------- |
@@ -174,7 +170,6 @@ Introduces 28 new elements such as:
 
 > [!Warning]
 > NEVER use GET to send sensitive data! (the submitted form data is visible in the URL!
->
 
 - Appends the form data to the URL, in name/value pairs. )
 - The length of a URL is limited (2048 characters)
@@ -228,6 +223,7 @@ Format: `<input type="">`
 1. Number: `<input type="number" min="1" max="10">`
 2. Email: `<input type="email"`
 3. Range: `<input type="range" min="1" max="10"`
+
 ---
 # CSS 3.0: Styles & Style sheets
 
@@ -236,10 +232,10 @@ Inline Style - CSS is placed directly into the HTML element.
 1) Internal Style Sheet /Embedded Style Sheet - CSS is placed into a separate area within the `<head>` section of a web page using `<style>` tag. 
 
 2) External Style Sheet - CSS is placed into a separate file and "connected" to a web page.
+
 ## Conflict resolution
 
 Same formatting rules can be defined in all three locations at the same time. 
-
 
 > [!NOTE] Example
 > A paragraph element could contain an inline style `(color:red)` but the internal style sheet `(color:blue)` and the external style sheet `(color:green)` give conflicting instructions to the web browser. 
@@ -254,20 +250,22 @@ We use the term cascading because there is an established order of priority to r
  4. Web browser default (only if not defined elsewhere)
 
 ---
-
 ## Selectors, Style properties
 
 Every CSS rule begins with a **selector**. The selector identifies which element or elements in the HTML document will be affected by the declarations in the rule
+
 ### Primary Selectors: Select by Tag
 
 ``` html
 <span>Here's a span with some text.</span> <p>Here's a p with some text.</p> <span>Here's a span with more text.</span>
 ```
+
 ### Primary Selectors: Select by ID
 
 ```html
 <span id="top">Here's a span with some text.</span> <span>Here's another.</span>
 ```
+
 ### Primary Selectors: Select by Class
 
 > The `.class` selector selects elements with a specific class attribute. To select elements with a specific class, write a period (.) character, followed by the name of the class.
@@ -298,6 +296,7 @@ div.items a { color: green; font-weight: bold; }
 ```html
 <div class="items"> <a href="#">Item1</a> <a href="#">Item2</a> <a href="#">Item3</a> <ul> <li><a href="#">Item4</a></li> <li><a href="#">Item5</a></li> <li><a href="#">Item6</a></li> </ul> </div>
 ```
+
 ### Nested Selectors: Direct Child
 
 ```html
@@ -307,6 +306,7 @@ div.items a { color: green; font-weight: bold; }
 ```css
 div > span { background: DodgerBlue; } span { background: #fff; }
 ```
+
 ### Multiple Selectors (Element, Element)
 
 ```html
@@ -349,6 +349,7 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 
 - By default, the browser determines the positioning of each element
 - CSS introduced the position property and a capability to control how and where page elements are displayed
+
 ### Position property values:
 
 - Static: default value. Elements are positioned in the normal flow of the document
@@ -358,7 +359,6 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 - Sticky- toggles between relative and fixed, positioned relative until a given offset position is met in the viewport - then it "sticks" in place.
 
 ### Element Width and Height CSS – Box Model and Position Property 
-
 
 > [!NOTE] Total width of an element is calculated as
 > - Total element width = width + left padding + right padding + left border + right border + left margin + right margin
@@ -390,14 +390,12 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 
 Absolute length units These are fixed and the length expressed in this format will appear of the same size Unit Description Calculation cm centimeters 
 
-
 > [!Important] Important conversions
 > - 1cm = 96px/2.54 mm millimeters
 > - 1in = 2.54cm = 96px px
 > - 1px = 1/96th of 1in
 > - 1pt = 1/72nd of 1in
 > - 1pc = 12pt = 1/6th of 1in
-
 
 ### Length Units CSS – Box Model and Position Property 
 
@@ -413,7 +411,8 @@ Relative length units Relative length expressed in this format will appear relat
 - Pros: Allows more dynamic HTML pages, even complete web applications 
 - Cons: Requires a JavaScript-enabled browser (requires a client) who trusts the server enough to run the code the server provides - 
 - JavaScript has some protection in place but can still cause security problems for clients
-## JavaScript Basics 
+
+## JavaScript Basics
 
 1. HTML to define the content of web pages 
 2. CSS to specify the layout of web pages and give a good look. 
@@ -487,7 +486,6 @@ JavaScript has most of the operators we're used to from C/Java
 
 > [!Important]
 > Use `+` to do concatenation if one of the operands is string
->
 
 ```js
 let length = 16; // Number
@@ -517,7 +515,6 @@ Output: Volve164
 > In the second example, since the first operand is a string, all operands are treated as strings.
 
 ### Loops
-
 
 1. for - loops through a block of code a number of times 
 2. for/in - loops through the properties of an object 
@@ -579,7 +576,6 @@ Parameters and Arguments JavaScript - Functions function func(…args) { // acce
 }
 ```
 
-
 ### Hoisting
 
 Hoisting is JavaScript's default behavior of moving all variable and function declarations to the top of the current scope (to the top of the current `<script>` or the current function).
@@ -587,7 +583,6 @@ Hoisting is JavaScript's default behavior of moving all variable and function de
 Only declarations are hoisted not initializations. Variables and constants declared with let or const are not hoisted!
 
 ---
-
 ## JavaScript objects and Prototypal Inheritance
 
 In JavaScript, almost "everything" is an object. Booleans can be objects (if defined with the new keyword) Numbers can be objects (if defined with the new keyword). Strings can be objects (if defined with the new keyword). Dates are always objects. Arrays are always objects. All JavaScript values, except primitives, are objects.
@@ -635,12 +630,14 @@ A Web page is a document. This document can be either displayed in the browser w
 `document.write` executed after the page has finished loading will overwrite the page, or write a new page, or not work. `document.write` practically only appending to the page
 
 Objects have properties and methods, and respond to events. Properties – specify attributes or characteristic of object. Methods – specify functions object can perform. Events methods corresponding to user actions.
+
 ## DOM Elements are Objects
 
 - `write(“string”)` writes the given string on the document
 - `getElementById()` returns the element having the given id value.
 - `getElementsByName()` returns all the elements having the given name value. 
 - `getElementsByTagName()` returns all the elements having the given tag name.
+
 ### Accessing Elements
 
 ```js
@@ -665,7 +662,7 @@ Events Examples of HTML events:
 - When an HTML form is submitted
 - When a user strokes a key
 
-> Events are created by activities associated with specific HTML elements. The process of connecting an event handler to an event is called registration. 
+> Events are created by activities associated with specific HTML elements. The process of connecting an event handler to an event is called registration.
 
 There are two distinct approaches to event handler registration:
 
@@ -686,10 +683,11 @@ The `.on<event> = handler;`
 - The handler callback function. 
 - For example: `div.onclick = change;` or `div.onmouseover = function(){ … };`
 
-
 ## Event Listeners
 
-> An event listener watches for an event on an element. `element.addEventListener(event, handler)`
+An event listener watches for an event on an element. 
+
+ `element.addEventListener(event, handler)`
 
  It takes two mandatory parameters: the event it is to be listening for, the handler callback function
   
@@ -712,13 +710,14 @@ triggered, relative to, the current window / target element / screen.
 ---
 ## Event handling
 
-Ways of event propagation in the HTML DOM,
+Ways of event propagation in the HTML DOM
+
 - Event bubbling
 - Event capturing.
 - Target Phase 
 
-> Propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrive at its target. Event propagation is a way of defining the element order when an event occurs. `<div> <p> /<p> </div>` 
-> 
+Propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrive at its target. Event propagation is a way of defining the element order when an event occurs. `<div> <p> /<p> </div>` 
+ 
 > If both `<p> and <div>` elements registered Click event, which element's "click" event should be handled first? 
 
 ### Event Handling bubbling
@@ -729,21 +728,21 @@ Inner most element's event is handled first and then the outer: the `<p>` elemen
 - Capturing phase 
 - Target phase
 - Bubbling phase
- 
+
 ```js
 elem.addEventListener(“event”, func_ref, flag); flag = true :=> Handler registered for Capturing phase flag = false:=> Handler registered for Bubbling phase (default)
 ```
 
-#### Event Capturing Event Flow
+### Event Capturing Event Flow
 
-The eventPhase event property returns a number that indicates which phase of the event flow is currently being evaluated. 
+The `eventPhase` event property returns a number that indicates which phase of the event flow is currently being evaluated. 
 
 The number is represented by 4 constants: 0 NONE 1 CAPTURING_PHASE. The event flow is in capturing phase 2 AT_TARGET The event flow is in target phase, i.e. it is being evaluated at the event target 3 BUBBLING_PHASE The event flow is in bubbling phase
 
-> IE5-8 Equivalent Purpose cancelBubble. A historical alias to stopPropagation(). 
+> IE5-8 Equivalent Purpose `cancelBubble`. A historical alias to `stopPropagation()`. 
 > 
-> Setting its value to true before returning prevents propagation eventPhase - Specifies which phase of the event flow is being processed cancelable.
+> Setting its value to true before returning prevents propagation `eventPhase` - Specifies which phase of the event flow is being processed cancelable.
 > 
-> Not supported Indicates whether you can cancel the default behaviour of an element preventDefault() returnValue.
+> Not supported Indicates whether you can cancel the default behavior of an element `preventDefault()` `returnValue`.
 > 
-> It cancels the default behavior of the event (if possible) stopPropogation() cancelBubble It stops any further bubbling/ capturing of the event. Event Object Properties.
+> It cancels the default behavior of the event (if possible) `stopPropogation()` `cancelBubble` It stops any further bubbling/ capturing of the event. Event Object Properties.
