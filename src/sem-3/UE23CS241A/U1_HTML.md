@@ -114,8 +114,8 @@ Three-digit number: first digit specifies the general status
 
 > [!Elements are defined by tags (markers)]
 >
-> - - Opening tag: `<tag_name>`
-> - - Closing tag: `</tag_name>`
+> - Opening tag: `<tag_name>`
+> - Closing tag: `</tag_name>`
 
 #### Syntax
 

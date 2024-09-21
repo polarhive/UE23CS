@@ -22,12 +22,19 @@ Applied on finite numerical data
 - variance
 - dispersion
 
+#### When to use mean, to use mean, median and mode?
+
+| Type of variable            | Best measure of |
+| --------------------------- | --------------- |
+| Nominal                     | Mode            |
+| Ordinal                     | Median          |
+| Interval / Ratio (Not Skew) | Mean            |
+| Interval / Ratio (Skew)     | Median          |
 ### Inferential
 
 Applied on a population, or a sub-set of a population called a **sample**. A sample is finite numerical data, hence descriptive statistics is applied on this sample. It is required to draw conclusions about the populations based on the characteristics of the sample.
 
 ---
-
 # Types of Data
 
 | Primary Data                               | Secondary Data                                              |
@@ -47,7 +54,6 @@ Applied on a population, or a sub-set of a population called a **sample**. A sam
   - Ordinal: Key-ordered by ascending/descending
 
 ---
-
 # Experiments
 
 ## Controlled
@@ -61,7 +67,6 @@ ${ \Sigma}$: Extraneous variables (influence the dependent variables)
 ## Observational
 
 ---
-
 # Types of population
 
 **Population:** The set of all objects under our study is called population or universal set. The objective of inferential statistics is to draw the conclusions about the population by analyzing the sample.
@@ -73,16 +78,15 @@ ${ \Sigma}$: Extraneous variables (influence the dependent variables)
 5. Tangible population: physical objects in the real world (finite, countable)
 6. Conceptual population: do not consist of physical objects (reading on a scale)
 
-#### Sampling Frame
+## Sampling Frame
 
 From where the sample is drawn. The actual list of individuals the sample will be drawn from.
 
-#### Sample size
+## Sample size
 
 The number of objects in a sample
 
 ---
-
 # Sampling methods
 
 ## Probabilistic
@@ -92,7 +96,6 @@ There's a chance for every member to be in the sample. This technique is used in
 1. **Simple Random** (RNG): each individual of the population has an equal chance being selected
 2. **Systematic** (Imposing a condition): like simple random sampling, but individuals are selected at equal intervals
 3. **Stratified**: The entire populations is divided into sub-populations which are more homogeneous than the total populations, these sub populations are called strata then a sample is obtained by taking elements from each strata. $$n_i = \frac{n N_i \sigma_i}{N_1 \sigma_1 + N_2 \sigma_2 + \cdots + N_n \sigma_n}$$where ${( n_i )}$ is the optimum allocation.
-
 4. **Clusters**: (No homogeneity) population is divided into finite number of distinct and identifiable units caled sampling units. The groups of the population are called clusters, then a sample is the elements of n-clusters.  
 
 ## Non-Probabilistic
@@ -104,12 +107,16 @@ This technique is used in qualitative research
 3. Quota
 4. Judgmental
 
-### Sampling Errors
+## Sampling Errors
 
-### Chebyshev's inequality?
+## Chebyshev's inequality?
 
-### Normal Probability Plots
+## Normal Probability Plots
 
 ## Introduction to Generation of Random Variates
 
-mention the types, Acceptance-Rejection method, Sampling Distribution, The Central Limit Theorem and Applications, Principles of Point Estimation - Mean Squared Error for Bernoulli, Binomial, Poisson, Normal, Maximum Likelihood Estimate for Bernoulli, Binomial, Poisson, Normal and Case Study. Introduction to multivariate normal distribution, MAP distribution
+Mention the types, Acceptance-Rejection method, Sampling Distribution, The Central Limit Theorem and Applications, Principles of Point Estimation - Mean Squared Error for Bernoulli, Binomial, Poisson, Normal, Maximum Likelihood Estimate for Bernoulli, Binomial, Poisson, Normal and Case Study. Introduction to multivariate normal distribution, MAP distribution
+
+
+---
+
