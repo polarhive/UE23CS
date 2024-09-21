@@ -18,13 +18,13 @@
 
 ## Course Contents:
 
->**Unit 1**: Introduction
+>**U1**: [[U1_Finite_Automata|Introduction]]
    
 Mathematical Preliminaries and Notation, Three Basic Concepts. Finite Automata: Deterministic Finite Accepters, Non- Deterministic Finite Accepters, Equivalence of Deterministic and Non-Deterministic Finite Accepters, Reduction of the number of states in Finite Automata. Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars.
   
->**Unit 2**: Regular Languages and Context Free Languages
+>**U2**: [[U2_Regular_CFG|Regular Languages and Context Free Languages]]
 
-Properties of Regular Languages: Closure Properties of Regular Languages, Elementary Questions about Regular Languages, Identifying Non Regular Languages. Definitions of PDA and CFL, Deterministic Pushdown Automata,Non-Deterministic Pushdown Automata, Pushdown Automata and Context Free Languages, Context Free Grammars.
+Properties of Regular Languages: Closure Properties of Regular Languages, Elementary Questions about Regular Languages, Identifying Non Regular Languages. Definitions of PDA and CFL, Deterministic Pushdown Automata, Non-Deterministic Pushdown Automata, Pushdown Automata and Context Free Languages, Context Free Grammars.
 
 > **Unit 3**: Properties of Context Free Languages and Turing Machine
 

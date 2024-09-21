@@ -1,7 +1,5 @@
----
-title: engg chem
-type: note
----
+
+# Engineering Chemistry
 
 - unit 1: spectroscopy
 - unit 2: electrochem

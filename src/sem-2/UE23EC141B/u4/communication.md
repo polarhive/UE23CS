@@ -1,7 +1,4 @@
----
-title: communication systems
-type: note 
----
+# communication systems
 
 ```
 input -> input transducer Tx <== channel ==> Rx -> output transducer -> output
@@ -61,14 +58,15 @@ The process of recovering the message from the modulated signal is called demodu
 - Modulation helps to adjust bandwidth.
 
 ---
-```
+## Important Bands
+
 | Application  | Frequency Band |
 | ------------ | -------------- |
 | AM Radio     | 0.54-1.6 MHz   |
 | TV           | 54-8 MHz       |
 | FM Radio     | 8-108 MHz      |
 | Mobile Radio | 806-901 MHz    |
-```
+
 ---
 ### The Objectives of a Cellular System Include
 
@@ -194,4 +192,4 @@ power
 
 ---
 
-next: [[embedded systems]]
+next: [[embedded]]

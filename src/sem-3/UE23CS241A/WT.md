@@ -18,11 +18,11 @@
 
 ## Course Contents:
 
->**Unit 1**: HTML, CSS and Client Side Scripting
+> **U1**: [[U1_HTML|HTML, CSS and Client Side Scripting]]
 
 Introduction to Web Architecture and Web protocols (HTTP Request Response Formats, URLs), Basic Mark-ups & syntax, HTML elements & attributes, Web Form, HTML5 (New Tags, Inputs, Elements and Controls), CSS3.0 - Styles and Style sheets, Selectors, Style properties, Box Model, JavaScript Basics(variables, scope, Builtin Objects), JavaScript objects and Prototypal Inheritance, DOM Manipulations, Events and Event Handling in JavaScript
 
->**Unit 2**: HTML5, JQuery and Ajax
+> **U2**: [[U2_Ajax|HTML5, JQuery and Ajax]]
 
 HTML5 (APIs), JQuery Introduction, Callbacks and Promises, Introduction to Single Page Application, XML Vs JSON, Asynchronous Communication using AJAX and fetch API. **ReactJS** – MERN Introduction, React Classes and Components, JSX, Rendering of elements
 

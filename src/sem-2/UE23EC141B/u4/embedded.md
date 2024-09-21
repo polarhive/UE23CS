@@ -1,7 +1,5 @@
----
-title: embedded systems
-type: note
----
+# embedded systems
+
 An Embedded system is an electronic / electromechanical system designed to perform a specific function and is a combination of both Hardware and Software. It is unique and the hardware and firmware are highly specialized to the application domain.
 
 It's a micro-controller or microprocessor-based system which is designed to perform a specific task. For example, a fire alarm is an embedded system; it will sense only smoke.
@@ -83,7 +81,6 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 
 ## microprocessor vs microcontroller
 
-``` plain
 | Criteria             | Microprocessor                                                                                           | Microcontroller                                                                                                                                                                                                 |
 | -------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Description          | A silicon chip representing CPU, performing ALU operations according to pre-defined set of instructions. | A highly integrated chip that contains Scratch pad RAM, special and general purpose register arrays, on-chip ROM/FLASH memory for program storage, timer and interrupt controller units and dedicated I/O ports |
@@ -92,10 +89,9 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 | Built-in I/O Ports   | Doesn't contain a built-in I/O port.                                                                     | Contains multiple built-in I/O ports.                                                                                                                                                                           |
 | Target Market        | Targeted for high-end market where performance is important.                                             | Targeted for Embedded market.                                                                                                                                                                                   |
 | Power Saving Options | Limited power saving options.                                                                            | Includes a lot of power-saving features.                                                                                                                                                                        |
-```
+
 
 ---
-
 ## Digital Signal Processor
 
 - Powerful special purpose 8/16/32 bit microprocessor designed specifically to meet the computational demands and power constraints of different applications.
@@ -112,14 +108,13 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 
 ## General Purpose Processor Vs Application Specific Instruction Set Processor
 
-``` plain
+
 | Criteria                                   | General Purpose Processor (GPP)                                | Application Specific Instruction Set Processor (ASIP)                                                                                                                              |
 | ------------------------------------------ | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Designed for                               | Designed for general computational tasks. Ex: laptop, Desktop  | The processor contains architecture and instruction set optimized to specific domain/application requirements. Ex: SoC, DSP's used in automotive, telecom, media applications, etc |
 | Components                                 | It contains ALU and Control Unit.                              | It incorporates a processor and on-chip peripherals demanded by the application requirement, program, and data memory.                                                             |
 | Production and Cost                        | High volume of production/low cost per unit.                   | -                                                                                                                                                                                  |
 | Role in Architectural Spectrum             | -                                                              | It fills the architectural spectrum between GPP and ASIC's.                                                                                                                        |
-```
 
 ---
 
@@ -157,11 +152,10 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 
 > Provides easy integration and interoperability with existing system components. It can be developed around GPP, Domain-specific Processor, ASIC, or PLDs.
 
-```
+
 | Advantages                                                                                                    | Disadvantages                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Readily available in the market, cheap, and developers can cut down their development time to a great extent. | Due to rapid changes in technology, if the COTS component is withdrawn by the manufacturer or production is discontinued, it will adversely affect a commercial manufacturer of ES which makes use of the specific COTS product |
-```
 
 ---
 
@@ -505,4 +499,4 @@ The ARM has seven operating modes:
 
 ---
 
-prev: [[communication systems]]
+prev: [[communication]]

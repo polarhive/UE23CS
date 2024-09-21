@@ -18,13 +18,13 @@
 
 ## Course Contents:
 
->**Unit 1**: Applications of Probability Distributions and Principles of Point Estimation
+> **U1**: [[U1_Probability_Distributions|Applications of Probability Distributions and Principles of Point Estimation]]
 
 Introduction, Motivating Examples and Scope. Statistics: Introduction, Types of Statistics, Types of Data, Types of Experiments – Controlled and Observational study, Sampling: Sampling Methods, Sampling Errors, Case Study. Chebyshevs inequality, Normal Probability Plots, Introduction to Generation of Random Variates and mention the types, Acceptance-Rejection method, Sampling Distribution, The Central Limit Theorem and Applications, Principles of Point Estimation - Mean Squared Error for Bernoulli, Binomial, Poisson, Normal, Maximum Likelihood Estimate for Bernoulli, Binomial, Poisson, Normal and Case Study. Introduction to multivariate normal distribution, MAP distribution.
 
 **Self-Learning:** Generation of Random Variates - Inverse Transform Method.​​​​​​​
 
->**Unit 2**: Confidence Intervals and Hypothesis Testing
+> **U2**: [[U2_Confidence_Intervals|Confidence Intervals and Hypothesis Testing]]
 
 Confidence Intervals: Interval Estimates for Mean of Large and Small Samples, Students t Distribution, Interval Estimates for Proportion of Large and Small Samples, Confidence Intervals for the Difference between Two Means, Interval Estimates for Paired Data. Factors affecting Margin of Error, Hypothesis Testing for Population Mean and Population Proportion of Large and Small Samples, Drawing conclusions from the results of Hypothesis tests, Case Study.
 

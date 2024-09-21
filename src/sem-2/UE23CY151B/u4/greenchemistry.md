@@ -1,7 +1,4 @@
----
-title: greenchemistry
-type: note 
----
+#  greenchemistry
 
 Green Chemistry focuses on :
 • Reduction, recycling and/or eliminating toxic substances

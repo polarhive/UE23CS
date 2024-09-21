@@ -1,11 +1,7 @@
----
-title: nanomaterials
-type: note 
----
+# nanomaterials
+ 
 > The prefix 'nano' is derived from the Greek word for dwarf. 
 > 1 nm == 10 H or 5 Si atoms aligned in a line.
-
----
 
 - **Nanomaterials**: Materials with at least one external dimension between 1 and 100 nm.
 - **Nanoscience** is the study of phenomena and synthesis, characterization, exploration and exploitation of nanostructured materials.

@@ -4,8 +4,8 @@
 
 ### Course Objectives:
 
-- Fundamental (combinational and sequential) building blocks of digital logic circuits.
-- Design of more complex logic circuits such as **adders, multipliers and register files**.
+- Fundamental (combinational and sequential) building blocks of [[EPD|digital logic circuits]].
+- Design of more complex [[logicgates|logic]] circuits such as **adders, multipliers and register files**.
 - Design of **Finite State Machines** based on problem specification.
 - Construction, using above logic circuits, of a microprocessor and its functioning at the clock cycle level.
 
@@ -18,11 +18,11 @@
 
 ## Course Contents:
 
->**Unit 1**: Combinational Logic Design
+> **U1**: [[U1_Combinational_Logic_Design|Combinational Logic Design]]
 
 Introduction, Boolean Functions, Truth Tables, The map method Four variable K-map, Product of Sums Simplification, Don't Care conditions, NAND and NOR implementation, Analysis procedure Design Procedure, Combinational logic-1: Binary Combinational logic: Adder- Subtractor, Decimal Adder, Binary multiplier, Magnitude comparator Decoders Encoders, Multiplexers.
 
->**Unit 2**: Synchronous Sequential Logic-I
+> **U2**: [[U2_Sequencial_Logic|Synchronous Sequential Logic]]
 
 Introduction, Sequential circuits, Storage elements: Latches, Flip flops, Analysis of clocked sequential circuits, State reduction and assignment, Design procedure, Registers, Shift register, Ripple counters, Synchronous counters, Other counters.
 
