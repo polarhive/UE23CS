@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title> Promise</title>
+		<script>
+		var date=new Promise(
+			function(resolve,reject){
+				setTimeout( function(){
+				weather=true;  //api call based on date and area
+				if(weather){
+					const dateDetails={
+						name:'Cubana Restaurent',
+						location:'55th street',
+						table:5
+					}
+						resolve(dateDetails)
+				}
+				else
+			
+					reject( new Error('Bad weather'))
+				}, 10000);
+			}
+			)
+			date
+				.then (function(details){
+					console.log(details);
+					console.log("Yay! Going on a date");
+				})
+							
+				.catch (function(error){
+					console.log(error.message)
+				
+				})
+		
+		
+	   </script>
+		
+	</head>
+	<body >
+		
+    </body>
+</html>

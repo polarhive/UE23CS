@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title> Canvas and SVG</title>
+		<script>
+		function init(){
+		 c1=document.querySelector("#c1");
+		 ctx=c1.getContext("2d");
+		 ctx.fillStyle="#FF0000";
+		 ctx.arc(100,100,80,0, 2*Math.PI,1);
+		 ctx.fill();
+		 ctx.font = "30px Arial";
+         ctx.fillText("Hello World",200,50);
+		 ctx.moveTo(200, 0);
+		 ctx.lineTo(300, 100);
+		 ctx.stroke();
+		 ctx.rect(300, 100, 50, 50);
+		 ctx.stroke();
+		 
+		}
+			
+		</script>
+	</head>
+	<body onload="init()">
+		<canvas id="c1" width="400px" height="200px" 
+		style="border:1px solid #000000;">
+		
+		</canvas>
+		<svg width="400px"  height="200px" 
+		style="border:1px solid #000000";>
+		<!--<circle cx="100" cy="80" r="80" stroke="green"
+			stroke-width="4" fill="red">-->
+	<text x="15" y="15" fill="red" transform="rotate(30 20,40)">
+	I love SVG </text>
+
+		</circle>
+		</svg>
+		
+	
+</body>
+</html>

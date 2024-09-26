@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title> DOM Manipulation</title>
+		<style>
+		 .g1{position:relative}
+		</style>
+		<script src="jquery-3.6.0.js">
+	   </script>
+	
+		<script>
+		/*$(document).ready(function(){
+		$("p").click (function(){
+		$(this).css("color","blue").html("I was Clicked");
+					
+		})
+		});
+		
+		$(document).ready(function(){
+		$("p").on("click mouseover", function(){
+		$(this).css("color","blue").html("I was Clicked");
+
+		})
+		});
+		$(document).ready(function(){
+		$("p").on("click", function(event){
+		$(event.target).css("color","blue").html("I was Clicked");
+		})
+		$("p").mouseover (function(){
+			$("ul").slideToggle("slow");
+			$("button").toggle().html("hidden");
+		})
+		});*/
+		
+		$(document).ready(function(){
+		$("p").on("click", function(event){
+		$(event.target).css("color","blue").html("I was Clicked");
+		});
+		$("p").mouseover (function(){
+			$("ul").slideToggle("slow");
+			if($("button").attr("visible"))
+			  $("button").hide().html("Hidden");
+			else
+				$("button").show().html("Show");
+		})
+		/*$("li.g1").click(function(){
+			if($(this).css("opacity")==1)
+				$(this).animate({
+					left:"100px",
+					opacity:0.4,
+					fontSize:"3em"
+				 }, 1000);
+			else
+				$(this).animate({
+					left:"0px",
+					opacity:1,
+					fontSize:"3em"
+				 }, 1000);
+						
+		});*/
+		/*$("li.g1").click(function(){
+			$(this).fadeOut(1000,function(){
+				$(this).fadeIn(1000);
+			})
+		})*/
+		$("li.g1").click(function(){
+			$(this).fadeOut(1000,function(){
+				$(this).fadeIn(2000, function(){
+				$(this).click();
+			});
+			})
+		})
+		});
+		</script>
+	</head>
+	<body >
+		<div></div>
+		<p> Subjects</p>
+		<ul>
+				<li> Data Structures </li>
+				<li class="g1"> Web Technologies</li>
+				<li > Data Science</li>
+				<li> AFLL </li>
+		</ul>
+		<button>Click</button>
+		</div>
+</body>
+</html>

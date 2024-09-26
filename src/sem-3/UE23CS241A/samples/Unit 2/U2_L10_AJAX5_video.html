@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title> XHR</title>
+		<script>
+		function getvideo(){
+		xhr=new XMLHttpRequest();
+		xhr.open("get","videos/Avengers.mp4",true);
+		xhr.onreadystatechange=showdata;
+		xhr.responseType="blob";
+		xhr.setRequestHeader("Content-type",
+		"application/x-form-url-encoded");
+		
+		
+		xhr.send();
+		}
+		function showdata(){
+			console.log("In showdata");
+			if(this.readyState==4 && this.status==200){
+				console.log("inside if");
+				//this.response or responseText or responseXML
+			/*	document.querySelector("#container").innerHTML=
+			this.response.getElementsByTagName("srn")[1].firstChild.nodeValue;*/
+			//this.response=JSON.parse(this.responseText);
+			/*document.querySelector("#container").innerHTML=this.response['srn'];*/
+			let v1= document.createElement("video");
+			v1.src=URL.createObjectURL(this.response);
+			v1.controls=true;
+			document.querySelector("#container").appendChild(v1);
+			}
+		}
+		
+		
+	   </script>
+		
+	</head>
+	<body >
+	<button onclick="getvideo()">Get Video</button>
+	<div id="container"></div>
+		
+    </body>
+</html>

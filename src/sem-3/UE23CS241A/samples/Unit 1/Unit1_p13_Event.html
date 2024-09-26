@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title> DOM Manipulation</title>
+		<script>
+		/* Event Handler Registration
+		inline: <p onclick="handle()"</p>
+		event Property: p1.onclick=handle
+		event Listener: p1.addEventListener("click", handle,true);
+		*/
+		function init(){
+			list=document.querySelectorAll("li");
+			for(let i in list)
+			list[i].onclick=handler;
+			document.querySelector("p").addEventListener("click", 
+			 function(event){
+			event.target.innerHTML= "I was clicked";
+				});
+			
+		}
+		
+		function handler(event){
+			ev=event;
+			console.log(event.target.innerHTML);
+			event.target.style.color="blue";
+			//event.preventDefault();
+		}
+		
+		</script>
+	</head>
+	<body onload="init()">
+	  <div>
+		<p onclick= "handler(event)"> Subjects</p>
+		<ul>
+				<li> Data Structures </li>
+				<li> Web Technologies</li>
+				<li> Data Science</li>
+		</ul>
+	  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>React</title>
+		<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>	
+	</head>
+	<body>
+		<div id="container"></div>
+		<script type="text/babel">
+			// All letters are displayed with the same background color yellow.
+			class Letter extends React.Component {
+				render() {
+					var letterStyle = {
+						backgroundColor: "#ffde00",
+						color: "#333",
+						display: "inline-block",
+						padding: "25px",
+						margin: "25px"
+					};
+					return <div style={letterStyle}>
+						{this.props.children}
+					</div>;
+				}
+			}
+
+			const root = ReactDOM.createRoot(document.getElementById('container'));
+			root.render(
+				<div>
+					<Letter>A</Letter>
+					<Letter>E</Letter>
+					<Letter>I</Letter>
+					<Letter>O</Letter>
+					<Letter>U</Letter>
+				</div>
+			);
+		</script>
+	</body>
+</html>

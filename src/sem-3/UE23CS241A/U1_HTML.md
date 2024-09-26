@@ -1,4 +1,5 @@
 # HTML, CSS and Client Side Scripting
+
 ## Introduction to Web Architecture
 
 - **URL** stands for Uniform Resource Locator

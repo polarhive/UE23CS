@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>XHR</title>
+    </head>
+    <script>
+        function loaddata(){
+            let xhr=new XMLHttpRequest();
+            xhr.open("get","files/sample.xml",true);
+            xhr.onreadystatechange=showdata;
+            xhr.responseType="document";
+            xhr.send();
+        }
+        function showdata(){
+            console.log("In Showdata");
+            if(this.readyState==4&&this.status==200){
+                console.log("Inside if");
+                document.querySelector("#container").innerHTML=this.response.getElementsByTagName("srn")[0].firstChild.nodeValue;
+
+            }
+        }
+    </script>
+    <body>
+        <button onclick="loaddata()">Load Data</button>
+        <div id="container"></div>
+    </body>
+</html>

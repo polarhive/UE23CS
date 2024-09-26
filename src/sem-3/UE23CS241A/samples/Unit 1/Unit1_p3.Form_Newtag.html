@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>New Input Types</title>
+	</head>
+	<body>
+		<!-- Forms-->
+		<!-- Syntax: <form method="post" action="process.php" target="_blank"
+		               <input type="..." name="..."
+					  </form>s
+					  Input Types: Text Box, Text Area, Checkbox, Radio button, Dropdown list, Buttons
+		-->			  
+		<fieldset>
+			<form action="/page.php">
+			<legend> Students Details</legend>
+			First Name: <input type="text" name="fname"> <br> <br>
+			Last Name: <input type="text" name="lname" value="Berners-Lee"> <br> <br>
+			Department
+			<input type="radio" name="branch" value="CSE"> CSE
+			<input type="radio" name="branch" value="ECE"> ECE
+			<input type="radio" name="branch" value="Mech"> MECH <br><br>
+			Semester:
+			<input type="checkbox" name="sem" value="III"> 3rd Semester
+			<input type="checkbox" name="sem" value="V"> 5th Semester
+			<input type="checkbox" name="sem" value="7th"> 7th Semester
+			<br><br>
+			Select Number:
+			<input type="number" name="phno" min="1" max="10"> <br> <br>
+			Birthday:
+			<input type="date" name="birthday"> <br><br>
+			Favorite Color:
+			<input type="color" name="Fcolor"><br><br>
+			Sports Interest(0-10):
+			<input type="range" name="vol" min="0" max="10"> <br> <br>
+			Email:
+			<input type="email" name="mail"> <br> <br>
+			
+		</fieldset>
+			Time:
+			<input type="time" name="tt"> <br> <br>
+			Tel:
+			<input type="tel" name="phone" placeholder="10 digits" pattern="[0-9]{10}" required> <br> <br>
+			<input type="submit" Value="Submit"> <br> <br>
+			<input type="reset" value="Reset"> <br> <br>
+			</form>
+	</body>
+</html>

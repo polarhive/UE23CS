@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title> Fetch</title>
+		<script src="/jquery-3.6.0.js">
+		</script>
+		<script>
+			function fetchdata(){
+				mydiv=document.querySelector("#container");
+				fetch('videos/Avengers.mp4')
+				.then(function(response){
+					return response.blob();
+				})
+				.then(function(data){
+					vid=document.createElement("video");
+					vid.controls=true;
+					vid.src=URL.createObjectURL(data);
+					mydiv.appendChild(vid);
+				})
+				.catch(function(error){
+					console.log(error.message);
+				})
+			}
+				
+		
+	   </script>
+		
+	</head>
+	<body >
+	<button onclick="fetchdata()">Fetch Data</button>
+	<div id="container"></div>
+		
+    </body>
+</html>

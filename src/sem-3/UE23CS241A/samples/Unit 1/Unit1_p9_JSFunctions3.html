@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>My first HTML document</title>
+	
+	</head>
+	<body >
+	<script>
+		function add(a,b)
+		{
+			return a+b;
+		}
+		var x=add(2,5);
+		var ref=add;
+		
+		var ref=function(...args){  
+			var s=0;
+			for(var i in args)
+			s=s+args[i];
+			return s;
+			}
+			
+		console.log(ref(5,8,20,30));
+		console.log(ref(5));     //b is undefined
+		
+		
+	</script>	
+		
+		
+	</body>
+</html>

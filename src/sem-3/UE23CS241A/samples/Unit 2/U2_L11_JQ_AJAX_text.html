@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title> JQ AJAX</title>
+		<script src="jquery-3.6.0.js">
+		</script>
+		<script>
+			function getdata(){
+			/*	$.ajax({
+					url:'files/sample.txt',
+					method:'get',
+					success: function (result){
+						$("#container").html(result);
+					}
+				})
+				$.ajax('submit.php',{
+					method:'post',
+					data:{mydata:'this is my data',srn:'123'},
+					success:function(result,status,xhr){
+						$("#container").html(result+" "+status);
+					},
+					error:function(xhr,textstatus, errMsg){
+						console.log("Error:"+errMsg);
+					}
+				})	
+				$.getJSON('files/sample.json',
+					{name:'sujay', srn:'1'},
+					function (result,status,xhr){
+						$("#container").html(result.name+" "+status);
+					}
+				);*/
+				$("#container").load('files/sample.txt',
+				
+					function(result,status,xhr){
+						console.log("status:"+status)
+					}
+				);
+			}
+				
+		
+	   </script>
+		
+	</head>
+	<body >
+	<button onclick="getdata()">Get Data</button>
+	<div id="container"></div>
+		
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title> XHR</title>
+		<script>
+		function senddata(){
+		xhr=new XMLHttpRequest();
+		xhr.open("post","files/dummy.php",true);
+		xhr.onreadystatechange=showdata;
+		xhr.responseType="json";
+		xhr.setRequestHeader("Content-type",
+		"application/x-form-url-encoded");
+		//str=myform.children[i].value
+		let fd=new FormData();
+		fd.append("name","Sujay");
+		fd.append("srn","PES2UG20CS247");
+		//xhr.send("name=Sujay&srn=PES2UG20CS247");
+		xhr.send(fd);
+		}
+		function showdata(){
+			console.log("In showdata");
+			if(this.readyState==4 && this.status==200){
+				console.log("inside if");
+				//this.response or responseText or responseXML
+			/*	document.querySelector("#container").innerHTML=
+			this.response.getElementsByTagName("srn")[1].firstChild.nodeValue;*/
+			//this.response=JSON.parse(this.responseText);
+			/*document.querySelector("#container").innerHTML=this.response['srn'];*/
+			}
+		}
+		
+		
+	   </script>
+		
+	</head>
+	<body >
+	<button onclick="senddata()">Send Data</button>
+	<div id="container"></div>
+		
+    </body>
+</html>
