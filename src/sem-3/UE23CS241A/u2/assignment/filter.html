@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Elements by Class</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .subject {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Filter:</h3>
+    <input type="text" id="filterInput" placeholder="Enter class to filter">
+    <button id="filterBtn">Filter</button>
+
+    <h3>III Sem Subjects</h3>
+    <div class="subject DDCO">DDCO</div>
+    <div class="subject DSA">DSA</div>
+    <div class="subject WT">WT</div>
+    <div class="subject MCSE">MCSE</div>
+    <div class="subject AFLL">AFLL</div>
+
+    <script>
+        $(document).ready(function(){
+            $('#filterBtn').click(function(){
+                var filterClass = $('#filterInput').val().trim();
+                $('.subject').hide(); // hide all subjects
+                if (filterClass) {
+                    $('.' + filterClass).show(); // Show only the subjects that match the class entered
+                }
+            });
+        });
+    </script>
+</body>
+</html>

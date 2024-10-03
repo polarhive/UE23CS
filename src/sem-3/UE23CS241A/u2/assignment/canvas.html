@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Drawings</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid black;"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // 1. Top-left box: Yellow rectangle with red border
+        ctx.fillStyle = 'yellow'; // fill color
+        ctx.fillRect(10, 10, 150, 100); // draw filled rectangle (x, y, width, height)
+        
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 5;
+        ctx.strokeRect(10, 10, 150, 100);
+
+        // 2. Top-right box: Ellipse with linear gradient
+        var gradient = ctx.createLinearGradient(200, 0, 400, 0);
+        gradient.addColorStop(0, 'red');
+        gradient.addColorStop(1, 'green');
+        
+        ctx.beginPath();
+        ctx.ellipse(300, 100, 70, 50, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // 3. Bottom-left box: Blue arc (semicircle)
+        ctx.beginPath();
+        ctx.arc(100, 300, 50, 0, Math.PI, false);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+
+        // 4. Bottom-right box: Line with brown-red color
+        ctx.beginPath();
+        ctx.moveTo(250, 350);
+        ctx.lineTo(390, 350); 
+        ctx.strokeStyle = 'brown';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text Color</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #webTech {
+            font-size: 20px;
+            padding: 10px;
+            color: black; /* Initial text color */
+        }
+        #plainText {
+            font-size: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="webTech">Web tech</h3>
+    <h3 id="plainText">Plain color</h3>
+    <button id="changeColorBtn">Change Color</button>
+
+    <script>
+        $(document).ready(function(){
+            $('#changeColorBtn').click(function(){
+                $('#webTech').fadeOut(500, function() { // Fade out the element
+                    $(this).css('color', 'blue'); // Change the text color to blue
+                    $(this).fadeIn(500); // Fade in the element with the new color
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Text File with AJAX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #content {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            min-height: 100px;
+        }
+        #loading {
+            display: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX File Reader</h1>
+    <button id="readFileBtn">Click to read text file</button>
+    <p id="loading">Loading...</p>
+    <div id="content">The content of the file will be displayed here.</div>
+
+    <script>
+        document.getElementById('readFileBtn').addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            var contentDiv = document.getElementById('content');
+            var loadingText = document.getElementById('loading');
+
+            loadingText.style.display = 'block';
+            xhr.open('GET', 'textfile.txt', true);
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    contentDiv.textContent = xhr.responseText;
+                } else {
+                    contentDiv.textContent = 'Error: Could not load file.';
+                }
+                loadingText.style.display = 'none';
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

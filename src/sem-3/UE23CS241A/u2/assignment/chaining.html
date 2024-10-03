@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Method Chaining</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #paragraph {
+            width: 300px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">animated using jQuery method chaining.</p>
+    <button id="clickBtn">Click</button>
+
+    <script>
+        $(document).ready(function(){
+            $('#clickBtn').click(function(){
+                $('#paragraph').fadeOut(1000)  // First, fade out over 1 second
+                              .slideUp(1000)   // Then slide up over 1 second
+                              .slideDown(1000); // Immediately slide down over 1 second
+            });
+        });
+    </script>
+</body>
+</html>
