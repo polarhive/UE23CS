@@ -26,7 +26,7 @@ Mathematical Preliminaries and Notation, Three Basic Concepts. Finite Automata: 
 
 Properties of Regular Languages: Closure Properties of Regular Languages, Elementary Questions about Regular Languages, Identifying Non Regular Languages. Definitions of PDA and CFL, Deterministic Pushdown Automata, Non-Deterministic Pushdown Automata, Pushdown Automata and Context Free Languages, Context Free Grammars.
 
-> **Unit 3**: Properties of Context Free Languages and Turing Machine
+> **Unit 3**: [[U3_Ambiguity|Properties of Context Free Languages and Turing Machines]]
 
 Parsing and Ambiguity. Simplification of Context–Free Grammars and Normal Forms: Methods for Transforming Grammars, Two Important Normal Forms, A Membership algorithm for Context Free Grammar. Properties of Context-Free Languages: Closure Properties and Questions about Context–Free Languages, Pumping Lemma for Context–Free Languages. Turing Machines: The Standard Turing Machine, Constructing Turing Machines, Combining Turing Machines for Complicated Tasks, Turing’s Thesis, Rice theorem.
 
