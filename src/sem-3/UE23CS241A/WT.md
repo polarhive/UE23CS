@@ -26,7 +26,7 @@ Introduction to Web Architecture and Web protocols (HTTP Request Response Format
 
 HTML5 (APIs), JQuery Introduction, Callbacks and Promises, Introduction to Single Page Application, XML Vs JSON, Asynchronous Communication using AJAX and fetch API. **ReactJS** – MERN Introduction, React Classes and Components, JSX, Rendering of elements
 
-> **Unit 3**: ReactJS & NodeJS
+> **Unit 3**: [[U3_React_Node]]
 
 ReactJS - Properties, State, Context, Component lifecycle methods, Refs & Keys, Event Handling, Stateless components. React Hook NodeJS – Understanding Node JS Architecture, Set up Node JS app, Node Modules, call-backs, buffers, streams, File system Module, HTTP Module, Handling HTTP Requests
 
