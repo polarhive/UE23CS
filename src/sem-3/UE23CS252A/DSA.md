@@ -18,7 +18,7 @@
 
 ## Course Contents:
 
->**Unit 1**: Linked List and Stacks
+>**Unit 1**: [[U1_Linked_List_and_Stacks | Linked List and Stacks]]
 
 Review of C, Static and Dynamic Memory Allocation. Linked List: Doubly Linked
 List, Circular Linked List – Single and Double, Multilist: Introduction to
@@ -29,7 +29,7 @@ functions, Recursion: Tower of Hanoi. Conversion & Evaluation of an expression:
 Infix to postfix, Infix to prefix, Evaluation of an Expression, Matching of
 Parenthesis.
 
->**Unit 2**: Queues and Trees
+>**Unit 2**: [[U2_Queues_and_Trees|Queues and Trees]]
 
 Queues & Dequeue: Basic Structure of a Simple Queue, Circular Queue, Priority
 Queue, Dequeue and its implementation using Arrays and Linked List. Applications
@@ -38,7 +38,7 @@ queue (simple /circular). General: N-ary trees, Binary Trees, Binary Search
 Trees (BST) and Forest: definition, properties, conversion of an N-ary tree and
 a Forest to a binary tree. Traversal of trees: Preorder, Inorder and Postorder.
 
->**Unit 3**: Application of Trees and Introduction to Graphs
+>**Unit 3**: [[U3_Trees_and_Graphs|Application of Trees and Introduction to Graphs]]
 
 Implementation of BST using arrays and dynamic allocation: Insertion and
 deletion operations, Implementation of binary expression tree., Threaded binary
