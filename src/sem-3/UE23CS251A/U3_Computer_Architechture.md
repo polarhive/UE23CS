@@ -1,4 +1,4 @@
-# Architecture
+# Computer Architecture
 
 Computer instructions indicate both the operation to perform and the operands to use. The operands may come from memory, registers, or from the instruction
 itself.

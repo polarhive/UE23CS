@@ -34,7 +34,7 @@ Confidence Intervals: Interval Estimates for Mean of Large and Small Samples, St
 2. z-test, application form processing in banking system.
 3. Hypothesis testing, randomly trained students placement into tier-I and tier-II companies
 
->**Unit 3**: Distribution Free Tests and Multiple Linear Regression
+>**Unit 3**: [[U3_Regression|Distribution Free Tests and Multiple Linear Regression]]
 
 Distribution Free Tests, Chi-squared Test, Fixed Level Testing, Type I and Type II Errors, Power of a Test, Factors Affecting Power of a Test. Simple Linear Regression: Introduction, Correlation, the Least Square Lines, Predictions using regression models - Uncertainties in Regression Coefficients, Checking Assumptions and transforming data, Introduction to the Multiple Regression Model, Case Study.
 
@@ -51,6 +51,7 @@ Distribution Free Tests, Chi-squared Test, Fixed Level Testing, Type I and Type 
 Introduction to Optimization-Based Design, Modelling Concepts, Unconstrained Optimization, Discrete Variable Optimization, Genetic and Evolutionary Optimization, Constrained Optimization.
 
 **Self-Learning:** Mathematical concepts of objective function, Constraints and Decision variables.
+
 **Applications:**
 1. Minimize a Loss functions in Neural Networks using Batch gradient descent (Unconstrained Optimization).
 2. Lagrange Multipliers to find local maxima and minima of a function subject to equations constrains (Constrained Optimization).

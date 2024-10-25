@@ -1,6 +1,6 @@
 # UE23CS
 
-This monorepo contains notes for the `UE23CSXXX` courses at PESU. [Patches](mailto:mail@polarhive.net?subject=UE23CS) welcome!
+This monorepo contains notes and coursework for the `UE23CSXXX` courses at PESU. [Patches](mailto:mail@polarhive.net?subject=UE23CS) welcome!
 
 - [[sem-1]]
 - [[sem-2]]

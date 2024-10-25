@@ -1,1 +1,1 @@
-# regular and context free grammar
+# Regular and Context Free Grammar

@@ -79,7 +79,7 @@ Matches phone numbers in the format `(123) 456-7890`.
   - Example: `(?:foo|bar)` matches `foo` or `bar` without storing the result.
 
 - **Lookaheads and Lookbehinds**:
-  - **Positive lookahead**: `(?=...)` matches a group that is followed by a certain pattern.
-  - **Negative lookahead**: `(?!...)` matches a group that is NOT followed by a certain pattern.
-  - **Positive lookbehind**: `(?<=...)` matches a group that is preceded by a certain pattern.
-  - **Negative lookbehind**: `(?<!...)` matches a group that is NOT preceded by a certain pattern.
+  - **Positive look ahead**: `(?=...)` matches a group that is followed by a certain pattern.
+  - **Negative look ahead**: `(?!...)` matches a group that is NOT followed by a certain pattern.
+  - **Positive look behind**: `(?<=...)` matches a group that is preceded by a certain pattern.
+  - **Negative look behind**: `(?<!...)` matches a group that is NOT preceded by a certain pattern.

@@ -51,7 +51,7 @@ Adjacency list. Implementation of graphs using adjacency matrix and lists. Graph
 traversal methods: Depth first search, Breadth first search techniques.
 Application: Graph representation: Representation of computer network topology.
 
->**Unit 4**: Applications of Graphs, B-Trees, Suffix Tree and Hashing
+>**Unit 4**: [[U4_Graphs_Hashing|Applications of Graphs, B-Trees, Suffix Tree and Hashing]]
 
 Application of BFS and DFS: Connectivity of graph, finding path in a network.
 Suffix Trees: Definition, Introduction of Trie Trees, Suffix trees.

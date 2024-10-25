@@ -26,7 +26,7 @@ Introduction, Boolean Functions, Truth Tables, The map method Four variable K-ma
 
 Introduction, Sequential circuits, Storage elements: Latches, Flip flops, Analysis of clocked sequential circuits, State reduction and assignment, Design procedure, Registers, Shift register, Ripple counters, Synchronous counters, Other counters.
 
->**Unit 3**: [[U3_Arch|Basic structure of computers, Standard IO interface, Interrupts]]
+>**Unit 3**: [[U3_Computer_Architechture|Basic structure of computers, Standard IO interface, Interrupts]]
 
 Computer Types, Functional Units: Input Unit, Memory Unit, ALU, Output Unit, Control Unit, Basic operational concepts, Number representation and arithmetic Operations, Character representation, Memory locations and addresses, Memory Operations, Instruction and instruction sequencing,Addressing modes,Assembly Languages, I/O Operations,Accessing I/O Devices, Interrupts,Standard I/O Interfaces
 

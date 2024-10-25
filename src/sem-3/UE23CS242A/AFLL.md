@@ -18,11 +18,11 @@
 
 ## Course Contents:
 
->**U1**: [[U1_Finite_Automata|Introduction]]
+>**Unit 1**: [[U1_Finite_Automata|Introduction]]
    
 Mathematical Preliminaries and Notation, Three Basic Concepts. Finite Automata: Deterministic Finite Accepters, Non- Deterministic Finite Accepters, Equivalence of Deterministic and Non-Deterministic Finite Accepters, Reduction of the number of states in Finite Automata. Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars.
   
->**U2**: [[U2_Regular_CFG|Regular Languages and Context Free Languages]]
+>**Unit 2**: [[U2_Regular_CFG|Regular Languages and Context Free Languages]]
 
 Properties of Regular Languages: Closure Properties of Regular Languages, Elementary Questions about Regular Languages, Identifying Non Regular Languages. Definitions of PDA and CFL, Deterministic Pushdown Automata, Non-Deterministic Pushdown Automata, Pushdown Automata and Context Free Languages, Context Free Grammars.
 
@@ -30,6 +30,6 @@ Properties of Regular Languages: Closure Properties of Regular Languages, Elemen
 
 Parsing and Ambiguity. Simplification of Context–Free Grammars and Normal Forms: Methods for Transforming Grammars, Two Important Normal Forms, A Membership algorithm for Context Free Grammar. Properties of Context-Free Languages: Closure Properties and Questions about Context–Free Languages, Pumping Lemma for Context–Free Languages. Turing Machines: The Standard Turing Machine, Constructing Turing Machines, Combining Turing Machines for Complicated Tasks, Turing’s Thesis, Rice theorem.
 
->**Unit 4**: Undecidability and design of a declarative language.
+>**Unit 4**: [[U4_Undecidability_Declarative_Languages|Undecidability and design of a declarative language]]
 
 Hierarchy of Formal Languages and Automata: Recursive and Recursively Enumerable Languages, the Chomsky Hierarchy. Limits of Algorithmic Computation: Some Problems that cannot be solved by Turing Machines,Undecidable Problem for Recursively Enumerable Languages, idea of reduction. A very simple Logic, Syntax, Semantics, A simple knowledge Base, A simple inference procedure. Propositional Theorem Proving: Inference and Proofs, Proof by Resolution, Conjunctive Normal Form, A resolution algorithm.Syntax and Semantics of First Order Logic: Models for First Order Logic Symbols and interpretations, Terms,Atomic Sentences, Complex Sentences Quantifiers, Equality, Numbers, sets and Lists. Example - The electronic circuits’ domain.

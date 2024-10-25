@@ -2,7 +2,7 @@
 *.elf
 *.hex
 *.o
-*.obsidian
+**/.obsidian
 *.out
 *.svf
 *.vcd

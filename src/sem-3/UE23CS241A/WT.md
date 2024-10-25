@@ -18,18 +18,18 @@
 
 ## Course Contents:
 
-> **U1**: [[U1_HTML|HTML, CSS and Client Side Scripting]]
+> **Unit 1**: [[U1_HTML|HTML, CSS and Client Side Scripting]]
 
 Introduction to Web Architecture and Web protocols (HTTP Request Response Formats, URLs), Basic Mark-ups & syntax, HTML elements & attributes, Web Form, HTML5 (New Tags, Inputs, Elements and Controls), CSS3.0 - Styles and Style sheets, Selectors, Style properties, Box Model, JavaScript Basics(variables, scope, Builtin Objects), JavaScript objects and Prototypal Inheritance, DOM Manipulations, Events and Event Handling in JavaScript
 
-> **U2**: [[U2_Ajax|HTML5, JQuery and Ajax]]
+> **Unit 2**: [[U2_Ajax|HTML5, JQuery and Ajax]]
 
 HTML5 (APIs), JQuery Introduction, Callbacks and Promises, Introduction to Single Page Application, XML Vs JSON, Asynchronous Communication using AJAX and fetch API. **ReactJS** – MERN Introduction, React Classes and Components, JSX, Rendering of elements
 
-> **Unit 3**: [[U3_React_Node]]
+> **Unit 3**: [[U3_React_Node|React and NodeJS]]
 
 ReactJS - Properties, State, Context, Component lifecycle methods, Refs & Keys, Event Handling, Stateless components. React Hook NodeJS – Understanding Node JS Architecture, Set up Node JS app, Node Modules, call-backs, buffers, streams, File system Module, HTTP Module, Handling HTTP Requests
 
->**Unit 4**: MongoDB
+>**Unit 4**: [[U4_Mongo|MongoDB]]
 
 MongoDB-Documents, Collections, Reading and Writing to MongoDB, MongoDB NodeJS Driver, Running a react application on NodeJS, React Router. Introduction to Web services and REST API’s , Express Framework Overview, Routing and URL building, Error Handling, Express Middleware, Form Data and File Upload.
