@@ -50,8 +50,3 @@ Saved registers have special connotations when they are used with function calls
 | High-Level Code | MIPS Assembly Code                                                                                              |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | a = b + c −d;`` | `# $s0 = a, $s1 = b, $s2 = c, $s3 = d`<br><br>`sub $t0, $s2, $s3 # t = c −d`<br>`add $s0, $s1, $t0 # a = b + t` |
-
-
-
-
-
