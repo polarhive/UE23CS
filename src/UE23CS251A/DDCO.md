@@ -28,8 +28,8 @@ Introduction, Sequential circuits, Storage elements: Latches, Flip flops, Analys
 
 >**Unit 3**: [[U3_Computer_Architechture|Basic structure of computers, Standard IO interface, Interrupts]]
 
-Computer Types, Functional Units: Input Unit, Memory Unit, ALU, Output Unit, Control Unit, Basic operational concepts, Number representation and arithmetic Operations, Character representation, Memory locations and addresses, Memory Operations, Instruction and instruction sequencing,Addressing modes,Assembly Languages, I/O Operations,Accessing I/O Devices, Interrupts,Standard I/O Interfaces
+Computer Types, Functional Units: Input Unit, Memory Unit, [[ALU]], Output Unit, Control Unit, Basic operational concepts, Number representation and arithmetic Operations, Character representation, Memory locations and addresses, Memory Operations, Instruction and instruction sequencing,Addressing modes,Assembly Languages, I/O Operations,Accessing I/O Devices, Interrupts,Standard I/O Interfaces
 
->**Unit 4**: Arithmetic and Control Unit Design 
+>**Unit 4**: [[U4_Arithmetic and Control Unit Design|Arithmetic and Control Unit Design]] 
 
 Shift / add Multiplier / Divider, Integer division, Floating point number and operations with architecture. Some fundamental concepts, Execution of a complete instruction, Multiple Bus Organization,Hardwired control, Micro programmed control, Single-cycle, Multi-cycle processor data path and control.

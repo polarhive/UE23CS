@@ -1,6 +1,6 @@
 # Computer Architecture
 
-Computer instructions indicate both the operation to perform and the operands to use. The operands may come from memory, registers, or from the instruction
+Computer [[Processor|instructions]] indicate both the operation to perform and the operands to use. The operands may come from [[memory]], [[register|registers]], or from the instruction
 itself.
 
 The first part of the assembly instruction, `add`, is called the **mnemonic** and indicates what operation to perform. The operation is performed on b and c, the source operands, and the result is written to a, the destination operand.
@@ -22,7 +22,9 @@ The assembly language program requires a temporary variable say `t` to store the
 | High-Level Code                        | MIPS Assembly Code                                    |
 | -------------------------------------- | ----------------------------------------------------- |
 | `a = b + c −d; // single-line comment` | `sub t, c, d # t = c −d`<br>`add a, b, t # a = b + t` |
-### Design Principle 2: Make the common case fast.
+
+---
+### Design Principle 2: Make the common case fast
 
 The MIPS instruction set makes the common case fast by including only simple, commonly used instructions. The number of instructions is kept small so that the hardware required to decode the instruction and its operands can be simple, small, and fast.
 
@@ -30,6 +32,7 @@ A RISC architecture minimises the hardware complexity and the necessary instruct
 
 Instructions need to access operands quickly so that they can run fast. But operands stored in memory take a long time to retrieve. Therefore, most architectures specify a small number of registers that hold commonly used operands. The MIPS architecture uses `32` registers, called the register set or register file. The fewer the registers, the faster they can be accessed.
 
+---
 ### Design Principle 3: Smaller is faster.
 
 The SRAM array uses a small decoder and bitlines connected to relatively few memory cells, so it has a shorter critical path than a large memory does. MIPS register names are preceded by the `$` sign. 
@@ -45,8 +48,37 @@ Saved registers have special connotations when they are used with function calls
 | High-Level Code | MIPS Assembly Code                                               |
 | --------------- | ---------------------------------------------------------------- |
 | `a = b + c;`    | `# $s0 = a, $s1 = b, $s2 = c`<br>`add $s0, $s1, $s2 # a = b + c` |
+
 #### Temporary registers
 
 | High-Level Code | MIPS Assembly Code                                                                                              |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| a = b + c −d;`` | `# $s0 = a, $s1 = b, $s2 = c, $s3 = d`<br><br>`sub $t0, $s2, $s3 # t = c −d`<br>`add $s0, $s1, $t0 # a = b + t` |
+| `a = b + c −d;` | `# $s0 = a, $s1 = b, $s2 = c, $s3 = d`<br><br>`sub $t0, $s2, $s3 # t = c −d`<br>`add $s0, $s1, $t0 # a = b + t` |
+
+---
+
+## x86-64 Instruction Classes
+
+- Data Transfer (mov instruction)
+	- Moves data between processor & memory (loads and saves variables between  processor and memory) 
+	- One operand must be a processor register (can't move data from one memory  location to another) 
+	- Specifies size via a suffix on the instruction `(movb, movw, movl, movq)`
+- ALU Operations 
+	- One operand must be a processor register
+	- Size and operation specified by instruction `(addl, orq, andb, subw)`
+- Control / Program Flow 
+	- Unconditional/Conditional Branch `(cmpq, jmp, je, jne, jl, jge)`
+	- Subroutine Calls (call, ret)
+- Privileged / System Instructions – Instructions that can only be used by OS or other “supervisor” software (e.g.  int to access certain OS capabilities, etc).
+
+---
+# Addressing Modes
+
+- An operand must be: 
+	- A register value (e.g. %rax) 
+	- A value in a memory location 
+	- An immediate
+
+- To access a memory location we must supply an address. However, there can be many ways to  compute an address, each useful in  particular contexts
+- Accessing an  array element, `a[i]` vs. object  member, obj.member 
+- The ways to specify the operand  location are known as [[addressing modes]]

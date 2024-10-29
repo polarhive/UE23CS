@@ -400,5 +400,5 @@ Server running at http://127.0.0.1:8088/
 The URL module splits up a web address into readable parts. To include the URL module, use the require() method: Parse an address with the url.parse() method, and it will return a URL object with each part of the address as properties:
 
 Node.js can be used in database applications
-- One of the most popular NoSQL database is MongoDB.
+- One of the most popular NoSQL database is [[U4_Mongo|MongoDB]].
 - Node.js can use this module to manipulate MongoDB databasesrequire(‘mongodb’);

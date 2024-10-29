@@ -8,4 +8,3 @@ type: note
 Stores 1 or 0
 
 Groups of flip-flops make up a [[register]]
-
