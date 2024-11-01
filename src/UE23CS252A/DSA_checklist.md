@@ -1,0 +1,95 @@
+# DSA checklist
+
+- [ ] [[Review of C]]
+  - [ ] Pointers
+  - [ ] Structures
+  - [ ] Recursion
+- [ ] ADT
+  - [ ] List as an AFT
+  - [ ] List as a data structure
+- [ ] List implementation using Array
+- [ ] Single Linked List
+  - [ ] Insert Beg, End, Display
+  - [ ] Delete and Insert at Pos
+  - [ ] Search, Concatenation
+- [ ] Doubly Linked List
+  - [ ] Insert Beg, End, Pos, Destroy list
+  - [ ] Delete Beg, End, Pos, Search operation
+- [ ] Circular SLL
+- [ ] Circular DLL
+- [ ] Sparse Matrix and its rep using Multi List
+- [ ] Skip list (Case Study)
+- [ ] Stack
+  - [ ] using an array
+  - [ ] using SLL
+- [ ] applications of stack:
+  - [ ] Function execution, nested func
+  - [ ] Eval of Postfix expression
+  - [ ] Parenthesis matching
+- [ ] Queue
+  - [ ] using array
+  - [ ] using linked list
+  - [ ] circular queue using array
+  - [ ] circular queue using linked list
+- [ ] Priority Queue
+  - [ ] using array
+  - [ ] using linked list
+- [ ] Double Ended Queue (DEque)
+  - [ ] using array
+  - [ ] using linked list
+- [ ] Applications of Queue
+  - [ ] Case Study: Josepheus Problem
+  - [ ] Case Study: CPU Scheduling
+- [ ] Binary Tree
+  - [ ] definition and properties
+  - [ ] inorder-traversal
+  - [ ] preorder-traversal
+  - [ ] postorder-traversal
+- [ ] n-ary tree, forest
+  - [ ] definition
+  - [ ] conv n-ary tree -> binary
+  - [ ] conv forest -> binary
+- [ ] BST
+  - [ ] using array
+  - [ ] using linked approach
+  - [ ] finding height, depth, no of nodes and leafs
+  - [ ] node deletion
+  - [ ] traversal using iteration
+- [ ] Expression Tree
+- [ ] Threaded Binary Tree
+- [ ] Heap Tree
+  - [ ] def, properties
+  - [ ] using array, bottom up heap construction
+  - [ ] using array, top down heap construction
+  - [ ] priority queue using min and max heap
+- [ ] Balanced Trees
+  - [ ] definition
+  - [ ] AVL
+  - [ ] AVL rotation
+- [ ] Splay Tree
+- [ ] Graphs
+  - [ ] def, properties
+  - [ ] types, application and represenation
+  - [ ] using adj matrix
+  - [ ] using adj list
+  - [ ] traversal -- DFS
+  - [ ] traversal -- BFS
+  - [ ] application: CN topology
+  - [ ] connectivity of a graph
+  - [ ] finding path of a network
+- [ ] Hashing
+  - [ ] simple mapping
+  - [ ] hash function
+  - [ ] hash table
+- [ ] Collision Handling
+  - [ ] using separate chaining
+  - [ ] using linear/quadratic probing
+  - [ ] using double hashing and rehashing
+- [ ] Tries
+  - [ ] properties, application
+  - [ ] insert, search, delete
+  - [ ] application: display words in trie in lexicographical order
+  - [ ] application: word complete, autocomplete feature
+- [ ] Suffix Tree
+  - [ ] def, properties
+  - [ ] construction
