@@ -46,7 +46,7 @@ Distribution Free Tests, Chi-squared Test, Fixed Level Testing, Type I and Type 
 3. Chi-Square Test and Test of Independence, Analyzing the relationship between gender and preference for a product purchase.
 4.  Identifying Type 1 and Type 2 Errors in Spam mail classification.
 
->**Unit 4**: Engineering optimization
+>**Unit 4**: [[U4_Engineering optimization|Engineering Optimization]]
 
 Introduction to Optimization-Based Design, Modelling Concepts, Unconstrained Optimization, Discrete Variable Optimization, Genetic and Evolutionary Optimization, Constrained Optimization.
 

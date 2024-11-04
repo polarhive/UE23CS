@@ -1,6 +1,7 @@
 # Control Circuitry
 
-> Control circuitry is used to decode the instruction and then  generate the necessary signals to complete its execution 
+> Control circuitry is used to decode the instruction and then generate the
+> necessary signals to complete its execution 
 
 - Controls the [[ALU]]
 - Selects Registers to be used as source and destination locations 
@@ -18,5 +19,4 @@ Control Logic will
 
 ![[Pasted image 20241029113349.png]]
 
---- 
-ref: https://ee.usc.edu/~redekopp/cs356/slides/CS356Unit4_x86_ISA.pdf
+--- ref: https://ee.usc.edu/~redekopp/cs356/slides/CS356Unit4_x86_ISA.pdf
