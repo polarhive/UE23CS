@@ -1,11 +1,11 @@
-# Computer Architecture
+# Computer Organization
 
 Computer [[Processor|instructions]] indicate both the operation to perform and the operands to use. The operands may come from [[memory]], [[register|registers]], or from the instruction
 itself.
 
 The first part of the assembly instruction, `add`, is called the **mnemonic** and indicates what operation to perform. The operation is performed on b and c, the source operands, and the result is written to a, the destination operand.
 
-Instead of having to memorise the `add` operation in terms of 1's and 0's we can alias this operation to `add` in MIPS assembly.
+Instead of having to memorize the `add` operation in terms of 1's and 0's we can alias this operation to `add` in MIPS assembly.
 
 | `.py`     | `.s`        |
 | --------- | ----------- |
