@@ -4,7 +4,7 @@ This monorepo contains notes and coursework for the `UE23CSXXX` courses at
 [PESU](https://pes.edu). [Patches](mailto:mail@polarhive.net?subject=UE23CS)
 welcome!
 
-> https://polarhive.net/wiki/uni
+> [polarhive.net/wiki](https://polarhive.net/wiki/uni)
 
 ## Erratum
 
