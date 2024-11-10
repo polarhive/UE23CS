@@ -20,7 +20,7 @@
 
 >**Unit 1**: [[U1_Finite_Automata|Introduction]]
    
-Mathematical Preliminaries and Notation, Three Basic Concepts. Finite Automata: Deterministic Finite Accepters, Non- Deterministic Finite Accepters, Equivalence of Deterministic and Non-Deterministic Finite Accepters, Reduction of the number of states in Finite Automata. Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars.
+Mathematical Preliminaries and Notation, Three Basic Concepts. Finite Automata: Deterministic Finite Accepters, Non-Deterministic Finite Accepters, Equivalence of Deterministic and Non-Deterministic Finite Accepters, Reduction of the number of states in Finite Automata. Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars.
   
 >**Unit 2**: [[U2_Regular_CFG|Regular Languages and Context Free Languages]]
 

@@ -10,9 +10,16 @@
 4. **Start symbol**: The initial non-terminal that generates strings.
 
 For example, in the rule `S -> aS | b`, we have:
+
 - **`S`**: A non-terminal that can generate more characters.
 - **`a`** and **`b`**: Terminals (characters from the language).
 - `|`: Means "or", so `S` can either become `aS` or `b`.
+
+> [!Info] Types of CFG
+> A CFG can be:
+> 
+> - linear: `S->aSb|L` one non terminal on RHS
+> - non-linear: `S->aSb|bSa|SS|L` more than one non terminal on RHS
 
 ---
 ### Example Rule: `S -> aS | b`
@@ -95,3 +102,60 @@ Using the rule `S -> aS | b`, the following strings can be generated:
 
 1. Start with the S start symbol and choose the closest production that matches to the given string.
 2. Replace the Variables with its most appropriate production. Repeat the process until the string is generated or until no other productions are left.
+
+--- 
+
+> [!Example] Left and Rightmost 
+> 
+> ### Leftmost derivation
+> 
+> ![[Pasted image 20241109101225.png]]
+> 
+> ### Rightmost Derivation
+> 
+> ![[Pasted image 20241109101338.png]]
+> 
+
+---
+## Ambiguous Grammar
+
+![[Pasted image 20241109101939.png]]
+
+> [!Warning]
+> The left one is the right one! 
+> A compiler can not understand ambigious grammar.
+  
+
+> [!Example] a+bc
+> ![[Pasted image 20241109102800.png]]
+
+
+> [!Example] Regex
+> ![[Pasted image 20241109103029.png]]
+
+> [!Example] aab
+> ![[Pasted image 20241109103150.png]]
+
+---
+# Grammar vs Language Ambiguity
+
+---
+# Normal Forms
+
+To sanitize grammar for the compiler.
+
+- CNF
+- GNF
+
+1. Membership problem: a string is a part of the language or not?
+2. Enabled parsing: you must stop after K steps, quit if over limit.
+
+## CNF
+
+1. Eliminate `L` productions
+2. Eliminate unit productions: each step must increase the length of the sentencial form or the number of terminals.
+3. Eliminate useless productions and symbols.
+	1. Deriviablility: each variable must derive a string / end with set of terminals or `L`
+	2. Reachability: each variable must be reachable from `S`
+	
+### CNF Examples
