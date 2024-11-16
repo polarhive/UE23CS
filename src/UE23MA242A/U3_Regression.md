@@ -1,6 +1,6 @@
 # Linear Regression and Distribution Free Tests
 
-### Chi-squared Test
+## Chi-squared Test
 
 The Chi-squared test is a non-parametric test used to determine if there is a significant association between categorical variables. It compares the observed frequencies in each category to the frequencies we would expect if there were no association.
 
@@ -17,6 +17,7 @@ Suppose we want to test if there is an association between gender (male, female)
 | Male   | 30   | 10      | 40    |
 | Female | 20   | 40      | 60    |
 | Total  | 50   | 50      | 100   |
+
 ### Fixed Level Testing
 
 In fixed level testing, the significance level ($\alpha$) is predetermined, typically set at 0.05 or 0.01. This level indicates the probability of making a Type I error.
@@ -28,7 +29,8 @@ If $\alpha = 0.05$, we reject the null hypothesis if the p-value is less than 0.
 - **Type I Error ($\alpha$)**: The probability of rejecting the null hypothesis when it is true. For example, concluding that a new drug is effective when it is not.
 - **Type II Error ($\beta$)**: The probability of failing to reject the null hypothesis when it is false. For example, concluding that a new drug is not effective when it actually is.
 
-### Power of a Test
+---
+## Power of a Test
 
 The power of a test is the probability of correctly rejecting the null hypothesis when it is false. It is influenced by several factors: 
 
@@ -44,6 +46,7 @@ $\text{Power} = 1 - \beta$
 # Simple Linear Regression
 
 Simple linear regression is used to model the relationship between a dependent variable $y$ and an independent variable $x$. The goal is to find the best-fitting line through the data points.
+
 ### Correlation
 
 The correlation coefficient ($r$) quantifies the strength and direction of a linear relationship between two variables. It ranges from -1 to 1.

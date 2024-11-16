@@ -600,7 +600,6 @@ int main() {
 ```
 
 ---
-
 # Suffix Tree
 
 A **Suffix Tree** for a string `S` of length `n` is a compressed trie that contains all the suffixes of the string. Each leaf node represents a suffix, and the internal nodes represent common prefixes among the suffixes. The tree structure allows for efficient substring searches and many other string processing operations.
@@ -748,3 +747,4 @@ While the above naive method builds a simple suffix tree, it is not efficient fo
 > - Maintaining an active point, which helps to minimize redundant work when inserting new suffixes.
 > - Handling edge cases, such as when a new character introduces a new suffix or when an internal node is split.
 
+---
