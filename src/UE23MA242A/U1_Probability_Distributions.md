@@ -110,11 +110,10 @@ In probabilistic sampling, every member of the population has a known, non-zero 
 2. **Systematic Sampling**: Individuals are selected at regular intervals from an ordered list.
 3. **Stratified Sampling**: The population is divided into homogeneous subgroups (strata), and samples are drawn from each subgroup. Optimal allocation is given by:
 
-   $$
-
-n_i = \frac{n N_i \sigma_i}{N_1 \sigma_1 + N_2 \sigma_2 + \cdots + N_n \sigma_n}
-
 $$
+n_i = \frac{n N_i \sigma_i}{N_1 \sigma_1 + N_2 \sigma_2 + \cdots + N_n \sigma_n}
+$$
+
 4. **Cluster Sampling**: The population is divided into groups (clusters), and a random sample of entire clusters is selected.
 
 ### Non-Probabilistic Sampling
@@ -141,48 +140,50 @@ Chebyshev's inequality provides a bound on how much data lies within a certain n
 Normal probability plots visually assess whether data follow a normal distribution by plotting observed values against expected normal values.
 
 ---
+
 # Random Variate Generation
 
 Self learning
 
-### Types of Random Variates
+## Types of Random Variates
 
 Random variates are numbers generated from a specific probability distribution, used in simulations and statistical models.
 
-### Acceptance-Rejection Method
+## Acceptance-Rejection Method
 
 The acceptance-rejection method is a technique for generating random numbers from a complex probability distribution by using a simpler distribution as an intermediary.
 
 ---
 
-## Sampling Distribution and the Central Limit Theorem
+# Sampling Distribution and the Central Limit Theorem
 
 The **Central Limit Theorem** states that, given a sufficiently large sample size, the sampling distribution of the sample mean will approach a normal distribution, regardless of the original distribution of the data.
 
 ---
 
-## Principles of Point Estimation
+# Principles of Point Estimation
 
 Point estimation involves estimating a population parameter using sample data. Key principles include minimizing **Mean Squared Error (MSE)** and applying methods like **Maximum Likelihood Estimation (MLE)**.
 
-### Mean Squared Error (MSE) for Common Distributions
+## Mean Squared Error (MSE) for Common Distributions
 
 MSE is a measure of the average squared difference between the estimator and the true parameter. It is commonly used for distributions such as:
+
 - Bernoulli
 - Binomial
 - Poisson
 - Normal
 
-### Maximum Likelihood Estimation (MLE)
+## Maximum Likelihood Estimation (MLE)
 
 MLE is a method of estimating the parameters of a probability distribution by maximizing the likelihood function, making it suitable for Bernoulli, Binomial, Poisson, and Normal distributions.
 
 ---
 
-## Multivariate Normal Distribution
+# Multivariate Normal Distribution
 
 The multivariate normal distribution generalizes the normal distribution to multiple dimensions, used when dealing with vector-valued random variables.
 
-## MAP Estimation
+# MAP Estimation
 
 Maximum A Posteriori (MAP) estimation is a Bayesian approach that finds the mode of the posterior distribution, incorporating prior knowledge into the estimation process.
