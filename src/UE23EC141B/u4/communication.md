@@ -58,6 +58,7 @@ The process of recovering the message from the modulated signal is called demodu
 - Modulation helps to adjust bandwidth.
 
 ---
+
 ## Important Bands
 
 | Application  | Frequency Band |
@@ -68,6 +69,7 @@ The process of recovering the message from the modulated signal is called demodu
 | Mobile Radio | 806-901 MHz    |
 
 ---
+
 ### The Objectives of a Cellular System Include
 
 - Ensuring high **capacity**
@@ -135,7 +137,7 @@ However, for achieving a large coverage area, a single transmission necessitates
    - A handoff request can "keep trying" during that time period, instead of having a single block/no block decision.
    - Prioritise requests (based on mobile speed) and handoff as needed.
 	- Calls will still be dropped if time period expires.
-  
+
 ### Practical Handoff Considerations
 
 Problems occur because of a large range of mobile velocities
@@ -154,6 +156,7 @@ Mobile Switching Centre load is heavy when high speed users are passed between v
 Example areas: interstate highway passing through urban centre, office park, or nearby shopping mall.
 
 ---
+
 #### Typical handoff parameters
 
 - Analog cellular (1st generation): threshold margin Δ≈ 6 to 12 dB, total time to complete handoff ≈ 8 to 10 sec
@@ -175,6 +178,7 @@ This choice of best signal can keep changing
 - Advantage is unique to CDMA (Code-division Multiple access) systems: as long as there are enough codes available.
 
 ---
+
 ## Co-Channel Interference
 
 During Frequency reuse there are several cells that use the same set of frequencies which leads to co-channel interference.
@@ -183,7 +187,7 @@ During Frequency reuse there are several cells that use the same set of frequenc
 - co-channel interference is independent of the transmitted
 power
 
-### co-channel interference is a function of:
+### co-channel interference is a function of
 
 - **R**: Radius of the cell
 - **D**: distance to the centre of the nearest co-channel cell

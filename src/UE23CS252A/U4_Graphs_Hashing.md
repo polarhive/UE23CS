@@ -33,6 +33,7 @@ int main() {
 `simple_hash` function calculates the sum of ASCII values of each character in the string and returns the remainder when divided by `TABLE_SIZE`. This remainder gives the index in the hash table.
 
 ---
+
 ## Hash Function
 
 A **hash function** is an algorithm that maps input data of arbitrary size to fixed-size values. A good hash function minimizes collisions, is fast, simple, and deterministic.
@@ -57,6 +58,7 @@ int main() {
 The `hash_function` takes an integer `key` and returns the index by applying modulo operation with the `TABLE_SIZE`. This is a simple and commonly used hash function.
 
 ---
+
 ## Hash Table
 
 A **hash table** is a data structure that uses hash functions to store and retrieve values quickly. The key is hashed into an index, where the associated value is stored.
@@ -119,6 +121,7 @@ int main() {
 - The `insert` function uses the `simple_hash` function to compute the index for the given key and stores the key-value pair in the table.
 
 ---
+
 # Collision Handling in Hash Tables
 
 In a hash table, **collisions** occur when two or more keys hash to the same index. Several methods can be used to handle collisions. These include:
@@ -129,7 +132,6 @@ In a hash table, **collisions** occur when two or more keys hash to the same ind
 > 3. **Quadratic Probing**: Uses a quadratic increment to find the next open index.
 > 4. **Double Hashing**: Uses a second hash function to compute the step size for probing.
 > 5. **Rehashing**: Involves resizing the table and recalculating hash values when the table becomes too full.
-> 
 
 ---
 
@@ -207,6 +209,7 @@ int main() {
 - When a collision occurs, new elements are added to the front of the list at the corresponding index.
 
 ---
+
 ## Using Linear/Quadratic Probing
 
 **Linear probing** and **quadratic probing** are methods of **open addressing**, where colliding elements are placed in the next available slot within the hash table.
@@ -283,6 +286,7 @@ int main() {
 - The `is_occupied` flag ensures we skip over empty slots.
 
 ---
+
 ## Using Double Hashing and Rehashing
 
 **Double hashing** uses a second hash function to compute the step size for probing. It is used to resolve collisions and is often more effective than linear or quadratic probing.
@@ -368,6 +372,7 @@ int main() {
 - When a collision occurs, the algorithm moves `step_size` positions forward until an empty slot is found.
 
 ---
+
 # Tries
 
 A **Trie** (or prefix tree) is a specialized tree-like data structure that stores a set of strings, where each node represents a single character of the string. Tries are particularly useful for tasks involving prefix matching, such as autocomplete or spell-checking.
@@ -380,6 +385,7 @@ A **Trie** (or prefix tree) is a specialized tree-like data structure that store
 > - **Efficiency**: Tries provide efficient search, insertion, and deletion operations compared to other string matching algorithms.
 
 ---
+
 ## Applications of Tries
 
 1. **Word Searching**: Tries provide an efficient way to store and search for words in a dictionary.
@@ -387,6 +393,7 @@ A **Trie** (or prefix tree) is a specialized tree-like data structure that store
 3. **Spell Checking**: Tries help in verifying if a word exists in the dictionary by checking the prefix structure.
 
 ---
+
 ## Insert, Search, and Delete Operations
 
 > [!Example]
@@ -600,6 +607,7 @@ int main() {
 ```
 
 ---
+
 # Suffix Tree
 
 A **Suffix Tree** for a string `S` of length `n` is a compressed trie that contains all the suffixes of the string. Each leaf node represents a suffix, and the internal nodes represent common prefixes among the suffixes. The tree structure allows for efficient substring searches and many other string processing operations.
@@ -620,7 +628,7 @@ A **Suffix Tree** for a string `S` of length `n` is a compressed trie that conta
 >    - Text compression
 >    - Longest common substring problem
 
-### Properties of a Suffix Tree
+## Properties of a Suffix Tree
 
 1. **Compact Representation**: It stores all suffixes of a string in a compressed manner.
 2. **Leaf Nodes**: Each leaf node corresponds to a suffix of the string, and it contains the starting index of the suffix in the original string.
@@ -629,14 +637,15 @@ A **Suffix Tree** for a string `S` of length `n` is a compressed trie that conta
 5. **Time Complexity**: Construction of the suffix tree can be done in **O(n)** time (where n is the length of the string) with the help of advanced algorithms like Ukkonen's algorithm.
 
 ---
-## Construction of a Suffix Tree
+
+# Construction of a Suffix Tree
 
 There are multiple algorithms for constructing a suffix tree, with the most efficient being **Ukkonen’s Algorithm**, which constructs the tree in **O(n)** time. However, constructing a suffix tree can be complex, so we’ll start with a basic, conceptual approach before delving into more optimized algorithms.
 
 1. **Add a Special Character**: First, we append a special character (usually '$') to the string to ensure that no suffix is a prefix of another. This special character helps avoid ambiguity when constructing the tree.
 2. **Insert Suffixes**: We then insert each suffix of the string into the tree. Each suffix is inserted by following the characters one by one, creating nodes as necessary.
 
-### Example: Construction of a Suffix Tree (Naive Approach)
+## Example: Construction of a Suffix Tree (Naive Approach)
 
 ```c
 #include <stdio.h>
@@ -732,7 +741,8 @@ a$
 ```
 
 ---
-### Optimized Suffix Tree Construction
+
+## Optimized Suffix Tree Construction
 
 While the above naive method builds a simple suffix tree, it is not efficient for large strings due to its time complexity. The optimal construction algorithm is **Ukkonen's Algorithm**, which builds the suffix tree in **O(n)** time by using the following ideas:
 
@@ -742,7 +752,7 @@ While the above naive method builds a simple suffix tree, it is not efficient fo
 
 > [!Info]
 > Implementing **Ukkonen's Algorithm** is more involved and requires careful handling of active points and suffix links. The general steps of the algorithm include:
-> 
+>
 > - Iterating over each character in the string.
 > - Maintaining an active point, which helps to minimize redundant work when inserting new suffixes.
 > - Handling edge cases, such as when a new character introduces a new suffix or when an internal node is split.

@@ -1,1 +1,1 @@
-# Sequencial Logic
+# Sequential Logic

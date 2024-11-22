@@ -90,8 +90,8 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 | Target Market        | Targeted for high-end market where performance is important.                                             | Targeted for Embedded market.                                                                                                                                                                                   |
 | Power Saving Options | Limited power saving options.                                                                            | Includes a lot of power-saving features.                                                                                                                                                                        |
 
-
 ---
+
 ## Digital Signal Processor
 
 - Powerful special purpose 8/16/32 bit microprocessor designed specifically to meet the computational demands and power constraints of different applications.
@@ -107,7 +107,6 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 ---
 
 ## General Purpose Processor Vs Application Specific Instruction Set Processor
-
 
 | Criteria                                   | General Purpose Processor (GPP)                                | Application Specific Instruction Set Processor (ASIP)                                                                                                                              |
 | ------------------------------------------ | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -151,7 +150,6 @@ It's a micro-controller or microprocessor-based system which is designed to perf
 ## Commercial Off-the-Shelf Components (COTS)
 
 > Provides easy integration and interoperability with existing system components. It can be developed around GPP, Domain-specific Processor, ASIC, or PLDs.
-
 
 | Advantages                                                                                                    | Disadvantages                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -257,6 +255,7 @@ B) Dynamic RAM (**DRAM**)
    - Write Operation is faster than read operation
 
 ---
+
 C) **NVRAM** (Non-volatile RAM)
 
 - RAM with battery backup.
@@ -358,9 +357,11 @@ Features of ARM7:
 - Three-stage pipelining
 
 ---
+
 Spec: RS 232 C & RS 485
 
 It is wired, asynchronous, serial, full duplex communication
+
 - RS 232 interface was developed by EIA (Electronic Industries Associates) In early 1960s
 - RS 232 is the extension to UART for external communications
 - RS-232 logic levels use: +3 to +25 volts to signify a "Space" (Logic 0)
@@ -397,7 +398,6 @@ It is wired, asynchronous, serial, full duplex communication
 - i. Instruction decode Block
 - ii. Direct Register bank
 - iii. Sign extend hardware block (which is again connected to the register file)
-
 - **Instruction decoder** translates instructions before they are executed.
 - Data items are placed in a **register file-storage bank** made of 32-bit registers. Since the ARM core is a 32-bit processor, most instructions treat the registers as holding signed or unsigned 32-bit values.
 - **Sign extend hardware** converts signed 8-bit and 16-bit numbers to **32-bit** values as they are read from memory and placed in a register.
@@ -407,29 +407,31 @@ It is wired, asynchronous, serial, full duplex communication
 ## Basic Processing Units
 
 i. ALU (Arithmetic Logic Unit)
+
 ii. Barrel Shifter
+
 iii. MAC (Multiply and Accumulate Unit)
 
-#### ALU (Arithmetic and Logical Unit)
+### ALU (Arithmetic and Logical Unit)
 
 - ALU takes values Rn and Rm and computes results.
 - ALU performs add, sub, etc. (mathematical operations), OR/AND, etc. (logical operations) on the data present in data registers.
 - Load and store instructions use the ALU to generate an address to be held in the address register and broadcast on the Address bus.
 
-#### Barrel Shifter
+### Barrel Shifter
 
 A barrel shifter is a digital circuit that can shift a data word by a specified number of bits in one clock cycle.
 
 - Operand 2 (B) can be directly loaded or shifted by a specified number of times.
 - Can achieve fast multiplication or division by a power of 2.
 
-#### MAC (Multiply and Accumulate Unit)
+### MAC (Multiply and Accumulate Unit)
 
 - Multiply-Accumulate Circuit is used to perform both multiplication and addition.
 - The result of any operation can be written back to the register bank.
 - Supports basic summation operation on data present in registers.
 
-### Address Register
+## Address Register
 
 - Contains the address from which data or instruction needs to be fetched. (like start address)
 - This register is connected to the Incrementer unit.
@@ -491,7 +493,7 @@ The ARM has seven operating modes:
 
 ### State and Instruction Sets
 
-> The state of the core determines which instruction set is being executed.  
+> The state of the core determines which instruction set is being executed.
 
 - **ARM State:** A processor in one instruction set state cannot execute instructions from another instruction set. A processor in ARM state cannot execute Thumb instructions.
 - **Thumb State:** Thumb mode provides greater code density, at the expense of speed.

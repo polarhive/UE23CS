@@ -14,6 +14,7 @@ Web servers have two main directories:
 2. Server root (server system software)
 
 Document root is accessed indirectly by clients
+
 - Its actual location is set by the server configuration file
 - Requests are mapped to the actual location
 
@@ -30,11 +31,12 @@ Document root is accessed indirectly by clients
 9. Browser Starts TCP Handshake
 
 ---
+
 # Web protocols
 
 > A protocol is a set of rules and guidelines for communicating data. Different applications use different protocols. The web, in particular, uses multiple protocols to communicate. The most important and visible protocols are HTTP and HTTPS.
 
-### HTTP: HyperText Transfer Protocol
+## HTTP: HyperText Transfer Protocol
 
 Application Layer Protocol used by the Web
 
@@ -54,7 +56,8 @@ Application Layer Protocol used by the Web
 - TCP connection closed
 
 ---
-## HTTP Request Response Formats, URLs
+
+# HTTP Request Response Formats, URLs
 
 > [!structure]
 > HTTP requests contain a request line, followed by zero or more request headers
@@ -74,14 +77,13 @@ Application Layer Protocol used by the Web
 - `<version> <status code> <status msg>`
 - `<version>` is HTTP version of the response.
 - `<status code>` is numeric status.
-
 - **Response headers:**
 - `<header name>: <header data>`
 - Provide additional information about response
 - Content-Type: MIME type of content in response body.
 - Content-Length: Length of content in response body.
 
-### HTTP methods
+## HTTP methods
 - **GET**: Retrieve static or dynamic content
 - **POST**: Send content to server through request body
 - **OPTIONS**: Get server or file attributes
@@ -89,7 +91,7 @@ Application Layer Protocol used by the Web
 - **PUT**: Write a file to the server
 - **DELETE**: Delete a file on the server
 
-### Status Codes
+## Status Codes
 
 Three-digit number: first digit specifies the general status
 
@@ -107,7 +109,8 @@ Three-digit number: first digit specifies the general status
 > - 404 Not found => Server couldn’t find the file.
 
 ---
-## Basic Mark-up & syntax
+
+# Basic Mark-up & syntax
 
 **Markup** lets you define elements within a document using tags.
 
@@ -118,14 +121,15 @@ Three-digit number: first digit specifies the general status
 > - Opening tag: `<tag_name>`
 > - Closing tag: `</tag_name>`
 
-#### Syntax
+## Syntax
 
 - `<tag_name>` content… `</tag_name>`
 - Not all tags have content, if a tag has no content, its form is `<tag_name/>`
 - The container and its content together are called an element
 
 ---
-## HTML elements & attributes
+
+# HTML elements & attributes
 
 | Element | Description                                                        |
 | ------- | ------------------------------------------------------------------ |
@@ -135,11 +139,12 @@ Three-digit number: first digit specifies the general status
 | body    | Content of your website, all visible parts of the page live here   |
 
 ---
-## HTML5 New Tags
+
+# HTML5 New Tags
 
 Introduces 28 new elements such as:  `<header><footer>,<article>,<nav>,<section>,<time>,<audio>,<video>,<output>`
 
-| Element | Descrption                  |
+| Element | Description                  |
 | ------- | --------------------------- |
 | Article | Defines an article          |
 | Footer  | Copyright, colophon         |
@@ -148,7 +153,8 @@ Introduces 28 new elements such as:  `<header><footer>,<article>,<nav>,<section>
 | Section | Part/Chapter of the content |
 
 ---
-## Web Form
+
+# Web Form
 
 > [!Form]
  > A form is a way to send information from a browser to a server. All the components of a form appear as the content of `<form>` tag. The components are called widgets (e.g., text boxes, radio buttons and checkboxes)
@@ -165,9 +171,9 @@ Introduces 28 new elements such as:  `<header><footer>,<article>,<nav>,<section>
 </form>
 ```
 
-### Response Methods
+# Response Methods
 
-#### GET
+## GET
 
 > [!Warning]
 > NEVER use GET to send sensitive data! (the submitted form data is visible in the URL!
@@ -177,14 +183,15 @@ Introduces 28 new elements such as:  `<header><footer>,<article>,<nav>,<section>
 - Useful for form submissions where a user wants to bookmark the result
 - GET is good for non-secure data, like query strings in a Google search
 
-### POST
+# POST
 
 - Appends the form data inside the body of the HTTP request (the submitted form data is not shown in the URL)
 - POST has no size limitations, and can be used to send large amounts of data.
 - Form submissions with POST cannot be bookmarked
 
 ---
-## Inputs, Elements and Controls
+
+# Inputs, Elements and Controls
 
 > [!Example]
 > HTML5 specifications introduced new ***Input types*** and properties:
@@ -219,31 +226,32 @@ Format: `<input type="">`
 | Required    | Mandate response                  |
 | Step        | Granularity                       |
 
-### Form validation/regex
+# Form validation/regex
 
 1. Number: `<input type="number" min="1" max="10">`
 2. Email: `<input type="email"`
 3. Range: `<input type="range" min="1" max="10"`
 
 ---
+
 # CSS 3.0: Styles & Style sheets
 
-Inline Style - CSS is placed directly into the HTML element. 
+Inline Style - CSS is placed directly into the HTML element.
 
-1) Internal Style Sheet /Embedded Style Sheet - CSS is placed into a separate area within the `<head>` section of a web page using `<style>` tag. 
+1) Internal Style Sheet /Embedded Style Sheet - CSS is placed into a separate area within the `<head>` section of a web page using `<style>` tag.
 
 2) External Style Sheet - CSS is placed into a separate file and "connected" to a web page.
 
 ## Conflict resolution
 
-Same formatting rules can be defined in all three locations at the same time. 
+Same formatting rules can be defined in all three locations at the same time.
 
 > [!NOTE] Example
-> A paragraph element could contain an inline style `(color:red)` but the internal style sheet `(color:blue)` and the external style sheet `(color:green)` give conflicting instructions to the web browser. 
+> A paragraph element could contain an inline style `(color:red)` but the internal style sheet `(color:blue)` and the external style sheet `(color:green)` give conflicting instructions to the web browser.
 
 > Web browsers need a consistent way of "settling" this disagreement.
 
-We use the term cascading because there is an established order of priority to resolve these formatting conflicts: 
+We use the term cascading because there is an established order of priority to resolve these formatting conflicts:
 
  1. Inline style (highest priority)
  2. Internal style sheet (second priority)
@@ -251,6 +259,7 @@ We use the term cascading because there is an established order of priority to r
  4. Web browser default (only if not defined elsewhere)
 
 ---
+
 ## Selectors, Style properties
 
 Every CSS rule begins with a **selector**. The selector identifies which element or elements in the HTML document will be affected by the declarations in the rule
@@ -319,6 +328,7 @@ h1, h2, p { background: yellow; }
 ```
 
 ---
+
 ## Box Model
 
 ![box model](Pasted%20image%2020240916024819.png)
@@ -334,7 +344,7 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 
 ## Div and Span
 
-> There are two elements used commonly to style specific parts of a webpage 
+> There are two elements used commonly to style specific parts of a webpage
 > `<span>` To apply style to a part of a paragraph In-line element `<div>` To apply style to a set of elements or paragraphs
 
 ### Block-level elements
@@ -343,7 +353,7 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 - A block-level element always takes up the full width available (stretches out to the left and right as far as it can). Some example block-level elements are: `<div>, <h1>-<h6>, <p>, <ul>, <nav>` In-Line elements
 - An inline element does not start on a new line.
 - An inline element only takes up as much width as necessary.
-- Some example inline-level elements are: `<span>, <a>, <input>,<button>,<img>` 
+- Some example inline-level elements are: `<span>, <a>, <input>,<button>,<img>`
 - Block element cannot be nested inside an inline element;
 
 ### Position Property CSS – Box Model and Position Property
@@ -351,28 +361,28 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 - By default, the browser determines the positioning of each element
 - CSS introduced the position property and a capability to control how and where page elements are displayed
 
-### Position property values:
+### Position property values
 
 - Static: default value. Elements are positioned in the normal flow of the document
 - Absolute: relative to the nearest positioned ancestor. Removed from normal flow
 - Relative: is positioned relative to its normal position.
-- Fixed: it always stays in the same place. 
+- Fixed: it always stays in the same place.
 - Sticky- toggles between relative and fixed, positioned relative until a given offset position is met in the viewport - then it "sticks" in place.
 
-### Element Width and Height CSS – Box Model and Position Property 
+### Element Width and Height CSS – Box Model and Position Property
 
 > [!NOTE] Total width of an element is calculated as
 > - Total element width = width + left padding + right padding + left border + right border + left margin + right margin
 
 - The total height of an element is calculated as:
-- Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin 
+- Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
 - This `<div>` element will have a total width of `350px: div { width: 320px; padding: 10px; border: 5px solid gray; margin: 0; }`
 - Calculation: `320px (width) + 20px (left + right padding) + 10px (left + right border) + 0px (left + right margin) = 350px`
 
 
-### CSS provides control over the backgrounds of block-level elements. 
+### CSS provides control over the backgrounds of block-level elements
 
-- CSS can set a background color or add background images to HTML5 elements. 
+- CSS can set a background color or add background images to HTML5 elements.
 - Different properties:
 - background-image
 - background-position
@@ -381,15 +391,15 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 
 ### Length Units CSS
 
-- Box Model and Position Property 
-- CSS has several different units to represent lengths. 
-- Most CSS properties take length values, such as width, margin, padding, font-size, etc. 
+- Box Model and Position Property
+- CSS has several different units to represent lengths.
+- Most CSS properties take length values, such as width, margin, padding, font-size, etc.
 - Each length value is followed by a length unit.
 - Negative lengths are allowed only for some CSS properties only.
 
-### Length Units CSS: Box Model and Position Property 
+### Length Units CSS: Box Model and Position Property
 
-Absolute length units These are fixed and the length expressed in this format will appear of the same size Unit Description Calculation cm centimeters 
+Absolute length units These are fixed and the length expressed in this format will appear of the same size Unit Description Calculation cm centimeters
 
 > [!Important] Important conversions
 > - 1cm = 96px/2.54 mm millimeters
@@ -398,33 +408,35 @@ Absolute length units These are fixed and the length expressed in this format wi
 > - 1pt = 1/72nd of 1in
 > - 1pc = 12pt = 1/6th of 1in
 
-### Length Units CSS – Box Model and Position Property 
+### Length Units CSS – Box Model and Position Property
 
 Relative length units Relative length expressed in this format will appear relative to other reference elements Unit Description em Relative to the font-size of the element (2em is 2 times current font) ex Relative to the x-height of current font ch Relative to width of the “0” (zero) rem Relative to the font-size of the root element % Relative to the parent element
 
 ---
+
 ## JavaScript Basics(variables, scope, Builtin Objects)
 
 > Client Side Scripting Language - Originally, LiveScript in NetScape Browser - JavaScript programs are run by an interpreter built into the user's web browser - Now the language has evolved with additional Server Side Scripting capabilities (like in Node.JS
 
 ## Pros and Cons of JavaScript
 
-- Pros: Allows more dynamic HTML pages, even complete web applications 
-- Cons: Requires a JavaScript-enabled browser (requires a client) who trusts the server enough to run the code the server provides - 
+- Pros: Allows more dynamic HTML pages, even complete web applications
+- Cons: Requires a JavaScript-enabled browser (requires a client) who trusts the server enough to run the code the server provides -
 - JavaScript has some protection in place but can still cause security problems for clients
 
 ## JavaScript Basics
 
-1. HTML to define the content of web pages 
-2. CSS to specify the layout of web pages and give a good look. 
-3. JavaScript to program the behavior of web pages 
-4. Web pages are not the only place where JavaScript is used. 
+1. HTML to define the content of web pages
+2. CSS to specify the layout of web pages and give a good look.
+3. JavaScript to program the behavior of web pages
+4. Web pages are not the only place where JavaScript is used.
 
 ```html
 <html> <head> <title>Hello World in JavaScript</title> </head> <body> <script type="text/javascript"> document.write("Hello World!"); </script> </body> </html>
 ```
 
 ---
+
 ## Interpreting JS
 
 JavaScript generally automatically inserts semicolons at the end of line
@@ -463,7 +475,6 @@ Variable can be declared using − let (block scope) − var (function or global
 	- boolean
 	- null
 	- undefined
-
 - Non-Primitive Datatypes (used with new keyword)
 	- Object
 	- Boolean
@@ -473,6 +484,7 @@ Variable can be declared using − let (block scope) − var (function or global
 	- Array
 
 ---
+
 ## Operators and Constructs
 
 JavaScript has most of the operators we're used to from C/Java
@@ -517,8 +529,8 @@ Output: Volve164
 
 ### Loops
 
-1. for - loops through a block of code a number of times 
-2. for/in - loops through the properties of an object 
+1. for - loops through a block of code a number of times
+2. for/in - loops through the properties of an object
 3. while - loops through a block of code while a specified condition is true
 4. do/while - also loops through a block of code while a specified condition is true
 
@@ -534,17 +546,17 @@ var person = {fname:"John", lname:"Doe", age:25}; var text = ""; var x; for (x i
 
 ### Array
 
-Arrays are lists of elements indexed by a numerical value starting with 0 to (length of the array – 1) 
+Arrays are lists of elements indexed by a numerical value starting with 0 to (length of the array – 1)
 
-- Arrays can be created using the new Array method 
-- `let arr = new Array(100)` creates an array of 100 elements 
-- `let arr = new Array(10, 20)` creates an array of 2 elements 
-- Literal arrays using square brackets 
+- Arrays can be created using the new Array method
+- `let arr = new Array(100)` creates an array of 100 elements
+- `let arr = new Array(10, 20)` creates an array of 2 elements
+- Literal arrays using square brackets
 - `var alist = *1, “ii”, “gamma”, “4”+;
 
-### Array length property can be modified at runtime 
+### Array length property can be modified at runtime
 
-Hence, the length property does not necessarily indicate the number of defined values in the array the array 
+Hence, the length property does not necessarily indicate the number of defined values in the array the array
 
 ```js
 const arr = [1, 2]; console.log(arr); // [ 1, 2 ] arr.length = 7; 
@@ -555,9 +567,10 @@ console.log(typeof i + i)); // string 0 // string 1
 
 ### Functions
 
-Whenever you have a relatively complex piece of code that is likely to be reused, you have a candidate for a function. 
+Whenever you have a relatively complex piece of code that is likely to be reused, you have a candidate for a function.
 
-The general syntax for a function is: 
+The general syntax for a function is:
+
 ```js
 function function_name([parameter [, ...]]) { statements //optional return statement }```
 
@@ -568,7 +581,7 @@ The general syntax for calling a function is: `[retval =] function_name(*argumen
 
 ### Parameter / Args
 
-Argument list and parameter list mismatch does not give errors. Parameter that is not passed a value in arguments list is treated as undefined To access additional arguments, use the arguments object or the args array to access the values passed. 
+Argument list and parameter list mismatch does not give errors. Parameter that is not passed a value in arguments list is treated as undefined To access additional arguments, use the arguments object or the args array to access the values passed.
 
 ```js
 function func() { // access passed values // using arguments object } 
@@ -584,6 +597,7 @@ Hoisting is JavaScript's default behavior of moving all variable and function de
 Only declarations are hoisted not initializations. Variables and constants declared with let or const are not hoisted!
 
 ---
+
 ## JavaScript objects and Prototypal Inheritance
 
 In JavaScript, almost "everything" is an object. Booleans can be objects (if defined with the new keyword) Numbers can be objects (if defined with the new keyword). Strings can be objects (if defined with the new keyword). Dates are always objects. Arrays are always objects. All JavaScript values, except primitives, are objects.
@@ -618,9 +632,10 @@ Math
 ```
 
 ---
+
 ## DOM Manipulations
 
-When a web page is loaded, the browser creates a Document Object Model of the page. The HTML DOM model is constructed as a tree of Objects. The HTML DOM is a standard object model and programming interface for HTML. 
+When a web page is loaded, the browser creates a Document Object Model of the page. The HTML DOM model is constructed as a tree of Objects. The HTML DOM is a standard object model and programming interface for HTML.
 
 It defines: The HTML elements as objects. The properties of all HTML elements. The methods to access all HTML elements. The events for all HTML elements
 
@@ -636,7 +651,7 @@ Objects have properties and methods, and respond to events. Properties – speci
 
 - `write(“string”)` writes the given string on the document
 - `getElementById()` returns the element having the given id value.
-- `getElementsByName()` returns all the elements having the given name value. 
+- `getElementsByName()` returns all the elements having the given name value.
 - `getElementsByTagName()` returns all the elements having the given tag name.
 
 ### Accessing Elements
@@ -654,10 +669,12 @@ Objects have properties and methods, and respond to events. Properties – speci
 ### Manipulating Nodes in the DOM
 
 ---
+
 ## Events and Event Handling in JavaScript
 
-Events Examples of HTML events: 
-- When a user clicks the mouse, when a web page has loaded. When an image has been loaded. 
+Events Examples of HTML events:
+
+- When a user clicks the mouse, when a web page has loaded. When an image has been loaded.
 - When the mouse moves over an element.
 - When an input field is changed
 - When an HTML form is submitted
@@ -667,31 +684,31 @@ Events Examples of HTML events:
 
 There are two distinct approaches to event handler registration:
 
-- Assign element attributes. Inline event handlers. 
+- Assign element attributes. Inline event handlers.
 - Assign handler addresses to object properties. Event handler properties and Event listeners.
 
-There are three ways to assign events to elements: 
+There are three ways to assign events to elements:
 
-- Inline event handlers 
-- Event handler properties 
+- Inline event handlers
+- Event handler properties
 - Add Event listeners
 
-### An element can be assigned the event handler property element 
+### An element can be assigned the event handler property element
 
-The `.on<event> = handler;` 
+The `.on<event> = handler;`
 
 - It involves two parts: the correct event name it is to be listening for
-- The handler callback function. 
+- The handler callback function.
 - For example: `div.onclick = change;` or `div.onmouseover = function(){ … };`
 
 ## Event Listeners
 
-An event listener watches for an event on an element. 
+An event listener watches for an event on an element.
 
  `element.addEventListener(event, handler)`
 
  It takes two mandatory parameters: the event it is to be listening for, the handler callback function
-  
+
 ```js
 div.addEventListener(“click”, change); div.addEventListener(“keypress”, function(){ … });
   
@@ -703,30 +720,33 @@ Source Event Fires When Mouse click the mouse is clicked and released on an elem
 
 ## Event object holds the context or details of the event
 
-`target srcElement` the target of the event (most specific element). 
+`target srcElement` the target of the event (most specific element).
 
-Type: the name of event fired (without the on prefix) altKey / shiftKey / ctrlKey / metaKey - true/false to signify if Alt Key or Shift Key or Ctrl Key or Meta Key was pressed charCode keyCode Unicode character code of the pressed key key - Key Character Name (‘a’ or ‘F1’ or ‘CAPS LOCK’) button - Returns which mouse button was pressed clientX, clientY / offsetX, offsetY / screenX, screenY - the coordinates of the mouse pointer when the event 
+Type: the name of event fired (without the on prefix) altKey / shiftKey / ctrlKey / metaKey - true/false to signify if Alt Key or Shift Key or Ctrl Key or Meta Key was pressed charCode keyCode Unicode character code of the pressed key key - Key Character Name (‘a’ or ‘F1’ or ‘CAPS LOCK’) button - Returns which mouse button was pressed clientX, clientY / offsetX, offsetY / screenX, screenY - the coordinates of the mouse pointer when the event
+
 triggered, relative to, the current window / target element / screen.
 
 ---
+
 ## Event handling
 
 Ways of event propagation in the HTML DOM
 
 - Event bubbling
 - Event capturing.
-- Target Phase 
+- Target Phase
 
-Propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrive at its target. Event propagation is a way of defining the element order when an event occurs. `<div> <p> /<p> </div>` 
- 
-> If both `<p> and <div>` elements registered Click event, which element's "click" event should be handled first? 
+Propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrive at its target. Event propagation is a way of defining the element order when an event occurs. `<div> <p> /<p> </div>`
+
+> If both `<p> and <div>` elements registered Click event, which element's "click" event should be handled first?
 
 ### Event Handling bubbling
 
 Inner most element's event is handled first and then the outer: the `<p>` element's click event is handled first, then the `<div>` element's click event. capturing the outer most element's event is handled first and then the inner: the `<div>` element's click event will
 
-> There are three phases in which an event can propagate to handlers defined in parent elements: 
-- Capturing phase 
+> There are three phases in which an event can propagate to handlers defined in parent elements:
+
+- Capturing phase
 - Target phase
 - Bubbling phase
 
@@ -736,14 +756,14 @@ elem.addEventListener(“event”, func_ref, flag); flag = true :=> Handler regi
 
 ### Event Capturing Event Flow
 
-The `eventPhase` event property returns a number that indicates which phase of the event flow is currently being evaluated. 
+The `eventPhase` event property returns a number that indicates which phase of the event flow is currently being evaluated.
 
 The number is represented by 4 constants: 0 NONE 1 CAPTURING_PHASE. The event flow is in capturing phase 2 AT_TARGET The event flow is in target phase, i.e. it is being evaluated at the event target 3 BUBBLING_PHASE The event flow is in bubbling phase
 
-> IE5-8 Equivalent Purpose `cancelBubble`. A historical alias to `stopPropagation()`. 
-> 
+> IE5-8 Equivalent Purpose `cancelBubble`. A historical alias to `stopPropagation()`.
+>
 > Setting its value to true before returning prevents propagation `eventPhase` - Specifies which phase of the event flow is being processed cancelable.
-> 
+>
 > Not supported Indicates whether you can cancel the default behavior of an element `preventDefault()` `returnValue`.
-> 
+>
 > It cancels the default behavior of the event (if possible) `stopPropogation()` `cancelBubble` It stops any further bubbling/ capturing of the event. Event Object Properties.

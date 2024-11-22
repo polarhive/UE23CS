@@ -2,21 +2,21 @@
 
 > Web Technologies course demonstrates an in-depth understanding of the technologies necessary for designing and developing a rich web application in an efficient way.
 
-### Course Objectives:
+## Course Objectives
 
 - Basic web technologies and building blocks of a website using HTML, CSS, JavaScript and Advanced JavaScript
 - The core concepts of HTML5, JQuery and AJAX, MERN (MongoDB, ExpressJS, ReactJS and NodeJS) stack and build an UI of the application using React JS.
 - Building a multi-tier application by interfacing UI to NodeJS
 - Integrate database MongoDB through Express JS Framework and Web services.
 
-### Course Outcomes:
+## Course Outcomes
 
 - Understand basic web technologies like HTML, CSS and JavaScript
 - Achieve rich user experience by implementing HTML5 features and Asynchronous communication using AJAX, JQuery and MERN stack layers (MongoDB, ExpressJS, ReactJS and NodeJS) and Create rich User Interface using React JS.
 - Understand and Integrate the UI with NodeJS
 - Create RESTful Web services using ExpressJS and MongoDB database
 
-## Course Contents:
+# Course Contents
 
 > **Unit 1**: [[U1_HTML|HTML, CSS and Client Side Scripting]]
 

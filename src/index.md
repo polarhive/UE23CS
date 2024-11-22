@@ -4,7 +4,7 @@
 
 # sem-2
 
-- [[C]]: Problem Solving With C
+- [[uni/UE23CS151B/C]]: Problem Solving With C
 
 # sem-3
 

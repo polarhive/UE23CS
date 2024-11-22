@@ -18,7 +18,7 @@ It was created as an alternative to XML. Like XML, however, it represents hierar
 
 ## Media elements
 
-A standard approach for browser to play audio without the use of plug-in 
+A standard approach for browser to play audio without the use of plug-in
 
 ```html
 <audio controls="controls"> 
@@ -35,7 +35,7 @@ A standard approach for browser to play audio without the use of plug-in
 
 ### Progressbar
 
-- The `<progress>` tag represents the completion progress of a task. 
+- The `<progress>` tag represents the completion progress of a task.
 - Always add the `<label>` tag for describing the task! - Use JavaScript to manipulate the value of the progress bar.
 
 ```html
@@ -46,12 +46,12 @@ A standard approach for browser to play audio without the use of plug-in
 ### Canvas
 
  Uses JavaScript to draw graphics on a web page, aka a rectangular area, and you control every pixel of it.
- 
+
 ```html
 <canvas id="myCanvas" width="200" height="100"> Canvas is not supported</canvas>
 ```
 
-The canvas element has no drawing abilities of its own. All drawing must be done inside a JavaScript using the context object 
+The canvas element has no drawing abilities of its own. All drawing must be done inside a JavaScript using the context object
 
 ```js
 var c=document.getElementById("myCanvas"); 
@@ -75,9 +75,9 @@ var ctx=c.getContext("2d"); ctx.fillStyle="#FF0000"; ctx.fillRect(50,50,150,75);
 
 ## SVG
 
-- SVG stands for Scalable Vector Graphics. 
-- SVG defines vector-based graphics using HTML elements 
-- SVG graphics do NOT lose any quality if they are zoomed or resized 
+- SVG stands for Scalable Vector Graphics.
+- SVG defines vector-based graphics using HTML elements
+- SVG graphics do NOT lose any quality if they are zoomed or resized
 
 ```html
 <svg width="100" height="100">
@@ -96,16 +96,17 @@ Enables your web application to obtain the geographical position of your website
 
 ### Methods
 
-- `navigator.geolocation` object allows you to access geo location through two primary functions: 
-	- `getCurrentPosition()` returns the location of the visitor as a one-time snapshot 
-	- `watchPosition()` returns the location of the visitor every time the location changes 	
+- `navigator.geolocation` object allows you to access geo location through two primary functions:
+	- `getCurrentPosition()` returns the location of the visitor as a one-time snapshot
+	- `watchPosition()` returns the location of the visitor every time the location changes
 - Both functions take the following parameters:
-	- Success callback function 
+	- Success callback function
 	- Error callback function (optional) - Geo location options object (optional)
 
 ### Associated objects
 
-Success callback function receives position object with these read only properties 
+Success callback function receives position object with these read only properties
+
 - double latitude
 - double longitude
 - double accuracy
@@ -114,8 +115,9 @@ Success callback function receives position object with these read only properti
 - double heading (direction)
 - double speed
 
-Error callback function receives error object with these two properties 
-- short code 
+Error callback function receives error object with these two properties
+
+- short code
 	- 1, meaning PERMISSION_DENIED
 	- 2, meaning POSSITION_UNAVAILABLE
 	- 3, meaning TIMEOUT
@@ -128,7 +130,7 @@ Error callback function receives error object with these two properties
 
 ## Webworker
 
-A web worker is essentially a thread executing a JavaScript file. Makes it possible to execute a JavaScript file asynchronously and autonomously. Helps achieve multi threading in your web applications. To create a web worker: 
+A web worker is essentially a thread executing a JavaScript file. Makes it possible to execute a JavaScript file asynchronously and autonomously. Helps achieve multi threading in your web applications. To create a web worker:
 
 ```js
 var worker = new Worker(“myasync.js"); 
@@ -139,11 +141,11 @@ Parameter is the URL of the JavaScript file to execute.
 ### Restrictions
 
  A web worker does not have access to the DOM of the page that creates the web worker.
- 
- - Here is a list of what a web worker can do: 
- - Listen for messages, using the `onmessage` event listener function. 
- - Send messages via the `postMessage()` function. 
- - Send AJAX requests using the `XMLHttpRequest` 
+
+ - Here is a list of what a web worker can do:
+ - Listen for messages, using the `onmessage` event listener function.
+ - Send messages via the `postMessage()` function.
+ - Send AJAX requests using the `XMLHttpRequest`
  - Create timers using the `setTimeout()` and `sendInterval()` functions.
 
 ## jQuery
@@ -151,13 +153,13 @@ Parameter is the URL of the JavaScript file to execute.
 > Simplifies the interaction between HTML and JavaScript
 
 > [!Example]
-> JavaScript: 
+> JavaScript:
 > ```js
 > let paras = document.querySelectorAll(“p”) for (let i=0; i<paras.length; i++) paras[i].style.color = “red”
 > ```
-> 
->  jQuery: 
-> 
+>
+>  jQuery:
+>
 > ```js
 > $(“p”).css(“color”, “red”);
 > ```
@@ -184,24 +186,24 @@ Parameter is the URL of the JavaScript file to execute.
 
 ### DOM Manipulation methods
 
-- `append()` : adds a set of elements to the end of the children 
-	- `$(“pelem”).append($c1*, c2, …+)` // $c1, $c2, … will be appended to child elements of $pelem. 
+- `append()` : adds a set of elements to the end of the children
+	- `$(“pelem”).append($c1*, c2, …+)` // $c1, $c2, … will be appended to child elements of $pelem.
 	- Similar methods: appendTo, prepend
-- `after()` adds a set of elements after the specified element 
+- `after()` adds a set of elements after the specified element
 	- `$(“elem”).after($e1*, $e2,…+)` //$e1, $e2 will be added after $elem under the same parent
 	- Similar methods: insertAfter, before, insertBefore
 
 ### Attribute methods
 
-Attribute Methods like `css(), attr(), val(), html(), text()` can be used for both setting and getting attributes. Based on whether one or two arguments were passed. 
+Attribute Methods like `css(), attr(), val(), html(), text()` can be used for both setting and getting attributes. Based on whether one or two arguments were passed.
 
 > [!Example]
-> - For Setting `$(“p:last”).css(“color”, “green”);` 
+> - For Setting `$(“p:last”).css(“color”, “green”);`
 > - For Getting `let pcolor = $(“p:last”).css(“color”)`
 
 ### Chaining methods
 
-Most jQuery methods return jQuery objects. You can chain them together to perform multiple operations on the same elements 
+Most jQuery methods return jQuery objects. You can chain them together to perform multiple operations on the same elements
 
 ```js
 -$(“#deleted”).addClass(“red”).fadeOut(“slow”);
@@ -212,6 +214,7 @@ This will not work as `val()` returns a string
 ```js
  $(“:button”).val(“Click Me”).click(function(){…})`
 ```
+
 ### Event methods
 
 Register an event handler for an element object passing a function reference to the event method
@@ -239,7 +242,7 @@ $(document).ready(function(){
 ```
 
  Within any event handler function this element refers to the element for which the handler is called
- 
+
 ```js
 $("p").click(function() { 
 	var htmlString = $( this ).html();
@@ -264,17 +267,17 @@ $("#showdown").click(function(){ $("#my-div").animate({
 
 ## Callback and Promises
 
-As seen in `setInterval`, `setTimeout` and `addEventListener` a function accepts a function reference as an argument. 
+As seen in `setInterval`, `setTimeout` and `addEventListener` a function accepts a function reference as an argument.
 
-They will be called asynchronously based on timer or other events. These function references are called **Callback** functions 
+They will be called asynchronously based on timer or other events. These function references are called **Callback** functions
 
 > Example: `div.addEventListener(“keypress”, function(){ … });`
 
- A promise is used to handle the asynchronous result of an operation. With Promises, we can defer execution of a code block until an `async` request is completed. 
- 
-The **Promise** object is created using the **new** keyword and contains the promise; this is an *executor* function which has a **resolve** and a **reject** callback. 
+ A promise is used to handle the asynchronous result of an operation. With Promises, we can defer execution of a code block until an `async` request is completed.
 
-Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function. 
+The **Promise** object is created using the **new** keyword and contains the promise; this is an *executor* function which has a **resolve** and a **reject** callback.
+
+Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
 
 ```js
 const promise = new Promise(function(resolve, reject) { 
@@ -312,18 +315,19 @@ Callbacks are function passed to another function as a reference. Chaining of Ca
 Promises use Callbacks and more elegant than Callbacks. Chaining of Promises is supported
 
 ---
+
 # SPA / async js
 
 Instead of the default method of the browser loading entire new pages, a single-page application (SPA) interacts with the web browser by dynamically rewriting the current web page with new data from the web server.
 
-Resources are dynamically loaded and added to the page as necessary, usually in response to user actions. The page does not reload at any point in the process, nor does it transfer control to another page 
+Resources are dynamically loaded and added to the page as necessary, usually in response to user actions. The page does not reload at any point in the process, nor does it transfer control to another page
 
 >Can be built using - AJAX - Frameworks like ReactJS, AngularJS
 
 ## Approaches include
 
 - Setting src property of iframe or img element
-- A more elegant and complete approach is use of XHR or XMLHttpRequest object 
+- A more elegant and complete approach is use of XHR or XMLHttpRequest object
 - First create an XHR object using `var xhr = new XMLHttpRequest();`
 
 ### XHR object properties and methods
@@ -355,11 +359,13 @@ function handler() {
 ```
 
 ---
+
 ## jQuery, AJAX and `fetch()` methods
 
-jQuery provides methods that use `XMLHttpRequest` internally to make AJAX requests. 
+jQuery provides methods that use `XMLHttpRequest` internally to make AJAX requests.
 
-The methods are 
+The methods are
+
 - `$.ajax`
 - `$.get`
 - `$.post`
@@ -400,7 +406,7 @@ $.get('/jquery/getjsondata', // url
 );
 ```
 
-Other Variants 
+Other Variants
 
 - `$.getJSON(url, [data],[callback]);`
 - `$.getScript(url, [data],[callback]);`
@@ -455,6 +461,7 @@ fetch(‘resp.html') // returns a promise that resolves on response object
 ```
 
 ---
+
 # Web Development Stack
 
 > A set of tools typically used in tandem to develop web apps.
@@ -465,7 +472,6 @@ Refers to the technologies that individual developer specializes in and use toge
 	- frontend framework,
 	- backend solution
 	- database (relational or document-oriented)
-
 - MEAN
 - MERN
 - Meteor.js
@@ -475,6 +481,7 @@ Refers to the technologies that individual developer specializes in and use toge
 - Ruby on Rails Tech Stack
 
 ---
+
 ## MERN
 
 > Stands for **M**ongoDB, **E**xpress, **R**eact, **N**ode
@@ -487,11 +494,12 @@ Refers to the technologies that individual developer specializes in and use toge
 Allows you to easily construct a 3-tier architecture (frontend, backend, database) entirely using JavaScript and JSON MERN
 
 ---
+
 ## React.JS
 
 - Front End Library (The top tier of MERN Stack)
-- The declarative JavaScript Library for creating dynamic client-side applications 
-- Build up complex interfaces through 
+- The declarative JavaScript Library for creating dynamic client-side applications
+- Build up complex interfaces through
 	- simple Components
 	- connect them to data on your backend server, and render them as HTML
 - Strengths:
@@ -499,41 +507,44 @@ Allows you to easily construct a 3-tier architecture (frontend, backend, databas
 	- Great support for forms, error handling, events, lists, etc.
 
 ---
+
 ## Node.JS and Express.JS
 
-- Server side Framework (The middle tier of MERN Stack) 
+- Server side Framework (The middle tier of MERN Stack)
 - Express.js server-side framework, running inside a Node.js server
 - Has powerful models for URL routing (matching an incoming URL with a server function), and handling HTTP requests and responses.
 - In turn use Node.js MongoDB drivers, either via callbacks for using Promises, to access and update data in your MongoDB database.
 
 ---
+
 ## MongoDB
 
 - Database Server (The bottom tier of MERN Stack)
-- Application data store(user profiles, content, comments, uploads, events, etc.) 
+- Application data store(user profiles, content, comments, uploads, events, etc.)
 - JSON documents created in the front end can be stored directly in MongoDB for later retrieval through Node.JS and Express.JS.
 
 ---
+
 ## ReactJS
 
 - An open-source JavaScript library used for building user interfaces specifically for single- page applications.
-- Handles the view layer for web and mobile apps. 
-- Allows developers to create large web applications that change dynamically, without the need of reloading. 
+- Handles the view layer for web and mobile apps.
+- Allows developers to create large web applications that change dynamically, without the need of reloading.
 - Allows to create reusable UI components.
 - Works only on user interfaces in the application.
 
 ### Properties
 
 > Declarative, Simple, Component based, Supports server side, Mobile support, Extensive, Fast, Easy to learn.
- 
+
 > Single way data flow:
-> In React JS we cannot make any change to a component directly if needed we provide a callback. 
+> In React JS we cannot make any change to a component directly if needed we provide a callback.
 
 > Actions flow up and properties flow down. The property of passing a value in the component and rendering it as HTML tags properties
 
 ## Virtual DOM
 
-- React maintains a in-memory copy of the actual DOM known as the virtual DOM 
+- React maintains a in-memory copy of the actual DOM known as the virtual DOM
 - Manipulating this virtual DOM is extremely fast
 - React takes care of updating the real DOM when the time is right
 - Compares the changes between your virtual DOM and the real DOM
@@ -543,7 +554,7 @@ Allows you to easily construct a 3-tier architecture (frontend, backend, databas
 
 Using node package manager(npm). To setup a build environment for React involves use of npm (node package manager), webpack, and Babel.
 
-Directly importing Reactjs library in HTML Code. Defined in two .js files (React and ReactDOM) 
+Directly importing Reactjs library in HTML Code. Defined in two .js files (React and ReactDOM)
 
 ```html
 <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script> 
@@ -555,7 +566,7 @@ Directly importing Reactjs library in HTML Code. Defined in two .js files (React
 
 A user control that has code to **represent visual interfaces and data**. An isolated piece of code which can be reused in one or the other module. Contains a root component in which other subcomponents are included.
 
-2 types of components in React.js 
+2 types of components in React.js
 
 - Stateless Functional Component
 - Stateful Class Component
@@ -585,15 +596,16 @@ class Demo extends React.Component{ render() {
 ```
 
 ---
+
 ## Key terms
 
-**Placeholder**: A place where the component will load 
+**Placeholder**: A place where the component will load
 - **Create component**: Stateless or stateful
-- **Call Component**: `ReactDOM.render()` is responsible for rendering a React component. 
-	- The first parameter: is a component class name. 
+- **Call Component**: `ReactDOM.render()` is responsible for rendering a React component.
+	- The first parameter: is a component class name.
 	- Second parameter: is the destination where the component is to be rendered.
-	
-In our case, we render component inside the `div id=‘root’` 
+
+In our case, we render component inside the `div id=‘root’`
 
 ```js
 ReactDOM.render( React.createElement(HelloClass, null, null), document.getElementById('root'));
@@ -620,29 +632,29 @@ ReactDOM.render(<h1>Welcome to REACTJS</h1>, document.getElementById('root'));
 ```
 
 ---
+
 # Components
 
-Defines the visuals and interactions that make up what the end user percieve when they use you app. 
+Defines the visuals and interactions that make up what the end user perceive when they use you app.
 
-### Need for Components 
+## Need for Components
 
 - There may be elements which are similar
 - A need to make a change in one will reflect changes in multiple places
-- Similar to functions, if we could write code related to the element in one place, changes can be minimized 
+- Similar to functions, if we could write code related to the element in one place, changes can be minimized
 - Solution: Reusable piece of JavaScript code that output (via JSX) HTML elements
 
-### Types of Components
- 
+## Types of Components
+
 - **Stateless Functional Component**
 	- Includes simple JavaScript functions and immutable properties, i.e., the value for properties cannot be changed.
-	- Use hooks to achieve functionality for making changes in properties using JS. 
+	- Use hooks to achieve functionality for making changes in properties using JS.
 	- Used mainly for UI.
-
 - **Stateful Class Component**
-	- Classes which extend the Component class from React library. 
+	- Classes which extend the Component class from React library.
 	- The class component must include the render method which returns HTML.
 
-### First Stateful Component
+## First Stateful Component
 
 Creation of a component:
 
@@ -660,25 +672,25 @@ Calling a component: Add the JSX in the render method with a element with the ta
 ReactDOM.render( <HelloWorld/>, document.querySelector("#container") );
 ```
 
-### Parameterized components
+## Parameterized components
 
  Accepting the properties in the component and passing these properties while calling the components
- 
-Creation of a component: 
+
+Creation of a component:
 
 ```js
 class HelloWorld extends React.Component { render() { return <p>Hello, {this.props.greetTarget}!</p>; } } • Calling a c
 ```
 
-Calling a component: 
+Calling a component:
 
 ```js
 ReactDOM.render( <div> <HelloWorld greetTarget="Batman"/> <HelloWorld greetTarget="Iron Man"/> </div>, document.querySelector("#container") )
 ```
 
-### Components with Child elements
+## Components with Child elements
 
-Creation of a component: 
+Creation of a component:
 
 ```js
 class Buttonify extends React.Component { render() { 
@@ -699,26 +711,27 @@ document.querySelector("#container")
 ```
 
 ---
-## Usage of props.children
 
-- Used to display what you include data between the opening and closing JSX tags when invoking a component. 
-- A special property that is passed to components automatically 
-- Can have one element, multiple elements, or none at all. 
+# Usage of props.children
+
+- Used to display what you include data between the opening and closing JSX tags when invoking a component.
+- A special property that is passed to components automatically
+- Can have one element, multiple elements, or none at all.
 - It’s value is respectively a single child node, an array of child nodes or undefined.
 
-### Introduction to Properties
+## Introduction to Properties
 
-- Properties are ways in which React components **can be customized**. 
+- Properties are ways in which React components **can be customized**.
 - Props are arguments passed into React components and are passed via HTML attributes.
-- Properties are immutable and are same as what attributes are to HTML elements. 
-- Their most basic use is in the form of attributes, in JSX. 
-- Are actually passed to a constructor and can be accessed by `this.props` 
+- Properties are immutable and are same as what attributes are to HTML elements.
+- Their most basic use is in the form of attributes, in JSX.
+- Are actually passed to a constructor and can be accessed by `this.props`
 - Design decision is to use the Attributes specified in hyphen-case in HTML as camelCase in JSX.
-- 2 steps to add properties to components 
-	- Make the function of your component read the props from the props parameter 
+- 2 steps to add properties to components
+	- Make the function of your component read the props from the props parameter
 	- When rendering the component, add the prop to the component using the attribute.
 
-### Validating and Setting the property values
+## Validating and Setting the property values
 
 Props validation is a tool that will help the developers to avoid future bugs and problems. Validating the type of properties is possible by providing any of the types in **React.PropTypes**
 
@@ -733,22 +746,23 @@ class App extends React.Component {
 	- Can be overridden by properties passed in initialization using **getDefaultProps()** method.
 	- Must return an object. The contents of that object are up to us
 
-### Transferring Properties
+## Transferring Properties
 
 - Sending properties down the structural tree while working with multiple components in a hierarchy.
-- The properties have to flow down from its parent to every child component that lies on the intended path 
-- **transferPropsTo()**: 
+- The properties have to flow down from its parent to every child component that lies on the intended path
+- **transferPropsTo()**:
 	- Passes all the properties of a parent component to a child component unless we explicitly set the value of a child component’s property.
 	- ReactComponent transferPropsTo(ReactComponent targetComponent)
 
 ---
+
 # Styling the Components and Complex Components
 
-Different ways to style React Components 
+Different ways to style React Components
 
 - Inline CSS: using style attribute
-- CSS in JS: using Libraries JSS and Styled Components 
-- CSS modules – css loader and Sass & SCSS 
+- CSS in JS: using Libraries JSS and Styled Components
+- CSS modules – css loader and Sass & SCSS
 - Stylable
 
 ## Inline CSS
@@ -789,13 +803,14 @@ class Letter extends React.Component { render() {
 ```
 
 ---
+
 ## Complex Components
 
-Combining components to create the complex one 
+Combining components to create the complex one
 
-- Advantage is composability 
-- Approach 
-	- Identify the major visual elements 
+- Advantage is composability
+- Approach
+	- Identify the major visual elements
 	- Breaking them into individual components
 
 ```js
@@ -849,7 +864,7 @@ To avoid hard coding, properties have to be passed from parent components to it�
 
 ### Transferring Properties
 
-Transferring properties was not a tedious as there was only one level of hierarchy 
+Transferring properties was not a tedious as there was only one level of hierarchy
 
 - If there are multiple levels of components, transferring properties will be very cumbersome.
 - To overcome that, we use the `spread operator (…)` `<Display {...this.props}/>`

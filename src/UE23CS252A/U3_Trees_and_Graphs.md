@@ -20,6 +20,7 @@ This property allows for efficient searching, insertion, and deletion operations
 Operations like searching for a value, inserting a new value, or deleting an existing node can be performed efficiently due to the BST property.
 
 ---
+
 ## Using Array
 
 Binary Search Trees are typically implemented using pointers, as they allow for dynamic memory allocation. However, it is possible to represent a complete binary tree as an array, which requires prior knowledge of the tree's maximum size.
@@ -62,6 +63,7 @@ displayArray();
 ```
 
 ---
+
 ## Using Linked
 
 The linked approach to BSTs is more common and allows for dynamic memory allocation and flexibility.
@@ -103,6 +105,7 @@ insert(root, 15);
 ```
 
 ---
+
 ## Finding Height, Depth, Number of Nodes, and Leaves
 
 The height of a tree is the length of the longest path from the root to a leaf. Depth is the distance from the root node to the target node.
@@ -140,6 +143,7 @@ printf("Total leaves: %d\n", countLeaves(root));
 ```
 
 ---
+
 ## Node Deletion in a BST
 
 1. **Node is a leaf** (no children): Simply remove the node from the tree.
@@ -148,7 +152,6 @@ printf("Total leaves: %d\n", countLeaves(root));
 
 > [!Info]
 > The helper function `minValueNode` finds the in-order successor of a node, which is used in the deletion process when the node has two children.
-> 
 
 ```c
 #include <stdio.h>
@@ -213,7 +216,7 @@ Node* deleteNode(Node* root, int key) {
 }
 ```
 
-- **Case 1: Node is a Leaf (No Children)**  
+- **Case 1: Node is a Leaf (No Children)**
   When the node to be deleted has no children, we simply free the memory allocated for that node and return `NULL` to its parent, effectively removing the node from the tree.
 
   ```c
@@ -223,7 +226,7 @@ Node* deleteNode(Node* root, int key) {
   }
   ```
 
-- **Case 2: Node Has One Child**  
+- **Case 2: Node Has One Child**
   When the node has only one child, we remove the node and directly connect its only child to the parent of the node. If the left child is `NULL`, the right child is linked to the parent. Conversely, if the right child is `NULL`, the left child is linked.
 
   ```c
@@ -238,7 +241,7 @@ Node* deleteNode(Node* root, int key) {
   }
   ```
 
-- **Case 3: Node Has Two Children**  
+- **Case 3: Node Has Two Children**
   When the node has two children, we:
   1. Find the **in-order successor** (the smallest node in the right subtree) using the `minValueNode` function.
   2. Copy the in-order successor’s value to the node to be deleted.
@@ -273,6 +276,7 @@ int main() {
 In this example, we delete the node with the value `10` and then perform an inorder traversal to see the remaining structure of the tree.
 
 ---
+
 ## Traversal Using Iteration
 
 BST traversal using iteration can be done using Inorder, Preorder, and Postorder traversals. Here’s an example of an iterative Inorder traversal using a stack.
@@ -318,6 +322,7 @@ inorderIterative(root);
 ```
 
 ---
+
 ## Traversal using Recursion
 
 ```c
@@ -348,6 +353,7 @@ void postorderRecursive(Node* root) {
 ```
 
 ---
+
 # Expression Tree
 
 An **Expression Tree** is a binary tree in which each internal node represents an operator (e.g., `+`, `-`, `*`, `/`), and each leaf node represents an operand (a constant or variable). Expression Trees are useful for evaluating mathematical expressions in a structured manner.
@@ -357,9 +363,9 @@ An **Expression Tree** is a binary tree in which each internal node represents a
 > - Each leaf node represents a number or variable.
 > - Each internal node represents an operator.
 > - The evaluation of the tree involves traversing it in postorder (left, right, root) to apply operators in the correct order.
-> 
 
 To build and evaluate an expression tree, we’ll define:
+
 1. A **Node** structure representing an operand or operator.
 2. Functions to **build** an expression tree from postfix notation.
 3. A **postorder traversal** function for evaluation.
@@ -449,6 +455,7 @@ int main() {
 In this example, the postfix expression `"23*54*+9-"` is converted to an expression tree, and the result is evaluated.
 
 ---
+
 # Threaded Binary Tree
 
 A **Threaded Binary Tree** is a binary tree variant that enables efficient inorder traversal without using a stack or recursion. In a threaded binary tree:
@@ -457,7 +464,6 @@ A **Threaded Binary Tree** is a binary tree variant that enables efficient inord
 > - **Left threads** point to the inorder predecessor if the left child is absent.
 > - **Right threads** point to the inorder successor if the right child is absent.
 
-  
 This approach reduces memory usage and allows traversal without extra storage by utilizing null pointers as links.
 
 For simplicity, here’s an implementation of a single-threaded binary tree (right-threaded):
@@ -558,15 +564,15 @@ In this example, we build a right-threaded binary tree and perform an inorder tr
 These implementations provide a foundation for Expression Trees and Threaded Binary Trees, with efficient traversal and manipulation techniques.
 
 ---
+
 # Heap Tree
 
 > [!Info]
 > A **Heap Tree** is a specialized binary tree that satisfies the *heap property*, which can be one of the following:
 > 1. **Max-Heap**: Each parent node is greater than or equal to its child nodes. The maximum element is at the root.
 > 2. **Min-Heap**: Each parent node is less than or equal to its child nodes. The minimum element is at the root.
-> 
 
-### Properties of a Heap
+## Properties of a Heap
 
 1. **Shape Property**: A heap is a *complete binary tree*, meaning all levels are fully filled except possibly the last, which is filled from left to right.
 2. **Heap Property**: For a max-heap, each parent node is greater than or equal to its children, while for a min-heap, each parent node is less than or equal to its children.
@@ -579,9 +585,10 @@ These implementations provide a foundation for Expression Trees and Threaded Bin
 >      - **Right child** is at index `2 * i + 2`
 
 ---
-## Heap Construction Using Array
 
-### Bottom-Up Heap Construction (Heapify)
+# Heap Construction Using Array
+
+## Bottom-Up Heap Construction (Heapify)
 
 In bottom-up heap construction, we start from the last non-leaf node and apply the `heapify` operation to ensure each subtree satisfies the heap property. This method is efficient with a time complexity of `(O(n))`.
 
@@ -619,7 +626,8 @@ void buildMaxHeap(int arr[], int n) {
     }
 }
 ```
-### Top-Down Heap Construction (Insert)
+
+## Top-Down Heap Construction (Insert)
 
 In top-down heap construction, we add elements one by one, placing them at the end of the heap array, then "bubble up" to ensure the heap property is maintained. This method is useful when building a heap incrementally.
 
@@ -660,16 +668,17 @@ int main() {
 ```
 
 ---
-## Priority Queue Using Min and Max Heap
+
+# Priority Queue Using Min and Max Heap
 
 A **Priority Queue** is a data structure where each element has a priority, and the element with the highest priority is served before others. Priority queues can be implemented using heaps:
 
 > [!Important]
-> 
+>
 > - **Max-Heap** for maximum priority queues (highest element at the root).
 > - **Min-Heap** for minimum priority queues (smallest element at the root).
 
-### Max-Heap Priority Queue (Insertion and Deletion)
+## Max-Heap Priority Queue (Insertion and Deletion)
 
 For a max-heap, the maximum element is always at the root. We insert by adding to the end of the array and bubble up to maintain the heap property. To remove the maximum, we replace the root with the last element and heapify down.
 
@@ -696,7 +705,8 @@ int deleteMax(int arr[], int *n) {
     return root;
 }
 ```
-### Min-Heap Priority Queue (Insertion and Deletion)
+
+## Min-Heap Priority Queue (Insertion and Deletion)
 
 For a min-heap, the minimum element is always at the root. We insert by adding to the end of the array and bubble up to maintain the heap property. To remove the minimum, we replace the root with the last element and heapify down.
 
@@ -751,33 +761,36 @@ int main() {
 This example demonstrates basic insertions and deletions in min-heap and max-heap priority queues.
 
 ---
+
 # Balanced Trees
 
 > [!Info]
 > A **Balanced Tree** is a type of binary tree where the height difference between the left and right subtrees of any node is within a certain limit, often a single level. Balanced trees ensure that the tree does not become skewed, which maintains efficient operations, particularly for insertion, deletion, and search, which operate in \(O(\log n)\) time.
 
-### Why Balance Matters
+## Why Balance Matters
 
 Without balancing, a binary search tree (BST) can degrade to a linked list with \(O(n)\) operations. Balanced trees, like AVL trees, prevent this by automatically adjusting the structure during insertions and deletions.
 
 ---
-## AVL Trees
+
+# AVL Trees
 
 An **AVL Tree** (named after its inventors, Adelson-Velsky and Landis) is a self-balancing binary search tree where the height difference between the left and right subtrees (known as the balance factor) of any node is at most 1. This property ensures logarithmic height, making AVL trees efficient for searching, insertion, and deletion.
 
 > [!Info] Properties of AVL
-> 
+>
 > 1. **Binary Search Tree Property**: Left child values are smaller than the parent, and right child values are larger.
 > 2. **Balance Factor**: The difference in height between the left and right subtrees of a node is calculated as:
 >    - `balance_factor = height(left_subtree) - height(right_subtree)`
 > 3. **Self-Balancing**: After each insertion or deletion, the tree checks balance factors and performs rotations if needed to maintain the balance.
 
 ---
-## AVL Tree Rotations
+
+# AVL Tree Rotations
 
 > AVL tree rotations are used to maintain the balance of the tree by rearranging nodes. There are four types of rotations to correct specific imbalance cases:
 
-### 1. Left Rotation (Single Rotation)
+## 1. Left Rotation (Single Rotation)
 
 Left Rotation is used to correct a **Right-Heavy** imbalance (when the right subtree of a node is higher than the left). It is commonly used in **Right-Right (RR) Imbalance** situations.
 
@@ -798,7 +811,7 @@ Node* leftRotate(Node* x) {
 }
 ```
 
-### 2. Right Rotation (Single Rotation)
+## 2. Right Rotation (Single Rotation)
 
 Right Rotation is used to correct a **Left-Heavy** imbalance (when the left subtree of a node is higher than the right). It is commonly used in **Left-Left (LL) Imbalance** situations.
 
@@ -819,7 +832,7 @@ Node* rightRotate(Node* y) {
 }
 ```
 
-### 3. Left-Right Rotation (Double Rotation)
+## 3. Left-Right Rotation (Double Rotation)
 
 Left-Right Rotation is a combination of a left rotation followed by a right rotation. It is used to correct a **Left-Right (LR) Imbalance**, where a node’s left subtree is right-heavy.
 
@@ -830,7 +843,7 @@ Node* leftRightRotate(Node* node) {
 }
 ```
 
-### 4. Right-Left Rotation (Double Rotation)
+## 4. Right-Left Rotation (Double Rotation)
 
 Right-Left Rotation is a combination of a right rotation followed by a left rotation. It is used to correct a **Right-Left (RL) Imbalance**, where a node’s right subtree is left-heavy.
 
@@ -842,7 +855,8 @@ Node* rightLeftRotate(Node* node) {
 ```
 
 ---
-## Insertion in an AVL Tree
+
+# Insertion in an AVL Tree
 
 After inserting a new node, the AVL tree checks for imbalances by calculating balance factors and performs the necessary rotations to restore balance.
 
@@ -906,22 +920,24 @@ int main() {
 In this example, the tree remains balanced after each insertion, thanks to rotations, maintaining efficient performance.
 
 ---
+
 # Splay Tree
 
 A **Splay Tree** is a self-adjusting binary search tree that performs splaying operations on nodes to maintain a roughly balanced structure. Whenever a node is accessed (searched, inserted, or deleted), it is brought to the root through a series of rotations known as *splaying.* This ensures that recently accessed elements are quicker to reach, making splay trees particularly useful for applications with non-uniform access patterns.
 
-### Properties of a Splay Tree
+## Properties of a Splay Tree
 
 1. **Self-Adjusting**: The tree adjusts its structure by splaying nodes upon access, moving them to the root.
 2. **No Balance Factor or Height Constraints**: Unlike AVL or Red-Black trees, splay trees don’t enforce strict balance criteria.
 3. **Amortized (O(log n)) Time Complexity**: While individual operations may take longer, the amortized time for access, insertion, or deletion is (O(log n)), making splay trees efficient over time.
 
 ---
-## Splay Operations (Rotations)
+
+# Splay Operations (Rotations)
 
 There are three types of rotations in a splay tree to move a node to the root, depending on its position relative to its parent and grandparent nodes. Each rotation type is aimed at moving the target node up the tree to eventually reach the root.
 
-### 1. Zig Rotation (Single Rotation)
+## 1. Zig Rotation (Single Rotation)
 
 **Zig** is a single rotation performed when the target node is a child of the root. This is similar to a single left or right rotation in a binary search tree.
 
@@ -944,7 +960,7 @@ Node* leftRotate(Node* x) {
 }
 ```
 
-### 2. Zig-Zig Rotation (Double Rotation)
+## 2. Zig-Zig Rotation (Double Rotation)
 
 **Zig-Zig** is a double rotation used when the target node and its parent are both left or both right children of their respective parents.
 
@@ -965,7 +981,7 @@ Node* zigZigLeft(Node* x) {
 }
 ```
 
-### 3. Zig-Zag Rotation (Double Rotation)
+## 3. Zig-Zag Rotation (Double Rotation)
 
 **Zig-Zag** is a double rotation used when the target node is a left child, and its parent is a right child, or vice versa.
 
@@ -985,7 +1001,8 @@ Node* zigZagLeft(Node* x) {
 ```
 
 ---
-## Splay Operation
+
+# Splay Operation
 
 The **splay** function brings a target node to the root of the tree. The function recursively applies the appropriate rotations based on the node’s position relative to its parent and grandparent.
 
@@ -1023,9 +1040,10 @@ Node* splay(Node* root, int key) {
 ```
 
 ---
-## Operations on a Splay Tree
 
-### Insertion
+# Operations on a Splay Tree
+
+## Insertion
 
 When inserting a new node, we first splay the tree to bring the closest node to the root. Then we insert the new node in the appropriate position and make it the new root.
 
@@ -1054,7 +1072,7 @@ Node* insert(Node* root, int key) {
 }
 ```
 
-### Deletion
+## Deletion
 
 For deletion, we first splay the target node to the root. If the node exists, we then split the tree into two subtrees (left and right). The left subtree becomes the new root, with the right subtree reattached to it.
 
@@ -1079,7 +1097,7 @@ Node* delete(Node* root, int key) {
 }
 ```
 
-### Searching
+## Searching
 
 In a splay tree, searching for a node involves splaying it to the root if it exists. If the key is found, it’s returned as the new root.
 
@@ -1110,6 +1128,7 @@ int main() {
 In this example, the tree reorganizes itself with each operation, keeping frequently accessed nodes closer to the root.
 
 ---
+
 # Graphs
 
 > [!NOTE]
@@ -1124,6 +1143,7 @@ In this example, the tree reorganizes itself with each operation, keeping freque
 7. **Cycle**: A cycle is a path that starts and ends at the same vertex without traversing any edge more than once.
 
 ---
+
 ## Types of Graphs, Applications, and Representations
 
 1. **Undirected Graph**: No direction is associated with edges (edges represent bidirectional relationships).
@@ -1132,26 +1152,28 @@ In this example, the tree reorganizes itself with each operation, keeping freque
 4. **Bipartite Graph**: The graph's vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
 5. **Complete Graph**: Every pair of distinct vertices is connected by a unique edge.
 
-> [!Example] 
+> [!Example]
 > - **Social Networks**: Modeling relationships and interactions.
 > - **Routing Algorithms**: Used in GPS systems, internet traffic management.
 > - **Recommendation Systems**: Suggesting products or services based on user behavior.
 > - **Computer Networks**: Representing communication between devices.
+>
 > > Graphs are commonly used to model network topologies, where the nodes represent devices (e.g., computers, routers) and the edges represent communication links. Graph traversal techniques such as DFS and BFS are used to explore the network, find the shortest path, or detect loops.
 
 ---
+
 ## Representing Graphs
 
 > [!Info]
 > Graphs can be represented in two primary ways:
-> 
+>
 > 1. **Adjacency Matrix**: A 2D matrix where each cell (i, j) represents an edge between vertices i and j.
 > 2. **Adjacency List**: A collection of lists where each vertex has a list of adjacent vertices.
-> 
 
 ### Using Adjacency Matrix
 
 An adjacency matrix for a graph with (V) vertices is a ( V times V ) matrix where:
+
 - `matrix[i][j] = 1` if there is an edge between vertex `i` and vertex `j`.
 - `matrix[i][j] = 0` otherwise.
 
@@ -1185,6 +1207,7 @@ An adjacency list stores for each vertex a list of its adjacent vertices. For th
 ```
 
 ---
+
 ## Graph Traversal Algorithms
 
 Graph traversal is the process of visiting each vertex in the graph. This is crucial for searching, pathfinding, or analysis tasks.
@@ -1226,6 +1249,7 @@ void DFS(int v, bool visited[], int adjMatrix[V][V]) {
 ```
 
 ---
+
 ### Breadth First Search (BFS)
 
 **BFS** explores the graph level by level, visiting all neighbors of a vertex before moving to the next depth level. It uses a queue to manage the vertices to visit.
@@ -1273,6 +1297,7 @@ void BFS(int start, int adjMatrix[V][V]) {
 ```
 
 ---
+
 ## Connectivity of a Graph
 
 A graph is **connected** if there is a path between every pair of vertices. If a graph is not connected, it consists of multiple disconnected components.
@@ -1284,6 +1309,7 @@ A graph is **connected** if there is a path between every pair of vertices. If a
 3. If some vertices are unreachable, the graph is disconnected.
 
 ---
+
 ## Finding Path in a Network
 
 To find a path between two vertices in a graph (e.g., in a network), BFS is typically used, as it guarantees the shortest path in an unweighted graph.

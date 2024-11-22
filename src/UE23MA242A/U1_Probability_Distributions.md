@@ -6,21 +6,23 @@ Data science is an interdisciplinary field that leverages scientific methods, pr
 
 # Types of Statistics
 
-### Descriptive Statistics
+## Descriptive Statistics
 
 Descriptive statistics summarize and describe the characteristics of a data set. These methods are applied to finite numerical data, providing insights into the data's central tendency and variability.
 
 > **Measures of Central Tendency** represent the typical value in a data set:
+
 - **Mean**: The arithmetic average of the data set.
 - **Median**: The middle value when the data is ordered.
 - **Mode**: The most frequently occurring value.
 
 > **Measures of Variability** describe the spread or dispersion of the data:
+
 - **Range**: The difference between the maximum and minimum values.
 - **Variance**: The average of the squared differences from the mean.
 - **Standard Deviation**: The square root of the variance, providing a measure of spread in the same units as the data.
 
-### When to Use Mean, Median, and Mode?
+## When to Use Mean, Median, and Mode?
 
 The choice of which measure of central tendency to use depends on the type and distribution of the data:
 
@@ -31,13 +33,13 @@ The choice of which measure of central tendency to use depends on the type and d
 | **Interval/Ratio (Not Skewed)** | Mean                          |
 | **Interval/Ratio (Skewed)**  | Median                           |
 
-### Inferential Statistics
+## Inferential Statistics
 
 Inferential statistics allow us to make generalizations or predictions about a population based on the analysis of a **sample**, which is a subset of the population. Since samples are finite, descriptive statistics are applied to the sample. The goal is to use the sample's characteristics to infer the properties of the entire population.
 
 ---
 
-## Types of Data
+# Types of Data
 
 Data can be classified into two broad categories:
 
@@ -46,7 +48,7 @@ Data can be classified into two broad categories:
 | Data collected firsthand directly from the source | Data gathered from existing sources (e.g., reports, publications) |
 | Collected through experiments, surveys, or observation | Retrieved from books, journals, or media                           |
 
-### Types of Primary Data
+## Types of Primary Data
 
 Primary data can be further categorized as:
 
@@ -55,16 +57,15 @@ Primary data can be further categorized as:
   - **Continuous**:
     - **Interval**: Measurements where the zero point is arbitrary (e.g., temperature in Celsius).
     - **Ratio**: Measurements with an absolute zero, allowing for meaningful comparisons (e.g., height, weight).
-  
 - **Qualitative**: Categorical data that cannot be expressed numerically.
   - **Nominal**: Categories with no inherent order (e.g., colors, names).
   - **Ordinal**: Ordered categories (e.g., rankings, levels of satisfaction).
 
 ---
 
-## Experiments
+# Experiments
 
-### Controlled Experiments
+## Controlled Experiments
 
 Controlled experiments manipulate one or more independent variables to observe their effect on a dependent variable, while controlling for extraneous variables. The structure is typically represented as:
 
@@ -72,13 +73,13 @@ Controlled experiments manipulate one or more independent variables to observe t
 - **Y**: Dependent variable (the outcome measured as a function of X)
 - **Σ**: Extraneous variables (variables that could affect Y but are not the focus of the study)
 
-### Observational Studies
+## Observational Studies
 
 In observational studies, researchers observe subjects in a natural setting without manipulation, often used when controlled experiments are impractical or unethical.
 
 ---
 
-## Types of Populations
+# Types of Populations
 
 In statistical analysis, the **population** refers to the entire set of individuals or items under investigation. The primary aim of inferential statistics is to draw conclusions about a population by analyzing a sample.
 
@@ -89,26 +90,31 @@ In statistical analysis, the **population** refers to the entire set of individu
 5. **Tangible Population**: Physical objects that are countable and finite.
 6. **Conceptual Population**: Non-physical entities or abstract measurements (e.g., repeated measurements on a scale).
 
-### Sampling Frame
+## Sampling Frame
 
 The **sampling frame** is the actual list from which the sample is drawn, ideally representing the entire population.
 
-### Sample Size
+## Sample Size
 
 The **sample size** is the number of individuals or observations included in the sample, which plays a critical role in the reliability of the statistical inference.
 
 ---
 
-## Sampling Methods
+# Sampling Methods
 
-### Probabilistic Sampling
+## Probabilistic Sampling
 
 In probabilistic sampling, every member of the population has a known, non-zero chance of being selected, making it suitable for quantitative research.
 
 1. **Simple Random Sampling**: Every individual has an equal chance of being selected.
 2. **Systematic Sampling**: Individuals are selected at regular intervals from an ordered list.
 3. **Stratified Sampling**: The population is divided into homogeneous subgroups (strata), and samples are drawn from each subgroup. Optimal allocation is given by:
-   $$n_i = \frac{n N_i \sigma_i}{N_1 \sigma_1 + N_2 \sigma_2 + \cdots + N_n \sigma_n}$$
+
+   $$
+
+n_i = \frac{n N_i \sigma_i}{N_1 \sigma_1 + N_2 \sigma_2 + \cdots + N_n \sigma_n}
+
+$$
 4. **Cluster Sampling**: The population is divided into groups (clusters), and a random sample of entire clusters is selected.
 
 ### Non-Probabilistic Sampling

@@ -2,7 +2,7 @@
 
 ## Development of an E-commerce Platform with a Recommendation System
 
-## Team details:
+## Team details
 
 ```plain
 PES2UG23CS340 Mithun N
@@ -31,18 +31,19 @@ PES2UG23CS371 Navneet Nayak
     └── user.c
 ```
 
-
 ---
 
 ## Flow of program
 
 This program demonstrates a simple user and product management system. It
+
 includes functionalities to add users, add products, record browsing and
+
 purchase history, and recommend products to users based on their
+
 history.
 
 1. Initialize user and product maps.
-
 2. Add users with unique IDs.
    line: `add_user("Jeel", 1);`
 
@@ -53,6 +54,7 @@ history.
    line: `add_browsing_history(1, 101);`
 
    Record purchase history for users.
+
    line: `add_purchase_history(3, 102);`
 
 5. **Recommending Products**:
@@ -62,6 +64,7 @@ history.
     The program terminates after recommending products to all users.
 
 ---
+
 ## How to Run?
 
 Use gcc runs throught the `src/` directory and compiles all the `.c` and `.h` files.

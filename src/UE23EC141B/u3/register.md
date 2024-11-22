@@ -1,4 +1,4 @@
-# Registers
+# register
 
 > Groups of [[flip flops]] make up a register, it is used to increase the storage capacity.
 

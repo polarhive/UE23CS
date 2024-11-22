@@ -1,7 +1,3 @@
----
-title: flip flops
-type: note
----
 
 > 1-bit memory cell.
 

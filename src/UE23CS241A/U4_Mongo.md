@@ -1,6 +1,7 @@
 # MongoDB and ExpressJS
 
 To create a database in MongoDB, start by creating a MongoClient object, then
+
 specify a connection URL with the correct ip address and the name of the database.
 
 MongoDB will create the database if it does not exist, and make a connection to it
@@ -18,10 +19,12 @@ MongoDB will create the database if it does not exist, and make a connection to 
 - It also takes a callback function where you can work with any errors, or the result of the insertion
 
 > Select the documents from collection:
+
 - In MongoDB use the find and findOne methods to find data in a collection.
 - Just like the SELECT statement is used to find data in a table in a MySQL database.
 
 > Find:
+
 - To select data from a table in MongoDB, we can also use the find() method.
 - The find() method returns all occurrences in the selection.
 - The first parameter of the find() method is a query object

@@ -2,8 +2,7 @@
 
 In Problem Solving with C Course, will be learning to solve common types of computational problems, by analyzing the given problem statement and developing an algorithm to solve the given problem. Then make use of C language constructs to develop well-structured programs.
 
-
-## Course objectives:
+## Course objectives
 
 - Acquire knowledge on how to solve relevant and logical problems using computing machine
 - Map algorithmic solutions to relevant features of C programming language constructs
@@ -11,9 +10,10 @@ In Problem Solving with C Course, will be learning to solve common types of comp
 - Appreciate and gain knowledge about the issues with C Standards and its respective behaviours
 - Get insights about testing and debugging C Programs
 
-## Course outcomes:
+## Course outcomes
 
 At the end of the course, the student will be able to
+
 - Understand and apply algorithmic solutions to counting problems using appropriate C Constructs
 - Understand, analyse and apply text processing and string manipulation methods using C Arrays, Pointers and functions
 - Understand prioritized scheduling and implement the same using C structures
@@ -21,7 +21,7 @@ At the end of the course, the student will be able to
 - Understand and evaluate portable programming techniques using preprocessor directives and conditional
 compilation of C Programs
 
-## Course Content:
+## Course Content
 
 > Unit 1: Introduction
 
@@ -31,7 +31,7 @@ Introduction to Programming, Salient Features of ‘C’, Program Structure, Var
 
 Arrays – 1D and 2D, Functions, Storage classes, Pointers, Strings, String Manipulation Functions & errors.
 
-> Unit 3: Dynamic Memory Management, Structures and File Handling: 
+> Unit 3: Dynamic Memory Management, Structures and File Handling:
 
 Dynamic Memory Allocation and Deallocation functions & errors, Structures, pragma, File IO using redirection, File Handling functions, Searching, Sorting, Combination of Structures, Arrays and Pointers, Call-back, Code Review .
 

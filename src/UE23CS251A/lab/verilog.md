@@ -170,6 +170,7 @@ endmodule
 ```
 
 ## File: ./w1/NOR/NOR_tb.v
+
 ```verilog
 module NOR_TEST;
     reg a, b;
@@ -267,6 +268,7 @@ endmodule
 ```
 
 ---
+
 # W2
 ## File: ./w2/simple_circuit.v
 
@@ -551,7 +553,6 @@ module circuit3 (
     ha ha_1 (S0, y_inv, S1, Cout);
 endmodule
 ```
-
 
 ---
 
@@ -1077,6 +1078,7 @@ endmodule
 ```
 
 ## File: ./w5/lib.v
+
 ```verilog
 module invert (input wire i, output wire o);
    assign o = !i;
@@ -1169,6 +1171,7 @@ endmodule
 ```
 
 ## File: ./w5/alu_tb.v
+
 ```verilog
 `timescale 1 ns / 100 ps 
 `define TESTVECS 16 

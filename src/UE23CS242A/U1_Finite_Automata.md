@@ -12,22 +12,23 @@ Basics of set theory
 
 ## Acceptors / Transducers
 
-#### Finite Automata: Deterministic Finite Accepters, Non-Deterministic Finite Accepters
+### Finite Automata: Deterministic Finite Accepters, Non-Deterministic Finite Accepters
 
-#### Equivalence of Deterministic and Non-Deterministic Finite Accepters
+### Equivalence of Deterministic and Non-Deterministic Finite Accepters
 
-#### Reduction of the number of states in Finite Automata
+### Reduction of the number of states in Finite Automata
 
-#### Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars
+### Regular Expressions, Connection between Regular Expressions and Regular Languages Regular Grammars
 
 ---
+
 # Regular Expressions (Regex)
 
 > Regular expressions (regex) are sequences of characters that define search patterns. They are commonly used for string searching, matching, and manipulation.
 
 ---
 
-### Basic Regex Symbols
+## Basic Regex Symbols
 
 | Symbol | Meaning                                    |
 | ------ | ------------------------------------------ |
@@ -45,7 +46,8 @@ Basics of set theory
 | `()`   | Capturing group                            |
 
 ---
-## Examples of Common Regex Patterns
+
+# Examples of Common Regex Patterns
 
 1. **Match a valid email address**:
 
@@ -60,7 +62,7 @@ This pattern matches standard email formats like `user@example.com`.
 ``` python
 \(\d{3}\)\s?\d{3}-\d{4}
 ```
-   
+
 Matches phone numbers in the format `(123) 456-7890`.
 
 3. **Match a date in format DD/MM/YYYY**:
@@ -68,16 +70,15 @@ Matches phone numbers in the format `(123) 456-7890`.
 ``` python
 \b\d{2}/\d{2}/\d{4}\b
 ```
-   
+
    Matches dates such as `06/10/2024`.
 
 ---
 
-### Advanced Patterns
+## Advanced Patterns
 
 - **Non-capturing group**: Use `(?: ...)` for a group without capturing its match.
   - Example: `(?:foo|bar)` matches `foo` or `bar` without storing the result.
-
 - **Lookaheads and Lookbehinds**:
   - **Positive look ahead**: `(?=...)` matches a group that is followed by a certain pattern.
   - **Negative look ahead**: `(?!...)` matches a group that is NOT followed by a certain pattern.
