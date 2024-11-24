@@ -116,8 +116,7 @@ function Demo(props) {
 
 # Refs and Keys
 
-> Provides a way to access DOM nodes or React elements created in
-the render method
+> Provides a way to access DOM nodes or React elements created in the render method
 
 - Used to return a reference to the element
 - Good use cases for refs to be used:
