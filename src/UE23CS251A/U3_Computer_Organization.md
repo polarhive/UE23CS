@@ -24,7 +24,6 @@ A computer consists of **five** functionally independent main parts: input, memo
 ![[Pasted image 20241106084309.png]]
 
 > [!question]
->
 > The computer is controlled by the stored program, except for possible external interruption by an operator or by I/O devices connected to it.
 
 ## Input Unit
@@ -33,9 +32,7 @@ Whenever a key is pressed, the corresponding letter or digit is automatically tr
 
 ## Memory Unit
 
-The function of the memory unit is to store programs and data. There are two classes of
-
-storage, called primary and secondary.
+The function of the memory unit is to store programs and data. There are two classes of storage, called primary and secondary.
 
 **Main memory**, is a fast memory that operates at electronic speeds. Programs must be stored in this memory while they are being executed.
 
@@ -53,11 +50,7 @@ To provide easy access to any word in the memory, a **distinct address** is asso
 > - Govern the **transfer of information** within a computer as well as **between** the computer and its **I/O** devices.
 > - Specify the **arithmetic and logic** operations to be performed.
 
-At the start of program execution, the cache is empty. All program instructions and
-
-any required data are stored in the main memory. As execution proceeds, instructions
-
-are fetched into the processor chip, and a **copy** of each is placed in the cache. The data is fetched and copies are also placed in the cache.
+At the start of program execution, the cache is empty. All program instructions and any required data are stored in the main memory. As execution proceeds, instructions are fetched into the processor chip, and a **copy** of each is placed in the cache. The data is fetched and copies are also placed in the cache.
 
 If the same data locations are accessed repeatedly while copies of their contents are available in the cache, they can be fetched quickly.
 
@@ -161,9 +154,7 @@ Control circuits are responsible for generating the **timing** signals that gove
 
 Execution of the program begins when the PC is set to point to the first instruction of the program. The contents of the PC are transferred to the memory along with a Read control signal. When the addressed word (in this case, the first instruction of the program) has been fetched from the memory it is loaded into register IR. At this point, the instruction is ready to be interpreted and executed.
 
-Instructions such as Load, Store, and Add perform data transfer and arithmetic opera-
-
-tions. If an operand that resides in the memory is required for an instruction, it is fetched by **sending its address** to the memory and initiating a Read operation. When the operand has been fetched from the memory, it is transferred to a processor register.
+Instructions such as Load, Store, and Add perform data transfer and arithmetic operations. If an operand that resides in the memory is required for an instruction, it is fetched by **sending its address** to the memory and initiating a Read operation. When the operand has been fetched from the memory, it is transferred to a processor register.
 
 After operands have been fetched in this way, the ALU can perform a desired arithmetic operation, such as Add, on the values in processor registers. The result is sent to a processor register. If the result is to be written into the memory with a Store instruction, it is transferred from the processor register to the memory, along with the **address of the location** where the result is to be stored, then a Write operation is initiated.
 
@@ -539,13 +530,9 @@ To begin executing a program, the address of its first instruction (i in our exa
 
 This is called straight-line sequencing. During the execution of each instruction, the PC is incremented by 4 to point to the next instruction. Thus, after the Store instruction at location `i + 12` is executed, the PC contains the value `i + 16`, which is the address of the first instruction of the next program segment.
 
-Executing a given instruction is a two-phase procedure. In the first phase, called
+Executing a given instruction is a two-phase procedure. In the first phase, called instruction fetch, the instruction is fetched from the memory location whose address is in the PC. This instruction is placed in the instruction register (IR) in the processor. At the start of the second phase, called instruction execute, the instruction in IR is examined to determine which operation is to be performed.
 
-instruction fetch, the instruction is fetched from the memory location whose address is in the PC. This instruction is placed in the instruction register (IR) in the processor. At the start of the second phase, called instruction execute, the instruction in IR is examined to determine which operation is to be performed.
-
-The specified operation is then performed by the processor. This involves a small number of steps such as fetching operands from the memory or from processor registers, performing an arithmetic or logic operation, and
-
-storing the result in the destination location. At some point during this two-phase procedure, the contents of the PC are advanced to point to the next instruction.
+The specified operation is then performed by the processor. This involves a small number of steps such as fetching operands from the memory or from processor registers, performing an arithmetic or logic operation, and storing the result in the destination location. At some point during this two-phase procedure, the contents of the PC are advanced to point to the next instruction.
 
 > When the execute phase of an instruction is completed, the PC contains the address of the next instruction, and a new instruction fetch phase can begin.
 
@@ -658,15 +645,11 @@ We access an operand by specifying the name of the register or the address of th
 
 ## Immediate mode
 
-Here the operand is specified in the instruction itself. An instruction that follows
-
-immediate mode has an operand field rather than an address field.
+Here the operand is specified in the instruction itself. An instruction that follows immediate mode has an operand field rather than an address field.
 
 For example: `Move 50immediate, R0`
 
-A common convention say, a pound symbol # has to precede the value of an
-
-immediate operand `Move #50, R0`
+A common convention say, a pound symbol # has to precede the value of an immediate operand `Move #50, R0`
 
 > [!Example]
 > A=B+6
@@ -676,11 +659,7 @@ immediate operand `Move #50, R0`
 
 ## Absolute (Direct) mode
 
-Here operand resides in Memory and its address is given explicitly in the address field of an instruction. This scheme need only one memory reference in addition to instruction fetch cycle and no further calculation is required to compute operand address.
-
-Direct addressing scheme is simple to use and easy to implement without the
-
-requirement for additional hardware.
+Here operand resides in Memory and its address is given explicitly in the address field of an instruction. This scheme need only one memory reference in addition to instruction fetch cycle and no further calculation is required to compute operand address. Direct addressing scheme is simple to use and easy to implement without the requirement for additional hardware.
 
 However it offers only limited memory address space.
 
@@ -692,9 +671,7 @@ However it offers only limited memory address space.
 
 ## Register mode
 
-In this scheme, the operand is the contents of a register appearing in the
-
-instruction i.e `A=R`
+In this scheme, the operand is the contents of a register appearing in the instruction i.e `A=R`
 
 > [!Example]
 > Add R1, R2
@@ -721,9 +698,7 @@ The effective address of the operand is the contents of a register or memory loc
 
 # Register Indirect
 
-Here, instruction specifies a register in the CPU whose contents give the effective
-
-address of the operand in Memory. `For example Add (R1), R0 i.e. EA = (R1) i.e. contents of R1 is B`
+Here, instruction specifies a register in the CPU whose contents give the effective address of the operand in Memory. `For example Add (R1), R0 i.e. EA = (R1) i.e. contents of R1 is B`
 
 ![[Pasted image 20241107120024.png]]
 
@@ -741,13 +716,9 @@ address of the operand in Memory. `For example Add (R1), R0 i.e. EA = (R1) i.e. 
 
 # Indexed mode
 
-Here, effective address of the operand is generated by adding a constant value to the contents of a register. This constant value may be either an offset value called
+Here, effective address of the operand is generated by adding a constant value to the contents of a register. This constant value may be either an offset value called displacement or beginning address of data/operand array in main memory (Base).
 
-displacement or beginning address of data/operand array in main memory (Base).
-
-Indexed addressing mode is symbolically represented as `X(R)`
-
-Here X denote a constant and R is name of the register involved in Indexing.
+Indexed addressing mode is symbolically represented as `X(R)` Here X denote a constant and R is name of the register involved in Indexing.
 
 Effective address EA of the operand is given as `EA = X + [R]`
 
@@ -777,15 +748,11 @@ Several variations of this basic form provide a very efficient access to memory 
 
 > Another version of the Index mode uses two registers plus a constant, which can be denoted as X(Ri, Rj)
 
-In this case, the effective address is the sum of the constant X and the
-
-contents of registers Ri and Rj. This added flexibility is useful in accessing multiple components inside each item in a record, where the beginning of an item is specified by the (Ri, Rj) part of the addressing mode.
+In this case, the effective address is the sum of the constant X and the contents of registers Ri and Rj. This added flexibility is useful in accessing multiple components inside each item in a record, where the beginning of an item is specified by the (Ri, Rj) part of the addressing mode.
 
 # Relative mode
 
-This scheme supplies the relative position of the memory operand to be located.
-
-It’s like index mode only but program counter register PC substitutes for base address contents.
+This scheme supplies the relative position of the memory operand to be located. It’s like index mode only but program counter register PC substitutes for base address contents.
 
 > [!Example]
 >
@@ -860,9 +827,7 @@ The source program uses `mnemonics` to represent OP codes in machine instruction
 
 set of syntax rules governs the specification of addressing modes for the data operands of
 
-these instructions. The assembler ***generates the binary encoding*** for the OP code and other
-
-instruction fields.
+these instructions. The assembler ***generates the binary encoding*** for the OP code and other instruction fields.
 
 > The assembler recognizes directives that specify numbers and characters and directives that allocate memory space for data areas.
 
@@ -878,15 +843,7 @@ example, this happens if a forward branch is required to an address label that a
 
 in the program.
 
-A commonly-used solution to this problem is to have the assembler scan through the source program twice. During the first pass, it creates the symbol table. For `EQU` directives,
-
-each name and its defined value are recorded in the symbol table. For address labels, the
-
-assembler determines the value of each name from its position relative to the start of the
-
-source program. The value is determined by summing the sizes of all machine instructions
-
-processed before the definition of the name.
+A commonly-used solution to this problem is to have the assembler scan through the source program twice. During the first pass, it creates the symbol table. For `EQU` directives, each name and its defined value are recorded in the symbol table. For address labels, the assembler determines the value of each name from its position relative to the start of the source program. The value is determined by summing the sizes of all machine instructions processed before the definition of the name.
 
 At the end of the first pass, all names appearing in the source program will have been assigned numerical values in the symbol table. The assembler then makes a second pass through the source program, looks up each name item counters in the symbol table, and substitutes the corresponding numerical value.
 
@@ -908,9 +865,7 @@ The loader starts its execution by branching to the first instruction to be exec
 
 In modern computers, a stack is implemented by using a portion of the main memory
 
-for this purpose. One processor register, called the ***stack pointer (SP)***, is used to point to a
-
-particular stack structure called the processor stack.
+for this purpose. One processor register, called the ***stack pointer (SP)***, is used to point to a particular stack structure called the processor stack.
 
 Data can be stored in a stack with successive elements occupying successive memory
 
@@ -1082,9 +1037,10 @@ operation and responds only to the new address.
 
 All information transferred over the USB is organized in packets, where a packet consists of one or more bytes of information. There are many types of packets that perform a variety of control functions. The information transferred on the USB can be divided into two broad
 
-categories: control and data. Control packets perform such tasks as addressing a device to initiate data transfer, acknowledging that data have been received correctly, or indicating an error.
+categories: control and data.
 
-Data packets carry information that is delivered to a device. A packet consists of one or more fields containing different kinds of information. The first field of any packet is called the packet identifier, PID, which identifies the type of that packet.
+1. Control packets perform such tasks as addressing a device to initiate data transfer, acknowledging that data have been received correctly, or indicating an error.
+2. Data packets carry information that is delivered to a device. A packet consists of one or more fields containing different kinds of information. The first field of any packet is called the packet identifier, PID, which identifies the type of that packet.
 
 They are transmitted twice. The first time they are sent with their true values, and the second time with each bit complemented The four PID bits identify one of 16 different packet types. Some control packets, such as ACK (Acknowledge), consist only of the PID byte.
 
@@ -1098,9 +1054,7 @@ Devices that generates or receives isochronous data require a time reference to 
 
 The arrival of an SOF packet at any device constitutes a regular clock signal that the device can use for its own purposes. To assist devices that may need longer periods of time, the SOF packet carries an 11-bit frame number.
 
-Following each SOF packet, the host carries out input and output transfers for isochronous devices. This means that each device will have an opportunity for an input or
-
-output transfer once every 1 ms.
+Following each SOF packet, the host carries out input and output transfers for isochronous devices. This means that each device will have an opportunity for an input or output transfer once every 1 ms.
 
 ### Electrical Characterestics of USB
 

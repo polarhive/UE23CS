@@ -341,3 +341,7 @@ Each type of plot helps you understand different potential issues with your regr
 
 > [!Example]
 > If the vertical spread does not vary with the fitted value, we call the residual plot homoscedastic. Else we call the plot heteroscedastic.
+
+---
+
+![[Pasted image 20241124234939.png]]

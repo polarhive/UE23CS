@@ -28,4 +28,6 @@ Determine the optimal placement of components on a PCB to minimize the overall l
 
 ## Genetic Optimization
 
+---
 
+> https://desmond-ong.github.io/stats-notes/
