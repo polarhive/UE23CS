@@ -767,11 +767,9 @@ This example demonstrates basic insertions and deletions in min-heap and max-hea
 > [!Info]
 > A **Balanced Tree** is a type of binary tree where the height difference between the left and right subtrees of any node is within a certain limit, often a single level. Balanced trees ensure that the tree does not become skewed, which maintains efficient operations, particularly for insertion, deletion, and search, which operate in \(O(\log n)\) time.
 
-## Why Balance Matters
+> Why Balance Matters
 
 Without balancing, a binary search tree (BST) can degrade to a linked list with \(O(n)\) operations. Balanced trees, like AVL trees, prevent this by automatically adjusting the structure during insertions and deletions.
-
----
 
 # AVL Trees
 
@@ -784,9 +782,7 @@ An **AVL Tree** (named after its inventors, Adelson-Velsky and Landis) is a self
 >    - `balance_factor = height(left_subtree) - height(right_subtree)`
 > 3. **Self-Balancing**: After each insertion or deletion, the tree checks balance factors and performs rotations if needed to maintain the balance.
 
----
-
-# AVL Tree Rotations
+## AVL Tree Rotations
 
 > AVL tree rotations are used to maintain the balance of the tree by rearranging nodes. There are four types of rotations to correct specific imbalance cases:
 
@@ -794,130 +790,17 @@ An **AVL Tree** (named after its inventors, Adelson-Velsky and Landis) is a self
 
 Left Rotation is used to correct a **Right-Heavy** imbalance (when the right subtree of a node is higher than the left). It is commonly used in **Right-Right (RR) Imbalance** situations.
 
-```c
-Node* leftRotate(Node* x) {
-    Node* y = x->right;
-    Node* T2 = y->left;
-
-    // Perform rotation
-    y->left = x;
-    x->right = T2;
-
-    // Update heights
-    x->height = max(height(x->left), height(x->right)) + 1;
-    y->height = max(height(y->left), height(y->right)) + 1;
-
-    return y; // New root after rotation
-}
-```
-
 ## 2. Right Rotation (Single Rotation)
 
 Right Rotation is used to correct a **Left-Heavy** imbalance (when the left subtree of a node is higher than the right). It is commonly used in **Left-Left (LL) Imbalance** situations.
-
-```c
-Node* rightRotate(Node* y) {
-    Node* x = y->left;
-    Node* T2 = x->right;
-
-    // Perform rotation
-    x->right = y;
-    y->left = T2;
-
-    // Update heights
-    y->height = max(height(y->left), height(y->right)) + 1;
-    x->height = max(height(x->left), height(x->right)) + 1;
-
-    return x; // New root after rotation
-}
-```
 
 ## 3. Left-Right Rotation (Double Rotation)
 
 Left-Right Rotation is a combination of a left rotation followed by a right rotation. It is used to correct a **Left-Right (LR) Imbalance**, where a node’s left subtree is right-heavy.
 
-```c
-Node* leftRightRotate(Node* node) {
-    node->left = leftRotate(node->left); // First left rotation on left child
-    return rightRotate(node);            // Then right rotation on node itself
-}
-```
-
 ## 4. Right-Left Rotation (Double Rotation)
 
 Right-Left Rotation is a combination of a right rotation followed by a left rotation. It is used to correct a **Right-Left (RL) Imbalance**, where a node’s right subtree is left-heavy.
-
-```c
-Node* rightLeftRotate(Node* node) {
-    node->right = rightRotate(node->right); // First right rotation on right child
-    return leftRotate(node);                // Then left rotation on node itself
-}
-```
-
----
-
-# Insertion in an AVL Tree
-
-After inserting a new node, the AVL tree checks for imbalances by calculating balance factors and performs the necessary rotations to restore balance.
-
-```c
-Node* insert(Node* node, int key) {
-    if (node == NULL)
-        return createNode(key);
-
-    if (key < node->data)
-        node->left = insert(node->left, key);
-    else if (key > node->data)
-        node->right = insert(node->right, key);
-    else
-        return node;
-
-    node->height = 1 + max(height(node->left), height(node->right));
-    int balance = getBalance(node);
-
-    // Left Left Case
-    if (balance > 1 && key < node->left->data)
-        return rightRotate(node);
-
-    // Right Right Case
-    if (balance < -1 && key > node->right->data)
-        return leftRotate(node);
-
-    // Left Right Case
-    if (balance > 1 && key > node->left->data) {
-        node->left = leftRotate(node->left);
-        return rightRotate(node);
-    }
-
-    // Right Left Case
-    if (balance < -1 && key < node->right->data) {
-        node->right = rightRotate(node->right);
-        return leftRotate(node);
-    }
-
-    return node;
-}
-```
-
-```c
-int main() {
-    Node* root = NULL;
-
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 40);
-    root = insert(root, 50);
-    root = insert(root, 25);
-
-    printf("Inorder traversal of the constructed AVL tree is:\n");
-    inorderTraversal(root);
-
-    return 0;
-}
-```
-
-In this example, the tree remains balanced after each insertion, thanks to rotations, maintaining efficient performance.
 
 ---
 
@@ -931,11 +814,7 @@ A **Splay Tree** is a self-adjusting binary search tree that performs splaying o
 2. **No Balance Factor or Height Constraints**: Unlike AVL or Red-Black trees, splay trees don’t enforce strict balance criteria.
 3. **Amortized (O(log n)) Time Complexity**: While individual operations may take longer, the amortized time for access, insertion, or deletion is (O(log n)), making splay trees efficient over time.
 
----
-
-# Splay Operations (Rotations)
-
-There are three types of rotations in a splay tree to move a node to the root, depending on its position relative to its parent and grandparent nodes. Each rotation type is aimed at moving the target node up the tree to eventually reach the root.
+> There are three types of rotations in a splay tree to move a node to the root, depending on its position relative to its parent and grandparent nodes. Each rotation type is aimed at moving the target node up the tree to eventually reach the root.
 
 ## 1. Zig Rotation (Single Rotation)
 
@@ -944,22 +823,6 @@ There are three types of rotations in a splay tree to move a node to the root, d
 - **Right Zig**: Performed when the target node is the left child of the root.
 - **Left Zig**: Performed when the target node is the right child of the root.
 
-```c
-Node* rightRotate(Node* x) {
-    Node* y = x->left;
-    x->left = y->right;
-    y->right = x;
-    return y;
-}
-
-Node* leftRotate(Node* x) {
-    Node* y = x->right;
-    x->right = y->left;
-    y->left = x;
-    return y;
-}
-```
-
 ## 2. Zig-Zig Rotation (Double Rotation)
 
 **Zig-Zig** is a double rotation used when the target node and its parent are both left or both right children of their respective parents.
@@ -967,165 +830,12 @@ Node* leftRotate(Node* x) {
 - **Right Zig-Zig**: Performed when the target node is the left child of its parent, and the parent is also the left child of the grandparent.
 - **Left Zig-Zig**: Performed when the target node is the right child of its parent, and the parent is also the right child of the grandparent.
 
-```c
-Node* zigZigRight(Node* x) {
-    x = rightRotate(x);       // First rotation on the grandparent
-    x = rightRotate(x);       // Second rotation on the parent
-    return x;
-}
-
-Node* zigZigLeft(Node* x) {
-    x = leftRotate(x);        // First rotation on the grandparent
-    x = leftRotate(x);        // Second rotation on the parent
-    return x;
-}
-```
-
 ## 3. Zig-Zag Rotation (Double Rotation)
 
 **Zig-Zag** is a double rotation used when the target node is a left child, and its parent is a right child, or vice versa.
 
 - **Right Zig-Zag**: The target node is the right child of the parent, and the parent is the left child of the grandparent.
 - **Left Zig-Zag**: The target node is the left child of the parent, and the parent is the right child of the grandparent.
-
-```c
-Node* zigZagRight(Node* x) {
-    x->left = leftRotate(x->left);  // First rotation on the parent
-    return rightRotate(x);          // Second rotation on the grandparent
-}
-
-Node* zigZagLeft(Node* x) {
-    x->right = rightRotate(x->right);  // First rotation on the parent
-    return leftRotate(x);              // Second rotation on the grandparent
-}
-```
-
----
-
-# Splay Operation
-
-The **splay** function brings a target node to the root of the tree. The function recursively applies the appropriate rotations based on the node’s position relative to its parent and grandparent.
-
-```c
-Node* splay(Node* root, int key) {
-    if (root == NULL || root->data == key)
-        return root;
-
-    if (key < root->data) {
-        if (root->left == NULL) return root;
-
-        if (key < root->left->data) {   // Zig-Zig case (Left Left)
-            root->left->left = splay(root->left->left, key);
-            root = rightRotate(root);
-        } else if (key > root->left->data) {  // Zig-Zag case (Left Right)
-            root->left->right = splay(root->left->right, key);
-            if (root->left->right != NULL)
-                root->left = leftRotate(root->left);
-        }
-        return (root->left == NULL) ? root : rightRotate(root);
-    } else {
-        if (root->right == NULL) return root;
-
-        if (key > root->right->data) {   // Zig-Zig case (Right Right)
-            root->right->right = splay(root->right->right, key);
-            root = leftRotate(root);
-        } else if (key < root->right->data) {  // Zig-Zag case (Right Left)
-            root->right->left = splay(root->right->left, key);
-            if (root->right->left != NULL)
-                root->right = rightRotate(root->right);
-        }
-        return (root->right == NULL) ? root : leftRotate(root);
-    }
-}
-```
-
----
-
-# Operations on a Splay Tree
-
-## Insertion
-
-When inserting a new node, we first splay the tree to bring the closest node to the root. Then we insert the new node in the appropriate position and make it the new root.
-
-```c
-Node* insert(Node* root, int key) {
-    if (root == NULL)
-        return createNode(key);
-
-    root = splay(root, key);
-
-    if (root->data == key) return root;  // If already exists, return
-
-    Node* newNode = createNode(key);
-
-    if (key < root->data) {
-        newNode->right = root;
-        newNode->left = root->left;
-        root->left = NULL;
-    } else {
-        newNode->left = root;
-        newNode->right = root->right;
-        root->right = NULL;
-    }
-
-    return newNode;
-}
-```
-
-## Deletion
-
-For deletion, we first splay the target node to the root. If the node exists, we then split the tree into two subtrees (left and right). The left subtree becomes the new root, with the right subtree reattached to it.
-
-```c
-Node* delete(Node* root, int key) {
-    if (root == NULL) return NULL;
-
-    root = splay(root, key);
-
-    if (root->data != key) return root;  // Key not found
-
-    Node* temp;
-    if (root->left == NULL) {
-        temp = root->right;
-    } else {
-        temp = splay(root->left, key);
-        temp->right = root->right;
-    }
-
-    free(root);
-    return temp;
-}
-```
-
-## Searching
-
-In a splay tree, searching for a node involves splaying it to the root if it exists. If the key is found, it’s returned as the new root.
-
-```c
-Node* search(Node* root, int key) {
-    return splay(root, key);
-}
-```
-
-```c
-int main() {
-    Node* root = NULL;
-
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-
-    root = search(root, 20);  // Brings node with key 20 to the root
-    printf("Root after search: %d\n", root->data);
-
-    root = delete(root, 20);
-    printf("Root after deletion of 20: %d\n", root->data);
-
-    return 0;
-}
-```
-
-In this example, the tree reorganizes itself with each operation, keeping frequently accessed nodes closer to the root.
 
 ---
 
@@ -1244,7 +954,7 @@ void DFS(int v, bool visited[], int adjMatrix[V][V]) {
     for (int i = 0; i < V; i++) {
         if (adjMatrix[v][i] == 1 && !visited[i])
             DFS(i, visited, adjMatrix);
-    }
+            }
 }
 ```
 

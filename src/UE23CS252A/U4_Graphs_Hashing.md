@@ -749,12 +749,3 @@ While the above naive method builds a simple suffix tree, it is not efficient fo
 1. **Implicit Suffix Tree**: Instead of building the full suffix tree at once, Ukkonen builds an **implicit suffix tree** where only the necessary suffixes are stored at each step.
 2. **Active Point**: The algorithm uses an active point (a combination of an active node, edge, and position) to traverse the tree efficiently.
 3. **Suffix Links**: These are used to speed up the tree construction process by pointing to the longest suffix that can be shared with the current suffix.
-
-> [!Info]
-> Implementing **Ukkonen's Algorithm** is more involved and requires careful handling of active points and suffix links. The general steps of the algorithm include:
->
-> - Iterating over each character in the string.
-> - Maintaining an active point, which helps to minimize redundant work when inserting new suffixes.
-> - Handling edge cases, such as when a new character introduces a new suffix or when an internal node is split.
-
----
