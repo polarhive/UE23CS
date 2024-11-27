@@ -412,40 +412,47 @@ To insert a word into a trie, we start from the root and follow the characters o
 #include <stdlib.h>
 #include <string.h>
 
-#define ALPHABET_SIZE 26
+#define ALPHABET_SIZE 26  // Number of letters in the alphabet (assuming lowercase)
 
 // Trie Node structure
 typedef struct TrieNode {
-    struct TrieNode* children[ALPHABET_SIZE];
-    int is_end_of_word; // 1 if the node is the end of a word
+    struct TrieNode* children[ALPHABET_SIZE];  // Array of child nodes for each letter
+    int is_end_of_word;  // Flag to mark if the node is the end of a word (1 if it is)
 } TrieNode;
 
 // Function to create a new trie node
 TrieNode* create_node() {
-    TrieNode* new_node = (TrieNode*)malloc(sizeof(TrieNode));
-    new_node->is_end_of_word = 0;
+    TrieNode* new_node = (TrieNode*)malloc(sizeof(TrieNode));  // Allocate memory for a new node
+    new_node->is_end_of_word = 0;  // Initially, the node is not the end of a word
     for (int i = 0; i < ALPHABET_SIZE; i++) {
-        new_node->children[i] = NULL;
+        new_node->children[i] = NULL;  // Initialize all child pointers to NULL
     }
     return new_node;
 }
 
 // Function to insert a word into the trie
 void insert(TrieNode* root, const char* word) {
-    TrieNode* current = root;
+    TrieNode* current = root;  // Start at the root of the trie
     for (int i = 0; word[i] != '\0'; i++) {
-        int index = word[i] - 'a'; // Convert char to index (assuming lowercase)
+        int index = word[i] - 'a';  // Convert char to index (assuming lowercase letters only)
+        
+        // If the current node doesn't have a child for this character, create one
         if (current->children[index] == NULL) {
-            current->children[index] = create_node();
+            current->children[index] = create_node();  // Create a new node for this character
         }
+
+        // Move to the next node
         current = current->children[index];
     }
-    current->is_end_of_word = 1; // Mark the end of the word
+
+    // Mark the last node as the end of a word
+    current->is_end_of_word = 1;
 }
 
 int main() {
-    TrieNode* root = create_node();
+    TrieNode* root = create_node();  // Create the root node of the trie
 
+    // Insert words into the trie
     insert(root, "apple");
     insert(root, "banana");
     insert(root, "app");
@@ -463,15 +470,23 @@ To search for a word, we start at the root and follow the characters of the word
 ```c
 // Function to search for a word in the trie
 int search(TrieNode* root, const char* word) {
-    TrieNode* current = root;
+    TrieNode* current = root;  // Start at the root of the trie
+
+    // Traverse through the characters of the word
     for (int i = 0; word[i] != '\0'; i++) {
-        int index = word[i] - 'a';
+        int index = word[i] - 'a';  // Convert char to index (assuming lowercase letters only)
+
+        // If there is no child node for the current character, the word doesn't exist in the trie
         if (current->children[index] == NULL) {
-            return 0; // Word not found
+            return 0;  // Word not found, return false (0)
         }
+
+        // Move to the next node in the trie
         current = current->children[index];
     }
-    return current->is_end_of_word; // Return true if it's the end of a word
+
+    // If the last node is marked as the end of a word, return true (1)
+    return current->is_end_of_word;  // Return 1 if it's the end of a word, otherwise return 0
 }
 ```
 
@@ -659,6 +674,7 @@ typedef struct SuffixTreeNode {
     struct SuffixTreeNode* children[MAX_CHAR];
     int start_index;
     int *end_index;
+    int suffix_link;  // Optional, for optimization (suffix link to parent suffix)
 } SuffixTreeNode;
 
 // Function to create a new node in the suffix tree
@@ -670,6 +686,7 @@ SuffixTreeNode* create_node(int start, int *end) {
     for (int i = 0; i < MAX_CHAR; i++) {
         node->children[i] = NULL;
     }
+    node->suffix_link = -1;  // Initialize suffix link to -1 (indicating no link yet)
     return node;
 }
 

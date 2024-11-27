@@ -28,39 +28,38 @@ Binary Search Trees are typically implemented using pointers, as they allow for 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
-
-#define MAX_SIZE 100
-
-int bst[MAX_SIZE];
-int size = 0;
-
+ 
+#define MAX_SIZE 100  // Maximum size of the binary search tree
+ 
+int bst[MAX_SIZE];  // Array to represent the binary search tree
+int size = 0;  // Tracks the number of elements in the tree
+ 
+// Function to insert a value into the binary search tree represented as an array
 void insertArray(int value) {
-    int index = 0;
+    int index = 0;  // Start from the root of the tree (index 0)
+    
+    // Loop to find an empty spot in the tree
     while (bst[index] != 0) {
-        if (value < bst[index])
+        if (value < bst[index])  // If the value is smaller, move to the left child
             index = 2 * index + 1;
-        else
+        else  // If the value is larger, move to the right child
             index = 2 * index + 2;
     }
-    bst[index] = value;
-    size++;
+    
+    bst[index] = value;  // Insert the value at the found index
+    size++;  // Increment the size of the tree
 }
-
+ 
+// Function to display all elements in the binary search tree
 void displayArray() {
     for (int i = 0; i < MAX_SIZE; i++) {
-        if (bst[i] != 0)
+        if (bst[i] != 0)  // Only print non-zero elements (valid tree nodes)
             printf("%d ", bst[i]);
     }
-    printf("\n");
+    printf("\n");  // Print a newline after displaying all elements
 }
 ```
 
-```c
-insertArray(10);
-insertArray(5);
-insertArray(15);
-displayArray();
-```
 
 ---
 
@@ -72,36 +71,41 @@ The linked approach to BSTs is more common and allows for dynamic memory allocat
 #include <stdio.h>
 #include <stdlib.h>
 
+// Define the structure for a node in the binary search tree
 typedef struct Node {
-    int data;
-    struct Node *left, *right;
+    int data;  // Value stored in the node
+    struct Node *left, *right;  // Pointers to the left and right children
 } Node;
 
+// Function to create a new node with a given value
 Node* createNode(int value) {
+    // Allocate memory for a new node
     Node* newNode = (Node*)malloc(sizeof(Node));
+    
+    // Set the data and initialize left and right children to NULL
     newNode->data = value;
     newNode->left = newNode->right = NULL;
+    
+    // Return the pointer to the newly created node
     return newNode;
 }
 
+// Function to insert a new value into the binary search tree
 Node* insert(Node* root, int value) {
+    // If the tree (or subtree) is empty, create a new node
     if (root == NULL)
         return createNode(value);
 
+    // If the value is smaller than the current node's data, insert into the left subtree
     if (value < root->data)
         root->left = insert(root->left, value);
+    // If the value is larger, insert into the right subtree
     else if (value > root->data)
         root->right = insert(root->right, value);
 
+    // Return the (unchanged) root pointer
     return root;
 }
-```
-
-```c
-Node* root = NULL;
-root = insert(root, 10);
-insert(root, 5);
-insert(root, 15);
 ```
 
 ---
@@ -111,35 +115,77 @@ insert(root, 15);
 The height of a tree is the length of the longest path from the root to a leaf. Depth is the distance from the root node to the target node.
 
 ```c
-int findHeight(Node* node) {
-    if (node == NULL)
-        return -1;
-    else {
-        int leftHeight = findHeight(node->left);
-        int rightHeight = findHeight(node->right);
-        return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
-    }
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure for a node in the binary search tree
+typedef struct Node {
+    int data;  // Value stored in the node
+    struct Node *left, *right;  // Pointers to the left and right children
+} Node;
+
+// Function to create a new node with a given value
+Node* createNode(int value) {
+    Node* newNode = (Node*)malloc(sizeof(Node));  // Allocate memory for the new node
+    newNode->data = value;  // Set the data of the new node
+    newNode->left = newNode->right = NULL;  // Initialize both left and right children to NULL
+    return newNode;  // Return the pointer to the new node
 }
 
+// Function to insert a new value into the binary search tree
+Node* insert(Node* root, int value) {
+    // If the tree (or subtree) is empty, create a new node
+    if (root == NULL)
+        return createNode(value);
+
+    // If the value is smaller than the current node's data, insert into the left subtree
+    if (value < root->data)
+        root->left = insert(root->left, value);
+    // If the value is larger, insert into the right subtree
+    else if (value > root->data)
+        root->right = insert(root->right, value);
+
+    // Return the (unchanged) root pointer
+    return root;
+}
+
+// Function to find the height of the binary search tree
+int findHeight(Node* node) {
+    // If the node is NULL, return -1 (height of an empty tree is -1)
+    if (node == NULL)
+        return -1;
+
+    // Recursively calculate the height of the left and right subtrees
+    int leftHeight = findHeight(node->left);
+    int rightHeight = findHeight(node->right);
+
+    // Return the maximum height between the left and right subtrees plus 1 for the current node
+    return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
+}
+
+// Function to count the number of nodes in the binary search tree
 int countNodes(Node* node) {
+    // If the node is NULL, return 0 (no nodes in an empty tree)
     if (node == NULL)
         return 0;
+
+    // Count the current node (1) and recursively count nodes in the left and right subtrees
     return 1 + countNodes(node->left) + countNodes(node->right);
 }
 
+// Function to count the number of leaves in the binary search tree
 int countLeaves(Node* node) {
+    // If the node is NULL, return 0 (no leaves in an empty tree)
     if (node == NULL)
         return 0;
+
+    // If the node is a leaf (both left and right children are NULL), return 1
     if (node->left == NULL && node->right == NULL)
         return 1;
+
+    // Recursively count leaves in the left and right subtrees
     return countLeaves(node->left) + countLeaves(node->right);
 }
-```
-
-```c
-printf("Height of tree: %d\n", findHeight(root));
-printf("Total nodes: %d\n", countNodes(root));
-printf("Total leaves: %d\n", countLeaves(root));
 ```
 
 ---
@@ -285,40 +331,52 @@ BST traversal using iteration can be done using Inorder, Preorder, and Postorder
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_STACK_SIZE 100
+#define MAX_STACK_SIZE 100  // Maximum size of the stack
 
-Node* stack[MAX_STACK_SIZE];
-int top = -1;
+// Define the structure for a node in the binary search tree
+typedef struct Node {
+    int data;  // Value stored in the node
+    struct Node *left, *right;  // Pointers to the left and right children
+} Node;
 
+// Stack to store nodes during the traversal
+Node* stack[MAX_STACK_SIZE];  
+int top = -1;  // Stack pointer, initialized to -1 (empty stack)
+
+// Function to push a node onto the stack
 void push(Node* node) {
-    if (top < MAX_STACK_SIZE - 1)
-        stack[++top] = node;
+    if (top < MAX_STACK_SIZE - 1)  // Ensure the stack has space
+        stack[++top] = node;  // Increment top and add node to the stack
 }
 
+// Function to pop a node from the stack
 Node* pop() {
-    if (top >= 0)
-        return stack[top--];
-    return NULL;
+    if (top >= 0)  // If the stack is not empty
+        return stack[top--];  // Return the top node and decrement top
+    return NULL;  // If the stack is empty, return NULL
 }
 
+// Function to perform in-order traversal iteratively
 void inorderIterative(Node* root) {
     Node* current = root;
+
+    // Continue until we have visited all nodes
     while (current != NULL || top != -1) {
+        // Reach the leftmost node by going down the left children
         while (current != NULL) {
-            push(current);
-            current = current->left;
+            push(current);  // Push the current node to the stack
+            current = current->left;  // Move to the left child
         }
 
+        // Pop the node from the stack (the leftmost node or a backtrack point)
         current = pop();
-        printf("%d ", current->data);
+        printf("%d ", current->data);  // Print the data of the node
+
+        // Move to the right child of the current node
         current = current->right;
     }
-    printf("\n");
+    printf("\n");  // Print a newline after completing the traversal
 }
-```
-
-```c
-inorderIterative(root);
 ```
 
 ---
@@ -472,19 +530,24 @@ For simplicity, here’s an implementation of a single-threaded binary tree (rig
 #include <stdio.h>
 #include <stdlib.h>
 
+// Define the structure for a node in a threaded binary tree
 typedef struct ThreadedNode {
-    int data;
-    struct ThreadedNode *left, *right;
-    int rightThread; // 1 if right points to inorder successor
+    int data;  // Value stored in the node
+    struct ThreadedNode *left, *right;  // Pointers to the left and right children
+    int rightThread;  // 1 if the right pointer is a thread (points to inorder successor)
 } ThreadedNode;
 
-// Function to create a new node
+// Function to create a new node for the threaded binary tree
 ThreadedNode* createThreadedNode(int data) {
+    // Allocate memory for the new node
     ThreadedNode* node = (ThreadedNode*)malloc(sizeof(ThreadedNode));
+    
+    // Initialize the node's data, left and right pointers, and rightThread flag
     node->data = data;
     node->left = node->right = NULL;
-    node->rightThread = 0;
-    return node;
+    node->rightThread = 0;  // Initially, rightThread is 0 (not a thread)
+    
+    return node;  // Return the newly created node
 }
 
 // Insert function for a right-threaded binary tree
@@ -492,51 +555,59 @@ ThreadedNode* insert(ThreadedNode* root, int key) {
     ThreadedNode* parent = NULL;
     ThreadedNode* current = root;
 
+    // Traverse the tree to find the appropriate position for insertion
     while (current != NULL) {
-        if (key == current->data) return root;
+        if (key == current->data) return root;  // If the key is already in the tree, return the root
 
-        parent = current;
+        parent = current;  // Track the parent node
         if (key < current->data) {
-            if (current->left == NULL) break;
-            current = current->left;
+            if (current->left == NULL) break;  // If no left child, insert here
+            current = current->left;  // Move to the left child
         } else {
-            if (current->rightThread) break;
-            current = current->right;
+            if (current->rightThread) break;  // If rightThread is set, move to inorder successor
+            current = current->right;  // Move to the right child
         }
     }
 
+    // Create a new node for the key to be inserted
     ThreadedNode* newNode = createThreadedNode(key);
+    
     if (parent == NULL) {
-        root = newNode;
+        root = newNode;  // If the tree is empty, the new node becomes the root
     } else if (key < parent->data) {
+        // Insert as the left child of the parent
         parent->left = newNode;
-        newNode->right = parent;
-        newNode->rightThread = 1;
+        newNode->right = parent;  // Set the new node's right pointer to the parent (thread)
+        newNode->rightThread = 1;  // Mark the right pointer as a thread
     } else {
-        newNode->right = parent->right;
-        newNode->rightThread = parent->rightThread;
-        parent->right = newNode;
-        parent->rightThread = 0;
+        // Insert as the right child of the parent
+        newNode->right = parent->right;  // Set the new node's right pointer to the parent's original right
+        newNode->rightThread = parent->rightThread;  // Set the new node's rightThread flag
+        parent->right = newNode;  // Set the parent's right pointer to the new node
+        parent->rightThread = 0;  // The parent's right pointer is no longer a thread
     }
-    return root;
+    return root;  // Return the updated root of the tree
 }
 
 // Inorder traversal of a threaded binary tree
 void inorder(ThreadedNode* root) {
     ThreadedNode* current = root;
+
+    // Traverse the tree
     while (current != NULL) {
-        // Move to leftmost node
+        // Move to the leftmost node
         while (current->left != NULL) current = current->left;
 
-        // Print current node
+        // Print the current node's data
         printf("%d ", current->data);
 
-        // Find inorder successor using threads
+        // Find the inorder successor using the thread (if it exists)
         while (current->rightThread) {
-            current = current->right;
-            printf("%d ", current->data);
+            current = current->right;  // Move to the inorder successor
+            printf("%d ", current->data);  // Print the inorder successor's data
         }
 
+        // Move to the right child of the current node (if it exists)
         current = current->right;
     }
 }
@@ -595,34 +666,39 @@ In bottom-up heap construction, we start from the last non-leaf node and apply t
 ```c
 #include <stdio.h>
 
+// Function to swap two integers
 void swap(int *x, int *y) {
-    int temp = *x;
-    *x = *y;
-    *y = temp;
+    int temp = *x;  // Store the value of x in a temporary variable
+    *x = *y;  // Assign the value of y to x
+    *y = temp;  // Assign the value of temp (original x) to y
 }
 
-// Heapify function to maintain heap property
+// Heapify function to maintain the heap property (max-heap)
 void heapify(int arr[], int n, int i) {
-    int largest = i;  // Root
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
+    int largest = i;  // Assume the root is the largest
+    int left = 2 * i + 1;  // Index of the left child
+    int right = 2 * i + 2;  // Index of the right child
 
+    // If left child is larger than root, update largest
     if (left < n && arr[left] > arr[largest])
         largest = left;
 
+    // If right child is larger than largest so far, update largest
     if (right < n && arr[right] > arr[largest])
         largest = right;
 
+    // If largest is not root, swap and continue heapifying
     if (largest != i) {
-        swap(&arr[i], &arr[largest]);
-        heapify(arr, n, largest);
+        swap(&arr[i], &arr[largest]);  // Swap the root with the largest
+        heapify(arr, n, largest);  // Recursively heapify the affected subtree
     }
 }
 
-// Bottom-up construction of max-heap
+// Function to build a max-heap from an unsorted array
 void buildMaxHeap(int arr[], int n) {
+    // Start from the last non-leaf node and heapify each node
     for (int i = n / 2 - 1; i >= 0; i--) {
-        heapify(arr, n, i);
+        heapify(arr, n, i);  // Heapify each subtree rooted at i
     }
 }
 ```
@@ -632,14 +708,17 @@ void buildMaxHeap(int arr[], int n) {
 In top-down heap construction, we add elements one by one, placing them at the end of the heap array, then "bubble up" to ensure the heap property is maintained. This method is useful when building a heap incrementally.
 
 ```c
+// Function to insert a new element into a max-heap
 void insert(int arr[], int *n, int key) {
-    int i = (*n)++;
-    arr[i] = key;
+    // Increment the heap size and set the key at the last position
+    int i = (*n)++;  // Increase the size of the heap and get the index for the new key
+    arr[i] = key;  // Place the new key at the end of the array (the last position)
 
     // Bubble up to maintain the max-heap property
+    // Compare the newly added element with its parent and swap if necessary
     while (i != 0 && arr[(i - 1) / 2] < arr[i]) {
-        swap(&arr[i], &arr[(i - 1) / 2]);
-        i = (i - 1) / 2;
+        swap(&arr[i], &arr[(i - 1) / 2]);  // Swap the current node with its parent
+        i = (i - 1) / 2;  // Move to the parent node's index
     }
 }
 ```
@@ -685,25 +764,40 @@ For a max-heap, the maximum element is always at the root. We insert by adding t
 ```c
 #include <stdio.h>
 
+// Function to insert a new element into a max-heap
 void insertMaxHeap(int arr[], int *n, int key) {
-    int i = (*n)++;
-    arr[i] = key;
+    // Increment the heap size and place the new key at the end of the array
+    int i = (*n)++;  // Increase the size of the heap and get the index for the new key
+    arr[i] = key;  // Place the new key at the last position of the heap
 
+    // Bubble up to maintain the max-heap property
+    // Compare the newly added element with its parent and swap if necessary
     while (i != 0 && arr[(i - 1) / 2] < arr[i]) {
-        swap(&arr[i], &arr[(i - 1) / 2]);
-        i = (i - 1) / 2;
+        swap(&arr[i], &arr[(i - 1) / 2]);  // Swap the current node with its parent
+        i = (i - 1) / 2;  // Move to the parent node's index
     }
 }
 
+// Function to delete the maximum element (root) from the max-heap
 int deleteMax(int arr[], int *n) {
+    // If the heap is empty, return -1
     if (*n <= 0) return -1;
+
+    // If there's only one element, simply remove it
     if (*n == 1) return arr[--(*n)];
 
+    // Store the root value (maximum element)
     int root = arr[0];
+
+    // Replace the root with the last element in the heap
     arr[0] = arr[--(*n)];
-    heapify(arr, *n, 0);
-    return root;
+
+    // Reheapify the heap to maintain the max-heap property after deletion
+    heapify(arr, *n, 0);  // Heapify from the root to restore the max-heap property
+
+    return root;  // Return the maximum element that was removed
 }
+
 ```
 
 ## Min-Heap Priority Queue (Insertion and Deletion)
@@ -711,24 +805,40 @@ int deleteMax(int arr[], int *n) {
 For a min-heap, the minimum element is always at the root. We insert by adding to the end of the array and bubble up to maintain the heap property. To remove the minimum, we replace the root with the last element and heapify down.
 
 ```c
-void insertMinHeap(int arr[], int *n, int key) {
-    int i = (*n)++;
-    arr[i] = key;
+#include <stdio.h>
 
+// Function to insert a new element into a min-heap
+void insertMinHeap(int arr[], int *n, int key) {
+    // Increment the heap size and place the new key at the end of the array
+    int i = (*n)++;  // Increase the size of the heap and get the index for the new key
+    arr[i] = key;  // Place the new key at the last position of the heap
+
+    // Bubble up to maintain the min-heap property
+    // Compare the newly added element with its parent and swap if necessary
     while (i != 0 && arr[(i - 1) / 2] > arr[i]) {
-        swap(&arr[i], &arr[(i - 1) / 2]);
-        i = (i - 1) / 2;
+        swap(&arr[i], &arr[(i - 1) / 2]);  // Swap the current node with its parent
+        i = (i - 1) / 2;  // Move to the parent node's index
     }
 }
 
+// Function to delete the minimum element (root) from the min-heap
 int deleteMin(int arr[], int *n) {
+    // If the heap is empty, return -1
     if (*n <= 0) return -1;
+
+    // If there's only one element, simply remove it
     if (*n == 1) return arr[--(*n)];
 
+    // Store the root value (minimum element)
     int root = arr[0];
+
+    // Replace the root with the last element in the heap
     arr[0] = arr[--(*n)];
-    heapify(arr, *n, 0);
-    return root;
+
+    // Reheapify the heap to maintain the min-heap property after deletion
+    heapify(arr, *n, 0);  // Heapify from the root to restore the min-heap property
+
+    return root;  // Return the minimum element that was removed
 }
 ```
 
@@ -947,14 +1057,23 @@ For a graph:
 Starting from vertex `1`, the traversal is: `1 -> 2 -> 4 -> 3 -> 5`.
 
 ```c
+#include <stdio.h>
+
+#define V 5  // Define the number of vertices in the graph
+
+// Function to perform DFS traversal starting from vertex 'v'
 void DFS(int v, bool visited[], int adjMatrix[V][V]) {
+    // Mark the current vertex as visited and print it
     visited[v] = true;
     printf("%d ", v);
 
+    // Traverse all adjacent vertices of the current vertex 'v'
     for (int i = 0; i < V; i++) {
-        if (adjMatrix[v][i] == 1 && !visited[i])
-            DFS(i, visited, adjMatrix);
-            }
+        // If there is an edge between 'v' and 'i' and vertex 'i' is not visited
+        if (adjMatrix[v][i] == 1 && !visited[i]) {
+            DFS(i, visited, adjMatrix);  // Recursively perform DFS on vertex 'i'
+        }
+    }
 }
 ```
 
@@ -986,20 +1105,60 @@ For the same graph:
 Starting from vertex `1`, the traversal is: `1 -> 2 -> 3 -> 4 -> 5`.
 
 ```c
+#include <stdio.h>
+#include <stdbool.h>
+
+#define V 5  // Number of vertices in the graph
+
+// Assuming Queue is implemented with necessary functions like enqueue, dequeue, and isEmpty
+typedef struct Queue {
+    int items[V];
+    int front, rear;
+} Queue;
+
+// Function to initialize the queue
+void initQueue(Queue* q) {
+    q->front = -1;
+    q->rear = -1;
+}
+
+// Function to check if the queue is empty
+bool isEmpty(Queue* q) {
+    return q->front == -1;
+}
+
+// Function to add an element to the queue
+void enqueue(Queue* q, int value) {
+    if (q->rear == V - 1) return;  // Queue overflow (full)
+    if (q->front == -1) q->front = 0;
+    q->items[++q->rear] = value;
+}
+
+// Function to remove an element from the queue
+int dequeue(Queue* q) {
+    if (isEmpty(q)) return -1;  // Queue underflow (empty)
+    int item = q->items[q->front++];
+    if (q->front > q->rear) q->front = q->rear = -1;  // Reset the queue if it becomes empty
+    return item;
+}
+
+// Function to perform BFS traversal starting from 'start'
 void BFS(int start, int adjMatrix[V][V]) {
-    bool visited[V] = { false };
-    Queue q;
-    enqueue(q, start);
-    visited[start] = true;
+    bool visited[V] = { false };  // Initialize visited array to false
+    Queue q;  // Create a queue to manage the BFS
+    initQueue(&q);  // Initialize the queue
+    enqueue(&q, start);  // Enqueue the starting vertex
+    visited[start] = true;  // Mark the start vertex as visited
 
-    while (!isEmpty(q)) {
-        int node = dequeue(q);
-        printf("%d ", node);
+    while (!isEmpty(&q)) {
+        int node = dequeue(&q);  // Dequeue a vertex from the front of the queue
+        printf("%d ", node);  // Print the current node
 
+        // Visit all adjacent vertices of the current node
         for (int i = 0; i < V; i++) {
-            if (adjMatrix[node][i] == 1 && !visited[i]) {
-                enqueue(q, i);
-                visited[i] = true;
+            if (adjMatrix[node][i] == 1 && !visited[i]) {  // If there is an edge and the vertex is not visited
+                enqueue(&q, i);  // Enqueue the adjacent vertex
+                visited[i] = true;  // Mark the adjacent vertex as visited
             }
         }
     }
