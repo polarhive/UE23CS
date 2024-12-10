@@ -33,7 +33,7 @@
 > **U4**: [[U4_Filesystem_Storage_Management|File and Storage Management]]
 
 **File-System Interface**: File Concept, system calls for file operations-open(), `read()`,`write()`, `lseek()`, `close()` and system call to retrieve file attributes and file types: `stat()`, `lstat()`, Access Methods, Directory and Disk Structure, system calls for reading directories, system calls to create hard links `link()` and symbolic links `symlink()`. **File-System Implementation**: Filesystem Structure, File-System Implementation, Directory Implementation, Allocation Methods, File Sharing, Protection. **Storage management**: Overview of Mass-Storage Structure, Disk Scheduling, Swap-Space Management, RAID
-Structure.
+Structure. **System Protection**: Goals, Principles and Domain of Protection, Access Matrix, Implementation of the Access Matrix, Access Control; System Security. **Shell programming**: awk, sed
 
 ---
 

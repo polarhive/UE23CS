@@ -1,6 +1,6 @@
 # UE23CS251B: Microprocessor and Computer Architecture
 
-> This course will give you an in-depth understanding of the inner-workings of modern digital computer systems and trade-offs present at the hardware-software interface. The course focuses on key topics in microprocessor such as the system architecture, low level programming aspects and interface with other key components. Also, the course will help in understanding the core computer architecture concepts such as multilevel in memory hierarchies, pipelining, and super scalar techniques. A desirable knowledge of Digital Design and Computer organization is required.
+> This course will give you an in-depth understanding of the inner-workings of modern digital computer systems and trade-offs present at the hardware-software interface. The course focuses on key topics in microprocessor such as the system architecture, low level programming aspects and interface with other key components. Also, the course will help in understanding the core computer architecture concepts such as multilevel in memory hierarchies, pipelining, and super scalar techniques.
 
 ## Course Objectives
 
@@ -35,3 +35,7 @@ Basics of Caches - Fully Associative, Direct Mapped and Set Associativity, Cache
 > **U4**: [[U4_Parallel_Computing|Advances in Architecture]]
 
 Introduction to Parallel Computing, PC – Applications, Memory architecture, Flynn’s taxonomy, parallel programming models, Shared memory programming OpenMP-Introduction, loop-level parallelism, CUDA C Program structure-vector kernel addition, device global memory and Data transfer, Hardware Multi threading, Parallel examples: matrix multiplication, PC-Design Issues, Amdahl’s Law, Gustafson Law, Multi-Core Architecture, Introduction to GPU computing
+
+---
+
+prerequisites: [[DDCO|UE23CS251B]]
