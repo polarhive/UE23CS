@@ -33,3 +33,7 @@ Parsing and Ambiguity. Simplification of Context–Free Grammars and Normal Form
 >**Unit 4**: [[U4_Undecidability_Declarative_Languages|Undecidability and design of a declarative language]]
 
 Hierarchy of Formal Languages and Automata: Recursive and Recursively Enumerable Languages, the Chomsky Hierarchy. Limits of Algorithmic Computation: Some Problems that cannot be solved by Turing Machines,Undecidable Problem for Recursively Enumerable Languages, idea of reduction. A very simple Logic, Syntax, Semantics, A simple knowledge Base, A simple inference procedure. Propositional Theorem Proving: Inference and Proofs, Proof by Resolution, Conjunctive Normal Form, A resolution algorithm.Syntax and Semantics of First Order Logic: Models for First Order Logic Symbols and interpretations, Terms,Atomic Sentences, Complex Sentences Quantifiers, Equality, Numbers, sets and Lists. Example - The electronic circuits’ domain.
+
+---
+
+prerequisites: [[Python|UE23CS151A]]

@@ -14,7 +14,7 @@
 - [[AFLL]]: Automata Formal Languages and Logic
 - [[MCSE]]: Mathematics for Computer Science Engineers
 
-## sem-4
+# sem-4
 
 - [[MPCA]]: Microprocessor and Computer Architecture
 - [[CN]]: Computer Networks

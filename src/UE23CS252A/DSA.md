@@ -35,3 +35,7 @@ Application: Graph representation: Representation of computer network topology.
 >**Unit 4**: [[U4_Graphs_Hashing|Applications of Graphs, B-Trees, Suffix Tree and Hashing]]
 
 Application of BFS and DFS: Connectivity of graph, finding path in a network. Suffix Trees: Definition, Introduction of Trie Trees, Suffix trees. Implementations of TRIE trees, insert, delete and search operations. Hashing: Simple mapping / Hashing: hash function, hash table, Collision Handling: Separate Chaining & Open Addressing, Double Hashing, and Rehashing. Applications: URLs decoding, Word prediction using TRIE trees / Suffix Trees.
+
+---
+
+prerequisites: [[C|UE23CS151B]]

@@ -5,7 +5,7 @@
 ## Course Objectives
 
 - Fundamental (combinational and sequential) building blocks of [[EPD|digital logic circuits]].
-- Design of more complex [[logicgates|logic]] circuits such as **adders, multipliers and register files**.
+- Design of more complex logic circuits such as **adders, multipliers and register files**.
 - Design of **Finite State Machines** based on problem specification.
 - Construction, using above logic circuits, of a microprocessor and its functioning at the clock cycle level.
 
@@ -33,3 +33,7 @@ Computer Types, Functional Units: Input Unit, Memory Unit, [[ALU]], Output Unit,
 >**Unit 4**: [[U4_Arithmetic and Control Unit Design|Arithmetic and Control Unit Design]]
 
 Shift / add Multiplier / Divider, Integer division, Floating point number and operations with architecture. Some fundamental concepts, Execution of a complete instruction, Multiple Bus Organization,Hardwired control, Micro programmed control, Single-cycle, Multi-cycle processor data path and control.
+
+---
+
+prerequisites: [[C|UE23CS151B]]

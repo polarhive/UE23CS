@@ -57,3 +57,7 @@ Introduction to Optimization-Based Design, Modelling Concepts, Unconstrained Opt
 2. Lagrange Multipliers to find local maxima and minima of a function subject to equations constrains (Constrained Optimization).
 3. Case study on Bayesian Optimization with Discrete Variables (Discrete Variable optimization).
 4. Use Genetic Algorithms to optimize Production Scheduling in a manufacturing environment, focusing on minimizing total production costs while meeting job deadlines and machine constraints. Evaluate the GA’s effectiveness against traditional scheduling methods.
+
+---
+
+prerequisites: [[Python|UE23CS151A]]
