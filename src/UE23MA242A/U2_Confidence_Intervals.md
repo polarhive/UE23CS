@@ -202,6 +202,7 @@ The p-value is a critical concept in hypothesis testing. It quantifies the proba
 > **Statistical Significance**: A result is considered statistically significant if the p-value is less than or equal to a predetermined significance level $\alpha$ (commonly set at 0.05). In such cases, researchers reject the null hypothesis, suggesting that the observed effect is unlikely to be due to random chance.
 
 ### Interpretation of p-Values
+
 - $p < 0.01$: Strong evidence against $H_0$, indicating a significant effect.
 - $0.01 < p < 0.05$: Moderate evidence against $H_0$; results are significant but require cautious interpretation.
 - $p \geq 0.05$: Insufficient evidence to reject $H_0$; the results may be attributed to chance.

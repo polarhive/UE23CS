@@ -7,6 +7,7 @@
 - An instance of React Component Class can be defined as an object of a set of observable properties that control the behavior of the component
 - An object that holds some information that may change over the lifetime of the component and to control the behavior after each change
 - Can only be used in class components
+
 ## Conventions of using states
 
 > When using State, we need the state of a component to always exist i.e., we need to set an initial state.
@@ -27,6 +28,7 @@ class MyClass extends React.Component {
 - Takes a single parameter and expects an object which should contain the set of values to be updated.
 - Once the update is done the method implicitly calls the `render()` method to repaint the page.
 - State updates are independent
+
 ## Introduction to Life Cycle Methods
 
 - The series of events that happen from the starting of a React component to its ending.
@@ -125,17 +127,21 @@ function Demo(props) {
 - Integrating with third-party DOM libraries
 
 ## Creating refs
+
 - `React.createRef()` method is used to attach React elements via the ref attribute.
 - Refs are assigned to an instance property when a component is constructed so they can be referenced throughout the component.
 
 ## Accessing refs
+
 - When a ref is passed to an element in render, a reference to the node becomes accessible at the current attribute of the ref.
 
 ## Callback refs
+
 - Gives more fine-grain control over when refs are set and unset
 - The function receives the React component instance or HTML DOM element as its argument,which can be stored and accessed elsewhere
 
 # keys
+
 - Utilized to identify specific virtual DOM elements that have changed, added, or removed.
 - Keys should be given to the elements inside the array to give the elements
 a stable identity
@@ -308,12 +314,14 @@ console.log("data:",data)
 ```
 
 ## Create Modules in Node.js
+
 - To create a module in Node.js, use exports keyword tells Node.js that the
 function can be used outside the module.
 - Create a file that you want to export
 - Use the ‘require’ keyword to import the file
 
 ## The Node File System (fs) module
+
 ### Synchronous vs Asynchronous
 
 - Every method in the fs module has synchronous as well as asynchronous forms.
@@ -338,8 +346,8 @@ Common use for the File System module:
 - Buffer class is a global class that can be accessed in an application without importing the
 buffer module.
 
-
 ## Streams
+
 - Streams are one of the fundamental concepts that power Node.js applications.
 - They are data-handling method and are used to read or write input into output
 sequentially.

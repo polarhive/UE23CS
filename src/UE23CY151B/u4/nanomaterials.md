@@ -95,10 +95,12 @@ On decreasing the size the electron gets confined to the particle (confinement e
 ---
 
 ### Properties of Nanomaterials
+
 - Properties of any bulk material are independent of its size whereas properties of nanomaterials change with size
 - Properties of a bulk material can be altered only by altering their structure and composition
 
 ### Surface Area dependant
+
 - Many physical and chemical properties of a material depend on its surface properties
 - Surface area is enormously increased on moving from bulk to nano scale.
 - Nanomaterials have a significant proportion of atoms existing at the surface

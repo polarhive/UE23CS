@@ -299,6 +299,7 @@ Such diversions may alter the internal state of the processor, its state must be
 ---
 
 ## Simultaneous Requests
+
 - Consider the problem of simultaneous arrivals of interrupt requests from two or more devices.
 - The processor must have some means of deciding which request to service first.
 - If all the devices have individual interrupt-request lines then using a priority scheme, the processor accepts the request having the highest priority.
@@ -1092,6 +1093,7 @@ Following each SOF packet, the host carries out input and output transfers for i
 - Status register holds information necessary for the operation of the I/O device.
 - Data and status registers are connected to the data lines, and have unique addresses.
 - The Address decoder, the data & status register and the control circuitry required to coordinate I/O transfer constitute the Device’s interface circuit.
+
 ## Program-controlled I/O
 
 - Processor repeatedly monitors a status flag to achieve the necessary synchronization.

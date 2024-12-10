@@ -13,3 +13,11 @@
 - [[WT]]: Web Technologies
 - [[AFLL]]: Automata Formal Languages and Logic
 - [[MCSE]]: Mathematics for Computer Science Engineers
+
+## sem-4
+
+- [[MPCA]]: Microprocessor and Computer Architecture
+- [[CN]]: Computer Networks
+- [[DAA]]: Design and Analysis of Algorithms
+- [[OS]]: Operating Systems
+- [[MML]]: Mathematics for Machine Learning

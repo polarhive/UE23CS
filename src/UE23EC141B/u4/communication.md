@@ -86,6 +86,7 @@ However, for achieving a large coverage area, a single transmission necessitates
 - Keep interference levels within tolerable limits.
 - Frequency reuse or frequency planning: seven groups of channels from A to G, footprint of a cell is the actual radio coverage.
  - Each cell uses an omni-directional antenna. (360 degrees)
+
 #### Use of Cellular Concept
 
 - Solves the problem of spectral congestion and user capacity.

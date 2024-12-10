@@ -84,6 +84,7 @@ Application Layer Protocol used by the Web
 - Content-Length: Length of content in response body.
 
 ## HTTP methods
+
 - **GET**: Retrieve static or dynamic content
 - **POST**: Send content to server through request body
 - **OPTIONS**: Get server or file attributes
@@ -378,7 +379,6 @@ All HTML elements can be considered as boxes. The term “box model” is used w
 - Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
 - This `<div>` element will have a total width of `350px: div { width: 320px; padding: 10px; border: 5px solid gray; margin: 0; }`
 - Calculation: `320px (width) + 20px (left + right padding) + 10px (left + right border) + 0px (left + right margin) = 350px`
-
 
 ### CSS provides control over the backgrounds of block-level elements
 

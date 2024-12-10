@@ -285,8 +285,6 @@ $$
 - $r = -1$: Perfect negative correlation
 - $r = 0$: No correlation
 
-
-
 ## The Least Square Lines
 
 The least squares method **minimizes** the sum of the squared differences between observed values and predicted values.

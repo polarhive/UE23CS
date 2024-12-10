@@ -270,6 +270,7 @@ endmodule
 ---
 
 # W2
+
 ## File: ./w2/simple_circuit.v
 
 ```verilog
@@ -1028,6 +1029,7 @@ endmodule
 ```
 
 # W5
+
 ## File: ./w5/alu.v
 
 ```verilog
@@ -1681,6 +1683,7 @@ endmodule
 ```
 
 # W7
+
 ## File: ./w7/pc.v
 
 ```verilog
