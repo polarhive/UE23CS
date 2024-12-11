@@ -38,3 +38,7 @@ Dynamic Memory Allocation and Deallocation functions & errors, Structures, pragm
 > Unit 4: Queuing and Portable Programming
 
 Lists, Priority Queue, Enums, Unions, Bit Fields, Pre-Processor Directives, Conditional Compilation, Code Review
+
+---
+
+prerequisites: [[Python|UE23CS151A]]
