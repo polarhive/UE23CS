@@ -874,21 +874,23 @@ This example demonstrates basic insertions and deletions in min-heap and max-hea
 # Balanced Trees
 
 > [!Info]
-> A **Balanced Tree** is a type of binary tree where the height difference between the left and right subtrees of any node is within a certain limit, often a single level. Balanced trees ensure that the tree does not become skewed, which maintains efficient operations, particularly for insertion, deletion, and search, which operate in \(O(\log n)\) time.
-
-> Why Balance Matters
+> A **Balanced Tree** is a type of binary tree where the height difference between the left and right subtrees of any node is within a certain limit, often a single level.
+>
+> Balanced trees ensure that the tree does not become skewed, which maintains efficient operations, particularly for insertion, deletion, and search, which operate in $(O(log n))$ time.
 
 Without balancing, a binary search tree (BST) can degrade to a linked list with \(O(n)\) operations. Balanced trees, like AVL trees, prevent this by automatically adjusting the structure during insertions and deletions.
 
 # AVL Trees
 
-An **AVL Tree** (named after its inventors, Adelson-Velsky and Landis) is a self-balancing binary search tree where the height difference between the left and right subtrees (known as the balance factor) of any node is at most 1. This property ensures logarithmic height, making AVL trees efficient for searching, insertion, and deletion.
+An **AVL Tree** (named after its inventors, Adelson-Velsky and Landis) is a self-balancing binary search tree where the height difference between the left and right subtrees (known as the balance factor) of any node is at most 1.
+
+This property ensures logarithmic height, making AVL trees efficient for searching, insertion, and deletion.
 
 > [!Info] Properties of AVL
 >
 > 1. **Binary Search Tree Property**: Left child values are smaller than the parent, and right child values are larger.
 > 2. **Balance Factor**: The difference in height between the left and right subtrees of a node is calculated as:
->    - `balance_factor = height(left_subtree) - height(right_subtree)`
+>     `balance_factor = height(left_subtree) - height(right_subtree)`
 > 3. **Self-Balancing**: After each insertion or deletion, the tree checks balance factors and performs rotations if needed to maintain the balance.
 
 ## AVL Tree Rotations
@@ -915,7 +917,7 @@ Right-Left Rotation is a combination of a right rotation followed by a left rota
 
 # Splay Tree
 
-A **Splay Tree** is a self-adjusting binary search tree that performs splaying operations on nodes to maintain a roughly balanced structure. Whenever a node is accessed (searched, inserted, or deleted), it is brought to the root through a series of rotations known as *splaying.* This ensures that recently accessed elements are quicker to reach, making splay trees particularly useful for applications with non-uniform access patterns.
+A **Splay Tree** is a self-adjusting binary search tree that performs splaying operations on nodes to maintain a roughly balanced structure. Whenever a node is accessed (searched, inserted, or deleted), it is brought to the ==root== through a series of rotations known as ***splaying**.* This ensures that recently accessed elements are quicker to reach, making splay trees particularly useful for applications with non-uniform access patterns.
 
 ## Properties of a Splay Tree
 

@@ -20,7 +20,7 @@
 
 > **U1**: [[U1_Probability_Distributions|Applications of Probability Distributions and Principles of Point Estimation]]
 
-Introduction, Motivating Examples and Scope. Statistics: Introduction, Types of Statistics, Types of Data, Types of Experiments – Controlled and Observational study, Sampling: Sampling Methods, Sampling Errors, Case Study. Chebyshevs inequality, Normal Probability Plots, Introduction to Generation of Random Variates and mention the types, Acceptance-Rejection method, Sampling Distribution, The Central Limit Theorem and Applications, Principles of Point Estimation - Mean Squared Error for Bernoulli, Binomial, Poisson, Normal, Maximum Likelihood Estimate for Bernoulli, Binomial, Poisson, Normal and Case Study. Introduction to multivariate normal distribution, MAP distribution.
+Introduction, Motivating Examples and Scope. Statistics: Introduction, Types of [[stats|Statistics]], Types of Data, Types of Experiments – Controlled and Observational study, Sampling: Sampling Methods, Sampling Errors, Case Study. Chebyshevs inequality, Normal Probability Plots, Introduction to [[random|Generation of Random Variates]] and mention the types, Acceptance-Rejection method, Sampling Distribution, The Central Limit Theorem and Applications, Principles of Point Estimation - Mean Squared Error for Bernoulli, Binomial, Poisson, Normal, Maximum Likelihood Estimate for Bernoulli, Binomial, Poisson, Normal and Case Study. Introduction to multivariate normal distribution, MAP distribution.
 
 **Self-Learning:** Generation of Random Variates - Inverse Transform Method.​​​​​​​
 
