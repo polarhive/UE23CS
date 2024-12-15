@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR Examples</title>
+</head>
+
+<body>
+
+    <!-- First AJAX Example: Load Data from Text File -->
+    <section>
+        <h2>1. Load Data from Text File</h2>
+        <button onclick="loaddata()">Load Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function loaddata() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "files/sample.txt", true);
+            xhr.onreadystatechange = showdata;
+            xhr.responseType = "text";
+            xhr.send();
+        }
+
+        function showdata() {
+            console.log("In Showdata");
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Inside if");
+                document.querySelector("#container").innerHTML = this.responseText;
+            }
+        }
+    </script>
+
+    <!-- Second AJAX Example: Load Data from JSON File -->
+    <section>
+        <h2>2. Load Data from JSON File</h2>
+        <button onclick="loaddata()">Load Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function loaddata() {
+            xhr = new XMLHttpRequest();
+            xhr.open("get", "files/sample.json", true);
+            xhr.onreadystatechange = showdata;
+            xhr.responseType = "json";
+            xhr.send();
+        }
+
+        function showdata() {
+            console.log("In showdata");
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("inside if");
+                document.querySelector("#container").innerHTML = this.response['srn'];
+            }
+        }
+    </script>
+
+    <!-- Third AJAX Example: Send Data to Server -->
+    <section>
+        <h2>3. Send Data to Server</h2>
+        <button onclick="senddata()">Send Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function senddata() {
+            xhr = new XMLHttpRequest();
+            xhr.open("post", "files/dummy.php", true);
+            xhr.onreadystatechange = showdata;
+            xhr.responseType = "json";
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            let fd = new FormData();
+            fd.append("name", "Sujay");
+            fd.append("srn", "PES2UG20CS247");
+            xhr.send(fd);
+        }
+
+        function showdata() {
+            console.log("In showdata");
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("inside if");
+                // Optionally update the container or process the response here
+            }
+        }
+    </script>
+
+    <!-- Fourth AJAX Example: Get Video File -->
+    <section>
+        <h2>4. Get Video File</h2>
+        <button onclick="getvideo()">Get Video</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function getvideo() {
+            xhr = new XMLHttpRequest();
+            xhr.open("get", "videos/Avengers.mp4", true);
+            xhr.onreadystatechange = showdata;
+            xhr.responseType = "blob";
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send();
+        }
+
+        function showdata() {
+            console.log("In showdata");
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("inside if");
+                let v1 = document.createElement("video");
+                v1.src = URL.createObjectURL(this.response);
+                v1.controls = true;
+                document.querySelector("#container").appendChild(v1);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

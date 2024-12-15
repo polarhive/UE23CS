@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Forms Examples</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 1. Simple Text Input Form -->
+    <section>
+        <h2>1. Simple Text Input Form</h2>
+        <div id="container1"></div>
+        <script type="text/babel">
+            class ReadName extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { value: 'bob' };
+                    this.handleChange = this.handleChange.bind(this);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+
+                handleChange(event) {
+                    this.setState({ value: event.target.value });
+                }
+
+                handleSubmit(event) {
+                    console.log("Name entered " + this.state.value); // Print state on form submit
+                    event.preventDefault();
+                }
+
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            <input
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                                type="text"
+                            />
+                            <input type="submit" value="submit" />
+                        </form>
+                    );
+                }
+            }
+
+            const root1 = ReactDOM.createRoot(document.querySelector("#container1"));
+            root1.render(<ReadName />);
+        </script>
+    </section>
+
+    <!-- 2. Textarea Form -->
+    <section>
+        <h2>2. Textarea Form</h2>
+        <div id="container2"></div>
+        <script type="text/babel">
+            class ReadName extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { value: 'Enter Name' };
+                    this.handleChange = this.handleChange.bind(this);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+
+                handleChange(event) {
+                    this.setState({ value: event.target.value });
+                }
+
+                handleSubmit(event) {
+                    console.log("Name entered " + this.state.value); // Print state on form submit
+                    event.preventDefault();
+                }
+
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            <textarea
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                            />
+                            <input type="submit" value="submit" />
+                        </form>
+                    );
+                }
+            }
+
+            const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+            root2.render(<ReadName />);
+        </script>
+    </section>
+
+    <!-- 3. Dropdown Form -->
+    <section>
+        <h2>3. Dropdown Form</h2>
+        <div id="container3"></div>
+        <script type="text/babel">
+            class ReadName extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { value: 'Orange' };
+                    this.handleChange = this.handleChange.bind(this);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+
+                handleChange(event) {
+                    this.setState({ value: event.target.value });
+                }
+
+                handleSubmit(event) {
+                    console.log("Name entered " + this.state.value); // Print state on form submit
+                    event.preventDefault();
+                }
+
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Your favorite fruit:</label>
+                            <select value={this.state.value} onChange={this.handleChange}>
+                                <option value="mango">Mango</option>
+                                <option value="orange">Orange</option>
+                            </select>
+                            <input type="submit" value="submit" />
+                        </form>
+                    );
+                }
+            }
+
+            const root3 = ReactDOM.createRoot(document.querySelector("#container3"));
+            root3.render(<ReadName />);
+        </script>
+    </section>
+
+    <!-- 4. Multiple Inputs (Name & Age) -->
+    <section>
+        <h2>4. Multiple Inputs (Name & Age)</h2>
+        <div id="container4"></div>
+        <script type="text/babel">
+            class ReadName extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { name: 'Bob', age: 23 };
+                    this.handleChange = this.handleChange.bind(this);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+
+                handleChange(event) {
+                    const name = event.target.name;
+                    const value = event.target.value;
+                    this.setState({ [name]: value });
+                }
+
+                handleSubmit(event) {
+                    console.log("Name entered " + this.state.name); // Print name on form submit
+                    console.log("Age entered " + this.state.age);   // Print age on form submit
+                    event.preventDefault();
+                }
+
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Name</label>
+                            <input
+                                name="name"
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                type="text"
+                            />
+                            <label>Age</label>
+                            <input
+                                name="age"
+                                value={this.state.age}
+                                onChange={this.handleChange}
+                                type="text"
+                            />
+                            <input type="submit" value="submit" />
+                        </form>
+                    );
+                }
+            }
+
+            const root4 = ReactDOM.createRoot(document.querySelector("#container4"));
+            root4.render(<ReadName />);
+        </script>
+    </section>
+
+</body>
+
+</html>

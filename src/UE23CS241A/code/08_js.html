@@ -1,44 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First HTML Document</title>
 </head>
 
 <body>
+<!-- Writing output to the document -->
     <script>
-            // Writing output to the document
             document.writeln("Hello World<br>");
             document.writeln("Welcome to Web Technologies class<br>");
-    </script>
 
-    <script type="text/javascript">
             // Variables and data types
             let x = 10;
         if (true) {
             x = 20; // Corrected scoping issue, no redeclaration
         }
 
-    let y; // Undefined
-    let z = true; // Boolean
-    let a = 10.22; // Number
-    let b = "john"; // String
-    var num = 123.789; // Number
+            let y; // Undefined
+            let z = true; // Boolean
+            let a = 10.22; // Number
+            let b = "john"; // String
+            var num = 123.789; // Number
 
-    // Parsing and type conversion
-    let numParsed = Number("10.22");
-    console.log(numParsed + " " + typeof numParsed);
+            // Parsing and type conversion
+            let numParsed = Number("10.22");
+            console.log(numParsed + " " + typeof numParsed);
 
             let num1 = "10.22" - 1; // Implicit conversion
         console.log(num1 + " " + typeof num1);
 
-    let num2 = parseInt("10.22"); // Parses as integer
+            let num2 = parseInt("10.22"); // Parses as integer
             console.log(num2 + " " + typeof num2);
 
             let num3 = parseInt(num); // Parses as integer
             let numOctal = parseInt(num, 8); // Parses as octal
             document.writeln(num3 + " " + numOctal);
+        </script>
+<hr>
+
+<!-- Sorting Arrays and Iterating Over Data -->
+<script type="text/javascript">
+    var arr = [1, 11, 22, 3, 4, 37, 6];
+
+    // Ascending sort function
+    function asc(a, b) {
+        if (a > b) return 1;
+        if (a < b) return -1;
+        return 0;
+    }
+
+    document.write(arr.sort(asc));
+
+    const cars = ["Tata", "Toyota", "Honda", "Ford", "Fiat", "Audi"];
+    let text = "";
+
+    // Iterating over array
+    for (let i = 0; i < cars.length; i++) {
+        text += cars[i] + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    // Function to add two numbers
+    function add(a, b) {
+        return a + b;
+    }
+
+    var result = add(2, 5);
+    document.write("<br>" + result);
 </script>
+
+<p id="demo"></p>
+
+<hr>
+
+<!-- Working with Objects -->
+<script type="text/javascript">
+    var person = new Object();
+    person.name = "vikram";
+    person.age = 20;
+
+    // Iterating over object properties
+    for (let i in person) {
+        document.write(i + " => " + person[i] + "<br>");
+    }
+
+    var num = new Number("111");
+    var str = new String("10 days");
+    var dt = new Date(2010, 10, 20); // Date format (Year, Month, Day)
+
+    document.write(num); // Number output
+    document.write("<br>");
+    document.write(str); // String output
+    document.write("<br>");
+    document.write(dt); // Date output
+</script>
+
+<p>This is the first JavaScript program</p>
+
 </body>
 
 </html>

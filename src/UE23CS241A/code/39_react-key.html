@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Keys Example</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <!-- 1. Function with Keys Without Map -->
+  <section>
+    <h2>1. Function with Keys Without Map</h2>
+    <div id="container1"></div>
+    <script type="text/babel">
+      function Stuff() {
+        return (
+          [
+            <p key="1">Batman1</p>,
+            <p key="2">IronMan1</p>,
+            <p key="3">SpiderMan1</p>
+          ]
+        );
+      }
+
+      const root1 = ReactDOM.createRoot(document.getElementById('container1'));
+      root1.render(<Stuff />);
+    </script>
+  </section>
+
+  <!-- 2. Function with Map (Example 1) -->
+  <section>
+    <h2>2. Function with Map (Example 1)</h2>
+    <div id="container2"></div>
+    <script type="text/babel">
+      function NumberList(props) {
+        const numbers = props.numbers;
+        const listItems = numbers.map((num) =>
+          <li key={num.toString()}>{num * 2}</li>
+        );
+        return <ul>{listItems}</ul>;
+      }
+
+      const numbers = [1, 2, 3, 4, 5];
+      const root2 = ReactDOM.createRoot(document.getElementById('container2'));
+      root2.render(<NumberList numbers={numbers} />);
+    </script>
+  </section>
+
+  <!-- 3. Function with Map (Example 2) -->
+  <section>
+    <h2>3. Function with Map (Example 2)</h2>
+    <div id="container3"></div>
+    <script type="text/babel">
+      function NameList(props) {
+        const names = props.names;
+        const listItems = names.map((name, index) =>
+          <li key={index}>{name}</li>
+        );
+        return <ul>{listItems}</ul>;
+      }
+
+      const names = ["Batman1", "Ironman1", "Spiderman1"];
+      const root3 = ReactDOM.createRoot(document.getElementById('container3'));
+      root3.render(<NameList names={names} />);
+    </script>
+  </section>
+
+</body>
+</html>

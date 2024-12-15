@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Examples with Props</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .greeting {
+      color: blue;
+    }
+
+    .shocking {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Simple Prop Example -->
+  <section>
+    <h2>1. Simple Prop Example</h2>
+    <div id="container1"></div>
+    <script type="text/babel">
+      function Stuff(props) {
+        return <p>Hello {props.name}</p>;
+      }
+
+      const root1 = ReactDOM.createRoot(document.querySelector("#container1"));
+      root1.render(<Stuff name="Batman" />);
+    </script>
+  </section>
+
+  <!-- 2. Styled Components Example -->
+  <section>
+    <h2>2. Styled Components Example</h2>
+    <div id="container2"></div>
+    <script type="text/babel">
+      function Helloworld(props) {
+        return (
+          <div className={props.type}>
+            <h1>{props.children}</h1>
+          </div>
+        );
+      }
+
+      const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+      root2.render(
+        <div>
+          <Helloworld type="greeting">Hello Batman</Helloworld>
+          <Helloworld type="shocking">Ironman, Where is Thor?</Helloworld>
+        </div>
+      );
+    </script>
+  </section>
+
+</body>
+
+</html>

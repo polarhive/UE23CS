@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning jQuery - Interactive</title>
+	<script src="https://www.unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+	<style>
+		/* Basic styling for better readability */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		section {
+			margin-bottom: 30px;
+		}
+
+		h2 {
+			color: #2c3e50;
+		}
+
+		.code-example {
+			background-color: #f4f4f4;
+			padding: 10px;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		button {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>jQuery Interactive Learning</h1>
+
+	<!-- Section 1: Basic jQuery Interaction -->
+	<section>
+		<h2>1. Basic jQuery Interaction</h2>
+		<p>Click any paragraph below to make it disappear:</p>
+		<p>Click me, I will disappear</p>
+		<p>Click me Away</p>
+		<p>Click me too</p>
+		<button>Click me to hide all Paragraphs</button>
+
+		<script>
+			// Basic interaction: Hiding paragraphs on click
+			$(document).ready(function () {
+				$("p").click(function () {
+					$(this).hide();
+				});
+
+				$("button").click(function () {
+					$("p").hide();
+				});
+			});
+		</script>
+	</section>
+
+	<!-- Section 2: DOM Manipulation -->
+	<section>
+		<h2>2. DOM Manipulation</h2>
+		<p>Click the button below to hide all list items:</p>
+		<ul>
+			<li>Data Structures</li>
+			<li>Web Technologies</li>
+			<li>Data Science</li>
+			<li>DDCO</li>
+		</ul>
+		<button id="hide">Hide all list items</button>
+		<button id="show">Show all list items</button>
+
+		<script>
+			// DOM Manipulation: Show and hide list items
+			$(document).ready(function () {
+				$("#hide").click(function () {
+					$("li").hide();
+				});
+
+				$("#show").click(function () {
+					$("li").show();
+				});
+			});
+		</script>
+	</section>
+
+	<!-- Section 3: Event Handling -->
+	<section>
+		<h2>3. Event Handling</h2>
+		<p>Click any list item to hide it:</p>
+		<ul>
+			<li>Data Structures</li>
+			<li>Web Technologies</li>
+			<li>Data Science</li>
+			<li>AFLL</li>
+		</ul>
+
+		<script>
+			// Event Handling: Hiding list items on click
+			$(document).ready(function () {
+				$("li").click(function () {
+					$(this).hide();
+				});
+			});
+		</script>
+	</section>
+
+	<!-- Section 4: CSS Manipulation -->
+	<section>
+		<h2>4. CSS Manipulation</h2>
+		<p>Hover over the paragraph to toggle the list visibility:</p>
+		<p>Hover over me!</p>
+		<ul>
+			<li>Data Structures</li>
+			<li>Web Technologies</li>
+			<li>Data Science</li>
+		</ul>
+
+		<script>
+			// CSS Manipulation: Toggle visibility of list on hover
+			$(document).ready(function () {
+				$("p").mouseover(function () {
+					$("ul").slideToggle("slow");
+				});
+			});
+		</script>
+	</section>
+
+	<!-- Section 5: Animations -->
+	<section>
+		<h2>5. Animations</h2>
+		<p>Click a list item to animate it:</p>
+		<ul>
+			<li class="animate-item">Data Structures</li>
+			<li class="animate-item">Web Technologies</li>
+			<li class="animate-item">Data Science</li>
+		</ul>
+
+		<script>
+			// Animation: Fade in and fade out list items
+			$(document).ready(function () {
+				$(".animate-item").click(function () {
+					$(this).fadeOut(1000, function () {
+						$(this).fadeIn(2000);
+					});
+				});
+			});
+		</script>
+	</section>
+
+	<!-- Section 6: Creating Elements Dynamically -->
+	<section>
+		<h2>6. Creating Elements Dynamically</h2>
+		<p>Click the button to add new items to the list:</p>
+		<ul id="dynamic-list">
+			<li>Data Structures</li>
+			<li>Web Technologies</li>
+		</ul>
+		<button id="addItem">Add new item</button>
+
+		<script>
+			// Creating elements dynamically: Add new items to list
+			$(document).ready(function () {
+				$("#addItem").click(function () {
+					var newItem = $("<li>").text("New Item");
+					$("#dynamic-list").append(newItem);
+				});
+			});
+		</script>
+	</section>
+
+	<!-- Section 7: Visibility Toggling -->
+	<section>
+		<h2>7. Visibility Toggling</h2>
+		<p>Click to hide/show the paragraph:</p>
+		<p>If you click on the "Hide" button, I will disappear.</p>
+
+		<button id="hide-paragraph">Hide</button>
+		<button id="show-paragraph">Show</button>
+
+		<script>
+			// Toggle visibility of paragraph
+			$(document).ready(function () {
+				$("#hide-paragraph").click(function () {
+					$("p").hide();
+				});
+
+				$("#show-paragraph").click(function () {
+					$("p").show();
+				});
+			});
+		</script>
+	</section>
+
+</body>
+
+</html>

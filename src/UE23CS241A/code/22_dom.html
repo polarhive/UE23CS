@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Examples</title>
+</head>
+
+<body>
+
+    <!-- Example 1: Modifying Elements -->
+    <h2>My First Page</h2>
+
+    <div class="example">First div element</div>
+    <div class="example">Second div element</div>
+
+    <p id="demo">web</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <script>
+        // Modifying g ID
+        document.getElementById("demo").innerHTML = "Hello World!";
+
+        // Function to modify content of elements with a specific class
+        function myFunction() {
+            var x = document.getElementsByClassName("example");
+            x[0].innerHTML = "Hello World!";
+        }
+        </script>
+    
+    <hr>
+    
+    <!-- Example 2: Advanced DOM Manipulation -->
+    <h2>Subjects List</h2>
+    <p>Subjects</p>
+    <ul>
+        <li>Data Structures</li>
+        <li class="g1">Web Technologies</li>
+        <li class="g1">Data Science</li>
+    </ul>
+    
+    <script>
+        function init() {
+            // Modifying a single element using querySelector
+            let p1 = document.querySelector("p");
+            p1.style.color = "blue"; // Changing text color to blue
+
+            // Modifying multiple elements using querySelectorAll
+            let list = document.querySelectorAll("li.g1");
+            for (let i = 0; i < list.length; i++) {
+                list[i].innerText = list[i].innerText.toUpperCase(); // Converting text to uppercase
+            }
+
+            // Adding new elements
+            let newsub = document.createElement("li");
+            newsub.innerText = "AFLL"; // Setting content for the new element
+
+            let ul1 = document.querySelector("ul");
+            ul1.appendChild(newsub); // Adding at the end of the list
+            ul1.insertBefore(newsub, list[0]); // Adding before the first item in `list`
+
+            // Replacing elements
+            list[0].parentNode.replaceChild(newsub, ul1.children[2]); // Replacing the third child
+        }
+
+    // Initialize changes on page load
+    window.onload = init;
+    </script>
+
+</body>
+
+</html>

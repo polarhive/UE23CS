@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Hooks Examples</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+  <!-- 1. Simple Counter with useState Hook -->
+  <section>
+    <h2>1. Simple Counter with useState Hook</h2>
+    <div id="container1"></div>
+    <script type="text/babel">
+      function Counter() {
+        const [count, setCount] = React.useState(0);
+
+        const increment = () => {
+          setCount(count + 1);
+        };
+
+        return (
+          <div>
+            <p>Count: {count}</p>
+            <button onClick={increment}>Increment</button>
+          </div>
+        );
+      }
+
+      const root1 = ReactDOM.createRoot(document.querySelector("#container1"));
+      root1.render(<Counter />);
+    </script>
+  </section>
+
+  <!-- 2. Timer with useState and useEffect Hook -->
+  <section>
+    <h2>2. Timer with useState and useEffect Hook</h2>
+    <div id="container2"></div>
+    <script type="text/babel">
+      function Timer() {
+        const [count, setCount] = React.useState(0);
+
+        React.useEffect(() => {
+          const timer = setTimeout(() => {
+            setCount((prevCount) => prevCount + 1);
+          }, 1000);
+
+          return () => clearTimeout(timer);  // Cleanup timer on unmount
+        }, [count]);  // Re-run effect when count changes
+
+        return <h1>I have rendered {count} times!</h1>;
+      }
+
+      const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+      root2.render(<Timer />);
+    </script>
+  </section>
+
+  <!-- 3. Timer (Similar to above but refactored) -->
+  <section>
+    <h2>3. Timer (Similar to above but refactored)</h2>
+    <div id="container3"></div>
+    <script type="text/babel">
+      function Timer() {
+        const [count, setCount] = React.useState(0);
+
+        React.useEffect(() => {
+          const timer = setTimeout(() => {
+            setCount((prevCount) => prevCount + 1);
+          }, 1000);
+
+          return () => clearTimeout(timer); // Cleanup timer
+        }, [count]); // Re-run effect when count changes
+
+        return <h1>I have rendered {count} times!</h1>;
+      }
+
+      const root3 = ReactDOM.createRoot(document.querySelector("#container3"));
+      root3.render(<Timer />);
+    </script>
+  </section>
+
+</body>
+
+</html>

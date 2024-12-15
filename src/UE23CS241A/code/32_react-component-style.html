@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>React Letter Demo</title>
+	<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+	<div id="container"></div>
+	<script type="text/babel">
+		// Letter component to display letters with dynamic styles
+		class Letter extends React.Component {
+			render() {
+				var letterStyle = {
+					backgroundColor: this.props.bgcolor || "#ffde00", // Default color yellow
+					color: "#333",
+					display: this.props.display || "inline-block", // Default display inline-block
+					padding: "25px",
+					margin: "25px"
+				};
+				return (
+					<div style={letterStyle}>
+						{this.props.children} {/* Render the letter passed as children */}
+					</div>
+				);
+			}
+		}
+
+		const root = ReactDOM.createRoot(document.getElementById('container'));
+		root.render(
+			<div>
+				{/* Rendering letters with default yellow background */}
+				<Letter>A</Letter>
+				<Letter>E</Letter>
+				<Letter>I</Letter>
+				<Letter>O</Letter>
+				<Letter>U</Letter>
+
+				{/* Rendering letters with custom background colors */}
+				<Letter bgcolor="#58B3FF">A</Letter>
+				<Letter bgcolor="#FF605F">E</Letter>
+				<Letter bgcolor="#FFD52E">I</Letter>
+				<Letter bgcolor="#49DD8E">O</Letter>
+				<Letter bgcolor="#AE99FF">U</Letter>
+
+				{/* Rendering letters with custom display properties */}
+				<Letter display="inline-block" bgcolor="#58B3FF">A</Letter>
+				<Letter display="none" bgcolor="#FF605F">E</Letter> {/* Hidden letter */}
+				<Letter display="inline-block" bgcolor="#FFD52E">I</Letter>
+				<Letter display="inline-block" bgcolor="#49DD8E">O</Letter>
+				<Letter display="inline-block" bgcolor="#AE99FF">U</Letter>
+			</div>
+		);
+	</script>
+</body>
+
+</html>

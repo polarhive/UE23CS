@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX and Fetch Examples</title>
+</head>
+
+<body>
+
+    <!-- 1. XHR - Load Data from XML File -->
+    <section>
+        <h2>1. Load Data from XML File</h2>
+        <button onclick="loaddata()">Load Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function loaddata() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "files/sample.xml", true);
+            xhr.onreadystatechange = showdata;
+            xhr.responseType = "document";
+            xhr.send();
+        }
+
+        function showdata() {
+            console.log("In Showdata");
+            if (this.readyState == 4 && this.status == 200) {
+                document.write("Inside if");
+                document.querySelector("#container").innerHTML = this.response.getElementsByTagName("srn")[0].firstChild.nodeValue;
+            }
+        }
+    </script>
+
+    <!-- 2. Fetch Data from JSON File -->
+    <section>
+        <h2>2. Fetch Data from JSON File</h2>
+        <button onclick="fetchdata()">Fetch Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function fetchdata() {
+            mydiv = document.querySelector("#container");
+            fetch('files/sample.json')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (obj) {
+                    mydiv.innerHTML = JSON.stringify(obj);
+                })
+                .catch(function (error) {
+                    console.log(error.message);
+                })
+        }
+    </script>
+
+    <!-- 3. Fetch Video File -->
+    <section>
+        <h2>3. Fetch Video File</h2>
+        <button onclick="fetchdata()">Fetch Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function fetchdata() {
+            mydiv = document.querySelector("#container");
+            fetch('videos/Avengers.mp4')
+                .then(function (response) {
+                    return response.blob();
+                })
+                .then(function (data) {
+                    vid = document.createElement("video");
+                    vid.controls = true;
+                    vid.src = URL.createObjectURL(data);
+                    mydiv.appendChild(vid);
+                })
+                .catch(function (error) {
+                    console.log(error.message);
+                })
+        }
+    </script>
+
+    <!-- 4. jQuery AJAX - Load Data from Text File -->
+    <section>
+        <h2>4. jQuery AJAX - Load Data from Text File</h2>
+        <button onclick="getdata()">Get Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        function getdata() {
+            $("#container").load('files/sample.txt', function (result, status, xhr) {
+                console.log("status:" + status);
+            });
+        }
+    </script>
+
+    <!-- 5. Fetch Text File -->
+    <section>
+        <h2>5. Fetch Text File</h2>
+        <button onclick="fetchdata()">Fetch Data</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        function fetchdata() {
+            mydiv = document.querySelector("#container");
+            fetch('files/sample.txt')
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (text) {
+                    mydiv.innerHTML = text;
+                })
+                .catch(function (error) {
+                    console.log(error.message);
+                })
+        }
+    </script>
+
+</body>
+
+</html>

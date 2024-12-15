@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>React Props Demo</title>
+	<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<style>
+		.greeting {
+			color: blue;
+		}
+
+		.shocking {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container"></div>
+	<script type="text/babel">
+		// Component demonstrating props.children
+		class HelloworldWithChildren extends React.Component {
+			render() {
+				return (
+					<div className={this.props.type}> {/* Apply dynamic CSS class based on type prop */}
+						<h1>{this.props.children}</h1> {/* Render content passed as children */}
+					</div>
+				);
+			}
+		}
+
+		// Component demonstrating props
+		class HelloworldWithProps extends React.Component {
+			render() {
+				return <h1>Hello {this.props.greet}</h1>; /* Render greeting using props.greet */
+			}
+		}
+
+		const root = ReactDOM.createRoot(document.getElementById('container'));
+		root.render(
+			<div>
+				{/* Demonstrating props.children */}
+				<HelloworldWithChildren type="greeting">
+					Hello Batman {/* Content passed as children */}
+				</HelloworldWithChildren>
+				<HelloworldWithChildren type="shocking">
+					Ironman, Where is Thor? {/* Content passed as children */}
+				</HelloworldWithChildren>
+
+				{/* Demonstrating props */}
+				<HelloworldWithProps greet="Batman" /> {/* Pass greet prop for dynamic rendering */}
+				<HelloworldWithProps greet="Ironman" /> {/* Pass greet prop for dynamic rendering */}
+			</div>
+		);
+	</script>
+</body>
+
+</html>

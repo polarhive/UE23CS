@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Examples</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    h1,
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Search Results with Image, Caption, and Link -->
+  <section>
+    <h2>1. Search Results with Image, Caption, and Link</h2>
+    <div id="container1"></div>
+    <script type="text/babel">
+      class ResImage extends React.Component {
+        render() {
+          return (
+            <div>
+              <img src={this.props.src} alt="Result" />
+            </div>
+          );
+        }
+      }
+
+      class ResLink extends React.Component {
+        render() {
+          return (
+            <div>
+              <a href={this.props.link}>{this.props.linktext}</a>
+            </div>
+          );
+        }
+      }
+
+      class ResCaption extends React.Component {
+        render() {
+          return (
+            <div>
+              <p>{this.props.caption}</p>
+            </div>
+          );
+        }
+      }
+
+      class SrchResult extends React.Component {
+        render() {
+          return (
+            <div>
+              <ResImage {...this.props} />
+              <ResCaption {...this.props} />
+              <ResLink {...this.props} />
+            </div>
+          );
+        }
+      }
+
+      const container1 = document.getElementById('container1');
+      const root1 = ReactDOM.createRoot(container1);
+
+      root1.render(
+        <div>
+          <SrchResult
+            src="images/tiger.jpg"
+            link="https://www.britannica.com/animal/tiger"
+            linktext="britannica.com"
+            caption="tiger | Facts, Information and Habitat…"
+          />
+
+          <SrchResult
+            src="images/peacock.jpg"
+            link="https://www.britannica.com/animal/peacock"
+            linktext="britannica.com"
+            caption="peacock | Facts and Habitat | Britannica"
+          />
+        </div>
+      );
+    </script>
+  </section>
+
+  <!-- 2. Counter Example -->
+  <section>
+    <h2>2. Counter Example</h2>
+    <div id="container2"></div>
+    <script type="text/babel">
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { seconds: 0 };
+        }
+
+        componentDidMount() {
+          this.interval = setInterval(() => {
+            this.setState((prevState) => ({
+              seconds: prevState.seconds + 1,
+            }));
+          }, 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.interval);
+        }
+
+        render() {
+          return <h1>{this.state.seconds}</h1>;
+        }
+      }
+
+      class CounterDisplay extends React.Component {
+        render() {
+          return (
+            <div>
+              <Counter />
+              <h2>seconds</h2>
+              <h2>Since the page loaded</h2>
+            </div>
+          );
+        }
+      }
+
+      const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+      root2.render(<CounterDisplay />);
+    </script>
+  </section>
+
+</body>
+
+</html>

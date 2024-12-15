@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Examples</title>
+    <style>
+        #myDiv1,
+        #myDiv2 {
+            background-color: coral;
+            padding: 50px;
+        }
+
+        #myP1,
+        #myP2 {
+            background-color: white;
+            font-size: 20px;
+            border: 1px solid;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Example 1: Event Handling with Different Registration Methods -->
+    <h2>Event Handling</h2>
+    <div>
+        <p onclick="handler(event)">Subjects</p>
+        <ul>
+            <li>Data Structures</li>
+            <li>Web Technologies</li>
+            <li>Data Science</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- Example 2: Event Bubbling and Capturing -->
+    <h2>JavaScript addEventListener()</h2>
+
+    <div id="myDiv1">
+        <h3>Bubbling:</h3>
+        <p id="myP1">Click me!</p>
+    </div>
+    <br>
+    <div id="myDiv2">
+        <h3>Capturing:</h3>
+        <p id="myP2">Click me!</p>
+    </div>
+
+    <script>
+        // Example 1: Event Handling with Different Registration Methods
+        function init() {
+            // Apply click event handlers to all list items
+            const list = document.querySelectorAll("li");
+            list.forEach((item) => {
+                item.onclick = handler;
+            });
+
+            // Add event listener to the <p> element
+            document.querySelector("p").addEventListener("click", function (event) {
+                event.target.innerHTML = "I was clicked";
+            });
+        }
+
+        function handler(event) {
+            // Handle click event on list items
+            console.log(event.target.innerHTML);
+            event.target.style.color = "blue";
+        }
+
+        // Initialize event handlers when the page loads
+        window.onload = init;
+
+        // Example 2: Event Bubbling and Capturing
+        document.getElementById("myP1").addEventListener("click", function (event) {
+            alert("You clicked the white element!");
+            console.log(event.eventPhase + " " + event.target.id + " " + event.currentTarget.id);
+        }, false); // Bubbling phase
+
+        document.getElementById("myDiv1").addEventListener("click", function (event) {
+            alert("You clicked the orange element!");
+            console.log(event.eventPhase + " " + event.target.id + " " + event.currentTarget.id);
+        }, false); // Bubbling phase
+
+        document.getElementById("myP2").addEventListener("click", function (event) {
+            alert("You clicked the white element!");
+            console.log(event.eventPhase + " " + event.target.id + " " + event.currentTarget.id);
+        }, true); // Capturing phase
+
+        document.getElementById("myDiv2").addEventListener("click", function (event) {
+            alert("You clicked the orange element!");
+            console.log(event.eventPhase + " " + event.target.id + " " + event.currentTarget.id);
+        }, true); // Capturing phase
+    </script>
+
+</body>
+
+</html>

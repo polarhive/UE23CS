@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Examples</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    h1,
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Clock Example -->
+  <section>
+    <h2>1. Clock Example</h2>
+    <div id="container1"></div>
+    <script type="text/babel">
+      class Clock extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { date: new Date() };
+        }
+
+        componentDidMount() {
+          this.timerID = setInterval(() => this.tick(), 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.timerID);
+        }
+
+        tick() {
+          this.setState({ date: new Date() });
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>Time as on Today</h1>
+              <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+            </div>
+          );
+        }
+      }
+
+      const root1 = ReactDOM.createRoot(document.getElementById("container1"));
+      root1.render(<Clock />);
+    </script>
+  </section>
+
+  <!-- 2. Counter (Seconds since page load) -->
+  <section>
+    <h2>2. Counter (Seconds since page load)</h2>
+    <div id="container2"></div>
+    <script type="text/babel">
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { seconds: 0 };
+        }
+
+        componentDidMount() {
+          this.interval = setInterval(() => {
+            this.setState((prevState) => ({ seconds: prevState.seconds + 1 }));
+          }, 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.interval);
+        }
+
+        render() {
+          return <h1>{this.state.seconds}</h1>;
+        }
+      }
+
+      class CounterDisplay extends React.Component {
+        render() {
+          return (
+            <div>
+              <Counter />
+              <h2>seconds</h2>
+              <h2>Since the page loaded</h2>
+            </div>
+          );
+        }
+      }
+
+      const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+      root2.render(<CounterDisplay />);
+    </script>
+  </section>
+
+  <!-- 3. Countdown Timer -->
+  <section>
+    <h2>3. Countdown Timer</h2>
+    <div id="container3"></div>
+    <script type="text/babel">
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { seconds: props.start };
+        }
+
+        componentDidMount() {
+          this.t = setInterval(this.timer.bind(this), 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.t);
+        }
+
+        timer() {
+          if (this.state.seconds === 0) {
+            clearInterval(this.t);
+          } else {
+            this.setState((prevState) => ({ seconds: prevState.seconds - 1 }));
+          }
+        }
+
+        render() {
+          return <h1>{this.state.seconds}</h1>;
+        }
+      }
+
+      class CounterDisplay extends React.Component {
+        render() {
+          return (
+            <div>
+              <Counter start={this.props.start} />
+              <h2>seconds</h2>
+              <h2>Before the page freezes...</h2>
+            </div>
+          );
+        }
+      }
+
+      const root3 = ReactDOM.createRoot(document.querySelector("#container3"));
+      root3.render(
+        <div>
+          <CounterDisplay start={30} />
+          <CounterDisplay start={40} />
+        </div>
+      );
+    </script>
+  </section>
+
+</body>
+
+</html>

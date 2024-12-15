@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Examples with Refs</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .greeting {
+      color: blue;
+    }
+
+    .shocking {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Simple Prop Example -->
+  <section>
+    <h2>1. Simple Prop Example</h2>
+    <div id="container1"></div>
+    <script type="text/babel">
+      function Stuff(props) {
+        return <p>Hello {props.name}</p>; // Displaying a prop (name)
+      }
+
+      const root1 = ReactDOM.createRoot(document.querySelector("#container1"));
+      root1.render(<Stuff name="Batman" />); // Passing "Batman" as a prop
+    </script>
+  </section>
+
+  <!-- 2. Styled Components Example -->
+  <section>
+    <h2>2. Styled Components Example</h2>
+    <div id="container2"></div>
+    <script type="text/babel">
+      function Helloworld(props) {
+        return (
+          <div className={props.type}> {/* Dynamically setting class based on prop */}
+            <h1>{props.children}</h1>  {/* Using children for nested content */}
+          </div>
+        );
+      }
+
+      const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+      root2.render(
+        <div>
+          <Helloworld type="greeting">Hello Batman</Helloworld> {/* greeting class */}
+          <Helloworld type="shocking">Ironman, Where is Thor?</Helloworld> {/* shocking class */}
+        </div>
+      );
+    </script>
+  </section>
+
+  <!-- 3. Changing Text with Refs -->
+  <section>
+    <h2>3. Changing Text with Refs</h2>
+    <div id="container3"></div>
+    <script type="text/babel">
+      class CustomText extends React.Component {
+        constructor(props) {
+          super(props);
+          this.myTextRef = React.createRef(); // Creating a ref to store h1 element
+        }
+
+        changeText = () => {
+          this.myTextRef.current.innerHTML = "changed"; // Changing text content using ref
+        };
+
+        render() {
+          return (
+            <div>
+              <h1 ref={this.myTextRef}>This is the Text</h1> {/* Using ref to target this h1 */}
+              <input
+                type="button"
+                value="Change the Text"
+                onClick={this.changeText} // Button triggers text change
+              />
+            </div>
+          );
+        }
+      }
+
+      const root3 = ReactDOM.createRoot(document.querySelector("#container3"));
+      root3.render(<CustomText />);
+    </script>
+  </section>
+
+  <!-- 4. Changing Text Color with Random Colors -->
+  <section>
+    <h2>4. Changing Text Color with Random Colors</h2>
+    <div id="container4"></div>
+    <script type="text/babel">
+      const colors = ["red", "green", "blue", "yellow", "orange"]; // Array of colors
+
+      class CustomText extends React.Component {
+        constructor(props) {
+          super(props);
+          this.myTextRef = React.createRef(); // Creating a ref to store h1 element
+        }
+
+        changeText = () => {
+          const i = Math.floor(Math.random() * colors.length); // Randomly selecting a color
+          this.myTextRef.current.innerHTML = colors[i]; // Changing text content
+          this.myTextRef.current.style.color = colors[i]; // Changing text color
+        };
+
+        render() {
+          return (
+            <div>
+              <h1 ref={this.myTextRef}>This is the Text</h1> {/* Using ref to target this h1 */}
+              <input
+                type="button"
+                value="Change the Text"
+                onClick={this.changeText} // Button triggers color change
+              />
+            </div>
+          );
+        }
+      }
+
+      const root4 = ReactDOM.createRoot(document.querySelector("#container4"));
+      root4.render(<CustomText />);
+    </script>
+  </section>
+
+  <!-- 5. Focusing Input using Refs -->
+  <section>
+    <h2>5. Focusing Input using Refs</h2>
+    <div id="container5"></div>
+    <script type="text/babel">
+      class CustomTextInput extends React.Component {
+        constructor(props) {
+          super(props);
+          this.textInput = React.createRef(); // Creating a ref to store the text input element
+        }
+
+        focusTextInput = () => {
+          this.textInput.current.focus(); // Focusing the input element using ref
+        };
+
+        render() {
+          return (
+            <div>
+              <input type="text" ref={this.textInput} /> {/* Using ref to target input */}
+              <input
+                type="button"
+                value="Focus the text input"
+                onClick={this.focusTextInput} // Button triggers input focus
+              />
+            </div>
+          );
+        }
+      }
+
+      const root5 = ReactDOM.createRoot(document.querySelector("#container5"));
+      root5.render(<CustomTextInput />);
+    </script>
+  </section>
+
+  <!-- 6. Passing Refs to Child Components -->
+  <section>
+    <h2>6. Passing Refs to Child Components</h2>
+    <div id="container6"></div>
+    <script type="text/babel">
+      function CustomInput(props) {
+        return (
+          <div>
+            <input ref={props.inputRef} type="text" /> {/* Passing ref from parent to child */}
+          </div>
+        );
+      }
+
+      class Parent extends React.Component {
+        constructor() {
+          super();
+          this.inputText = React.createRef(); // Creating ref in the parent component
+        }
+
+        doClick = () => {
+          this.inputText.current.focus(); // Focus the input in the child component
+          console.log(this.inputText.current.value); // Log the value of the input
+        };
+
+        render() {
+          return (
+            <div>
+              <CustomInput inputRef={this.inputText} /> {/* Passing the ref as prop */}
+              <button onClick={this.doClick}>Click</button> {/* Button triggers focus and log */}
+            </div>
+          );
+        }
+      }
+
+      const root6 = ReactDOM.createRoot(document.querySelector("#container6"));
+      root6.render(<Parent />);
+    </script>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>React Event Handling Examples</title>
+	<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<style>
+		.greeting {
+			color: blue;
+		}
+
+		.shocking {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- 1. Display Input Text on Change Event -->
+	<section>
+		<h2>1. Display Input Text on Change Event</h2>
+		<div id="container1"></div>
+		<script type="text/babel">
+			class MyDiv extends React.Component {
+				constructor(props) {
+					super(props);
+					this.setRef = (el) => this.myRef = el;
+					this.showChar = (event) => {
+						this.myRef.innerHTML = event.target.value; // Display the text typed in the input
+					}
+				}
+
+				render() {
+					return (
+						<div>
+							<input onChange={this.showChar} type="text" /> {/* Event onChange */}
+							<h1 ref={this.setRef} />
+						</div>
+					);
+				}
+			}
+
+			const root1 = ReactDOM.createRoot(document.querySelector("#container1"));
+			root1.render(<MyDiv />);
+		</script>
+	</section>
+
+	<!-- 2. Display Typed Character on KeyPress -->
+	<section>
+		<h2>2. Display Typed Character on KeyPress</h2>
+		<div id="container2"></div>
+		<script type="text/babel">
+			class MyDiv extends React.Component {
+				constructor(props) {
+					super(props);
+					this.setRef = (el) => { this.myRef = el };
+					this.showChar = (event) => {
+						this.myRef.innerHTML += event.key; // Append the pressed key
+					}
+				}
+
+				render() {
+					return (
+						<div>
+							<input onKeyPress={this.showChar} type="text" /> {/* Event onKeyPress */}
+							<h1 ref={this.setRef} />
+						</div>
+					);
+				}
+			}
+
+			const root2 = ReactDOM.createRoot(document.querySelector("#container2"));
+			root2.render(<MyDiv />);
+		</script>
+	</section>
+
+	<!-- 3. Change Text Color on Shift Key Press -->
+	<section>
+		<h2>3. Change Text Color on Shift Key Press</h2>
+		<div id="container3"></div>
+		<script type="text/babel">
+			var txt, ev;
+			class MyDiv extends React.Component {
+				constructor(props) {
+					super(props);
+					this.setRef = (el) => { this.myRef = el };
+					this.showChar = (event) => {
+						if (event.shiftKey)
+							txt = "<span style='color:red'>" + event.key + "</span>"; // Apply red color if shift key is pressed
+						else
+							txt = event.key;
+						this.myRef.innerHTML += txt; // Display the character with or without color
+						console.log(event);
+						event.persist(); // Persist the event
+						ev = event;
+						event.preventDefault(); // Prevent default behavior
+					}
+				}
+
+				render() {
+					return (
+						<div>
+							<input onKeyPress={this.showChar} type="text" /> {/* Event onKeyPress */}
+							<h1 ref={this.setRef} />
+						</div>
+					);
+				}
+			}
+
+			const root3 = ReactDOM.createRoot(document.querySelector("#container3"));
+			root3.render(<MyDiv />);
+		</script>
+	</section>
+
+	<!-- 4. Simple Counter with Button Click Event -->
+	<section>
+		<h2>4. Simple Counter with Button Click Event</h2>
+		<div id="container4"></div>
+		<script type="text/babel">
+			class Counter extends React.Component {
+				render() {
+					var textStyle = {
+						fontSize: 50,
+						fontFamily: "sans-serif",
+						color: "#333",
+						fontWeight: "bold"
+					};
+
+					return (
+						<div style={textStyle}>
+							{this.props.display} {/* Displaying count passed as prop */}
+						</div>
+					);
+				}
+			}
+
+			class CounterParent extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = {
+						count: 0
+					};
+					this.increase = this.increase.bind(this); // Binding method
+				}
+
+				increase(e) {
+					this.setState({
+						count: this.state.count + 1 // Increment the count on button click
+					});
+				}
+
+				render() {
+					var backgroundStyle = {
+						padding: 50,
+						backgroundColor: "#FFC53A",
+						width: 100,
+						height: 100,
+						borderRadius: 10,
+						textAlign: "center"
+					};
+
+					var buttonStyle = {
+						fontSize: "1em",
+						width: 30,
+						height: 30,
+						fontFamily: "sans-serif",
+						color: "#333",
+						fontWeight: "bold",
+						lineHeight: "3px"
+					};
+
+					return (
+						<div style={backgroundStyle}>
+							<Counter display={this.state.count} /> {/* Passing count to Counter component */}
+							<button onClick={this.increase} style={buttonStyle}>+</button> {/* Button to increase count */}
+						</div>
+					);
+				}
+			}
+
+			const root4 = ReactDOM.createRoot(document.querySelector("#container4"));
+			root4.render(<CounterParent />);
+		</script>
+	</section>
+
+</body>
+
+</html>
