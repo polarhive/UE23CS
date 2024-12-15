@@ -4,7 +4,7 @@
 
 It was created to better represent data formats with a hierarchical structure.
 
-## JSON (Javascript Object Notation)
+## JSON (JavaScript Object Notation)
 
 It was created as an alternative to XML. Like XML, however, it represents hierarchical data with the use of commas, curly braces and brackets.
 
