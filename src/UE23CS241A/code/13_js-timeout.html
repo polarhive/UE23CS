@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>My first HTML document</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        count = 0;
+        function log() {
+            document.writeln(count); count++;
+            if (count == 11)
+                clearInterval(t);
+        }
+        setTimeout(log, 1000);
+        var t = setTimeout(log, 1000);
+        clearTimeout(t);
+        var t = setInterval(log, 1000);
+        if (count == 11)
+            clearInterval(t);
+
+    </script>
+</body>
+
+</html>

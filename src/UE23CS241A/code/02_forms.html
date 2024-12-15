@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>My first Web Page</title>
+</head>
+
+<body>
+
+    <h2> Student Survey</h2>
+    <form method="get" action="save.php" target=_blank">
+        FName: <input type="text" name="Fname" />
+        <br />Email:<input type="email" name="uemail" />
+        <br />Address: <textarea name="uadd" rows="3" cols="20"></textarea><br />
+        <br />Your Hobby: <input type="checkbox" name="uff" value="Sports" checked />Sports
+        <input type="checkbox" name="uff" value="Reading" />Reading
+        <br />Gender:
+        <input type="radio" name="Gender" value="F" /> Female
+        <input type="radio" name="Gender" value="M" /> Male
+        <input type="radio" name="Gender" value="NA" /> Other
+        <br /> Technical Skills
+        <select name="ucon" multiple>
+            <option selected value="React">HTML</option>
+            <option selected value="React">React Js</option>
+            <option value="Express">Express Js</option>
+        </select>
+        <br /><input type="button" value="Click Me" />
+        <input type="submit" value="Submit Survey" />
+        <button type="reset">Clear Form</button>
+    </form>
+</body>
+
+</html>

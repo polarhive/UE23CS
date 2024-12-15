@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My First HTML Document</title>
+</head>
+
+<body>
+    <script>
+            // Writing output to the document
+            document.writeln("Hello World<br>");
+            document.writeln("Welcome to Web Technologies class<br>");
+    </script>
+
+    <script type="text/javascript">
+            // Variables and data types
+            let x = 10;
+        if (true) {
+            x = 20; // Corrected scoping issue, no redeclaration
+        }
+
+    let y; // Undefined
+    let z = true; // Boolean
+    let a = 10.22; // Number
+    let b = "john"; // String
+    var num = 123.789; // Number
+
+    // Parsing and type conversion
+    let numParsed = Number("10.22");
+    console.log(numParsed + " " + typeof numParsed);
+
+            let num1 = "10.22" - 1; // Implicit conversion
+        console.log(num1 + " " + typeof num1);
+
+    let num2 = parseInt("10.22"); // Parses as integer
+            console.log(num2 + " " + typeof num2);
+
+            let num3 = parseInt(num); // Parses as integer
+            let numOctal = parseInt(num, 8); // Parses as octal
+            document.writeln(num3 + " " + numOctal);
+</script>
+</body>
+
+</html>

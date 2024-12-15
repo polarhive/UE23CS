@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>My first HTML document</title>
+
+</head>
+
+<body>
+    <script>
+        function add(a, b) {
+            return a + b;
+        }
+        var x = add(2, 5);
+        var ref = add;
+
+        var ref = function (...args) {
+            var s = 0;
+            for (var i in args)
+                s = s + args[i];
+            return s;
+        }
+
+        document.writeln(ref(5, 8, 20, 30));
+        document.writeln(ref(1));     //b is undefined
+
+
+    </script>
+
+
+</body>
+
+</html>
