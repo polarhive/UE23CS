@@ -1,4 +1,4 @@
-# UE23MA242B: Mathematics for Machine Learning
+# UE23MA241B: Linear Algebra
 
 > This is a basic subject on matrix theory and linear algebra. Emphasis is given to topics that will be useful in computer science discipline, including systems of equations, vector spaces, eigenvalues, similarity, and positive definite matrices. The course provides hands-on experience in basic programming concepts using Python/R for solving problems relevant to these areas.
 

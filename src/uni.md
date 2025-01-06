@@ -20,4 +20,4 @@
 - [[CN]]: Computer Networks
 - [[DAA]]: Design and Analysis of Algorithms
 - [[OS]]: Operating Systems
-- [[MML]]: Mathematics for Machine Learning
+- [[LA]]: Linear Algebra
