@@ -20,7 +20,7 @@
 
 > **U1**: [[U1_Matrices_Gaussian_Vector|Matrices, Gaussian Elimination and Vector Spaces]]
 
-Introduction, The Geometry of Linear Equations, Gaussian Elimination, Singular Cases, Elimination Matrices, Triangular Factors -LU decomposition &Cholesky’s methodand Row Exchanges, Inverses and Transposes, Inverse by Gauss -Jordan method, Vector Spaces and Subspaces (definitions only)
+Introduction, The Geometry of Linear Equations, Gaussian Elimination, Singular Cases, Elimination Matrices, Triangular Factors - LU decomposition & Cholesky’s method and Row Exchanges, Inverses and Transposes, Inverse by Gauss -Jordan method, Vector Spaces and Subspaces (definitions only)
 
 Application:
 

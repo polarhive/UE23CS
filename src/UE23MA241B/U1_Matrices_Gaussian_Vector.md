@@ -254,13 +254,9 @@ $$
 
 $$
 \begin{bmatrix}
-
 1 & 1 & -2 & 3 & \vert & 4 \\
-
 0 & 1 & 7 & -7 & \vert & -5 \\
-
 0 & 0 & 0 & 1 & \vert & \frac{5}{2}
-
 \end{bmatrix}
 $$
 
@@ -307,5 +303,51 @@ $$
 
 \end{bmatrix}
 $$
+
+---
+
+# Geometry of Linear Equations
+
+> [!Example]
+>
+> - $x - y = -1$
+> - $2x + y = 4$
+
+- In the **Row Picture**, the solution is found by intersecting lines (or planes in higher dimensions).
+- In the **Column Picture**, the solution is a combination of vectors that equals the result vector.
+
+## Row Picture
+
+The **Row Picture** represents each equation as a line in the plane. The solution to the system of equations is the point where these lines intersect. For the system:
+
+1. $x - y = -1$
+2. $2x + y = 4$
+
+The intersection point is $(1, 2)$, which satisfies both equations.
+
+## Column Picture
+
+The **Column Picture** focuses on expressing the equations as combinations of column vectors. For a system like:
+
+$$
+\left[
+\begin{pmatrix} 1 & -1 \\ 2 & 1 \end{pmatrix} 
+\begin{pmatrix} x \\ y \end{pmatrix} 
+=
+\begin{pmatrix} -1 \\ 4 \end{pmatrix}
+\right]
+$$
+
+- The first column vector is $v_1 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$, multiplied by $x$.
+- The second column vector is $v_2 = \begin{pmatrix} -1 \\ 1 \end{pmatrix}$, multiplied by $y$.
+- The right-hand side is the result vector $v_3 = \begin{pmatrix} -1 \\ 4 \end{pmatrix}$.
+
+The equation can be rewritten as:
+
+$$
+x \begin{pmatrix} 1 \\ 2 \end{pmatrix} + y \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 4 \end{pmatrix}
+$$
+
+Geometrically, this means the vector $\begin{pmatrix} -1 \\ 4 \end{pmatrix}$ can be expressed as a linear combination of $\begin{pmatrix} 1 \\ 2 \end{pmatrix}$ and $\begin{pmatrix} -1 \\ 1 \end{pmatrix}$. The coefficients of this combination are $x$ and $y$.
 
 ---
