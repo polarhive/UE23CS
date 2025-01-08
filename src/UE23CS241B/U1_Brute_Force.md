@@ -63,3 +63,54 @@ End:
 8. Test and Debug: Test for all the cases
 9. Documenting the algorithm
 10. Improving and Refinement
+
+---
+
+# Ways to Analyse
+
+1. Time Efficiency/Complexity: how long to run as `input` size grows
+2. Space Efficiency/Complexity: how much memory consumed as `input` size grows
+3. Network Efficiency/Complexity
+4. Hardware (Power) Efficiency/Complexity
+
+## Analyse Time and Space for
+
+> [!Example]
+>
+> Time: measure every statement as 1 unit of time
+> Space: Frequency count of variables when algorithms are small
+>
+> ```c
+> Algorithm swap(a,b)
+> Begin:
+> 	temp <- a; (1t)
+> 	a <- b;    (1t)
+> 	b <- temp; (1t)
+> End:
+> ```
+
+- T(n) = 1+1+1 = 3 = *constant*
+- S(n) = 1+1+1 = 3 = constant
+
+> We can represent this in the order of $O(1)$
+
+---
+
+> [!Example]
+> Notice the difference when we have a loop:
+> ```c
+> Algorithm sum(A,n)
+> Begin:
+> 	s=0;
+> 	for (i=0, i<n, i++)  // checks upto 'n+1' times, i++ 'n' times
+> 		s = s + A[i]   // repeats upto n times
+> 	return s;
+> End:
+> ```
+
+1. The dominant term is checking the condition (n+1). Consider only this
+2. (2n+2) -> n+1; the +2 becomes insignificant as n increases
+
+> So: T(n+1) -> O(n)
+
+---
