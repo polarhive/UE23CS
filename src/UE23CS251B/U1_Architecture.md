@@ -155,3 +155,63 @@ They use delayed branches so it doesn't interrupt the smooth flow as we know a b
 > [!warning]
 >
 > `STORE [R1][R2] This is not allowed`
+
+---
+
+## Multiplication Using Barrel Shifter
+
+The barrel shifter in ARM assembly can be used to perform efficient multiplication by powers of two, sums, and differences.
+
+1. Multiplying by: $(2^n)$
+
+```assembly
+MOV Ra, Ra, LSL #n 
+```
+
+2. Multiplying by: `2n + 1` -> `Ra = Ra + (Ra << n)`
+
+```assembly
+ADD Ra, Ra, Ra, LSL #n
+```
+
+3. Multiplying by `2n - 1` -> `Ra = (Ra << n) - Ra`
+
+```assembly
+RSB Ra, Ra, Ra, LSL #n
+```
+
+---
+
+###  Multiplying by 6
+
+We can calculate `6 * Ra` as:
+
+- Multiply `Ra` by 2 using `MOV Ra, Ra, LSL #1`.
+- Multiply `Ra` by 3 (which is `2 * 1 + 1`) using `ADD Ra, Ra, Ra, LSL #1`.
+
+```assembly
+MOV Ra, Ra, LSL #1        ; Ra = Ra * 2
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 2 = Ra * 3
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 3 = Ra * 6
+```
+
+### Multiplying by 45
+
+We can calculate `45 * Ra` as:
+
+- Multiply `Ra` by 2 using `MOV Ra, Ra, LSL #1`.
+- Multiply `Ra` by 22 (which is `2 * 11`) using `ADD Ra, Ra, Ra, LSL #1`.
+- Add `Ra` to `Ra * 22` using `ADD Ra, Ra, Ra, LSL #1`.
+- Add `Ra` to `Ra * 44` to get `Ra * 45`.
+
+```assembly
+MOV Ra, Ra, LSL #1        ; Ra = Ra * 2
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 2 = Ra * 3
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 3 = Ra * 6
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 6 = Ra * 12
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 12 = Ra * 24
+ADD Ra, Ra, Ra, LSL #1    ; Ra = Ra + Ra * 24 = Ra * 48
+RSB Ra, Ra, Ra, LSL #1    ; Ra = Ra * 48 - Ra = Ra * 45
+```
+
+---

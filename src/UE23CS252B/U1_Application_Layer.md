@@ -1,8 +1,21 @@
-# Application Layer
+# The Internet: A Nuts and Bolts View
 
-> *The idea of networking is to transfer arbitrary data between two or more computers over the internet/LAN.*
+> *The idea of networking is to transfer arbitrary data between two or more computers over the internet/LAN.
 
-The 7 layers according to the OSI model:
+- **Host**: Named end-systems running apps at the internet's edge
+- **Packet Switching**: Forwards packets over routers and switches
+- **Communication lines**: Media. i.e. Radio, LTE, Fiber
+- **Internet**: A network of networks via interconnected ISPs
+- **Protocols**: control the sending and receiving of messages.
+- **Internet Standards**: RFCs, IETF
+- **Infra**: provides services to applications, web streaming, email, gaming
+
+> [!Important]
+> Protocols define the format, order, of messages Tx and Rx among network entities, and actions taken on message transmission, receipt.
+
+---
+
+# OSI model
 
 | #   | Layer        | Ex           |
 | --- | ------------ | ------------ |
@@ -13,25 +26,6 @@ The 7 layers according to the OSI model:
 | 3   | Network      | IPv{4,6}     |
 | 2   | Data link    | Ethernet     |
 | 1   | Physical     | DSL          |
-
----
-
-## "The Internet"
-
-> A Nuts and Bolts View
-
-- Host: Named end-systems running apps at the internet's edge
-- Packet Switching: Forwards packets over routers and switches
-- Communication lines: Media. i.e. Radio, LTE, Fiber
-- Internet: A network of networks via interconnected ISPs
-- Protocols: control the sending and receiving of messages.
-- Internet Standards: RFCs, IETF
-- Infra: provides services to applications, web streaming, email, gaming
-
-## What's a protocol?
-
-> [!Important]
-> Protocols define the format, order, of messages Tx and Rx among network entities, and actions taken on message transmission, receipt.
 
 ---
 
@@ -47,22 +41,11 @@ The 7 layers according to the OSI model:
 
 ---
 
-## Hosts: Send pkts of data
-
-- Takes application message
-- Breaks into smaller chunks, known as **packets**, of length **L** bits
-- Transmits packet into access network at transmission rate **R**
-- Link transmission rate, aka **link capacity**, aka link **bandwidth**
-
-> [!Important]
-> Packet Transmission Delay is:
-> The time needed to transmit an L-bit packet into link = $\frac{L \, \text{(bits)}}{R \, \text{(bits/s)}}$
-
-### DSL
+## DSL
 
 ![[Pasted image 20250109215403.png]]
 
-- It uses existing telephone line to central office DSLAM
+- Uses existing telephone line to central office DSLAM
 	- data over DSL phone line goes to Internet
 	- voice over DSL phone line goes to telephone net
 
@@ -74,7 +57,7 @@ The 7 layers according to the OSI model:
 > - 3.5-16 Mbps – UL transmission rate
 > - Asymmetric access
 
-### Wired Cable
+## Wired Cable
 
 ![[Pasted image 20250109215349.png]]
 
@@ -86,11 +69,11 @@ Frequency division multiplexing (FDM): different channels transmitted in differe
 > - Network of cable, fiber attaches homes to ISP router
 > - homes share access network to cable headend.
 
-### Home Networks
+## Home Networks
 
 ![[Pasted image 20250109215557.png]]
 
-### Enterprise Networks
+## Enterprise Networks
 
 ![[Pasted image 20250109215607.png]]
 
@@ -102,7 +85,7 @@ Deployed at companies, universities, etc.
 > - Ethernet: wired access at 100Mbps, 1Gbps, 10Gbps
 > - WiFi: wireless access points at 11, 54, 450 Mbps
 
-### Wireless Networks
+## Wireless Networks
 
 Shared wireless access network connects end system to router via base station aka “access point”.
 
@@ -113,7 +96,7 @@ Shared wireless access network connects end system to router via base station ak
 	- Throughput ~10 Mbps
 	- 4G cellular networks (5G coming)
 
-## Physical Media
+# Physical Media
 
 - bit: propagates between transmitter/receiver pairs
 - physical link: what lies between transmitter & receiver
@@ -154,3 +137,98 @@ Shared wireless access network connects end system to router via base station ak
 		- geosynchronous vs. low-earth-orbit
 
 ---
+
+# Circuit Switching
+
+End-end resources allocated to, reserved for “call” between source and destination (eg: telephone)
+
+- dedicated resources: no sharing
+- circuit-like (guaranteed) performance
+- circuit segment idle if not used by call (no sharing)
+- commonly used in traditional telephone networks
+
+---
+
+# Packet Switching
+
+- Hosts send pkts of data
+- Takes application message
+- Breaks into smaller chunks, known as **packets**, of length **L** bits
+- Transmits packet into access network at transmission rate **R**
+- Link transmission rate, aka **link capacity**, aka link **bandwidth**
+
+> [!Important]
+> Packet Transmission Delay is:
+> The time needed to transmit an L-bit packet into link = $\frac{L \, \text{(bits)}}{R \, \text{(bits/s)}}$
+
+> Great for “bursty” data – sometimes has data to send, but at other times not
+
+- resource sharing
+- simpler, no call setup
+- excessive congestion possible: packet delay and loss due to buffer overflow
+- protocols needed for reliable data transfer, congestion control
+- Q: How to provide circuit-like behavior?
+- bandwidth guarantees traditionally used for audio/video applications
+
+---
+
+## Example Problem
+
+How long does it take to send a file of 640,000 bits (1 byte = 8 bits) from host A to host B over a circuit-switched network?
+
+- All links are 1.536 Mbps
+-  Each link uses TDM with 24 slots/sec
+-  500 msec to establish end-to-end circuit
+
+> Solution:
+
+- Each circuit has a transmission rate of (1.536 Mbps)/24 = 64 kbps
+- It takes (640,000 bits)/(64 kbps) = 10 seconds to transmit the file
+- To this 10 seconds we add the circuit establishment time, giving 10.5 seconds to send the file
+
+---
+
+# Store & Forward
+
+- Transmission delay: takes L/R seconds to transmit (push out) L-bit packet into link at R bps.
+- Store and forward: entire packet must arrive at router before it can be transmitted on next link.
+- End-end delay: 2L/R (above), assuming zero propagation delay (more on delay shortly)
+
+> One-hop numerical example:
+
+-  L = 10 Kbits
+-  R = 100 Mbps
+
+Therefore, one-hop transmission delay = 0.1 msec
+
+# Queuing delay, loss
+
+![[Pasted image 20250110002058.png]]
+
+> If arrival rate (in bps) to link exceeds transmission rate (bps) of link for a period of time:
+
+- packets will queue, waiting to be transmitted on output link
+- packets can be dropped (lost) if memory (buffer) in router fills up
+
+# Routing & Forwarding
+
+- Forwarding: local action: move arriving packets from router’s input link to appropriate router output link
+- Routing: global action: determine source-destination paths taken by packets
+
+![[Pasted image 20250110002257.png]]
+
+# Multiplexing in Circuit Switched Networks
+
+## Frequency Division Multiplexing
+
+- optical, electromagnetic frequencies divided into (narrow) frequency bands
+- each call allocated its own band, can transmit at max rate of that narrow band
+
+ ![[Pasted image 20250110002944.png]]
+
+## Time Division Multiplexing
+
+- time divided into frames -> slots
+- each call allocated periodic slot(s), can transmit at maximum rate of (wider) frequency band, but only during its time slot(s)
+
+![[Pasted image 20250110003009.png]]

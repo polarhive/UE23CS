@@ -40,3 +40,35 @@ An Operating System is a program that acts as an **intermediary** between a user
 4. Users: People, machines, other computers
 
 ---
+
+## System View
+
+- OS is a resource allocator
+	- Manages all resources
+	- Decides between conflicting requests for efficient and fair resource use
+- OS is a control program
+	- Controls execution of programs to prevent errors and improper use of the computer
+
+## Computer System Operation
+
+- One or more CPUs, device controllers connect through common bus providing access to shared memory
+- The CPU and the device controllers can execute oncurrently, competing for memory cycles.
+- Memory controller is provided to synchronize access to the memory.
+- I/O devices and the CPU can execute concurrently
+	-  Each device controller is in charge of a particular device type
+	-  Each device controller has a **local** buffer.
+	-  Each device controller has registers for action (like "read character from keyboard") to take.
+-  CPU moves data from / to main memory to / from local buffers.
+-  I/O is from the device to local buffer of controller
+-  Device controller informs CPU that it has finished its operation by causing an **interrupt**
+
+### First Boot
+
+> When the system is booted, the first program that starts running is a Bootstrap.
+
+- It is stored in read-only memory (ROM) or electrically erasable programmable read-only memory (EEPROM).
+- Bootstrap is known by the general term **firmware**, within the computer hardware.
+- It initializes all aspects of the system, from CPU registers to device controllers to memory contents.
+- The bootstrap program must know how to load the operating system and how to start executing that system.
+- The **bootstrap program** must locate and load into memory the operating system kernel.
+- The first program that is created is **init**, after the OS is booted. It waits for the occurrence of events.
