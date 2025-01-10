@@ -114,3 +114,108 @@ End:
 > So: T(n+1) -> O(n)
 
 ---
+
+# Time Complexities with Sample Values
+
+| Symbol     | Name          | n = 1 | n = 10 | n = 100  | n = 1000   | n = 10000     |
+| ---------- | ------------- | ----- | ------ | -------- | ---------- | ------------- |
+| O(1)       | Constant Time | 1     | 1      | 1        | 1          | 1             |
+| O(log n)   | Logarithmic   | 0     | 2      | 6        | 9          | 13            |
+| O(sqrt(n)) | Sublinear     | 1     | 3      | 10       | 31         | 100           |
+| O(n)       | Linear        | 1     | 10     | 100      | 1000       | 10000         |
+| O(n logn)  | Linearithmic  | 0     | 33     | 664      | 9965       | 132877        |
+| O(n^2)     | Quadratic     | 1     | 100    | 10000    | 1000000    | 100000000     |
+| O(n^3)     | Cubic         | 1     | 1000   | 1000000  | 1000000000 | 1000000000000 |
+| O(2^n)     | Exponential   | 2     | 1024   | ~1.27e30 | ~1.07e301  | Overflow      |
+| O(n!)      | Factorial     | 1     | 3.63e6 | Overflow | Overflow   | Overflow      |
+
+![[Pasted image 20250110154114.png]]
+
+---
+
+# Algorithmic Analysis Framework
+
+## 1. Space Complexity
+
+> S(p) = C + SP(I)
+
+- P is the problem
+- C is the constants
+- I talks about instance characteristics
+
+## 2. Time Complexity
+
+Big O, Step Count Method
+
+## 3. Measuring Input Size
+
+Efficiency of the algorithm -> func
+
+- t(n) = n
+- S(n) parameters a function takes
+
+## 4. Measuring Run Time
+
+- Identify the basic operation
+- Understand the concept of basic operation
+- Compute total time taken for the operation
+
+> T(n) is Cop x C(n)
+
+## 5. Compute the Order of Growth
+
+Measure the performance of the algorithm in relation with input size, we must analyze for all cases of `n`
+
+---
+
+# Asymptotic Notation
+
+> Asymptotic notations describe the growth of functions, often used in analyzing the time and space complexity of algorithms.
+
+## Upper Bound
+
+Big O provides the upper bound of an algorithm's running time, guaranteeing it won't exceed a certain rate of growth.
+
+> [!Info]
+> The function $( t(n) = O(g(n)) )$ if and only if there exist constants $( C > 0 )$ and $( n_0 \geq 0 )$ such that: $[ t(n) \leq C \cdot g(n), \quad \forall n \geq n_0 ]$
+
+> Example: $( t(n) = 3n + 2 )$ is $( O(n) )$, as $( t(n) \leq 4n )$ for $( n \geq 1 )$ (with $( C = 4, n_0 = 1 )$).
+
+---
+
+## Lower Bound
+
+Omega provides the lower bound of an algorithm's running time, guaranteeing it takes at least a certain amount of time.
+
+> [!Info]
+>
+> The function $( t(n) = \Omega(g(n)) )$ if and only if there exist constants $( C > 0 )$ and $( n_0 \geq 0 )$ such that: $[ t(n) \geq C \cdot g(n), \quad \forall n \geq n_0 ]$
+
+> Example: $( t(n) = 3n + 2 )$ is $( \Omega(n) )$, as $( t(n) \geq 3n )$ for $( n \geq 1 )$ (with $( C = 3, n_0 = 1 )$)
+
+---
+
+## Tight Bound
+
+Theta provides both the upper and lower bounds, tightly bounding the growth of an algorithm's running time.
+
+> [!Info]
+> The function $( t(n) = \Theta(g(n)) )$ if and only if there exist constants $( C_1, C_2 > 0 )$ and $( n_0 \geq 0 )$ such that: $[ C_1 \cdot g(n) \leq t(n) \leq C_2 \cdot g(n), \quad \forall n \geq n_0 ]$
+
+> Example: $( t(n) = 3n + 2 )$ is $( \Theta(n) )$, as $( 3n \leq t(n) \leq 4n )$ for $( n \geq 1 )$.
+
+---
+
+## Small o and Small ω
+
+> These notations describe stricter bounds compared to Big O and Omega.
+
+| Notation     | Description        | Usage                           |
+| ------------ | ------------------ | ------------------------------- |
+| $(O)$        | Upper bound        | Guarantees worst-case runtime   |
+| $( \Omega )$ | Lower bound        | Guarantees minimum runtime      |
+| $( \Theta )$ | Tight bound        | Represents average-case runtime |
+| $( o )$      | Strict upper bound | Stricter than Big O             |
+| $( \omega )$ | Strict lower bound | Stricter than Omega             |
+
+---

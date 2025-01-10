@@ -72,3 +72,95 @@ An Operating System is a program that acts as an **intermediary** between a user
 - The bootstrap program must know how to load the operating system and how to start executing that system.
 - The **bootstrap program** must locate and load into memory the operating system kernel.
 - The first program that is created is **init**, after the OS is booted. It waits for the occurrence of events.
+
+---
+
+## Trap, Exceptions, Interrupts
+
+> Timeline for single running process
+
+![[Pasted image 20250110093447.png]]
+
+- The OS is interrupt driven.
+- The interrupt architecture must save the address of the interrupted instruction
+- The user can signal a software-generated interrupt, called a trap
+
+| Polling                                                                                                 | Vectored                                                          |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| CPU constantly checks a set of devices, predefined locations to determine if an interrupt has occurred. | The interrupting device directly informs the CPU via an interrupt |
+| CPU will execute an ISR                                                                                 | An ISR will execute                                               |
+| Easy to implement but is less efficient                                                                 | Less memory checks, and allows interrupt passing                  |
+
+| Volatile                                | Non Volatile                             |
+| --------------------------------------- | ---------------------------------------- |
+| Data is lost when power is switched off | Data persists when power is switched off |
+| Cache Memory                            | HDD, Flash, SSD                          |
+| Registers                               | ROM, Bootstrap EEPROM                    |
+
+---
+
+## Von neuman Architecture
+
+**Fetch**: The CPU fetches or retrieves the next instruction from the memory. The address of the next instruction is stored in the PC.
+
+**Decode**: Once the instruction is fetched, the CPU decodes it to understand what action is required, this interpretation is done by the [[U3_Computer_Organization#Control Unit|Control Unit]].
+
+**Execute**: Based on the `opcode` and operand. ALU and other functional units are used in this step.
+
+![[Pasted image 20250110093403.png]]
+
+> [[U1_Architecture#Tradeoffs|Fetch, Decode, Execute]]
+
+This cycle is repeated until the program terminates.
+
+---
+
+# Storage Device Hierarchy
+
+> [!Tip]
+> **Caching**: copying information into a faster storage system. In relative terms: main memory can be viewed as cache for secondary storage.
+
+ Faster storage (cache) checked first to determine if information is there
+
+- If yes? information is used from that cache
+- If no? data is copied to cache and used there
+
+Cache size determines how much size can be stored in the cache. Cache is also really expensive.
+
+## Caching Strategies
+
+- LRU: Least Recently used
+- LFU: Least Frequently used
+- FIFO: Evicts the oldest data
+- Random: Evicts randomly chosen data
+- Optimal: Evicts data that will be not be used in the future.
+
+# I/O structure
+
+- A large portion of the OS is dedicated to managing I/O as reliability is a major concern.
+- The CPU <-> Device controllers are connected through a common bus.
+- A **device-driver** is used for each device for managing I/O. It provides a uniform interface between kernel and the controller.
+
+> **SCSI**: Small Computer-Systems Interface enables to connect more devices
+
+## After I/O starts
+
+Control returns to user program only after I/O completion.
+
+- Wait instruction idles the CPU until the next interrupt
+- Wait loop (contention for memory access)
+- At most, one I/O request is outstanding at a time, no simultaneous I/O processing
+
+A system call allows a user program to request services from the OS such as waiting for I/O requests to get completed.
+
+ - **System Call**: request to OS to allow user to wait for I/O
+ - **Device Status Table**: contains entry for each I/O device including its type, address and state.
+ - Os indexes into I/O device table to determine device status and to modify table entries to include the interrupt.
+
+## Direct Memory Access
+
+- Used for high speed I/O devices, close to memory speeds
+- Device controller transfers blocks of data from buffer storage directly to main memory without CPU intervention.
+- Only one interrupt is generated per block. Rather than one per byte.
+
+---
