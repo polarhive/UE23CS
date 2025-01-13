@@ -206,9 +206,25 @@ Theta provides both the upper and lower bounds, tightly bounding the growth of a
 
 ---
 
-## Small o and Small ω
+# Small o and Small ω
 
 > These notations describe stricter bounds compared to Big O and Omega.
+
+## Small $(o)$
+
+> $(t_n = o(g_n))$ means that $(t_n)$ grows asymptotically slower than $(g_n)$:
+
+$[ \lim_{n \to \infty} \frac{t_n}{g_n} = 0 ]$
+
+## Small $(\omega)$
+
+> $(t_n = \omega(g_n))$ means that $(t_n)$ grows asymptotically faster than $(g_n)$:
+
+$[ \lim_{n \to \infty} \frac{t_n}{g_n} = \infty ]$
+
+---
+
+# Summary
 
 | Notation     | Description        | Usage                           |
 | ------------ | ------------------ | ------------------------------- |
@@ -219,3 +235,29 @@ Theta provides both the upper and lower bounds, tightly bounding the growth of a
 | $( \omega )$ | Strict lower bound | Stricter than Omega             |
 
 ---
+
+# Analysis of Non-Recursive Algorithms
+
+> **Q:** Find the maximum element of an array of size 'n'
+
+```c
+Algorithm find_max(A, n)
+Begin:
+    max_element <- A[0]; 
+    for i <- 1 to n-1 do:   // (n-1 times)
+        if A[i] > max_element then:
+            max_element <- A[i];  // (1t) larger element is found
+    return max_element;
+End:
+```
+
+1. **Input size**: n (size of the array).
+2. **Basic Operation**: Comparison (comparing the current element with the maximum element).
+3. **C(n)**: The algorithm performs one comparison for each element
+	1. $((u-l) +1)$
+	2. $((n-1 - 1) + 1)$
+	3. $(n-1)$
+4. $C(n)$=$O(n)$
+
+> [!Tip] Standard Formula
+> $C(n) = \sum_{u}^{l} 1 = (u-l-1)$

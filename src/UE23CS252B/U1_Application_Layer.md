@@ -232,3 +232,58 @@ Therefore, one-hop transmission delay = 0.1 msec
 - each call allocated periodic slot(s), can transmit at maximum rate of (wider) frequency band, but only during its time slot(s)
 
 ![[Pasted image 20250110003009.png]]
+
+---
+
+## Internet Structure: "network of networks"
+
+> End systems connect to Internet via access ISPs (Internet Service Providers)
+
+- Residential, company and university ISPs
+- Access ISPs in turn must be interconnected.
+- So that any two hosts can send packets to each other
+- Resulting network of networks is very complex
+- Evolution was driven by economics and national policies
+
+> [!Question] Given millions of access ISPs, how to connect them together?
+> Connecting each access ISP to each other directly doesn’t scale: $O(N^2)$ connections.
+
+## Tiered ISP
+
+![[Pasted image 20250114172315.png]]
+
+## CDNs
+
+> The content provider networks (e.g., Google, Facebook): are private network that connects its data centers to Internet, often bypassing tier-1, regional ISPs
+
+---
+
+# Packet Delay
+
+> Performance Metric: Packet Delay – 4 Sources
+
+![[Pasted image 20250114172441.png]]
+
+> dnodal = d proc + queue + trans + prop
+
+- dproc: nodal processing
+	-  check bit errors
+	- determine output link
+	- typically < 1 msec
+- dqueue: queueing delay
+	- time waiting at output link for transmission
+	- depends on congestion level of router
+	- microseconds to milliseconds
+- dtrans: transmission delay = L/R
+	- L: packet length (bits)
+	- R: link transmission rate (bps)
+- dprop: propagation delay = d/s
+	- d: length of physical link
+	- s: propagation speed (~2x108 m/sec)
+
+| Transmission Delay                                            | Propagation Delay                                           |
+| ------------------------------------------------------------- | ----------------------------------------------------------- |
+| Time required for the router to push out the packet           | Time it takes a bit to propagate from one router to another |
+| A function of packet length and transmission rate of the link | A function of distance                                      |
+| L/R                                                           | d/s                                                         |
+| Nothing to do with the distance between the routers           | Nothing to do with packet length or transmission rate       |

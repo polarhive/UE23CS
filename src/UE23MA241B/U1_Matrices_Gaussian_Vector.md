@@ -174,7 +174,7 @@ $$
 
 We aim to solve this system using Gaussian Elimination and also find its **Row Echelon Form (REF)** and **Reduced Row Echelon Form (RREF)**.
 
-## Step 1: Fix $( R1 )$ (First row)
+### Step 1: Fix $( R1 )$ (First row)
 
 Keep  R1 as it is. Eliminate the first element in $( R2 )$ and $( R3 )$ by performing the following row operations:
 
@@ -200,9 +200,7 @@ $$
 \end{bmatrix}
 $$
 
----
-
-## Step 2: Normalize $( R2 )$ and Eliminate Below It
+### Step 2: Normalize $( R2 )$ and Eliminate Below It
 
 Next, eliminate the second element in $( R3 )$ using $( R2 )$:
 
@@ -238,13 +236,11 @@ $$
 \end{bmatrix}
 $$
 
----
+## Reduced Row Echelon Form (RREF)
 
-# Reduced Row Echelon Form (RREF)
+Each pivot is $( 1 )$, and all elements above and below pivots are $(0)$ Proceed as follows:
 
-In RREF, each pivot is $( 1 )$, and all elements above and below pivots are $(0)$ Proceed as follows:
-
-## Step 1: Normalize $( R3 )$
+### Step 1: Normalize $( R3 )$
 
 Divide $( R3 )$ by $( -2 )$:
 
@@ -262,7 +258,7 @@ $$
 
 ## Step 2: Eliminate Above $( R3 )$'s Pivot
 
-Using ( R3 ), eliminate the fourth element in ( R1 ) and ( R2 ):
+Using $(R3)$, eliminate the fourth element in $(R1)$ and $(R2)$:
 
 $$
 R_1 \to R_1 - 3R_3
@@ -351,3 +347,92 @@ $$
 Geometrically, this means the vector $\begin{pmatrix} -1 \\ 4 \end{pmatrix}$ can be expressed as a linear combination of $\begin{pmatrix} 1 \\ 2 \end{pmatrix}$ and $\begin{pmatrix} -1 \\ 1 \end{pmatrix}$. The coefficients of this combination are $x$ and $y$.
 
 ---
+
+# Upper Triangular Form
+
+Given the system of equations $( Ax = b )$, it can be transformed into the form $( Ux = c )$, where $U$ is an upper triangular matrix.
+
+## Breakdown of Gaussian Elimination
+
+Gaussian Elimination is a method used to solve a system of linear equations by transforming the matrix $A$ into an upper triangular matrix $U$. This is achieved through a series of **row operations**:
+
+- **Curable (Row Operations)**: These are row operations that can transform the matrix into upper triangular form.
+	- Swapping rows.
+	- Multiplying a row by a non-zero scalar.
+	- Adding a multiple of one row to another row.
+- **Incurable (Singular)**: If at any point, the matrix becomes singular (a row becomes all zeros or the determinant becomes zero), the system is classified as **incurable**. This indicates that the system does not have a unique solution (it may have no solution or infinitely many solutions).
+
+When the matrix is in upper triangular form, solving the system is straightforward using **back substitution**.
+
+### Example
+
+Consider the following system of equations represented by the matrix equation $( Ax = b )$:
+
+$$
+A = \begin{pmatrix}
+2 & 3 & 1 \\
+4 & 9 & 2 \\
+6 & 8 & 3
+\end{pmatrix}, \quad
+x = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, \quad
+b = \begin{pmatrix} 5 \\ 8 \\ 7 \end{pmatrix}
+$$
+
+We can apply Gaussian elimination to transform $A$ into an upper triangular matrix $U$. Let's perform the row operations:
+
+1. Eliminate the first column below the pivot (2 in the first row, first column):
+   - Subtract $2$ times row 1 from row 2.
+   - Subtract $3$ times row 1 from row 3.
+
+After applying these row operations, we obtain the upper triangular matrix $U$:
+
+$$
+U = \begin{pmatrix}
+2 & 3 & 1 \\
+0 & 3 & 0 \\
+0 & 0 & 2
+\end{pmatrix}
+$$
+
+Now, the system is in the form $( Ux = c )$, where:
+
+$$
+c = \begin{pmatrix} 5 \\ 0 \\ 1 \end{pmatrix}
+$$
+
+The system is now easy to solve using **back substitution**:
+
+1. From the third row: $2x_3 = 1 \Rightarrow x_3 = \frac{1}{2}$.
+2. From the second row: $3x_2 = 0 \Rightarrow x_2 = 0$.
+3. From the first row: $2x_1 + 3x_2 + x_3 = 5 \Rightarrow 2x_1 + 0 + \frac{1}{2} = 5 \Rightarrow x_1 = \frac{9}{4}$.
+
+Thus, the solution is:
+
+$$
+x = \begin{pmatrix} \frac{9}{4} \\ 0 \\ \frac{1}{2} \end{pmatrix}
+$$
+
+### Singular Example (Incurable)
+
+Consider the system:
+
+$$
+A = \begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+1 & 2 & 3
+\end{pmatrix}, \quad
+b = \begin{pmatrix} 9 \\ 18 \\ 9 \end{pmatrix}
+$$
+
+Using Gaussian elimination, we would eventually encounter a row of zeros (i.e., a singular matrix), which indicates the system is either inconsistent or has infinitely many solutions. Specifically, after performing row operations:
+
+$$
+U = \begin{pmatrix}
+1 & 2 & 3 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}
+$$
+
+The system has no unique solution, and we can conclude that it is **incurable** (the matrix is singular).
