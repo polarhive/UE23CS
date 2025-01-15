@@ -164,3 +164,144 @@ A system call allows a user program to request services from the OS such as wait
 - Only one interrupt is generated per block. Rather than one per byte.
 
 ---
+
+# System Architecture
+
+- Most systems use a single general-purpose processor
+- Most systems have other special-purpose processors as well.
+- Device specific processors like disk, keyboard, graphic controller
+- Special-purpose processors run a limited number of instructions
+- Special-purpose processors are low-level components built into the hardware
+- It is managed by OS.
+- OS monitors the status.
+
+> [!Example] Example Disk controller microprocessor
+>
+> - Receives sequence of requests from CPU.
+> - Implements its own disk queue and scheduling algorithm
+> - Relieves the main CPU of the overhead of disk scheduling.
+
+## Multiprocessor
+
+- Also known as **parallel systems**, tightly-coupled systems
+- Advantages include:
+	- Increased **throughput**
+	- Economy of **scale**
+	- Increased **reliability**: graceful degradation or fault tolerance
+
+![[Pasted image 20250115122751.png]]
+
+1. **Asymmetric** Multiprocessing – each processor is assigned a **specific** task.
+2. **Symmetric** Multiprocessing – each processor performs **all** tasks
+
+## ASMP
+
+There exists many processors but they are assigned specific tasks by the master processor such as background processing or handling interrupts. Ex. Mtorola 68000 based systems.
+
+## SMP: Symmetric Multiprocessing Architecture
+
+![[Pasted image 20250115122858.png]]
+
+> In SMP all processors are **peers**; no boss–worker relationship exists between processors.
+
+- Each processor is capable of executing processes independently and in parallel, these are scaleble which means more processors can be added to increase computational power.
+- Each processor has its own set of registers, as well as a private or local cache.
+- All processors **share** physical memory.
+
+## Multi-Core Design
+
+- A recent trend in CPU design is to include multiple computing cores on a single chip. Such multiprocessor systems are termed multicore.
+- More efficient than multiple chips with single cores because on-chip communication is faster than between-chip communication.
+- One chip with multiple cores uses significantly less power than multiple single-core chips.
+
+## Blade Server
+
+In which multiple processor boards, I/O boards, and networking boards are placed in the same chassis.
+
+- blade-processor board boots independently and runs its own operating system.
+- Some blade-server boards are multiprocessor as well, which blurs the lines between types of computers.
+- In essence, these servers consists of multiple independent multiprocessor systems.
+
+## Clustered Systems
+
+Like multiprocessor systems, but multiple systems working together
+
+- Usually sharing storage via a storage-area network (**SAN**)
+- Provides a high-availability service which survives failures
+	- Asymmetric clustering has one machine in hot-standby mode
+	- Symmetric clustering has multiple nodes running applications, monitoring each other
+- Some clusters are for high-performance computing (HPC)
+- Applications must be written to use parallelization
+- Some have distributed lock manager (DLM) to avoid conflicting operations (Ex: when multiple hosts access the same data on shared storage)
+
+![[Pasted image 20250115123506.png]]
+
+---
+
+# OS Structure
+
+## Multiprogramming (Batch system)
+
+> Needed for efficiency
+
+- Single user cannot keep CPU and I/O devices busy at all times
+- Multiprogramming organizes jobs (code and data) so CPU always has one to execute
+- A subset of total jobs in system is kept in memory
+- One job selected and run via job scheduling
+- When it has to wait (for I/O for example), OS switches to another job
+
+![[Pasted image 20250115124440.png]]
+
+##  Multitasking (Timesharing)
+
+Timesharing is the logical extension in which CPU switches jobs so frequently that users can interact with each job while it is running, creating interactive computing
+
+> Response time should be < 1 second
+
+- Each user has at least one program executing in memory -> process
+- If several jobs ready to run at the same time -> CPU scheduling
+- If processes don’t fit in memory, swapping moves them in and out to run
+- Virtual memory allows execution of processes not completely in memory
+
+# OS Operations
+
+> Interrupt driven (hardware and software)
+
+- Hardware interrupt by one of the devices
+- Software interrupt (exception or trap):
+- Software error (e.g., division by zero)
+- Request for operating system service
+- Other process problems include infinite loop, processes modifying each other or the operating system.
+
+# Dual-Mode and Multimode
+
+> Dual-mode operation allows OS to protect itself and other system components
+
+- User mode and kernel mode
+- Mode bit provided by hardware
+- Provides ability to distinguish when system is running user code or kernel code
+- Some instructions designated as privileged, only executable in kernel mode
+- System call changes mode to kernel, return from call resets it to user
+
+Increasingly CPUs support multi-mode operations
+
+> i.e. virtual machine manager (VMM) mode for guest VMs
+
+## Transition from user to kernel mode
+
+When a trap or interrupt occurs, hardware switches from user mode to kernel mode (changes the state of the mode bit to 0). When the request is fulfilled, the system always switches to user mode (by setting the mode bit to 1) before passing control to a user program.
+
+![[Pasted image 20250115125145.png]]
+
+## Timer
+
+- Timer to prevent infinite loop / process hogging resources
+- Timer is set to interrupt the computer after a specified period (fixed 1/60 sec or variable 1 msec to 1 sec)
+- A variable timer is generally implemented by a fixed-rate clock and a counter.
+- Operating system sets the counter (privileged instruction)
+- Every time the clock ticks, the counter is decremented.
+- When counter reaches zero, an interrupt occurs
+
+> Timer can be used to prevent a user program from running too long (terminate the program)
+
+# Kernel Data Structures

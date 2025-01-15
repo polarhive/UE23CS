@@ -84,7 +84,7 @@ Addr | Instr, Data
 ------------------
 set	 | .text
 by 	 | ADD <instr>
-proc |
+proc    |
 	 | .data
 	 | var <x>
 	 | .end
@@ -158,7 +158,7 @@ They use delayed branches so it doesn't interrupt the smooth flow as we know a b
 
 ---
 
-## Multiplication Using Barrel Shifter
+# Barrel Shifter
 
 The barrel shifter in ARM assembly can be used to perform efficient multiplication by powers of two, sums, and differences.
 
@@ -181,6 +181,10 @@ RSB Ra, Ra, Ra, LSL #n
 ```
 
 ---
+
+## Cross Bar Switch
+
+![[Pasted image 20250115114109.png]]
 
 ###  Multiplying by 6
 
@@ -215,3 +219,197 @@ RSB Ra, Ra, Ra, LSL #1    ; Ra = Ra * 48 - Ra = Ra * 45
 ```
 
 ---
+
+## LSL, LSR
+
+![[Pasted image 20250115114352.png]]
+
+```verilog
+MOV  R0, R2, LSL #2 @ R0:=R2<<2
+                    @ R2 unchanged
+
+Example: 0…0 0011 0000
+Before R2=0x00000030
+After  R0=0x000000C0
+       R2=0x00000030
+```
+
+![[Pasted image 20250115114401.png]]
+
+```verilog
+MOV  R0, R2, LSR #2 @ R0:=R2>>2
+                    @ R2 unchanged
+
+Example: 0…0 0011 0000
+Before R2=0x00000030
+After  R0=0x0000000C
+       R2=0x00000030
+```
+
+## ASR (preserves the MSB)
+
+![[Pasted image 20250115114523.png]]
+
+```verilog
+MOV  R0, R2, ASR #2 @ R0:=R2>>2
+                    @ R2 unchanged
+
+Example: 1010 0…0 0011 0000
+Before R2=0xA0000030
+After  R0=0xE800000C
+       R2=0xA0000030
+```
+
+## ROR, RRX
+
+![[Pasted image 20250115114718.png]]
+
+```verilog
+MOV  R0, R2, ROR #2 @ R0:=R2 rotate
+                    @ R2 unchanged
+
+Example: 0…0 0011 0001
+Before R2=0x00000031
+After  R0=0x4000000C
+       R2=0x00000031
+```
+
+![[Pasted image 20250115114733.png]]
+
+```verilog
+MOV  R0, R2, RRX    @ R0:=R2 rotate
+                    @ R2 unchanged
+
+Example: 0…0 0011 0001
+Before R2=0x00000031, C=1
+After  R0=0x80000018, C=1
+       R2=0x00000031
+```
+
+## Logical/Arithmetic
+
+![[Pasted image 20250115114832.png]]
+
+## Shifted Register Operands
+
+It is possible to use a register to specify the number of bits to be shifted; only the bottom 8 bits are significant.
+
+```c
+@ array index calc
+ADD R0, R1, R2, LSL R3 @ R0 := R1+R2*2^R3
+
+@ fast mult R2 = 35 * R0
+ADD R0, R0, R0, LSL #2 @R0` = 5xR0
+RSB R2, R0, R0, LSL #3 @R2 = 7xR0`
+```
+
+## Table
+
+![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUdGCiRAPYK9BMQXHYgwqLAzTvOy2sXgB0HBMz8h0ohda_wlXCZDjAeE1QeJGEsT2xPo_tn52KLsWm4f6krTR9_9PFgPm3n26kT5FIpDb8xNAvH7Wq-uoyRZ1i2r-QNVdzRmiZrkts8le8YBOdBz458=s2048?key=EPcjRw4W8l0mdK2aPhoanOMg)
+
+## C to ASM
+
+1. A = B + C; `ADD R0, R1, R2   ; A = B + C`
+2. D = A – C; ``RSB R3, R2, R0 ; D = A - C`
+3. F = (G + H) – (I + J) use the register `R0` to `R4` as operands  F to J respectively.
+
+```verilog
+ADD R5, R1, R2   ; R5 = G + H
+ADD R6, R3, R4   ; R6 = I + J
+SUB R0, R5, R6   ; F = (G + H) - (I + J)
+```
+
+4. `G  =  H  +  A [10].`
+
+```verilog
+LDR R3, [R2, #40] ; Load A[10] into R3 (40 bytes offset)
+ADD R0, R1, R3 ; G = H + A[10]`
+```
+
+---
+
+# Branch Instructions & Addressing Modes
+
+```verilog
+Syntax: B{<cond>} Label
+		BL{<cond>} Label
+        BX{<cond>} Rm
+        BLX{<cond>} Rm
+```
+
+## Flow control instructions
+
+| B   | Branch                    | Program Counter = Label                                                                                        |
+| --- | ------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| BL  | Branch & Link             | 1: PC will be copied to `R14` the Link Register (LR) before branch is taken.<br><br>2: Program Counter = Label |
+| BX  | Branch Exchange           | Used for changing ARM to Thumb mode or from Thumb mode to ARM mode.                                            |
+| BLX | Branch Exchange with link | ^^                                                                                                             |
+
+### Branch Instruction- (Unconditional)
+
+``` verilog
+B  label
+...
+label: ...
+```
+
+### Conditional Branch Instruction
+
+``` verilog
+MOV  R0, #0
+loop: ...
+	ADD  R0, R0, #1
+	CMP  R0, #10
+	BNE  loop
+```
+
+### Ex: Add 2 numbers A,B
+
+**LDR**: Memory -> Reg
+**STR**: Reg -> Memory
+
+```c
+.DATA; // declare all vars or memory locations
+	A:  .WORD 0xABCDE
+	B:  .WORD 0x11111
+	C:  .WORD 0xC3413
+
+.TEXT
+LDR R1,=A
+LDR R2,=B
+LDR R3,=C
+
+LDR R5, [R1]
+LDR R6, [R2]
+ADD R7, R5, R6
+STR R7, [R3]
+```
+
+### Ex: Sum of N numbers
+
+```c
+.DATA; // declare all vars or memory locations
+	A:  .WORD 10,20,30,40,50,60,70,80,90,100
+  SUM:  .WORD 0
+
+.TEXT
+LDR R1,=A
+LDR R2,=SUM
+MOV R4,#0   ; INITIALISATION
+MOV R5,#1   ; COUNT register
+```
+
+```verilog
+L1: LDR R3, [R1]
+	ADD R4,R4,R3     ; Add next element in the array.
+	ADD R1, R1, #4   ; address to the next data
+	ADD R5, R5, #1    ; increment the count register
+	CMP R5, #11        ; Check whether all numbers are added
+	BNE L1                   ; Else branch to L1 location
+	STR R4,[R2]           ; store the  result in location SUM.
+	SWI 0X011             ; logical end of the program.
+```
+
+![[Pasted image 20250115121753.png]]
+
+## Addressing Half Words

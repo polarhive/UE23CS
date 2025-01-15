@@ -224,8 +224,6 @@ $[ \lim_{n \to \infty} \frac{t_n}{g_n} = \infty ]$
 
 ---
 
-# Summary
-
 | Notation     | Description        | Usage                           |
 | ------------ | ------------------ | ------------------------------- |
 | $(O)$        | Upper bound        | Guarantees worst-case runtime   |
@@ -261,3 +259,103 @@ End:
 
 > [!Tip] Standard Formula
 > $C(n) = \sum_{u}^{l} 1 = (u-l-1)$
+
+> **Q:** Matrix multiplication A x B
+
+```c
+// Output Matric C = AxB
+Algorithm multi(A(0..n-1, 0..n-1),B(0..n-1, 0..n-1))) {
+	for (i=0; n-1) {
+		for (j=0; n-1) {
+			c[i, j]=(0,0)
+			for (k=0; n-1) {
+				c[i,j]=c[i,j] + A[i,k] * B[k,j]
+			}
+		}
+	}
+}
+```
+
+1. **Input size**: `n x n`
+2. **Basic op**: Multiplication
+3. $C(n) = \sum_{i=0}^{n-1} \sum_{j=0}^{n-1} \sum_{k=0}^{n-1} 1 = (n^3)$
+
+---
+
+# Analysis of Recursive Algorithms
+
+> [!Question] What is the equation that relates to the algorithm??
+> **Recurrence Relation**: An equation that recursively defines a sequence.
+> Then, we solve the recurrence relation.
+
+1. **Input size**: n (size of the params).
+2. **Basic Operation**: Same as before.
+3. **C(n)**:
+	1. **Substitution**: Mathematical Induction, Backward Substitution
+	2. **Recurrence Tree**
+	3. **Master's**
+
+> [!Example] Example 1
+>
+> ```c
+> void test(int n) {
+> 	if (n>0) { 
+> 		printf("%d", n);
+> 		test(n-1);
+> 	}
+> }
+> ```
+>
+> Recurrence Tree
+> ```mathematica
+>            test(3)
+>           /      \
+>          3      test(2)
+>                 /      \
+>                2      test(1)
+>                       /      \
+>                      1      test(0)
+>  ```
+>  - $T(n)=(T(n-2)+1)$
+> - $T(n-1)=(T(n-1-1)+1)+1 = T(n-2)+2$
+> - $T(n-2)+2)=(T(n-2-1)+2)+T(n-3)+3$
+> - $T(n-n)+n$
+> 	- Assume $n-k=0$, $n=k$
+> - $T(0)+n$
+> - $O(n)$
+
+> [!Example] Example 2
+> - Given: $T(n)=T(n-1)+C$
+> - Basecase: $T(1)=d$ <- stop the recursion
+>
+>   Substitution Method:
+>   - $T(n)=T(n-1)+c$
+>   - $T(n)=(T(n-2)+c) + c = T(n) = T(n-2)+2c$
+>   - $T(n)=T(n-3)+3c$
+> 	   so on..
+>   - $T(n)=T(n-k) + kc$
+> $n-k=1$: <- stops at base condition
+>
+> $T(n)=T(n-n+1)+(n-1)c$
+> $T(n)=d+(n-1)c$ <- **stops**
+
+> [!Example] Example 3
+>
+> ```c
+> int fact(int n) {
+> 	if (n=0) return 1 // base condition <- T(n) = 1
+> 	else return (n * fact(n-1)) // basic op <-T(n) = 1
+> 						// ^ for T(n-1) <- T(n-1)
+> }
+> ```
+> - Given: $T(n)=1+1+T(n-1)+C$
+> - Basecase: $T(1)=d$ <- stop the recursion
+>
+>   Substitution Method:
+>   - $T(n)=T(n-1)+c$
+>   - $T(n)=(T(n-2)+c) + c = T(n) = T(n-2)+2c$
+>   - $T(n)=T(n-3)+3c$
+> 	   so on..
+>   - $T(n)=T(n-k) + kc$
+> $n-k=1$: <- stops at base condition
+> Linear: $O(n)$
