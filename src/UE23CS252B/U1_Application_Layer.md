@@ -287,3 +287,56 @@ Therefore, one-hop transmission delay = 0.1 msec
 | A function of packet length and transmission rate of the link | A function of distance                                      |
 | L/R                                                           | d/s                                                         |
 | Nothing to do with the distance between the routers           | Nothing to do with packet length or transmission rate       |
+
+---
+
+# Packet Queueing Delay
+
+- R: link bandwidth (bps)
+- L: packet length (bits)
+	- a: average packet arrival rate (pps)
+- La: avg. rate at which bits arrive at the queue
+- La/R > 1: more “work” arriving is more than can be serviced - average delay infinite!
+- La/R <= 1: nature of arriving traffic
+- La/R ~ 0: avg. queueing delay small
+
+![[Pasted image 20250116134749.png]]
+
+## traceroute
+
+> Delay measurement from source to router along end-end Internet path towards destination.
+
+- for all i:
+- sends three packets that will reach router i on path towards destination (with time-to-live field value of i)
+- router i will return packets to sender
+- sender measures time interval between transmission and
+
+![[Pasted image 20250116134815.png]]
+
+## throughput
+
+> rate (bits/time unit) at which bits are being sent from sender to receiver
+
+- instantaneous: rate at given point in time
+- average: rate over longer period of time
+
+![[Pasted image 20250116135042.png]]
+
+### bottleneck
+
+> link on end-end path that constrains end-end throughput.
+
+![[Pasted image 20250116135107.png]]
+
+> [!Example]
+> Suppose you are downloading an MP3 file of F = 32 million bits.
+> - The server has a transmission rate of Rs = 2 Mbps and you have an access link of Rc = 1 Mbps.
+> - What is the time needed to transfer the file?
+
+> [!Example] Network Scenario
+>
+> - per-connection end-end throughput: min(Rc,Rs,R/10)
+> - in practice: Rc or Rs is often bottleneck
+> - each link is now 500kbps
+>
+> ![[Pasted image 20250116135157.png]]

@@ -227,12 +227,12 @@ In which multiple processor boards, I/O boards, and networking boards are placed
 Like multiprocessor systems, but multiple systems working together
 
 - Usually sharing storage via a storage-area network (**SAN**)
-- Provides a high-availability service which survives failures
-	- Asymmetric clustering has one machine in hot-standby mode
-	- Symmetric clustering has multiple nodes running applications, monitoring each other
+- Provides a **high-availability** service which survives failures:
+	- Asymmetric clustering has **one** machine in hot-standby mode: Apache HTTP server
+	- Symmetric clustering has **multiple** nodes running applications, monitoring each other: Hadoop.
 - Some clusters are for high-performance computing (HPC)
-- Applications must be written to use parallelization
-- Some have distributed lock manager (DLM) to avoid conflicting operations (Ex: when multiple hosts access the same data on shared storage)
+- Applications must be written to use **parallelization**, each node is actively involved in performing tasks.
+- Some have distributed lock manager (**DLM**) to avoid conflicting operations (Ex: when multiple hosts access the same data on shared storage while it's being used).
 
 ![[Pasted image 20250115123506.png]]
 
@@ -263,6 +263,8 @@ Timesharing is the logical extension in which CPU switches jobs so frequently th
 - If processes don’t fit in memory, swapping moves them in and out to run
 - Virtual memory allows execution of processes not completely in memory
 
+> Virtual memory is a memory management technique used by modern OS to give the illusion of a larger amount of RAM than what is physically available on the system, by using combination of physical RAM.
+
 # OS Operations
 
 > Interrupt driven (hardware and software)
@@ -277,17 +279,21 @@ Timesharing is the logical extension in which CPU switches jobs so frequently th
 
 > Dual-mode operation allows OS to protect itself and other system components
 
-- User mode and kernel mode
+- **User mode** and **kernel** mode (supervisor mode) of operation.
 - Mode bit provided by hardware
 - Provides ability to distinguish when system is running user code or kernel code
 - Some instructions designated as privileged, only executable in kernel mode
 - System call changes mode to kernel, return from call resets it to user
 
-Increasingly CPUs support multi-mode operations
+Increasingly CPUs support multi-mode operations:
 
 > i.e. virtual machine manager (VMM) mode for guest VMs
 
+It's responsible for managing and running multiple VMs on a physical machine, it is also called as a hypervisor.
+
 ## Transition from user to kernel mode
+
+User mode is the non-privileged mode in which user applications can run, it prevents direct access to hardware. The transition between user/kernel mode is done via a syscall.
 
 When a trap or interrupt occurs, hardware switches from user mode to kernel mode (changes the state of the mode bit to 0). When the request is fulfilled, the system always switches to user mode (by setting the mode bit to 1) before passing control to a user program.
 

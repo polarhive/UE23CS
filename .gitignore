@@ -12,3 +12,4 @@
 *.vcd
 build/
 node_modules/
+**/tmp

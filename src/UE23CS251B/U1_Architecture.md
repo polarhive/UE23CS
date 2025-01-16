@@ -393,9 +393,9 @@ STR R7, [R3]
   SUM:  .WORD 0
 
 .TEXT
-LDR R1,=A
-LDR R2,=SUM
-MOV R4,#0   ; INITIALISATION
+LDR R1,=A   ;
+LDR R2,=SUM ; 
+MOV R4,#0   ; INITIALISATION (move by a word)
 MOV R5,#1   ; COUNT register
 ```
 
@@ -410,6 +410,175 @@ L1: LDR R3, [R1]
 	SWI 0X011             ; logical end of the program.
 ```
 
+## Table
+
 ![[Pasted image 20250115121753.png]]
 
+```c
+LDR R1, =A    // Load address of A into R1
+LDR R2, [R1]  // Load value at address A into R2
+```
+
+If A is a label in memory, R1 will hold the memory address of A,
+
+not the value stored at A.
+
 ## Addressing Half Words
+
+Program to find the sum of N numbers using half word
+
+```c
+.DATA
+  A:  .HWORD   0x10,0x20,0x30,0x40,0x50,0x60,0x70, 0x80,0x90, 0x0100
+  SUM:  .WORD 00
+.TEXT
+	LDR R1,=A
+	LDR R2,=SUM
+	MOV R4,#0   ;INITIALISATION
+	MOV R5,#1   ;COUNT
+```
+
+```c
+L1: LDRH R3,[R1]
+	ADD R4,R4,R3
+	ADD R1,R1,#2
+	ADD R5,R5,#1
+	CMP R5, #11
+	BNE L1
+	STRH R4, [R2]
+	SWI 0X011
+```
+
+## Byte Data
+
+> Program to find the sum of N numbers using Byte Data
+
+```c
+; SUM OF N NUMBERS
+; DATA GIVEN
+
+.DATA
+  A: .BYTE 1,2,3,4,5,6,7,8,9,10
+SUM: .word 0
+.TEXT
+	LDR R1,=A
+	LDR R2,=SUM
+	MOV R4,#0   ;INITIALISATION
+	MOV R5,#1   ;COUNT
+```
+
+```c
+L1: LDRB R3,[R1]
+	ADD R4,R4,R3
+	ADD R1,R1,#1
+	ADD R5,R5,#1
+	CMP R5, #11
+	BNE L1
+	STRB R4,[R2]
+	SWI 0X011
+```
+
+# Addressing memory locations
+
+- Memory is addressed by a register and an offset. There are 3 ways to offset!
+
+```c
+LDR  R0, [R1] @ mem[R1]
+```
+
+## Immediate
+
+```c 
+LDR  R0,[R1,#4] @ mem[R1+4]
+```
+
+## Register
+
+```c
+LDR  R0,[R1,R2] @ mem[R1+R2]
+```
+
+## Scaled Register              
+
+```c
+LDR  R0,[R1,R2,LSL #2] @ mem[R1+4*R2]
+```
+
+---
+
+# Addressing Modes
+
+## Preindexing or Preindexing without writeback
+
+> `LDR Rd, [Rn, OFFSET]`
+
+![[Pasted image 20250116134209.png]]
+
+```c
+LDR  R0, [R1, R2]  @ R0=mem[R1+R2]
+                   @ R1 unchanged
+```
+
+```c
+.DATA
+      A:   .WORD 10,20,30,40,50,60,70,80,90,100
+      SUM: .WORD 0
+.TEXT
+	LDR R1,=A
+	LDR R2,=SUM
+	MOV R4,#0   ; INITIALISATION
+	MOV R5,#1   ; COUNT register
+```
+
+```c
+L1: LDR R3, [R1, #4]
+	ADD R4,R4,R3          ; Add next element in the array.
+	ADD R1,R1,#4          ; useless 
+	ADD R5, R5, #1        ; increment the count register
+	CMP R5, #11           ; Check whether all numbers are added
+	BNE L1                ; Else branch to L1 location
+	STR R4,[R2]           ; store the  result in location SUM.
+	SWI 0X011             ; logical end of the program.
+```
+
+## Preindexing with Writeback  or  Autoindexing
+
+> `LDR Rd, [Rn, OFFSET]!`
+
+![[Pasted image 20250116134348.png]]
+
+```c
+LDR  R0, [R1, R2]! @ R0=mem[R1+R2]
+                   @ R1=R1+R2
+```
+
+```c
+.DATA
+	A:  .WORD 10,20,30,40,50,60,70,80,90,100
+    SUM:  .WORD 0
+
+.TEXT
+	LDR R1,=A
+	LDR R2,=SUM
+	MOV R4,#0   ; INITIALISATION
+	MOV R5,#1   ; COUNT register
+```
+
+```c
+L1: LDR R3, [R1,#4]!
+	ADD R4,R4,R3          ; Add next element in the array.
+	ADD R5, R5, #1        ; increment the count register
+	CMP R5, #11           ; Check whether all numbers are added
+	BNE L1                ; Else branch to L1 location
+	STR R4,[R2]           ; store the  result in location SUM.
+	SWI 0X011             ; logical end of the program.
+```
+
+## Post indexing
+
+> `LDR Rd, [Rn] ,OFFSET`
+
+```c
+LDR  R0, [R1], R2  @ R0=mem[R1]
+                   @ R1=R1+R2
+```
