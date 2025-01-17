@@ -359,3 +359,57 @@ Algorithm multi(A(0..n-1, 0..n-1),B(0..n-1, 0..n-1))) {
 >   - $T(n)=T(n-k) + kc$
 > $n-k=1$: <- stops at base condition
 > Linear: $O(n)$
+
+---
+
+# Binary Recursion
+
+Binary recursion occurs when a recursive function makes **two recursive calls** during its execution. This is commonly seen in problems like computing Fibonacci numbers, binary trees, or the Towers of Hanoi.
+
+> [!Example] Example: Finding the Number of Binary Digits in an Integer $n$
+>
+> To find the number of binary digits (or bits) required to represent an integer $n$, we can use recursion:
+>
+> **Steps:**
+> 1. Base case: If $n \leq 1$, it takes 1 binary digit.
+> 2. Recursive case: Divide $n$ by 2 (integer division), and recurse.
+>
+> **Recursive Formula:**
+>
+> $$
+> \text{BinaryDigits}(n) =
+> \begin{cases} 
+> 1 & \text{if } n \leq 1, \\
+> 1 + \text{BinaryDigits}\left(\frac{n}{2}\right) & \text{if } n > 1.
+> \end{cases}
+> $$
+
+---
+
+# Towers of Hanoi
+
+The **Towers of Hanoi** is a classic binary recursion problem where the goal is to move $n$ disks from one peg to another while adhering to the following rules:
+
+1. Only one disk can be moved at a time.
+2. No disk may be placed on top of a smaller disk.
+
+**Recursive Solution:**
+The problem is solved recursively by breaking it into smaller subproblems:
+1. Move the top $n-1$ disks to an auxiliary peg.
+2. Move the largest disk directly to the destination peg.
+3. Move the $n-1$ disks from the auxiliary peg to the destination peg.
+
+```c
+TOH(n, a, b, c) {
+    // IP: n (number of disks), a (source), b (auxiliary), c (destination)
+    // OP: Move all disks from 'a' to 'c' in orderly fashion
+
+    if (n == 1) {
+        move(a, c);  // Base case: Move one disk directly
+    } else {
+        TOH(n - 1, a, c, b);  // Move n-1 disks to auxiliary peg
+        move(a, c);           // Move the largest disk to destination peg
+        TOH(n - 1, b, a, c);  // Move the n-1 disks from auxiliary peg to destination
+    }
+}
+```

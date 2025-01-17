@@ -366,7 +366,7 @@ When the matrix is in upper triangular form, solving the system is straightforwa
 
 ### Example
 
-Consider the following system of equations represented by the matrix equation $( Ax = b )$:
+Consider the following system of equations represented by the matrix equation $( Ax = b )$
 
 $$
 A = \begin{pmatrix}
@@ -402,11 +402,11 @@ $$
 
 The system is now easy to solve using **back substitution**:
 
-1. From the third row: $2x_3 = 1 \Rightarrow x_3 = \frac{1}{2}$.
-2. From the second row: $3x_2 = 0 \Rightarrow x_2 = 0$.
-3. From the first row: $2x_1 + 3x_2 + x_3 = 5 \Rightarrow 2x_1 + 0 + \frac{1}{2} = 5 \Rightarrow x_1 = \frac{9}{4}$.
+1. From the third row: $2x_3 = 1 \Rightarrow x_3 = \frac{1}{2}$
+2. From the second row: $3x_2 = 0 \Rightarrow x_2 = 0$
+3. From the first row: $2x_1 + 3x_2 + x_3 = 5 \Rightarrow 2x_1 + 0 + \frac{1}{2} = 5 \Rightarrow x_1 = \frac{9}{4}$
 
-Thus, the solution is:
+> Thus, the solution is:
 
 $$
 x = \begin{pmatrix} \frac{9}{4} \\ 0 \\ \frac{1}{2} \end{pmatrix}
@@ -436,3 +436,47 @@ U = \begin{pmatrix}
 $$
 
 The system has no unique solution, and we can conclude that it is **incurable** (the matrix is singular).
+
+---
+
+# Matrix Notation and Multiplication
+
+## Elementary Matrices and Elimination
+
+> An **elementary matrix** represents a single row operation applied to the identity matrix $I$. Performing a row operation on a matrix $A$ is equivalent to multiplying $A$ by an elementary matrix $E_{i,j}$ from the left.
+
+For example:
+
+- $I_{i,j} \to E_{i,j}$: This represents an elementary matrix that performs a specific row operation (e.g., row addition, scaling, or swapping).
+
+> The elimination process transforms a matrix $A$ into an upper triangular matrix $U$. This can be expressed as:
+
+$$
+E_{32} E_{31} E_{21} A = U
+$$
+
+where $E_{ij}$ are the elementary matrices that perform the necessary row operations to reduce $A$ to upper triangular form $U$.
+
+---
+
+# Cost of Elimination
+
+1. **Right-Hand Side (RHS):** The time required to perform operations for the elimination process. For an $n \times n$ matrix, the cost is dominated by the forward elimination step, which involves approximately: $n^2$
+2.    **Left-Hand Side (LHS):** Refers to the result of applying the sequence of elementary matrices to the matrix $A$. Each multiplication $E_{ij} A$ contributes to the overall cost.
+
+$$
+\frac{n^3-n}{3}
+$$
+
+---
+
+# Triangular Factors and Row Exchanges
+
+The matrix $A$ can be factored into a **lower triangular matrix** $L$ and an **upper triangular matrix** $U$ through Gaussian elimination:
+
+$$
+A = LU
+$$
+
+> - $L$ is a lower triangular matrix with ones on the diagonal, representing the multipliers used during the elimination process.
+> - $U$ is an upper triangular matrix resulting from the elimination.
