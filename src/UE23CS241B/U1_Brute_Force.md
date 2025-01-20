@@ -1,4 +1,4 @@
-# Algorithms. Brute. Force
+# Algorithms. [[U1_Brute_Force#Brute Force|Brute. Force]]
 
 > Set of sequence of unambiguous instructions for solving a problem.
 
@@ -413,3 +413,141 @@ TOH(n, a, b, c) {
     }
 }
 ```
+
+---
+
+# Brute Force
+
+> [!Quote] Ken Thompson
+> *When in doubt use **brute** force!*
+
+## Performance Analysis & Measurement
+
+| Performance Analysis                                                              | Performance Measurement                                                                 |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Involves estimation of efficiency of an algorithm theoretically.<br>              | Evaluating the exact/actual performance of an algorithm                                 |
+| Approach: Time and Space complexity                                               | Approach: Measures the real execution time                                              |
+| Advantage: Does not depend on the system configuration, software, hardware, load. | Depends on the system load, programming language, compiler used, software and hardware. |
+| Only an approximate efficiency calculation can be made for all the algorithm      | Can give an exact estimate                                                              |
+| Cannot get an exact estimate using a theoretical approach.                        | `time.h` or `time.time()`                                                               |
+
+---
+
+## Selection Sort
+
+> Scan the array, find the smallest element, swap it with the first place. Take the remaining array `n`->`n-1` find the next smallest, and place in 2nd place; repeat until `n-2`
+
+```c
+Alg selectionSort (arr[n]) {
+	int smallest = -1;
+	for (int i=0; i<n; i++) { // 0->n-2
+		for (int j=0; j<i; j++) // i+1 -> n-1
+			if (arr[j]<smallest) smallest = j
+		swap(a[i], a[smallest])
+	}
+}
+```
+
+- **Best**: $O(n^2)$
+- **Worst**: $O(n^2)$
+- **Average**: $O(n^2)$
+
+```c
+#include <stdio.h>
+#include <time.h>
+
+void swap(int *a, int *b)
+{
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void display(int array[], int n)
+{
+	for (int i = 0; i < n; i++)
+	printf("%d ", array[i]);
+	printf("\n");
+}
+
+void selectionSort(int array[], int n)
+{
+	for (int i = 0; i < n - 1; i++)
+	{
+		int minIndex = i;
+		for (int j = i + 1; j < n; j++)
+		{
+			if (array[j] < array[minIndex])
+				minIndex = j;
+		}
+		swap(&array[minIndex], &array[i]);
+	}
+}
+
+int main()
+{
+	int data[] = {64, 34, 25, 12, 22, 11, 90, 78, 56, 43};
+	int n = sizeof(data) / sizeof(data[0]);
+	printf("Original:\n");
+	display(data, n);
+	clock_t start = clock();
+	selectionSort(data, n);
+	clock_t end = clock();
+	printf("Sorted:\n");
+	display(data, n);
+	double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("Time taken for sorting: %.6f seconds\n", timeTaken);
+	return 0;
+}
+```
+
+```c
+Original:
+64 34 25 12 22 11 90 78 56 43 
+Sorted:
+11 12 22 25 34 43 56 64 78 90 
+Time taken for sorting: 0.000002 seconds
+```
+
+---
+
+## Bubble Sort
+
+```c
+for (i = 0; i < n - 1; i++) {
+    swap = false;
+    for (j = 0; j < n - 1 - i; j++) {
+        if (a[j] > a[j + 1]) {
+            swap(a[j], a[j + 1]);
+            swap = true;
+        }
+    }
+    if (swap == false)
+        break;
+}
+```
+
+- **Best case**: $O(n)$ when the array is already sorted.
+- **Worst case**: $O(n^2)$ when the array is in reverse order (i.e., it requires the maximum number of swaps).
+- **Average case**: $O(n^2)$ for random arrays.
+
+---
+
+## Linear Search
+
+```c
+int linearSearch(int arr[], int n, int ele) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == ele) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
+- **Best case**: $O(1)$ when the element is found at the first position.
+- **Worst case**: $O(n)$ when the element is not present or is at the last position.
+- **Average case**: $O(n)$ because on average, we will have to scan through half of the array.
+
+---

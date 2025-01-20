@@ -340,3 +340,45 @@ Therefore, one-hop transmission delay = 0.1 msec
 > - each link is now 500kbps
 >
 > ![[Pasted image 20250116135157.png]]
+
+---
+
+# Protocol Layers
+
+> Networks are complex, with many “pieces”:
+
+- hosts
+- routers
+- links of various media
+- applications
+- protocols
+- hardware, software
+
+# Layering
+
+> Each layer implements a service
+
+- via its own internal-layer actions
+- relying on services provided by layer below
+- explicit structure allows identification, relationship of complex system’s pieces
+- layered reference model for discussion
+- modularization eases maintenance, updating of system
+- change in layer's service implementation: transparent to rest of system
+	- e.g., change in gate procedure doesn’t affect rest of system
+
+## Internet Protocol Stack
+
+- **application**: supporting network applications (access to network resources)
+	- IMAP, SMTP, HTTP
+- **transport**: process-process data transfer (segmentation application & reassembly, sockets, connection, flow and error control)
+	- TCP, UDPtransport
+- **network**: routing of datagrams from source to destination (addressing, routing)
+	- IP, routing protocols
+- **link**: data transfer between neighboring network elements (framing, addressing, flow error control)
+	- Ethernet, 802.11 (WiFi), PPP
+- **physical**: bits "on the wire"
+
+## OSI reference model
+
+- **presentation**: allow applications to interpret meaning of data, (e.g., encryption, compression, machine-specific conventions)
+- **session**: synchronization, check pointing, recovery of data exchange

@@ -480,3 +480,38 @@ $$
 
 > - $L$ is a lower triangular matrix with ones on the diagonal, representing the multipliers used during the elimination process.
 > - $U$ is an upper triangular matrix resulting from the elimination.
+
+---
+
+# Permutation Matrix
+
+A permutation matrix is a square matrix obtained by permuting the rows of the identity matrix. Here's an example of a permutation matrix $( P )$ for $( 3 \times 3 )$:
+
+$P$ is a permutation matrix if the rows are in a different order. Product can be permutated, Inverse can be permutated.
+
+$$
+I = 
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+$$
+
+The matrix $P$ has been formed by swapping the first and second rows of the identity matrix. This is an example of a permutation matrix, where the rows of the identity matrix are rearranged in a specific order.
+
+## Properties of a Permutation Matrix
+
+1. **Orthogonality**: A permutation matrix is always orthogonal, meaning that its inverse is equal to its transpose:
+
+   $$
+   P^{-1} = P^T
+
+
+$$
+2. **Product of Permutation Matrices**: When multiplying permutation matrices, the result is another permutation matrix. The product of two permutation matrices corresponds to applying one permutation after another.
+
+3. **Determinant**: The determinant of a permutation matrix is either $+1$ or $-1$, depending on whether the number of row swaps is even or odd. Specifically, the determinant is $+1$ if the number of swaps is even, and $-1$ if the number of swaps is odd.
+
+4. **Inverse**: The inverse of a permutation matrix is another permutation matrix, which is simply the matrix that "reverses" the row swaps performed by the original matrix. $P^{-1}$ is the same as $P$, as swapping the rows of $P$ back to their original order results in the same matrix.
+
