@@ -559,3 +559,94 @@ Another set of OS functions exists for ensuring the efficient operation of the s
 - Systems programs in C, C++, scripting languages like PERL, Python, shell scripts
 - More high-level language easier to port to other hardware But slower
 - Emulation can allow an OS to run on non-native hardware
+
+---
+
+# Processes
+
+> A program in execution; process execution must progress in sequential fashion
+
+- Batch system: jobs
+- Time-shared systems: user programs or tasks
+- Program is passive entity stored on disk (executable file), process is active.
+- Program becomes process when executable file loaded into memory
+- One program can be several processes.
+
+## Structure of a process
+
+- The program code is also known as the `.text` section.
+- Includes current activity including **program counter**, processor registers
+- **Stack** containing temporary data
+	- Function parameters, return addresses, local variables
+- `.data` section containing global variables
+- **Heap** containing memory dynamically allocated during run time
+
+## States
+
+- **New**: Creation of process
+- **Ready**: Waiting to be assigned to a processor
+- **Running**: Executing the instructions
+- **Waiting**: Waiting for an event to occur
+- **Terminating**: Finished executing
+
+## PCB: Process Control Block
+
+> Each process is represented in the operating system by a Process Control Block (also called task control block)
+
+![[Pasted image 20250122130420.png]]
+
+- Process state – running, waiting, etc
+- Program counter – location of instruction to next execute
+- CPU registers – contents of all process-centric registers
+- CPU scheduling information: priorities, scheduling queue pointers
+- Memory-management information – memory allocated to the process
+- Accounting information – CPU used, clock time elapsed since start, time limits
+- I/O status information – I/O devices allocated to process, list of open files
+
+## Process Scheduling
+
+- Maximize CPU use, quickly switch processes onto CPU for time sharing
+- Process scheduler selects among available processes for next execution on CPU
+- Maintains scheduling queues of processes.
+- Job queue – set of all processes in the system
+- Ready queue – set of all processes residing in main memory, ready and waiting to execute
+- Device queues – set of processes waiting for an I/O device
+- Processes migrate among the various queues
+
+## Ready Queue And Various I/O Device
+
+![[Pasted image 20250122130435.png]]
+
+![[Pasted image 20250122130446.png]]
+
+# Schedulers
+
+- **Short**-term scheduler (or CPU scheduler) – selects which process should be executed next and allocates CPU:
+	- Sometimes the only scheduler in a system
+	- Short-term scheduler is invoked frequently (milliseconds) -> (must be fast)
+-  **Long**-term scheduler (or job scheduler) – selects which processes should be brought into the ready queue:
+	- Long-term scheduler is invoked infrequently (seconds, minutes) -> (may be slow)
+	- The long-term scheduler controls the degree of multi programming.
+
+## Bounding
+
+- I/O-bound process – spends more time doing I/O than computations, many short CPU bursts.
+- CPU-bound process – spends more time doing computations; few very long CPU bursts
+
+> Long-term scheduler strives for good process mix
+
+## Representation of Process Scheduling
+
+**Medium**-term scheduler can be added if degree of multiple programming needs to decrease. Remove process from memory, store on disk, bring back in from disk
+to continue execution: **swapping**.
+
+![[Pasted image 20250122130841.png]]
+
+### Context Switching
+
+- When CPU switches to another process, the system must save the state of the old process and load the saved state for the new process via a context switch.
+- Context of a process represented in the PCB
+- Context-switch time is overhead; the system does no useful work while switching
+- The more complex the OS and the PCB -> the longer the context switch
+- Time dependent on hardware support
+- Some hardware provides multiple sets of registers per CPU -> multiple contexts loaded at once

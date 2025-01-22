@@ -551,3 +551,20 @@ int linearSearch(int arr[], int n, int ele) {
 - **Average case**: $O(n)$ because on average, we will have to scan through half of the array.
 
 ---
+
+# Substring Matching
+
+```c
+Algo substring(string[], pattern[]) {
+	m=len(string[])
+	n=len(pattern[])
+	for (i=0; i<n-m; i++) {
+		for (j=0; j<m; j++) {
+			if string[i+j] != pattern [j];
+			break;
+		}
+		if (j==m) printf("pattern found at %d:", i);
+}
+```
+
+# Travelling Salesman Problem
