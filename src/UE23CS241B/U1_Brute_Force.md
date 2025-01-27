@@ -568,3 +568,155 @@ Algo substring(string[], pattern[]) {
 ```
 
 # Travelling Salesman Problem
+
+---
+
+# Knapsack Problem
+
+> Given a knapsack, with a maximum weight $W$
+> There are: $n$ items, each item: weight $Wi$ and value $Vi$
+
+> [!important]
+> To determine the maximum total value that can be obtained by selecting item to place that does not exceed the total weight $W$.
+
+## Example
+
+| Item   | i1  | i2  | i3  | i4  |
+| ------ | --- | --- | --- | --- |
+| weight | 7   | 3   | 4   | 5   |
+| value  | 42  | 12  | 40  | 25  |
+
+### Total w and v
+
+```
+i            | total (Tw)   | total value 
+----------------------------------------
+i1 ----------> 7            | 42
+i2 ----------> 3            | 12
+i3 ----------> 4            | 40
+i4 ----------> 5            | 25
+i1,2 --------> 10           | 54
+i1,3 --------> 11 -> X
+i1,4 --------> 12 -> X
+i2,3 --------> 7            | 52
+i2,4 --------> 8            | 37
+i3,4 --------> 9            | 65
+i1,2,3 ------> 14 -> X
+i1,2,4 ------> 15 -> X
+i1,3,4 ------> 16 -> X
+i2,3,4 ------> 12 -> X
+i1,2,3,4 ----> 19 -> X
+```
+
+### Time complexity
+
+- included from knapsack: 1
+- Excluded from knapsack: 0
+
+> For Input (n):
+
+i) $n=1$ -> 2 subsets
+
+``` plain
+	0
+	1
+```
+
+ii) $n=2$ -> $2^2$ subsets
+
+```plain
+	00
+	01
+	10
+	11
+```
+
+### Total time complexity is
+
+> - No of subsets: $2^n$.
+> - Time taken to compute total weight and value for every subset: n
+> - Total: $2^n*n$
+> - **Time**: $O(n)$
+
+---
+
+# Job Assignment
+
+| MxM | J1  | J2  | J3  |
+| --- | --- | --- | --- |
+| P1  | 9   | 2   | 7   |
+| P2  | 6   | 4   | 3   |
+| P3  | 5   | 8   | 1   |
+
+| P1  | P2  | P3  | Total |
+| --- | --- | --- | ----- |
+| J1  | J2  | J3  | 14    |
+| J1  | J3  | J2  | 20    |
+| J2  | J1  | j3  | 19    |
+| J2  | J3  | J1  | 19    |
+| J3  | J2  | J1  | 21    |
+| J3  | J1  | J2  | 16    |
+
+## Time complexity
+
+> For $n=3$, 6 possibilities -> $O(n+n!)$ -> $O(n!)$
+
+Too costly, instead we use:
+
+1. Hungarian
+2. Branch & Bound
+3. Greedy
+4. Linear Programming
+
+---
+
+# Recurrence Relation, Dividing Functions
+
+> Decrease by one constant
+
+```c
+int test (int n) {
+	if (n<1) {
+		test(n/2);
+	}
+}
+```
+
+ - $T(n)$, $n=1$ and $T(n/2)+1$, $n>1$
+- $T(n)$, $n=2$ and $T(\frac{n}{2^2})+2$
+- $T(n)$, $n=k$ and $T(\frac{n}{2^k})+k$
+- Assume: $\frac{n}{2^k}=1$ -> $n=2^k$ -> $k=log_{2}(n)$
+
+> [!Question]
+>
+> $T(\frac{n}{2}+n)$
+
+- $1 +$
+- $T(n/2^2 + 2) + n$ +
+- $T(n/2^2 + 1) + 2n +$
+
+$O(n)$
+---
+- $n=1$
+- $T(n)=1$
+- $2T(n/2)+n, n>1$
+
+> $2^k T(\frac{n}{2^k}) + kn$
+
+n=2^k
+
+k=log n
+
+> $n*T(1)+logn*n$ => $O(n logn)$
+
+---
+
+$$
+t(n)= {
+
+1; n=2
+
+$T(n^{0.5})+1$; n>2
+
+}
+$$
