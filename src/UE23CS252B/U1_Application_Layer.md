@@ -369,7 +369,7 @@ Therefore, one-hop transmission delay = 0.1 msec
 - **application**: supporting network applications (access to network resources)
 	- IMAP, SMTP, HTTP
 - **transport**: process-process data transfer (segmentation application & reassembly, sockets, connection, flow and error control)
-	- TCP, UDPtransport
+	- TCP, UDP
 - **network**: routing of datagrams from source to destination (addressing, routing)
 	- IP, routing protocols
 - **link**: data transfer between neighboring network elements (framing, addressing, flow error control)
