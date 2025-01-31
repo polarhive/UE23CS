@@ -649,4 +649,20 @@ to continue execution: **swapping**.
 - Context-switch time is overhead; the system does no useful work while switching
 - The more complex the OS and the PCB -> the longer the context switch
 - Time dependent on hardware support
-- Some hardware provides multiple sets of registers per CPU -> multiple contexts loaded at once
+- Some hardware provides multiple sets of registers per CPU -> multiple contexts loaded at once.
+
+# SJF Scheduling
+
+> Shortest wait time job gets executed first.
+
+| P1  | 6   |
+| --- | --- |
+| P2  | 8   |
+| P3  | 7   |
+| P4  | 3   |
+
+```
+
+1   3     6 7 8 
+P
+```
