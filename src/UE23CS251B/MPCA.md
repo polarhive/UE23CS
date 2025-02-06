@@ -26,7 +26,7 @@ Introduction, ISA Classification - RISC and CISC, Memory Addressing, Operands - 
 
 > **U2**: [[U2_Pipelining|Pipelining]]
 
-3- Stage Pipelining, 5 - Stage Pipelining, Pipeline Datapath and Control, Data Hazards – Forwarding vs. Stalling, Control Hazards, Branch Prediction Mechanisms and Exceptions, Performance Metrics.
+3-Stage Pipelining, 5-Stage Pipelining, Pipeline Datapath and Control, Data Hazards – Forwarding vs. Stalling, Control Hazards, Branch Prediction Mechanisms and Exceptions, Performance Metrics.
 
 > **U3**: [[U3_Cache_Optimization|Basics of Cache and Cache Optimization]]
 

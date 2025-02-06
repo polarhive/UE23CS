@@ -1,0 +1,17 @@
+.TEXT
+LDR R0, =NUM
+LDR R1, [R0]
+MOV R2, #0
+LOOP:
+    AND R3, R1, #0XF
+    CMP R3, R2
+    MOVGT R2, R3
+    MOV R1, R1, LSR #4
+    CMP R1, #0
+    BNE LOOP
+MOV R0, R2
+SWI 0x11
+
+.DATA
+NUM: .WORD 0x17845374
+

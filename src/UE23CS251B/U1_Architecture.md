@@ -587,4 +587,14 @@ LDR  R0, [R1], R2  @ R0=mem[R1]
 
 ## Load Multiple
 
-write back
+!write back
+
+---
+
+# Encoding
+
+> Block Transfer Instruction: LDM
+
+|     |     |
+| --- | --- |
+|     |     |
