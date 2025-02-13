@@ -12,4 +12,6 @@
 
 ## Without Overlapping
 
-Computer
+---
+
+# Renaming Registers
