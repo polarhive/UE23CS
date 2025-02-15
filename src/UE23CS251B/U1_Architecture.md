@@ -23,18 +23,11 @@ Advanced RISC Machine. It's a family of instruction set architectures (ISAs) for
 
 ## Features of ARM
 
-1. Conditional Instrutctions
+1. Conditional Instructions
 2. Load / Save Architecture
 3. 32 bit width
 4. A general shift/ALU op in a single clock-cycle
 5. 3 addr instruction format
-
-%% - The register bank stores the processor state: 2 read; 1 write; port
-
-- Barrel Shifter: `LSL`, `ROR`, `ROL`
-- AR, Inc: Generate Sequential addresses
-- Data Reg: Holds data going to memory
- %%
 
 ## Tradeoffs
 
@@ -419,9 +412,7 @@ LDR R1, =A    // Load address of A into R1
 LDR R2, [R1]  // Load value at address A into R2
 ```
 
-If A is a label in memory, R1 will hold the memory address of A,
-
-not the value stored at A.
+If A is a label in memory, R1 will hold the memory address of A, not the value stored at A.
 
 ## Addressing Half Words
 
@@ -576,7 +567,7 @@ L1: LDR R3, [R1,#4]!
 
 ## Post indexing
 
-> `LDR Rd, [Rn] ,OFFSET`
+> `LDR Rd, [Rn], OFFSET`
 
 ```c
 LDR  R0, [R1], R2  @ R0=mem[R1]
