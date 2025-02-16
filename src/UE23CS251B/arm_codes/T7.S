@@ -1,0 +1,4 @@
+MOV R1, #3
+MOV R2, R1, LSL #4
+
+MOV R3, R2, LSR #1

@@ -1,0 +1,8 @@
+	MOV R1, #5
+	ANDS R2, R1,#1
+	BEQ L1
+
+	MOV R3, #0xFF
+	B L2
+L1: MOV R3,#0
+L2: SWI 0X011

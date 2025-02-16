@@ -1,0 +1,2 @@
+MOV R0,#15
+ADD R1, R0, R0, LSL #5

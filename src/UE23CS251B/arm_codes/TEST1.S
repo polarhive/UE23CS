@@ -1,0 +1,7 @@
+MOV R0,#5
+MOV R1,#5
+ADD R2, R1, R0
+
+SUB R3,R0,R1
+
+CMP R0, R1

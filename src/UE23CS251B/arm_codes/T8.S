@@ -1,0 +1,5 @@
+MOV R0, #15
+ADD R1, R0, R0, LSL #5
+
+MOV R0, #33
+RSB R2, R0, R0, LSL #4
