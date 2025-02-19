@@ -506,9 +506,8 @@ The matrix $P$ has been formed by swapping the first and second rows of the iden
 
    $$
    P^{-1} = P^T
+   $$
 
-
-$$
 2. **Product of Permutation Matrices**: When multiplying permutation matrices, the result is another permutation matrix. The product of two permutation matrices corresponds to applying one permutation after another.
 
 3. **Determinant**: The determinant of a permutation matrix is either $+1$ or $-1$, depending on whether the number of row swaps is even or odd. Specifically, the determinant is $+1$ if the number of swaps is even, and $-1$ if the number of swaps is odd.

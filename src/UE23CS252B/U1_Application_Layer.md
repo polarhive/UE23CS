@@ -1,17 +1,17 @@
 # The Internet: A Nuts and Bolts View
 
-> *The idea of networking is to transfer arbitrary data between two or more computers over the internet/LAN.
+> *The idea of networking is to transfer arbitrary data between two or more computers over the internet/LAN.*
 
 - **Host**: Named end-systems running apps at the internet's edge
 - **Packet Switching**: Forwards packets over routers and switches
 - **Communication lines**: Media. i.e. Radio, LTE, Fiber
-- **Internet**: A network of networks via interconnected ISPs
+- **Internet**: A network of networks via interconnected **ISPs**
 - **Protocols**: control the sending and receiving of messages.
 - **Internet Standards**: RFCs, IETF
 - **Infra**: provides services to applications, web streaming, email, gaming
 
 > [!Important]
-> Protocols define the format, order, of messages Tx and Rx among network entities, and actions taken on message transmission, receipt.
+> Protocols define the **format**, **order**, of messages Tx and Rx among network entities, and actions taken on message transmission, receipt.
 
 ---
 
@@ -380,3 +380,75 @@ Therefore, one-hop transmission delay = 0.1 msec
 
 - **presentation**: allow applications to interpret meaning of data, (e.g., encryption, compression, machine-specific conventions)
 - **session**: synchronization, check pointing, recovery of data exchange
+![[Pasted image 20250220024951.png]]
+
+## Units
+
+| Layer       | Unit           |
+| ----------- | -------------- |
+| Phy         | bit            |
+| Link        | frame          |
+| Network     | datagram       |
+| Transport   | segment/packet |
+| Application | message        |
+
+---
+
+# Network Devices
+
+![[Pasted image 20250220025119.png]]
+
+## Repeater
+
+- Physical layer
+- Regenerate signal over the same network before it becomes weak
+
+## Hub
+
+- Shares bandwidth
+- Always broadcast
+- Not intelligent
+- No data filtering
+
+## Modem
+
+- Physical layer
+- Modulation (Encoding)
+- Decoding
+- Transmission
+
+## Bridge
+
+- A 2-port device that joins two or more network segments
+- Data link layer
+- Segmentation: dividing networks to reduce congestion
+- Filtering: MAC based selectively forward packets
+- Learning: optimize packet forwarding
+
+## Switch
+
+- Data link
+- Employs packet switching to receive and route data from source to destination
+- Error checking
+- Full duplex mode
+
+## Router
+
+- Forwarding
+- Routing based on IP
+- NAT (network address translation)
+
+## Gateway
+
+- Connects two different config networks
+- Portal between two different application via protocol communications, allowing them to share data on the same or other systems. Also a protocol converter at any OSI layer
+
+## Differences
+
+![[Pasted image 20250220025734.png]]
+
+![[Pasted image 20250220025754.png]]
+
+---
+
+# Excercices

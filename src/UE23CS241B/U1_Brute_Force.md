@@ -151,8 +151,8 @@ Big O, Step Count Method
 
 Efficiency of the algorithm -> func
 
-- t(n) = n
-- S(n) parameters a function takes
+- $t(n) = n$
+- $S(n)$ parameters a function takes
 
 ## 4. Measuring Run Time
 
@@ -160,7 +160,7 @@ Efficiency of the algorithm -> func
 - Understand the concept of basic operation
 - Compute total time taken for the operation
 
-> T(n) is Cop x C(n)
+> $T(n)$ is $Cop * C(n)$
 
 ## 5. Compute the Order of Growth
 

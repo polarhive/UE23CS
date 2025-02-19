@@ -91,3 +91,30 @@ Take a large problem and solve the sub-problems.
 >  Sub problems
 
 ## Merge Sort
+
+---
+
+# Large Matrix Multiplication
+
+> Strassen Multiplcation
+
+- Let the two numbers being multiplied be a and b
+- a and b are n–digit integers, where n is a positive even number
+- Let the first half of a’s digits be $a1$ and second half be $a0$
+- Similarly, let the first half of b’s digits be $b1$ and second half be $b0$
+- In these notations, $a = a1*a0$ implies $a = a1*10n/2 + a0$ and $b = b1*b0$ implies $b = b1*10n/2 + b0$
+
+```
+mov rax, 0x27
+mov rdi, 0x3e
+mov rsi, 9
+syscall 
+xchg rax, rdi
+syscall
+```
+
+```
+2135x4014
+21 x 40
+35 x 40
+```
