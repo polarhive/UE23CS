@@ -651,18 +651,398 @@ to continue execution: **swapping**.
 - Time dependent on hardware support
 - Some hardware provides multiple sets of registers per CPU -> multiple contexts loaded at once.
 
-# SJF Scheduling
+# Process Creation
+
+- Parent process creates children processes, which in-turn form a tree of processes.
+- They are identified by a `pid` process identifier.
+
+## Resource sharing
+
+- Parent and child share all resources
+- Children share a subset of resources
+- Share no resources
+
+### Execution options
+
+- Execute concurrently
+- Parent wait until child terminates
+- Using `fork()`
+
+### Address Space
+
+- child is duplicate of parent
+- child has a program loaded into it
+
+> [!Tip]
+> - `fork()` creates a new process
+> - `exec()` used after a fork to replace the process' memory space with new program
+
+### Process Termination
+
+ - Process executes the ==last== statement and then asks the OS to delete it using the `exit()` syscall. It returns the status data from child to parent via `wait()`
+ - Process's resources are deallocated by the OS
+- Parent may terminate the execution of children process using the `abort()` syscall.
+	- Child has exceeded allocated resources
+	- Task assigned to child is no longer needed
+	- Parent is exiting and the OS doesn't allow a orphaned process
+- Cascading termination: all children, grandchildren are terminated.
+- The parent may wait for child termination using `wait()` syscall
+- The call returns the status information and the pid of the terminated process
+- `pid - wait(&status)`
+- If no parent waiting: zombie
+- If parent is terminated without invoking `exit()` it becomes an orphan
+
+### Process Identifiers
+
+- It tries to guarantee uniqueness
+
+---
+
+# fork
+
+- return value in child: `0`
+- return value in parent is the pid of new child: `pid`
+- return value err: `-1`
+- The child is a copy of the parent, and gets a copy of the parents data space, heap and stack
+
+# exit
+
+- executing a return from main
+- calling exit function
+- calling the `_exit` or `_Exit` function
+- executing a return from the start routing of the last thread in the process
+- calling the `pthread_exit` function from the last thread
+
+## Abnormal ways
+
+- calling abort
+- when process receives signals
+- the last thread responds to a cancellation request
+
+# wait() waitpid()
+
+- Block if all of its children are running
+- Return immediately with termination status of the child, if a child has been terminated and is waiting for the termination status to be fetched
+- Return immediately with an error if it doesn't have any child process
+- `SIGCHILD`, will wait return immediately. But if we call it at any random point in time it can block.
+
+# waitid()
+
+- allows a process ot specify which child to wait for
+- two separate arguments are used
+
+# exec()
+
+- process is completely replaced by the new program and the new program starts executing its main function
+- the `pid` does not change across an exec, because a new process is not created
+- exec merely replaces the current process, its text, data, heap, and stack with a brand new program from disk
+
+# getpid(), getppid()
+
+- `getpid()` returns the `pid` of the calling process
+- `getppid()` returns the process id of the parent of the child process, this will either be the id of the process that created this process using fork or if that process has already been terminated, the ID of the process to which this process has been re-parented
+
+# Race condition
+
+- When accessing shared resources / data
+- A fork function is a lively breeding ground for race conditions
+- A process that wants to wait for a chlid to terminate, a loop could be used
+- The problem here is polling, it wastes the CPU time as the caller is awakened every second to test the condition
+- A form of signalling is used
+
+---
+
+# CPU Scheduling
+
+Multi-programming is utilized to maximize CPU utilization. Several processes are kept in memory at one time. Every time one process has to wait, another program can take over the CPU.
+
+## CPU / IO bursts
+
+- Consists of a cycle of CPU and IO wait.
+- CPU burst followed by IO burst
+- CPU burst distribution is the main concern
+
+![[Pasted image 20250220105107.png]]
+
+- An IO bound program typically has many short CPU bursts
+
+### Short term
+
+- Selects from the ready queue and allocated CPU to one of them
+- Queue may be ordered in various ways
+- FIFO, Priority, Tree, Unordered
+- The records in the queue are PCB's of the processes
+
+### Preemptive
+
+CPU scheduling may occur when:
+
+- running to waiting
+- running to read
+- waiting to ready
+- terminates
+
+> These so far are non-preemptive
+
+- Access to shared data
+- Preemption in kernel mode
+- Interrupts occruing during crucial OS activities
+
+> Unfortunately, pre-emptive scheduling can result in race conditions when data are shared among several processes. Ex: While one process is updating the shared data, it is pre-empted so that the second process can run. The second process then tries to read the data, which are in an inconsistent state.
+>
+> A pre-emptive kernel requires mechanisms such as mutex locks to prevent race conditions when accessing shared kernel data structures. Most modern operating systems are now fully pre-emptive when running in kernel mode.
+
+# Dispatcher
+
+> Dispatcher module gives control of the CPU to the process selected by the short-term scheduler.
+
+- switching context
+- switching to user mode
+- jumping to the user-program location to restart the program
+
+> Dispatch latency: time taken to stop one process and start another running
+
+---
+
+# Scheduling criteria
+
+- CPU util: keep as busy as possible
+- Throughput: no of processes that complete their execution per unit time
+- Turnaround time: time to execute a particular process
+- Waiting time: time waiting in in ready queue
+- Response time: time taken when a request was submitted until a first response is produced
+
+## FCFS
+
+![[Pasted image 20250220105828.png]]
+
+![[Pasted image 20250220105847.png]]
+
+### Convoy effect
+
+> short process behind long process
+
+- Consider one CPU-bound and many I/O-bound processes
+-  FCFS scheduling algorithm is non-preemptive. Once the CPU has been allocated to a process, that process keeps the CPU until it releases the CPU
+- FCFS algorithm is thus particularly troublesome for time-sharing systems, where it is important that each process to get a share of the CPU at regular intervals.
+- It is not desirable to allow one process to keep the CPU for an extended period
+
+## SJF Scheduling
 
 > Shortest wait time job gets executed first.
 
-| P1  | 6   |
-| --- | --- |
-| P2  | 8   |
-| P3  | 7   |
-| P4  | 3   |
+![[Pasted image 20250220110008.png]]
 
+> Associate with each process the length of its next CPU burst
+
+Use these lengths to schedule the process with the shortest time
+
+- SJF is optimal – gives minimum average waiting time for a given set of processes
+- The difficulty is knowing the length of the next CPU request
+- Compute an approximation of the length of the next CPU burst
+
+### Determining Length of Next CPU Burst
+
+![[Pasted image 20250220110032.png]]
+
+![[Pasted image 20250220110048.png]]
+
+![[Pasted image 20250220110106.png]]
+
+![[Pasted image 20250220110118.png]]
+
+![[Pasted image 20250220110129.png]]
+
+![[Pasted image 20250220110146.png]]
+
+## Priority Scheduling
+
+- A priority number (integer) is associated with each process
+- The CPU is allocated to the process with the highest priority (smallest integer ~ highest priority)
+	- Preemptive
+	- Nonpreemptive
+- SFJ is priority scheduling where priority is the inverse of predicted next CPU burst time
+- Problem ~ Starvation (low priority may never execute)
+- Solution ~ Aging (increase priority as time progresses)
+
+![[Pasted image 20250220110722.png]]
+
+## Round Robin
+
+- For timesharing systems
+- Similar to FCFS, but preemption is added to let it switch between to processes
+- A small unit of time, called a time quantum or time slice is defined
+- 10-100 ms
+- The ready queue is treated as a circular queue
+- The CPU scheduler goes around the ready queue, allocating the CPU to each process for a time interval up upto 1 time quantum.
+![[Pasted image 20250220111633.png]]
+
+> If there are n processes in the ready queue and the time quantum is q, then each process gets 1/n of the CPU time in chunks of at most q time units.
+
+- Each process must wait no longer than (n − 1) × q time units until its next time quantum.
+
+> For example, with five processes and a time quantum of 20 milliseconds, each process will get up to 20 milliseconds every 100 milliseconds.
+
+- Performance of the RR algorithm depends heavily on the size of the time quantum
+- If the time quantum is extremely large, the RR policy is the same as the FCFS policy
+- If the time quantum is extremely small, the RR approach can result in a large number of context switches
+![[Pasted image 20250220111730.png]]
+
+### Turnaround time varies with time quantum
+
+![[Pasted image 20250220111747.png]]
+
+> 80% of the CPU bursts should be shorter than the time quantum
+
+## Multilevel Queue
+
+- Ready queue is partitioned into separate queues
+	- foreground (interactive)
+	- background (batch)
+ - Process permanently assigned to a queue
+ - Each queue has its own algorithm
+	 - foreground: RR
+	 - background: FCFS
+- In addition, scheduling must be done between the queues
+- Fixed priority scheduling (serve all from foreground then from background) (possibility of starvation)
+- Time slice: each queue gets a certain amount of CPU time which it can schedule among its processes.
+- Each queue has absolute priority over lower priority queues
+- No process in the batch queue, could run unless the queues for the system, processes, interactive processes, and interactive editing processes were all empty.
+- If an interactive editing process entered the ready queue while a batch process was running, the batch process would be prempted
+- A process can move between the various queues, aging can be implemented this way.
+
+### Parameters
+
+- Number of queues
+- Scheduling algorithms for each queue
+- Method used to determine when to upgrade a process
+- Method used to determine when to demote a process
+- Method used to determine which queue a process will enter when that process needs service
+![[Pasted image 20250220112423.png]]
+
+![[Pasted image 20250220112431.png]]
+
+## Multiple Processor Scheduling
+
+1. Asymmetric Scheduling (master-server) all other just execute code
+2. SMP (Processors are self-scheduling)
+
+### Affinity
+
+- The process populate cache of the processor.
+- Successive memory accesses invalidate the cache of the other
+	- **Soft**: OS will attempt to keep a process on a single processor, but it's possible for a process to migrate
+	- **Hard**: OS provides syscalls for process to specify a subset of processors on which it may run.
+
+### Load Balancing
+
+Keeps the workload evenly distributed across SMP systems
+
+1. **Push migration**: periodically checks the load on each processor and finds if there's an imbalance and evenly distributes the load by moving/pushing from overloaded to idle processors.
+2. **Pull migration**: When an idle processor pulls a waiting task from a busy processor. Push and pull may not be mutually exclusive.
+
+# Case Study
+
+## < Linux 2.5
+
+- Did not support SMP
+- Variation of the UNIX scheduling algorithm
+
+## Linux 2.5
+
+- Kernel moved to constant $O(1)$ scheduling time
+- Supported SMP
+- Poor response times for interactive processes that are common on the desktop
+
+## Linux 2.6+
+
+- Completely Fair Scheduler (CFS)
+	- Each class is assigned a specific priority
+	- Using different scheduling classes, the kernel can accommodate different scheduling algorithms
+	- Scheduler picks the highest priority task
+		- 1. A scheduling class with CFS
+		- 2. Real time scheduling class
+	- Calculates target latency: (time task runs at least once)
+	- Proportion calculated based on nice value which ranges from: -20 to +19
+		- A numerically lower nice value indicates a higher realtive priority
+		- Tasks with lower nice value receive a higher proportion of CPU time than tasks with higher nice values
+	- Target latency can increase if number of active tasks increase
+	- The CFS doesn't directly assign priorities
+	- Maintains a per-task virtual time run `vruntime`
+		- Associated with decay factor based on priority of the task: lower priority is higher decay rate
+		- Normal default priority yields virtual run time = actual run time
+	- To decide next task it picks the task with the lowest virtual run time.
+	- Each runnable task is placed in a balanced binary search tree whose key is based on the value of vruntime
+	- When a task becomes runnable, it is added to the tree
+	- When a task is not runnable, it is deleted from the tree
+	- Navigating the tree to discover the task to run (leftmost node) will require $O(log N)$ operations (where N is the number of nodes in the tree).
+	- Assume that two tasks have the same nice values.
+	- One task is I/O-bound and the other is CPU-bound
+	- The value of vruntime will be lower for the I/O-bound task than for the CPU-bound task, giving the I/O-bound task higher priority than the CPU-bound task.
+	- If the CPU-bound task is executing when the I/O-bound task becomes eligible to run the IO bound task will prempt the CPU bound task.
+
+![[Pasted image 20250220120700.png]]
+
+## Windows Scheduling
+
+- Used priority based pre-emptive scheduling algorithm
+- Scheduler ensures that the highest-priority thread will always run
+- Windows kernel that handles scheduling is called the dispatcher
+- Thread selected by the dispatchers is preempted by a higher priority thread or until it terminates or until its time quantum ends or it calls a blocking syscall.
+- Dispatcher uses a 32-level priority scheme
+	- Variable class is 1-15, real time is 16-31
+	- Priority 0 is memory management thread
+- Queue for each priority class
+- If no runable thread, runs idle thread.
+
+> Windows API identifies several priority classes to which a process can belong
+
+- `REALTIME_PRIORITY_CLASS, HIGH_PRIORITY_CLASS, ABOVE_NORMAL_PRIORITY_CLASS,NORMAL_PRIORITY_CLASS, BELOW_NORMAL_PRIORITY_CLASS, IDLE_PRIORITY_CLASS`
+- All are variable except REALTIME
+-  A thread within a given priority class has a relative priority
+- `TIME_CRITICAL, HIGHEST, ABOVE_NORMAL, NORMAL, BELOW_NORMAL, LOWEST, IDLE`
+- Priority class and relative priority combine to give numeric priority
+- Base priority is NORMAL within the class
+- If quantum expires, priority lowered, but never below base.
+
+![[Pasted image 20250220121609.png]]
+
+- If wait occurs, priority boosted depending on what was waited for
+- Windows distinguishes between foreground process and background processes
+- Foreground processes given 3x priority boost
+- This priority boost gives the foreground process three times longer to run before a time-sharing preemption occurs.
+
+---
+
+# Shell
+
+> Instructions entered in response to the shell prompt have the following syntax:
+> `command [arg1] [arg2] .. [argn]`
+
+- The brackets `[]` indicate that the arguments are optional. Many commands can be executed with or without arguments
+- The shell parses the words or tokens `(commandname , options, filenames[s])` and gets the kernel to execute the commands assuming the syntax is correct.
+- Typically, the shell processes the complete line after a carriage return (`cr`) (carriage return) is entered and finds the program that the command line wants executing.
+- The shell looks for the command to execute either in the specified directory if given `(./mycommand)` or it searches through a list of directories depending on your `$PATH `variable.
+
+## Common env variables
+
+## Control flow
+
+```sh
+if cmd; then
+	cmd
+[elif cmd; then
+	cmds ...]
+fi
 ```
 
-1   3     6 7 8 
-P
+```sh
+for i in {1..5}
+do
+	echo "i = $i"
+done
 ```
+
+# cron jobs
+
+![[Pasted image 20250220122117.png]]
