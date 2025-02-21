@@ -1,3 +1,37 @@
+# DAA: Banana Problem
+
+> Name: Nathan Matthew Paul
+> SRN: PES2UG23CS368
+> Section: 4F
+> Date: 2025-02-20
+
+> [!Question]
+>The Quick Courier In the town of Graphville, there is a quick courier named
+>Lexi who needs to deliver packages to several businesses located in various
+>districts. Graphville is well-connected, but Lexi wants to ensure the route
+>taken is not only efficient but also predictable in order, so her dispatch
+>team can easily track her progress.
+
+> Lexi decides to always take the lexicographically smallest path that visits
+> each district exactly once and returns to the starting district. As a budding
+> programmer, you are tasked with helping Lexi find this path using a program.
+>
+> Input Format- The first line contains an integer n (2 ≤ n ≤ 10), the number of
+> districts.
+>
+> Each of the next n lines contains n integers, where the j-th integer in the
+> i-th line represents the travel cost from district i to district j. If the
+> number is -1, it means that the path between the two districts does not exist.
+>
+> Output Format- Output the lexicographically smallest path (as a sequence of
+> district indices) that visits each district exactly once and returns to the
+> starting district. If the path does not exist, return -1
+
+---
+
+# Code
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -52,6 +86,7 @@ int main() {
 
     if (min == INT_MAX) {
         printf("Path does not exist\n");
+		return -1;
     } else {
         printf("Minimum Cost: %d\n", min);
         printf("Optimal Path: ");
@@ -71,4 +106,22 @@ int main() {
 
     return 0;
 }
+```
 
+# Testcases (Output)
+
+## Testcase: 1
+
+![[Pasted image 20250220150654.png]]
+
+## Testcase: 2
+
+![[Pasted image 20250220150728.png]]
+
+## Testcase: 3
+
+![[Pasted image 20250220150758.png]]
+
+## Testcase: 4
+
+![[Pasted image 20250220150828.png]]
