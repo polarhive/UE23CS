@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <source-file.s>"
+  exit 1
+fi
+
+# /tmp
+SRC_FILE="$1"
+FILENAME=$(basename -- "$SRC_FILE")
+BASENAME="${FILENAME%.*}"
+TMP_DIR=$(mktemp -d -t arm-build-XXXXXX)
+OBJ_FILE="$TMP_DIR/${BASENAME}.o"
+BIN_FILE="$TMP_DIR/${BASENAME}"
+LOG_FILE="$TMP_DIR/${BASENAME}.log"
+
+arm-none-eabi-as -o "$OBJ_FILE" "$SRC_FILE" 2> "$LOG_FILE"
+if [ $? -ne 0 ]; then
+  echo "Assembly failed. Check logs in $LOG_FILE"
+  exit 1
+fi
+
+arm-none-eabi-ld -o "$BIN_FILE" "$OBJ_FILE" 2>> "$LOG_FILE"
+if [ $? -ne 0 ]; then
+  echo "Linking failed. Check logs in $LOG_FILE"
+  exit 1
+fi
+
+qemu-arm "$BIN_FILE"
+rm -rf "$TMP_DIR"
