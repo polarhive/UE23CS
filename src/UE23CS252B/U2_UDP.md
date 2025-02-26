@@ -336,7 +336,35 @@ Two socket types for two transport services:
 - Telnet: `23`: client / server
 - SSH: `22` uses public key encryption
 
-## Summary
+## Table of Ports
+
+| #         | Protocol | Description                                                |
+| --------- | -------- | ---------------------------------------------------------- |
+| 20        | FTP      | File Transfer Protocol - Data                              |
+| 21        | FTP      | File Transfer Protocol - Control                           |
+| 22        | SSH      | Secure Shell for secure login                              |
+| 23        | Telnet   | Unencrypted login                                          |
+| 25        | SMTP     | Simple Mail Transfer Protocol (Sending Email)              |
+| 53        | DNS      | Domain Name System (Name Resolution)                       |
+| 67/68     | DHCP     | Dynamic Host Configuration Protocol (Assigning IPs)        |
+| 69        | TFTP     | Trivial File Transfer Protocol (Simple File Transfer)      |
+| 80        | HTTP     | HyperText Transfer Protocol (Web Browsing)                 |
+| 110       | POP3     | Post Office Protocol v3 (Retrieving Email)                 |
+| 123       | NTP      | Network Time Protocol (Time Sync)                          |
+| 143       | IMAP     | Internet Message Access Protocol (Email Retrieval)         |
+| 161/162   | SNMP     | Simple Network Management Protocol (Monitoring)            |
+| 389       | LDAP     | Lightweight Directory Access Protocol (Directory Services) |
+| 443       | HTTPS    | Secure HTTP with SSL/TLS                                   |
+| 465       | SMTPS    | SMTP Secure over SSL                                       |
+| 514       | Syslog   | System Logging                                             |
+| 520       | RIP      | Routing Information Protocol                               |
+| 546/547   | DHCPv6   | IPv6 Version of DHCP                                       |
+| 563       | NNTP SSL | Network News Transfer Protocol Secure                      |
+| 587       | SMTP     | Message Submission                                         |
+| 636       | LDAPS    | Secure LDAP                                                |
+| 989/990   | FTPS     | FTP Secure over SSL/TLS                                    |
+| 993       | IMAPS    | IMAP Secure over SSL                                       |
+| 995       | POP3S    | POP3 Secure over SSL                                       |
 
 ![[Pasted image 20250220022316.png]]
 
