@@ -257,10 +257,9 @@ Two socket types for two transport services:
 
 ## Socket programming with TCP
 
-### Client
+![[Pasted image 20250220020940.png]]
 
-- server process must first be running
-- server must have created socket (door) that welcomes client’s contact
+![[Pasted image 20250220020952.png]]
 
 ### Server
 
@@ -270,13 +269,38 @@ Two socket types for two transport services:
 - allows server to talk with multiple clients
 - source port numbers used to distinguish clients
 
-![[Pasted image 20250220020940.png]]
+![[Pasted image 20250220021008.png]]
 
-![[Pasted image 20250220020952.png]]
+```python
+serverName = 'localhost'
+serverPort = 1200
+clientSocket = socket(AF_INET, SOCKSTREAM)
+clientSocket.bind((serverName, serverPort))
+clientSocket.listen(1)
+while True:
+	connectionSocket, addr = serverSocket.accept() 
+	msg = connectionSocket.recv(1024).decode()
+	clientSocket.send(msg.encode())
+	clientSocket.close()
+```
+
+### Client
+
+- server process must first be running
+- server must have created socket (door) that welcomes client’s contact
 
 ![[Pasted image 20250220020959.png]]
 
-![[Pasted image 20250220021008.png]]
+```python
+serverName = 'localhost'
+serverPort = 1200
+clientSocket = socket(AF_INET, SOCKSTREAM)
+clientSocket.connect((serverName, serverPort))
+msg = 'hi'
+clientSocket.send(msg.encode())
+ret=clientSocket.recv(1024)
+clientSocket.close()
+```
 
 ---
 
@@ -290,15 +314,50 @@ Two socket types for two transport services:
 - UDP: transmitted data may be lost or received out-of-order
 -  UDP provides unreliable transfer of groups of bytes ("datagrams") between client and server
 
-### Server
-
 ![[Pasted image 20250220020750.png]]
 
-### Client
+### Server
 
 ![[Pasted image 20250220020809.png]]
 
+```python
+serverName = 'localhost'
+serverPort = 1200
+serverSocket = socket(AF_INET, SOCK_DGRAM))
+serverSocket.bind(serverName, serverPort))
+while True:
+	msg, clientAdddr=serverSocket.recvfrom(2048)
+	serverSocket.sendto(msg.encode(), clientAddr)
+	clientSocket.close()
+```
+
+```python
+serverName = 'localhost'
+serverPort = 1200
+clientSocket = socket(AF_INET, SOCKSTREAM)
+clientSocket.bind((serverName, serverPort))
+clientSocket.listen(1)
+while True:
+	connectionSocket, addr = serverSocket.accept() 
+	msg = connectionSocket.recv(1024).decode()
+	clientSocket.send(msg.encode())
+	clientSocket.close()
+```
+
+### Client
+
 ![[Pasted image 20250220020801.png]]
+
+```python
+serverName = 'localhost'
+serverPort = 1200
+clientSocket = socket(AF_INET, SOCK_DGRAM))
+clientSocket.sendto(msg.encode(), (serverName, serverPort))
+ret, serverAddr=clientSocket.recvfrom(2048)
+clientSocket.close()
+```
+
+---
 
 # FTP
 
