@@ -4,11 +4,11 @@
 
 ## Characteristics
 
-1. Zero or more inputs: "hello world" program zero inputs
-2. Definiteness: Each step should be precise and unambiguous
-3. Output: At least one output
-4. Effectiveness: Each step should be precise and feasible
-5. Finiteness: Terminates after finite number of steps
+1. **Zero** or more inputs: "hello world" program zero inputs
+2. **Definiteness**: Each step should be precise and unambiguous
+3. **Output**: At least one output
+4. **Effectiveness**: Each step should be precise and feasible
+5. **Finiteness**: Terminates after finite number of steps
 
 > We write algorithms in pseudo-code: A mix of natural and programming language
 
@@ -25,6 +25,29 @@ End:
 > We can use `{}` in the place of `Begin:` and `End:`
 > The = token may also be written as := and <-
 
+> [!Example] Euclid's algorithm
+>
+> Repeated application of equality.
+>
+> > gcd(m, n) = gcd ($n, m \%n$)
+>
+> ```c
+> while n!=0 do
+> 	r<-m mod n
+> 	m<-n
+> 	n<-r
+>  return m
+> ```
+
+> [!Example] Sequential Search
+
+> ```c
+> while i<n and A[i]!=K do
+> 	i<-i+1
+>  if i<n return i  
+>  else return -1
+> ```
+
 ---
 
 # Fundamentals of Problem Solving
@@ -38,7 +61,7 @@ End:
 	2. Consider the constraints and assumptions
 	3. Ensure the problem is well defined and unambiguous
 2. Decide on the Computational Means
-	1. Choose the appropriate model: PRAM, RAM, < TM >
+	1. Choose the appropriate model: PRAM, RAM, `<TM>`
 	2. Evaluate the hardware and software constraints
 3. Exact v/s Approximate problem solving
 	1. Decide if the exact solution is feasible, or necessary
@@ -63,6 +86,14 @@ End:
 8. Test and Debug: Test for all the cases
 9. Documenting the algorithm
 10. Improving and Refinement
+
+---
+
+> [!Important]
+> **Stability**: A sorting algorithm is called stable if it preserves the relative order  of any two equal elements in its input.
+
+> [!Important]
+> **In place**: A sorting algorithm is in place if it does not require extra memory,  except, possibly for a few memory units.
 
 ---
 
@@ -709,14 +740,3 @@ k=log n
 
 > $n*T(1)+logn*n$ => $O(n logn)$
 
----
-
-$$
-t(n)= {
-
-1; n=2
-
-$T(n^{0.5})+1$; n>2
-
-}
-$$
