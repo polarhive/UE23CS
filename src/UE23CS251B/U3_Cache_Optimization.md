@@ -135,3 +135,79 @@ Therefore some designers prefer measuring misses per instruction rather than mis
 > Tag: 10 bits
 >
 >> If the cache is now designed as a $16$ bay set-associative cache, what is the new length of the tag field?
+
+# Replacement Algorithms
+
+## LRU: Least Recently Used
+
+> [!Question] Consider 8 cache blocks
+> If the order is 3, 5, 2, 8, 0, 6, 3, 9, 16, 20, 17, 25, 18, 30, 24, 2, 63, 5, 82, 17, 24
+
+### Cache Table
+
+| 3 mod 8 -> | 3   |
+| ---------- | --- |
+| 5 mod 8 -> | 5   |
+| 2 mod 8 -> | 2   |
+| 0 mod 8 -> | 0   |
+| 6 mod 8 -> | 6   |
+
+> [!Question] Fully Associative cache with 8 cache blocks
+> The memory block requests
+>
+> 4, 3, 25, 8, 19, 6, 25, 8, 16, 35, 45, 22, 8, 3, 16, 25, 7
+> If LRU is used: which line contains memory block 7?
+
+> [!Question] Set associative 4-way mapping with:
+> 16 Cache blocks
+> If LRU is used, which block will not be present in cache? Calculate the HIT/MISS ratio
+
+> [!Question] Set associative cache 2-way
+> Total 4 blocks
+> LRU replacement policy
+> Find the number of cache misses for the following sequence?
+> 8, 12, 0, 12, 8?
+
+| 8 mod 2  | 0   |
+| -------- | --- |
+| 12 mod 2 | 0   |
+| 0 mod 2  | 8/0 |
+| 12 mod 2 | 12  |
+| 8 mod 2  | 8/0 |
+
+> [!Question] Consider a cache which has:
+> 4 blocks
+> Seq: 5, 12, 13, 17, 4, 12, 13, 17, 2, 13, 19, 13, 43, 61, 19
+> What is the HIT ratio? for the following cache replacement algorithms?
+> 1. FIFO
+> 2. LRU
+> 3. Direct Mapping
+> 4.  Two way set associative cache with LRU
+
+| Step | Address | Cache State      | Hit/Miss         |
+| ---- | ------- | ---------------- | ---------------- |
+| 1    | 5       | [5]              | Miss             |
+| 2    | 12      | [5, 12]          | Miss             |
+| 3    | 13      | [5, 12, 13]      | Miss             |
+| 4    | 17      | [5, 12, 13, 17]  | Miss             |
+| 5    | 4       | [12, 13, 17, 4]  | Miss (evicts 5)  |
+| 6    | 12      | [12, 13, 17, 4]  | **Hit**          |
+| 7    | 13      | [12, 13, 17, 4]  | **Hit**          |
+| 8    | 17      | [12, 13, 17, 4]  | **Hit**          |
+| 9    | 2       | [13, 17, 4, 2]   | Miss (evicts 12) |
+| 10   | 13      | [13, 17, 4, 2]   | **Hit**          |
+| 11   | 19      | [17, 4, 2, 19]   | Miss (evicts 13) |
+| 12   | 13      | [4, 2, 19, 13]   | Miss (evicts 17) |
+| 13   | 43      | [2, 19, 13, 43]  | Miss (evicts 4)  |
+| 14   | 61      | [19, 13, 43, 61] | Miss (evicts 2)  |
+| 15   | 19      | [19, 13, 43, 61] | **Hit**          |
+
+- Total **Hits: 6**
+- Total **Accesses: 15**
+
+**Corrected Hit Ratio (FIFO) = 6/15 = 40.0%**
+
+---
+
+> [!Question] Consider a 2-way SA mapped cache with 8 cache blocks (0-7)
+> LRU replacement policy. If the memory block requests are in the order 4, 3, 25, 8, 19, 6, 25, 8, 16, 35, 45, 22, 8, 3, 16, 25, 7
