@@ -1,0 +1,52 @@
+.TEXT
+    LDR R5, =N      
+    LDR R0, =MATRIX_A
+    LDR R1, =MATRIX_B
+    LDR R2, =MATRIX_C
+    MOV R6, #0
+
+OUTER_LOOP:
+    LDR R4, [R5]
+    CMP R6, R4
+    BGE END_PROGRAM
+    MOV R7, #0
+
+INNER_LOOP:
+    CMP R7, R4
+    BGE NEXT_ROW
+    MOV R8, #0
+    MOV R9, #0
+
+MULT_LOOP:
+    CMP R9, R4
+    BGE STORE_RESULT
+    MUL R10, R6, R4
+    ADD R10, R10, R9
+    LDR R11, [R0, R10, LSL #2]
+    MUL R12, R9, R4
+    ADD R12, R12, R7
+    LDR R13, [R1, R12, LSL #2]
+    MLA R8, R11, R13, R8
+    ADD R9, R9, #1
+    B MULT_LOOP
+
+STORE_RESULT:
+    MUL R10, R6, R4 
+    ADD R10, R10, R7
+    STR R8, [R2, R10, LSL #2]
+    ADD R7, R7, #1
+    B INNER_LOOP
+
+NEXT_ROW:
+    ADD R6, R6, #1
+    B OUTER_LOOP
+
+END_PROGRAM:
+    SWI 0x11
+
+.DATA
+N: .WORD 3
+MATRIX_A: .WORD 1, 2, 3, 4, 5, 6, 7, 8, 9
+MATRIX_B: .WORD 9, 8, 7, 6, 5, 4, 3, 2, 1
+MATRIX_C: .WORD 0, 0, 0, 0, 0, 0, 0, 0, 0
+
