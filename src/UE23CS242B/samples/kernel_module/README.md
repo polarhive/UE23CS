@@ -1,7 +1,7 @@
 # Kernel Module in Docker
 
-### Caution
-Ensure your **Docker container kernel** matches your **host kernel**. I've set Ubuntu for now.
+> [!Caution]
+> Ensure your **Docker container kernel** matches your **host kernel**. I've set Ubuntu for now.
 
 ## Build the Docker Image
 

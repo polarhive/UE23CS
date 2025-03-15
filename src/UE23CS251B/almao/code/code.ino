@@ -4,47 +4,51 @@
 
 unsigned long lastAlarmTime;
 const long alarmInterval = 10000;  // 10-second alarm cycle
-bool alarmActive = false;  // Tracks if alarm is active
+bool alarmActive = false;
 
 unsigned long lastBlinkTime = 0;
-const long blinkInterval = 200;  // LED blink every 200ms
+const long blinkInterval = 200;
 
 void setup() {
   Serial.begin(9600);
   pinMode(Trig_Pin, OUTPUT);
   pinMode(Echo_Pin, INPUT);
   pinMode(LED_Pin, OUTPUT);
-  lastAlarmTime = millis();  // Set initial time for first alarm
+  
+  lastAlarmTime = millis();
+  Serial.println("[INFO]: \"System initialized\"");
 }
 
 void loop() {
   unsigned long currentMillis = millis();
 
-  // Start the alarm every 10 seconds after user wakes up
+  // Trigger alarm cycle every 10 seconds if inactive
   if (currentMillis - lastAlarmTime >= alarmInterval && !alarmActive) {
     alarmActive = true;
-    Serial.println("ALARM! Wake up!");
+    Serial.println("[ALARM]: \"Activated\"");
   }
 
-  // If alarm is active, check sensor and blink LED asynchronously
+  // If alarm is active, check sensor and blink LED
   if (alarmActive) {
-    float dist = getDistance();  // Get user distance
+    float dist = getDistance();
+    
+    // Send distance as [SENSOR] data
+    Serial.print("[SENSOR]: ");
+    Serial.println(dist);
 
-    Serial.print("Distance = ");
     if (dist >= 400 || dist <= 2) {  
-      Serial.println("Out of range, Alarm continues...");
-    } else {  
-      Serial.print(dist);
-      Serial.println(" cm - User detected! Alarm stopped.");
-      alarmActive = false;  // Stop alarm
-      lastAlarmTime = millis();  // Reset timer for next alarm cycle
-      digitalWrite(LED_Pin, LOW);  // Ensure LED is off
+      Serial.println("[INFO]: \"Out of range, Alarm continues\"");
+    } else {
+      Serial.println("[INFO]: \"User detected, Alarm stopped\"");
+      alarmActive = false;  
+      lastAlarmTime = millis();  
+      digitalWrite(LED_Pin, LOW);
     }
 
     // Blink LED without blocking
     if (currentMillis - lastBlinkTime >= blinkInterval) {
       lastBlinkTime = currentMillis;
-      digitalWrite(LED_Pin, !digitalRead(LED_Pin));  // Toggle LED
+      digitalWrite(LED_Pin, !digitalRead(LED_Pin));
     }
   }
 }

@@ -211,3 +211,25 @@ Therefore some designers prefer measuring misses per instruction rather than mis
 
 > [!Question] Consider a 2-way SA mapped cache with 8 cache blocks (0-7)
 > LRU replacement policy. If the memory block requests are in the order 4, 3, 25, 8, 19, 6, 25, 8, 16, 35, 45, 22, 8, 3, 16, 25, 7
+
+---
+
+# Write Stratergies
+
+## Cache Read
+
+- Data in Cache:
+- Not in Cache
+	- Loadthrough (Early Restart) Forwards the word as the cache is being filled
+	- Fill Cache (Forward the word)
+
+## Cache Write
+
+- Data in Cache
+	- Writethrough update: main memory as well as cache
+	- Write Back: cache only until the block is flushed
+- Not in Cache
+	- Write Allocate: Brings to cache and updates it
+	- Write No Allocate: Update only
+
+Tag is not matching.
