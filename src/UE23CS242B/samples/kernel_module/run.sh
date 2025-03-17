@@ -2,7 +2,7 @@
 
 set -e  # Exit on any error
 
-MODULE_NAME="kernel_sim"       # Set your module name here
+MODULE_NAME="hello_world"       # Set your module name here
 MODULE_FILE="${MODULE_NAME}.ko"
 
 # Check if the system is Arch-based
