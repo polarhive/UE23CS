@@ -233,3 +233,12 @@ Therefore some designers prefer measuring misses per instruction rather than mis
 	- Write No Allocate: Update only
 
 Tag is not matching.
+
+---
+
+> [!Important]
+>
+> $CPU\ execution\ time = Base\ CPI + CPI\ Stall + Memory\ stalls$
+
+> [!Question] Assume that 33% of the instruction in a program are data accesses. The cache hit ratio is 97 and the hit time is one cycleb but the miss penalty is 20 cycles.
+> Memory stall cycles =

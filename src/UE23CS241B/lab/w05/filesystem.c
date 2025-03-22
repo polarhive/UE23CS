@@ -23,7 +23,21 @@ struct BTreeNode *createNode(bool is_leaf) {
     return newNode;
 }
 
-// Function to split a full child node at index 'index' of the parent
+int search(struct BTreeNode *root, int key) {
+    if (!root) return 0;
+    int i = 0;
+    while (i < root->num_keys && key > root->keys[i]) {
+        i++;
+    }
+    if (i < root->num_keys && root->keys[i] == key) {
+        return 1;
+    }
+    if (root->is_leaf) {
+        return 0;
+    }
+    return search(root->children[i], key);
+}
+
 void splitNode(struct BTreeNode *parent, int index) {
     struct BTreeNode *child = parent->children[index];
     struct BTreeNode *newNode = createNode(child->is_leaf);
