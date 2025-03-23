@@ -507,6 +507,7 @@ The matrix $P$ has been formed by swapping the first and second rows of the iden
    $$
    P^{-1} = P^T
 
+
 $$
 
 2. **Product of Permutation Matrices**: When multiplying permutation matrices, the result is another permutation matrix. The product of two permutation matrices corresponds to applying one permutation after another.
