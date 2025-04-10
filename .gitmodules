@@ -1,0 +1,9 @@
+[submodule "src/UE23CS151A/mini-project/py-typer"]
+	path = src/UE23CS151A/mini-project/py-typer
+	url = https://github.com/polarhive/py-typer
+[submodule "src/UE23CS242A/mini-project/plisp"]
+	path = src/UE23CS242A/mini-project/plisp
+	url = https://github.com/polarhive/plisp
+[submodule "src/UE23CS241A/mini-project/grab-n-go"]
+	path = src/UE23CS241A/mini-project/grab-n-go
+	url = https://github.com/polarhive/grab-n-go
