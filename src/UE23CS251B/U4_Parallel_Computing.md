@@ -114,3 +114,45 @@ graph TD;
 - Multiple hardware threads
 
 ---
+
+# Walls
+
+## Memory wall
+
+> Processor clock rates have been increasing faster than memory clock rates. Larger and faster cache help reduce the problem but does not. If memory latency and bandwidth become insufficient to provide processors with enough instructions and data. To continue computations, processors will be stalled for a long time, waiting for memory. If more cores are placed on the chip, it increases memory processor performance gap.
+
+## Power Wall
+
+Scaling to historical levels because of the fundamental constraints imposed by power delivery and power dissipation. Processors consume more power as they become faster.
+
+## ILP Wall
+
+Deeper pipelines make the power problem worse.
+
+---
+
+# Ways of increasing speed
+
+## 1. Work harder
+
+Increase the clock speed. (HW solution) Piezo electric. Overcome the power-wall
+
+## 2. Work smarter
+
+Use optimized cache.
+
+## 3. Work with help
+
+Use many processors.
+
+---
+
+## Core
+
+A core is a unit that reads and executes instructions. Each core does what the [[OS]] tells it todo. In one core, several threads can be run.
+
+## Threads
+
+Sequences of commands given to the cores.
+
+---
