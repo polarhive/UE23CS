@@ -7,3 +7,6 @@
 [submodule "src/UE23CS241A/mini-project/grab-n-go"]
 	path = src/UE23CS241A/mini-project/grab-n-go
 	url = https://github.com/polarhive/grab-n-go
+[submodule "src/UE23CS251B/mini-project/almao"]
+	path = src/UE23CS251B/mini-project/almao
+	url = https://github.com/polarhive/almao
