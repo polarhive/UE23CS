@@ -15,3 +15,5 @@ node_modules/
 **/tmp
 **.vscode
 *.pyc
+slides
+PYQs

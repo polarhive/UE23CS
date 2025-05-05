@@ -21,3 +21,12 @@
 - [[DAA]]: Design and Analysis of Algorithms
 - [[OS]]: Operating Systems
 - [[LA]]: Linear Algebra
+
+# sem-5
+
+- [[DBMS]]: Database Management System
+- [[ML]]: Machine Learning
+- [[SE]]: Software Engineering
+- [[EC1]]: 
+- [[EC2]]: 
+
