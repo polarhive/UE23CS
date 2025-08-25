@@ -13,3 +13,6 @@
 [submodule "src/UE23CS252B/mini-project/netmap-py"]
 	path = src/UE23CS252B/mini-project/netmap-py
 	url = https://github.com/polarhive/netmap-py
+[submodule "src/UE23CS352A/Lab"]
+	path = src/UE23CS352A/Lab
+	url = https://github.com/polarhive/ML_F_PES2UG23CS368_Nathan_Paul
