@@ -29,6 +29,5 @@
 - [[DBMS]]: Database Management System
 - [[ML]]: Machine Learning
 - [[SE]]: Software Engineering
-- [[HCI]]: Human Computer Interaction
+- [[IoT]]: Internet of Things
 - [[BD]]: Big Data
-
