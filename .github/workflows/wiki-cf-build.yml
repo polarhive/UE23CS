@@ -1,0 +1,15 @@
+name: Trigger Cloudflare Pages Build
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  trigger-cloudflare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Build Hook
+        run: |
+          curl -d "" "$CF_BUILD_HOOK_URL"
+        env:
+          CF_BUILD_HOOK_URL: ${{ secrets.CF_BUILD_HOOK_URL }}
