@@ -1,4 +1,4 @@
-name: Trigger Cloudflare Pages Build
+name: wiki
 
 on:
   push:
@@ -8,7 +8,7 @@ jobs:
   trigger-cloudflare:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Cloudflare Build Hook
+      - name: Cloudflare build-hook
         run: |
           curl -d "" "$CF_BUILD_HOOK_URL"
         env:
