@@ -61,7 +61,7 @@ refers to the integration of IoT devices and systems into healthcare services to
 
 # Security & Privacy Risks
 
-oT devices often lack robust security features, making them vulnerable entry points in a network. Examples of Threats: - Default credentials left unchanged by users - Insecure communication (unencrypted data transfer) - Firmware vulnerabilities left unpatched - Botnets (e.g., Mirai attack) using IoT devices for DDoS Impact: - Compromised personal data - Unauthorized control of devices (e.g., smart locks, health monitors) - Loss of trust in IoT solutions
+IoT devices often lack robust security features, making them vulnerable entry points in a network. Examples of Threats: - Default credentials left unchanged by users - Insecure communication (unencrypted data transfer) - Firmware vulnerabilities left unpatched - Botnets (e.g., Mirai attack) using IoT devices for DDoS Impact: - Compromised personal data - Unauthorized control of devices (e.g., smart locks, health monitors) - Loss of trust in IoT solutions
 
 ## Lack of Interoperability & Standards
 
@@ -89,7 +89,7 @@ IoT devices rely heavily on continuous, stable internet or wireless connectivity
 
 - IoT architecture is the structure enabling internet-connected devices to communicate with other devices. - IoT architecture refers to the many ways that IoT devices are structured to meet user needs. - Most IoT architecture models include 3 to 7 sets of functional components, or “layers”, such as perception (e.g., sensors), transport (e.g., Wi-Fi), and application (e.g., software) layers. - Notably, IoT architecture lacks standardized protocols, raising compatibility, security, and other challenges.
 
-oT Architectural Drivers - A driver is a core influencing factor or requirement that shapes the way an IoT system is designed and built. - These are not physical components but rather forces, goals, or constraints—technical, economic, or user-based—that push the architecture in a specific direction. - For example, if low latency is important, the architecture must include edge computing
+IoT Architectural Drivers - A driver is a core influencing factor or requirement that shapes the way an IoT system is designed and built. - These are not physical components but rather forces, goals, or constraints—technical, economic, or user-based—that push the architecture in a specific direction. - For example, if low latency is important, the architecture must include edge computing
 
 ## Scalability
 
