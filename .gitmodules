@@ -19,3 +19,6 @@
 [submodule "src/UE23CS341A/mini-project/MockSmiths"]
 	path = src/UE23CS341A/mini-project/MockSmiths
 	url = https://github.com/pestechnology/PESU_EC_CSE_F_P82_Mock_API_Generation_Service_MockSmiths.git
+[submodule "src/UE23CS343AB2/mini-project/yak"]
+	path = src/UE23CS343AB2/mini-project/yak
+	url = https://github.com/NavneetNayak/90_Project2_BD.git
