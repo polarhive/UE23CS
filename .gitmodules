@@ -16,3 +16,6 @@
 [submodule "src/UE23CS352A/Lab"]
 	path = src/UE23CS352A/Lab
 	url = https://github.com/polarhive/ML_F_PES2UG23CS368_Nathan_Paul
+[submodule "src/UE23CS341A/mini-project/MockSmiths"]
+	path = src/UE23CS341A/mini-project/MockSmiths
+	url = https://github.com/pestechnology/PESU_EC_CSE_F_P82_Mock_API_Generation_Service_MockSmiths.git
