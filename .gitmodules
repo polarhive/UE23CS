@@ -22,3 +22,6 @@
 [submodule "src/UE23CS343AB2/mini-project/yak"]
 	path = src/UE23CS343AB2/mini-project/yak
 	url = https://github.com/NavneetNayak/90_Project2_BD.git
+[submodule "src/UE23CS351A/mini-project/MicroGrid"]
+	path = src/UE23CS351A/mini-project/MicroGrid
+	url = https://github.com/polarhive/MicroGrid
