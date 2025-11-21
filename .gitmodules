@@ -25,3 +25,6 @@
 [submodule "src/UE23CS351A/mini-project/MicroGrid"]
 	path = src/UE23CS351A/mini-project/MicroGrid
 	url = https://github.com/polarhive/MicroGrid
+[submodule "src/UE23CS342AA3/mini-project/IoT-MP"]
+	path = src/UE23CS342AA3/mini-project/IoT-MP
+	url = https://github.com/polarhive/IoT-MP
