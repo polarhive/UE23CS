@@ -24,6 +24,8 @@
 - [[OS]]: Operating Systems
 - [[LA]]: Linear Algebra
 
+---
+
 # sem-5
 
 - [[DBMS]]: Database Management System
@@ -31,3 +33,13 @@
 - [[SE]]: Software Engineering
 - [[IoT]]: Internet of Things
 - [[BD]]: Big Data
+
+# sem-6
+
+- [[CC]]: Cloud Computing
+- [[OOAD]]: Object Oriented Analysis and Design
+- [[CD]]: Compiler Design
+- [[BC]]: Blockchain
+- [[MARS]]: Mobile and Autonomous Robots
+
+---

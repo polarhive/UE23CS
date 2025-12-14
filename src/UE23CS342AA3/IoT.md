@@ -2,22 +2,22 @@
 
 # Intro to IoT
 
-The Internet of Things (IoT) refers to a network of physical devices, vehicles, appliances, and other physical objects that are embedded with sensors, software, and network connectivity, allowing them to collect and share data.
+A network of physical devices, vehicles, appliances, and other physical objects that are embedded with **sensors**, software, and network connectivity, allowing them to collect and share data.
 
-- Connectivity: The IoT relies on the ability of physical objects to connect to the internet. This is made possible by the use of low-power, wide-area networks (LPWANs) such as Sigfox, LoRaWAN, and NB-IoT.
-- Sensing: IoT devices are typically equipped with sensors that collect data about the environment. This data can be used to monitor conditions, track movement, and detect events.
-- Communication: IoT devices need to be able to communicate with each other and with the cloud. This is typically done using standard protocols such as MQTT, CoAP, and HTTP.
-- Analytics: The data collected by IoT devices can be analyzed to gain insights into the physical world. This data can be used to improve efficiency, optimize processes, and make better decisions.
+1.  **Connectivity**: The IoT relies on the ability of physical objects to connect to the internet. This is made possible by the use of low-power, wide-area networks (LPWANs) such as Sigfox, LoRaWAN, and NB-IoT.
+2.  **Sensing**: IoT devices are typically equipped with sensors that collect data about the environment. This data can be used to monitor conditions, track movement, and detect events.
+3. **Communication**: IoT devices need to be able to communicate with each other and with the cloud. This is typically done using standard protocols such as MQTT, CoAP, and HTTP.
+4. **Analytics**: The data collected by IoT devices can be analyzed to gain insights into the physical world. This data can be used to improve efficiency, optimize processes, and make better decisions.
 
 ## Connectivity
 
-Connectivity refers to the various communication technologies and protocols that enable Internet of Things (IoT) devices to connect, communicate, and exchange data with other devices, networks, or cloud platforms.
+Connectivity refers to the various communication technologies and protocols that enable devices to connect, communicate, and exchange data with other devices, networks, or cloud platforms.
 
 ![[Screenshot 2025-08-29 at 12.21.12.png]]
 
 ### What Is an IoT Gateway?
 
-An IoT Gateway is a hardware or software interface that sits between IoT devices (like sensors, wearables, or home appliances) and the cloud or data center. - It collects, processes, and transmits data from these local devices to the internet.
+An IoT Gateway is a hardware or software interface that sits between IoT devices (like sensors, wearables, or home appliances) and the cloud or data center. It collects, processes, and transmits data from these local devices to the internet.
 
 ### Benefits of IoT-Driven Digitization
 
@@ -44,8 +44,8 @@ Predictive maintenance (using vibration and thermal sensors) - Asset tracking an
 
 A smart city is an urban area where technology and data collection help improve quality of life as well as the sustainability and efficiency of city operations. - Smart city technologies used by local governments include information and communication technologies (ICT) and the Internet of Things (IoT)
 
-- Smart Governance: Gati Shakti is India’s National Master Plan for multimodal connectivity and integrated infrastructure planning. It creates a central digital platform to bring together planning data from multiple ministries and states so projects are planned and executed in a coordinated way (roads, rail, ports, airports, waterways, power, telecom, etc.). IoT- backed decision-making for urban planning
-- Smart Mobility & Traffic Management: Adaptive traffic signals based on real-time congestion data - Smart parking systems guiding drivers to available slots - GPS-enabled public transport tracking Smart Environment - Air and noise pollution sensors - Real-time water and waste management monitoring - Weather and climate sensors for disaster forecasting
+- Smart **Governance**: Gati Shakti is India’s National Master Plan for multimodal connectivity and integrated infrastructure planning. It creates a central digital platform to bring together planning data from multiple ministries and states so projects are planned and executed in a coordinated way (roads, rail, ports, airports, waterways, power, telecom, etc.). IoT- backed decision-making for urban planning
+- Smart **Mobility** & Traffic Management: Adaptive traffic signals based on real-time congestion data - Smart parking systems guiding drivers to available slots - GPS-enabled public transport tracking Smart Environment - Air and noise pollution sensors - Real-time water and waste management monitoring - Weather and climate sensors for disaster forecasting
 
 > Examples: Barcelona (Spain): Smart parking, waste management, adaptive lighting Singapore: National Smart Nation project – citizen dashboards, predictive healthcare Bhopal (India): Smart poles, integrated command control center (ICCC) - Amsterdam (Netherlands): IoT-driven environmental monitoring and transport systems
 
@@ -53,7 +53,7 @@ A smart city is an urban area where technology and data collection help improve 
 
 refers to the integration of IoT devices and systems into healthcare services to enable real-time patient monitoring, predictive diagnostics, equipment maintenance, and enhanced operational efficiency. - Remote Patient Monitoring (RPM) is a subdomain where wearable and in-home IoT devices track a patient’s health continuously, allowing for early intervention without hospitalization.
 
-### what is a Smart Farm?
+### What is a Smart Farm?
 
 - Smart farming refers to managing farms using modern Information and communication technologies to increase the quantity and quality of products while optimizing the human labor required. - Among the technologies available for present-day farmers are: - Sensors: soil, water, light, humidity, temperature management - Software: specialized software solutions that target specific farm types or applications agnostic IoT platforms - Connectivity: cellular, LoRa - Location: GPS, Satellite - Robotics: Autonomous tractors, processing facilities - Data analytics: standalone analytics solutions, data pipelines for downstream solutions
 
@@ -87,9 +87,11 @@ IoT devices rely heavily on continuous, stable internet or wireless connectivity
 
 # IoT Architecture
 
-- IoT architecture is the structure enabling internet-connected devices to communicate with other devices. - IoT architecture refers to the many ways that IoT devices are structured to meet user needs. - Most IoT architecture models include 3 to 7 sets of functional components, or “layers”, such as perception (e.g., sensors), transport (e.g., Wi-Fi), and application (e.g., software) layers. - Notably, IoT architecture lacks standardized protocols, raising compatibility, security, and other challenges.
+- IoT architecture is the structure enabling internet-connected devices to communicate with other devices.
+- IoT architecture refers to the many ways that IoT devices are structured to meet user needs. - Most IoT architecture models include 3 to 7 sets of functional components, or “layers”, such as perception (e.g., sensors), transport (e.g., Wi-Fi), and application (e.g., software) layers.
+- Notably, IoT architecture lacks standardized protocols, raising compatibility, security, and other challenges.
 
-IoT Architectural Drivers - A driver is a core influencing factor or requirement that shapes the way an IoT system is designed and built. - These are not physical components but rather forces, goals, or constraints—technical, economic, or user-based—that push the architecture in a specific direction. - For example, if low latency is important, the architecture must include edge computing
+IoT Architectural Drivers: A driver is a core influencing factor or requirement that shapes the way an IoT system is designed and built. These are not physical components but rather forces, goals, or constraints technical, economic, or user-based—that push the architecture in a specific direction. For example, if low latency is important, the architecture must include edge computing
 
 ## Scalability
 
@@ -119,9 +121,13 @@ To achieve scalability, IoT architectures must include:
 
 ## Latency Sensitivity
 
-- Latency sensitivity refers to how critically a system or application is affected by delays in data transmission, processing, or response time. - In IoT, latency-sensitive applications require near-instantaneous reactions to sensor inputs or events. - In simpler terms, latency is the time taken for data to travel from a device to the server and back. If a delay causes functional failure, it’s latency-sensitive
+Latency sensitivity refers to how critically a system or application is affected by delays in data transmission, processing, or response time. In IoT, latency-sensitive applications require near-instantaneous reactions to sensor inputs or events. In simpler terms, latency is the time taken for data to travel from a device to the server and back. If a delay causes functional failure, it’s latency-sensitive
 
-Latency sensitivity shapes architecture significantly: 1. Edge Computing - Data is processed near the source (e.g., at the gateway or sensor). - Reduces dependency on distant cloud servers. - Enables real-time response even if cloud is unreachable. 2. Low-Latency Protocols - Prefer lightweight, fast protocols like MQTT, CoAP, or UDP over HTTP. - Minimize handshake overhead and data payload size. 3. Local Decision-Making - Use onboard ML models (TinyML) for immediate inference. - Example: A drone avoids obstacles using onboard logic, not cloud ML.
+Latency sensitivity shapes architecture significantly:
+
+1. Edge Computing - Data is processed near the source (e.g., at the gateway or sensor). - Reduces dependency on distant cloud servers. Enables real-time response even if cloud is unreachable.
+2. Low-Latency Protocols - Prefer lightweight, fast protocols like MQTT, CoAP, or UDP over HTTP. Minimize handshake overhead and data payload size.
+3. Local Decision-Making - Use onboard ML models (TinyML) for immediate inference. - Example: A drone avoids obstacles using onboard logic, not cloud ML.
 
 ## Types of Intelligence in IoT
 
@@ -129,13 +135,13 @@ Latency sensitivity shapes architecture significantly: 1. Edge Computing - Data 
 
 ### Architectural Components for Intelligence & Analytics
 
-- Data Ingestion Layer - Collects data from devices in real time - Tools: MQTT, Kafka, Azure IoT Hub, AWS IoT Core - Edge Analytics - Processing at the gateway or device level to reduce latency and data transmission - Tools: TensorFlow Lite, TinyML, NVIDIA Jetson - Data Lake / Storage Layer - Central repository for raw and processed data - Tools: AWS S3, Azure Data Lake, InfluxDB, Hadoop HDFS
+Data Ingestion Layer Collects data from devices in real time - Tools: MQTT, Kafka, Azure IoT Hub, AWS IoT Core - Edge Analytics - Processing at the gateway or device level to reduce latency and data transmission - Tools: TensorFlow Lite, TinyML, NVIDIA Jetson - Data Lake / Storage Layer - Central repository for raw and processed data - Tools: AWS S3, Azure Data Lake, InfluxDB, Hadoop HDFS
 
 Analytics Engine - Processes data to derive trends, alerts, predictions - Tools: Apache Spark, AWS Glue, Google BigQuery, Grafana, Power BI - AI/ML Engine - Runs models for predictive maintenance, anomaly detection, forecasting - Tools: Amazon SageMaker, Azure ML Studio, TensorFlow, PyTorch - Visualization & Dashboard Layer - Presents insights to users in charts, alerts, and reports - Tools: Grafana, Power BI, Kibana, Tableau.
 
 ## Security & Privacy
 
-Security in IoT refers to protecting devices, networks, and data from unauthorized access, attacks, tampering, and data breaches. - Privacy in IoT refers to protecting personal, sensitive, or identifiable information collected from devices against misuse, leakage, or unauthorized processing.
+Security in IoT refers to protecting devices, networks, and data from unauthorized access, attacks, tampering, and data breaches. Privacy in IoT refers to protecting personal, sensitive, or identifiable information collected from devices against misuse, leakage, or unauthorized processing.
 
 IoT environments are: - Highly distributed (millions of endpoints) - Resource-constrained (limited memory, compute, battery) - Often unattended (deployed in open/public spaces) - Always online (exposed to remote attacks) - One vulnerable device can compromise an entire system. - A hacked smart thermostat, for example, can be used to breach a home Wi-Fi network or take part in a DDoS attack (like the Mirai botnet incident in 2016)
 
@@ -143,7 +149,7 @@ IoT environments are: - Highly distributed (millions of endpoints) - Resource-co
 
 ## Interoperability & Standards in IoT Architecture
 
-- Interoperability in IoT refers to the ability of devices, platforms, applications, and systems from different vendors to work together seamlessly, exchange data, and operate as a unified system. - Standards are the agreed-upon technical rules, formats, and protocols that enable interoperability by ensuring consistency across devices and systems
+Interoperability in IoT refers to the ability of devices, platforms, applications, and systems from different vendors to work together seamlessly, exchange data, and operate as a unified system. - Standards are the agreed-upon technical rules, formats, and protocols that enable interoperability by ensuring consistency across devices and systems
 
 ![[Screenshot 2025-08-29 at 12.41.51.png]]
 
@@ -151,8 +157,7 @@ IoT environments are: - Highly distributed (millions of endpoints) - Resource-co
 
 # IoT Network Constraints
 
-- Bandwidth, latency, reliability or connectivity quality in the communication network used by IoT devices.
-- The networks are slow, intermittent and power hungry.
+Bandwidth, latency, reliability or connectivity quality in the communication network used by IoT devices. The networks are slow, intermittent and power hungry.
 
 ## Realtime Response
 
@@ -280,7 +285,7 @@ A global IoT standardization initiative that defines a common service layer arch
 > 	1. Interfaces with telecom networks (e.g., 3GPP, 5G, LTE).
 > 	2. Provides communication functions like authentication, mobility, QoS, billing
 
-> oneM2M defines a horizontal, layered architecture that sits between devices and applications.
+> Horizontal, layered architecture that sits between devices and applications.
 ![[Screenshot 2025-08-29 at 11.23.54.png]]
 
 > **Benefits of oneM2M**: Interoperability across vendors and platforms - Reusable common services (e.g., device mgmt, notifications) - Scalable architecture (device to cloud) - Built-in security (authentication, access control) - Modular and flexible design - Supports multiple industries - Globally standardized (backed by ETSI, TSDSI, etc.)
@@ -350,21 +355,21 @@ It standardizes the structure of IoT systems by defining a clear set of layers f
 
 ### Key Benefits of IoTWF Architecture
 
-Standardized, layered approach for complex systems - Cross-industry applicability (smart cities, manufacturing, energy, healthcare) - Separation of concerns improves security, maintainability, and scalability - Cross-cutting security and management ensures trustworthiness and robustness
+**Standardized**, layered approach for complex systems - Cross-industry applicability (smart cities, manufacturing, energy, healthcare) - Separation of concerns improves security, maintainability, and scalability - Cross-cutting security and management ensures trustworthiness and robustness
 
- IoTWF architecture is ideal for: - Large-scale industrial IoT systems - Smart infrastructure and smart cities - Multi-vendor deployments needing interoperability - Systems requiring centralized and distributed processing
+ IoTWF architecture is ideal for: Large-scale industrial IoT systems, Smart infrastructure and smart cities. Multi-vendor deployments needing interoperability. Systems requiring centralized and distributed processing
 
  ![[Screenshot 2025-08-29 at 11.35.02.png]]
 
 ---
 
-# Simplified IoT Architecture & The Core IoT Functional Stack
+# Simplified IoT Architecture & Core IoT Functional Stack
 
 The Core IoT Functional Stack is presented in three layers, allowing for better visibility into the functions of each layer.
 
-- Things (Sensors and Actuators): Physical devices that collect data (sensors) or interact with the environment (actuators).
-- Communications Network: Transfers data between devices, gateways, and cloud systems using technologies like LoRa, FAN, PLC, and IP-based transport.
-- Applications: End-user services and business logic that make use of IoT data (e.g., smart home apps, SCADA, MDM systems).
+- **Things** (Sensors and Actuators): Physical devices that collect data (sensors) or interact with the environment (actuators).
+- **Communications** Network: Transfers data between devices, gateways, and cloud systems using technologies like LoRa, FAN, PLC, and IP-based transport.
+- **Applications**: End-user services and business logic that make use of IoT data (e.g., smart home apps, SCADA, MDM systems).
 
 ## Things Layer
 
@@ -384,7 +389,7 @@ It refers to the specific layer inside a network that handles the transmission o
 
 ### The network transport sublayer
 
-Is responsible for ensuring successful communication by implementing network and transport layer protocols, such as IP and UDP. These protocols facilitate the connection of various devices and the use of different media. - The IoT network management sublayer: It requires the implementation of additional protocols to enable the transmission of data between the headend apps and the sensors. Some examples of communication protocols are CoAP and MQTT.
+Is responsible for ensuring successful communication by implementing network and transport layer protocols, such as IP and UDP. These protocols facilitate the connection of various devices and the use of different media. The IoT network management sublayer: It requires the implementation of additional protocols to enable the transmission of data between the headend apps and the sensors. Some examples of communication protocols are CoAP and MQTT.
 
 ## Application and Analytics Layer
 
@@ -398,9 +403,9 @@ Its role is not only to control the smart objects as needed, but also to make in
 
 This stack handles where and how data is processed and stored across the system:
 
-- Edge: Data is processed locally at or near the device to enable fast response (e.g., traffic control, industrial robots).
-- Fog: Acts as an intermediate layer (between edge and cloud), supporting localized storage and analytics closer to the source.
-- Cloud: Centralized computing and storage, suitable for complex analytics, dashboards, and long-term data management
+- **Edge**: Data is processed locally at or near the device to enable fast response (e.g., traffic control, industrial robots).
+- **Fog**: Acts as an intermediate layer (between edge and cloud), supporting localized storage and analytics closer to the source.
+- **Cloud**: Centralized computing and storage, suitable for complex analytics, dashboards, and long-term data management
 
 ## Edge Computing Layer
 
@@ -436,7 +441,7 @@ Physical devices that sense, process and communicate.
 
 - Sensors: Measure physical parameters
 - Actuators: Act on the env
-- Smart Objects:
+- Smart Objects
 
 ## Sensor
 
@@ -533,8 +538,6 @@ These networks are a critical component of the IoT ecosystem for applications li
 - Reliability & coverage – ensuring consistent data transmission in dynamic environments.
 - Scalability – supporting thousands of sensor nodes without congestion.
  - Security – lightweight encryption and authentication are critical due to limited resources.
- 
-
  ![[Screenshot 2025-09-12 at 11.09.59.png]]
 
 ---
@@ -630,11 +633,11 @@ The maximum physical distance over which a communication signal can be transmitt
 
 Importance: Determines the physical layout of devices. Affects the cost and topology of deployment (e.g., mesh vs star).
 
-> Example: • Zigbee: ~10–100 meters indoors. • LoRaWAN: Up to 10–15 km in rural areas.
+> Example: **Zigbee**: ~10–100 meters indoors. **LoRaWAN**: Up to 10–15 km in rural areas.
 
 ### Power Consumption
 
-The amount of electrical power a communication module uses during operation. Measured in milliwatts (mW) or joules per bit. Importance: • Critical for battery-powered and energy-harvesting IoT nodes. • High power usage = frequent charging or larger batteries. ☞ Example: • BLE: Low power for fitness bands. • Wi-Fi: High power, suited for plugged-in devices
+The amount of electrical power a communication module uses during operation. Measured in milliwatts (mW) or joules per bit. Importance: Critical for battery-powered and energy-harvesting IoT nodes. • High power usage = frequent charging or larger batteries. ☞ Example: • BLE: Low power for fitness bands. • Wi-Fi: High power, suited for plugged-in devices
 
 ### Scalability
 
@@ -647,3 +650,7 @@ The consistency and dependability of a communication channel to deliver messages
 ### Security
 
 Security includes confidentiality, integrity, and authentication of data and devices in communication. ☞ Importance: • IoT systems often handle sensitive data (e.g., medical, financial). • Wireless channels are more vulnerable to eavesdropping and attacks. ☞ Example: • HTTPS over Wi-Fi. • AES encryption in Zigbee/LoRaWAN.
+
+---
+
+> [[iot-short-esa]]
