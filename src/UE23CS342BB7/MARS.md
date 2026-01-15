@@ -20,19 +20,19 @@
 
 # Course Content
 
-> **U1**: [[U1_Robotics_Locomotion|Introduction to Robotics and Locomotion:]]:
+> **U1**: [[U1_Robotics_Locomotion|Introduction to Robotics and Locomotion:]]
 
 Robotics overview: Past, Present and Future; Robot Hardware and Software. AI in Robotics: Machine Learning Basics for Robotics. Locomotion: The basics of SOTA locomotion systems, Legged Robots, Wheeled Robots, Aerial Robots. Robot Kinematics, ROS overview: ROS/ROS2 for robotics, ROS architecture and communication protocols, ROS packages for robot hardware control.
 
-> **U2**: [[U2_Perception|Perception]]:
+> **U2**: [[U2_Perception|Perception]]
 
 Introduction to Perception, Sensors for Robots, Visual and inertial measurements: Gyroscope, accelerometers, IMU, GPS, Range sensors, camera vision and LiDAR.Fundamentals of Computer Vision and Image Processing and filtering, Feature Extraction: Object detection and Place Recognition, Stereo vision and 3D perception, Feature Extraction Based on Range Data (Laser, Ultrasonic)
 
-> **U3**: [[U3_Localization|Localization]]:
+> **U3**: [[U3_Localization|Localization]]
 
 Introduction and Challenges of Localization, To Localize or Not to Localize, Belief Representation, Map representation, Probabilistic Map-Based Localization: Markov localization, Kalman Filter localization, Autonomous Map Building: SLAM, EKF SLAM, Particle filter SLAM, GraphSLAM, Open challenges in SLAM.
 
-> **U4**: [[U4_Planning_Navigation|Planning and Navigation]]:
+> **U4**: [[U4_Planning_Navigation|Planning and Navigation]]
 
 Introduction Path Planning and Navigation, Path planning: Graph search and Potential field path planning. Obstacle avoidance: Bug algorithm, Vector field histogram, bubble band technique, Curvature velocity techniques, Dynamic window approaches. Navigation Architectures. Revisiting Navigation using Reinforcement Learning and Imitation learning: A Robotics Perspective, Applications and Social Implications.
 

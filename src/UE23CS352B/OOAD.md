@@ -18,18 +18,18 @@
 
 # Course Content
 
-> **U1**: [[U1_Static_Models|Advanced OOA, Static Models]]:
+> **U1**: [[U1_Static_Models|Advanced OOA, Static Models]]
 
 Advanced OO, Object Oriented Analysis and Static Models and Diagrams OOA: Requirements, Modelling and Analysis, Introduction to UML, Use Case Modelling: Use Cases Diagrams. Class Modelling: UML Class Diagrams, OO relationships, CRC Diagrams, Component model, Deployment model, Activity Modelling: UML Activity Diagrams and Modelling, Guidelines. Behaviour Modelling: Sequence Diagram,UML State Machine Diagrams and Models, Advanced State Models
 
-> **U2**: [[U2_OOPs|Object Oriented Programming]]:
+> **U2**: [[U2_OOPs|Object Oriented Programming]]
 
 Object Orientated Programming and Architecture design Object-oriented Programming: JVM, Abstraction, Encapsulation, Composition, Class Attributes, Behaviour, Objects, and Methods. Interface and Implementation: Role of Constructors and Destructors, Garbage Collector,Parameter Passing, Value Type and Reference Type, Overloading of Methods, Class Attributes and Behaviour: Difference between Class Methods and Instance Methods, Inheritance: Concepts of Single Rooted Hierarchy and Interface, Abstract Class in Programming Languages, Object Class in Java, Collection, Array, List and Stack; OO Development process, System Design and Frameworks, Architectural patterns, MVC architectural pattern
 
-> **U3**: [[U3_Design_Principles|Design Principles]]:
+> **U3**: [[U3_Design_Principles|Design Principles]]
 
 GRASP and its application to Object Design, Creator, Information Expert, Low Coupling, Controller, High Cohesion, Polymorphism, Pure Fabrication, Indirection and Protected Variations. SOLID: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion OO Design Principles and Sample Implementation of Patterns in Java. Introduction to Design Patterns, selection and usage of a design pattern, Creational Design Patterns Theory and Implementation in Java: Singleton, Factory, Builder and Prototype.
 
-> **U4**: [[U4_Design_Patterns|Object Oriented Design Patterns]]:
+> **U4**: [[U4_Design_Patterns|Object Oriented Design Patterns]]
 
 OO Design Patterns & Anti-Patterns Structural Patterns – Adapter, Façade, Proxy and Flyweight Behavioral Patterns – Chain of Responsibilities, Command, Interpreter, Iterator. Anti-patterns – Introduction and classification, Project Management, Architecture and Development anti-patterns (1 anti-patterns of each type)

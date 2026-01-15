@@ -18,15 +18,15 @@
 
 # Course Content
 
-> **U1**: [[U1_Lexical_Analysis|Compilers: Introduction, Lexical Analysis, Top-down Parsers]]:
+> **U1**: [[U1_Lexical_Analysis|Compilers: Introduction, Lexical Analysis, Top-down Parsers]]
 
 The Language Processing System, The Phases of a Compiler, The Grouping of Phases into Passes. Lexical Analysis: The Role of the Lexical Analyzer, Input Buffering, Specification of Tokens, Recognition of Tokens, Design of a Lexical Analyzer Generator. The role of the parser, Syntax Error Handling, and Error-Recovery Strategies. Top-down parsing: LL (1) Parser.
 
-> **U2**: [[U2_Syntax_Analysis|Syntax Analysis: Bottom-up Parsers, Syntax-Directed Translation]]:
+> **U2**: [[U2_Syntax_Analysis|Syntax Analysis: Bottom-up Parsers, Syntax-Directed Translation]]
 
 Bottom-up parsing: Shift-Reduce Parsing, viable prefixes, CLR, LALR, Error recovery for Bottom- up parsers Syntax- directed definitions, Evaluation orders for SDD‟s: S-attributed SDD, L-attributed SDD.
 
-> **U3**: [[U3_IR_Generation|Implementation of Syntax Directed Translation Schemes and Intermediate Code Generation]]:
+> **U3**: [[U3_IR_Generation|Implementation of Syntax Directed Translation Schemes and Intermediate Code Generation]]
 
 Applications of Syntax-Directed Translation - SDD for Syntax Trees, Expressions, Basic Types and flow control statements, Type Checking, Syntax-directed Translation Schemes – Parser Stack Implementation of Postfix SDT's, SDT's with actions inside Productions, SDT's for L-Attributed Definitions. Implementing L-Attributed SDD‟s: Bottom-Up Parsing. Variants ofSyntax Trees – Directed Acyclic Graphs for Expressions, Three-Address Code – Addresses and Instructions, Quadruples, Triples, Indirect Triples, SSA Form, Control Flow Graph.
 

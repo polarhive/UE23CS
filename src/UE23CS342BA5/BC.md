@@ -18,19 +18,19 @@
 
 # Course Content
 
-> **U1**: [[U1_Dataflow_Integrity|Introduction and Data flow and Integrity]]:
+> **U1**: [[U1_Dataflow_Integrity|Introduction and Data flow and Integrity]]
 
 Key Blockchain Concepts, Nodes, Cryptocurrency, tokens, Public Ledger, Peer to peerNetwork,Types of Blockchain, Permissioned Blockchain model, Permission-less Blockchain model, Demonstration of Blockchain Construction steps, Demonstration of ether scan and Goerli/Sepoliaetherscan. Types of cryptography, Digital signatures, Hash functions, SHA-256, Patterns of hashing, Hash Pointer, Merkle tree. Case study: Bitcoin Blockchain Network, Creation of metamask wallets and performing transaction
 
-> **U2**: [[U2_Consensus|Consensus Algorithm]]:
+> **U2**: [[U2_Consensus|Consensus Algorithm]]
 
 Introduction to distributed consensus: What, why, Challenges, Proof of Work, Proof of Stake, Delegated Proof of Stake, Proof of Authority, Proof of Elapsed Time, Proof of Scope, Proof of Space, Proof of Burn, RAFT, PAXOS, Byzantine Fault Tolerance System, PBFT. Smart contracts: origins and how they function, Creating and deploying smart contracts. Decentralized applications, Decentralized Autonomous Organizations (DAOs)- Need, Principal agent dilemma, components, The DAO Story, Legality of DAPPs and DAOs
 
-> **U3**: [[U3_Solidity|Solidity]]:
+> **U3**: [[U3_Solidity|Solidity]]
 
 Solidity: Variable, Functions, Arrays/Strings, enum/structs, mapping, function visibility - public, private, internal, external,modifiers, view, pure, fallback, overloading, in-built mathematical and cryptography functions, Withdrawal pattern, Restricted Access, ether units. Any real-world problem hands-on
 
-> **U4**: [[U4_Blockchain_Security|Blockchain Security]]:
+> **U4**: [[U4_Blockchain_Security|Blockchain Security]]
 
 Fabric model, Creation of a simple DAPP. Blockchain vulnerabilities, Smart contract vulnerabilities, Blockchain onCIA security triad, Blockchain based DNS security platform, deploying blockchain based DDOS protection. Use cases: Public Sector, Finance, Supply Chain. Research Aspects in Blockchain
 
