@@ -24,7 +24,7 @@ The Language Processing System, The Phases of a Compiler, The Grouping of Phases
 
 > **U2**: [[U2_Syntax_Analysis|Syntax Analysis: Bottom-up Parsers, Syntax-Directed Translation]]
 
-Bottom-up parsing: Shift-Reduce Parsing, viable prefixes, CLR, LALR, Error recovery for Bottom- up parsers Syntax- directed definitions, Evaluation orders for SDD‟s: S-attributed SDD, L-attributed SDD.
+Bottom-up parsing: Shift-Reduce Parsing, viable prefixes, CLR, LALR, Error recovery for Bottom- up parsers Syntax-directed definitions, Evaluation orders for SDD‟s: S-attributed SDD, L-attributed SDD.
 
 > **U3**: [[U3_IR_Generation|Implementation of Syntax Directed Translation Schemes and Intermediate Code Generation]]
 
