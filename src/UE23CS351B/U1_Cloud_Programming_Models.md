@@ -118,13 +118,13 @@ REST is an architectural style for networked applications based on specific mand
 
 ### Comparison: RabbitMQ vs. Kafka
 
-|Aspect|RabbitMQ|Apache Kafka|
-|:--|:--|:--|
-|**Primary Use**|Task-based communication|Distributed event-streaming|
-|**Architecture**|Logically centralized broker|Distributed cluster of brokers|
-|**Throughput**|Moderate|Very High|
-|**Message Lifetime**|Short-lived|Long-lived (persistent)|
-|**Replay Data**|No|Yes|
+| Aspect               | RabbitMQ                     | Apache Kafka                   |
+| :------------------- | :--------------------------- | :----------------------------- |
+| **Primary Use**      | Task-based communication     | Distributed event-streaming    |
+| **Architecture**     | Logically centralized broker | Distributed cluster of brokers |
+| **Throughput**       | Moderate                     | Very High                      |
+| **Message Lifetime** | Short-lived                  | Long-lived (persistent)        |
+| **Replay Data**      | No                           | Yes                            |
 
 ---
 
@@ -158,3 +158,7 @@ Moving from one monolithic database to a "database per service" requires address
 
 - **Problem**: Microservices cannot use traditional ACID locks across multiple databases.
 - **Solution**: **Saga Transactions** use a sequence of local transactions; if one fails, **compensating transactions** are executed to undo the preceding steps.
+
+---
+
+[[U2_Virtualization]]

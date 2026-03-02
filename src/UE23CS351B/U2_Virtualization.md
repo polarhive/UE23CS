@@ -4,7 +4,7 @@ This unit covers the evolution and technical implementation of virtualization, r
 
 ## 1. Virtualization Fundamentals and Types
 
-Virtualization abstracts physical resources into logical views to increase infrastructure utilization and management efficiency [Slide 1, Unit 2 Intro].
+Virtualization abstracts physical resources into logical views to increase infrastructure utilization and management efficiency.
 
 - **Transparent (Full) Virtualization:** The hypervisor translates CPU instructions of the guest OS on the fly so it can run **unmodified**. This provides an environment identical to the original hardware, allowing the guest OS to be "unaware" it is virtualized. VMWare Workstation is a common example.
 - **Paravirtualization:** This involves rewriting the guest OS code to replace non-virtualizable instructions with **hypercalls**. While more efficient than binary translation, it requires a **modified guest OS** that is aware of the hypervisor. **Xen** is a primary example of this architecture.
