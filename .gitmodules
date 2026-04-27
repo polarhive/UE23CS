@@ -28,3 +28,15 @@
 [submodule "src/UE23CS342AA3/mini-project/IoT-MP"]
 	path = src/UE23CS342AA3/mini-project/IoT-MP
 	url = https://github.com/polarhive/IoT-MP
+[submodule "src/UE23CS352B/mini-project/MicroGrid"]
+	path = src/UE23CS352B/mini-project/MicroGrid
+	url = https://github.com/jeelnadaa/MicroGrid
+[submodule "src/UE23CS351B/mini-project/craft"]
+	path = src/UE23CS351B/mini-project/craft
+	url = https://github.com/polarhive/craft
+[submodule "src/UE23CS342BB7/mini-project/drone_nav_ws"]
+	path = src/UE23CS342BB7/mini-project/drone_nav_ws
+	url = https://github.com/amateurmonke/drone_nav_ws
+[submodule "src/UE23CS342BA5/mini-project/foodcoin"]
+	path = src/UE23CS342BA5/mini-project/foodcoin
+	url = https://github.com/polarhive/foodcoin
