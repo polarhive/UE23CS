@@ -949,26 +949,26 @@
 > **Use Cases & Relationships:**
 > ```mermaid
 > flowchart LR
->     P(("👤 Passenger"))
->     B(("👤 Bank"))
->     A(("👤 Admin"))
->     Login(Login)
->     CAT(Check Available Trains)
->     BT(Book Ticket)
->     SS(Select Seat)
->     MP(Make Payment)
->     VP(Validate Payment)
->     CT(Cancel Ticket)
->     VH(View Booking History)
->     PC(Process Cancellation)
->     UT(Update Train Info)
->     MU(Manage Users)
->     P --> Login & CAT & BT & CT & VH
->     B --> VP
->     A --> PC & UT & MU
->     BT -- "<<include>>" --> MP
->     BT -- "<<extend>>" --> SS
->     MP -- "<<include>>" --> VP
+>  P(("Passenger"))
+>  B(("Bank"))
+>  A(("Admin"))
+>  Login(Login)
+>  CAT(Check Available Trains)
+>  BT(Book Ticket)
+>  SS(Select Seat)
+>  MP(Make Payment)
+>  VP(Validate Payment)
+>  CT(Cancel Ticket)
+>  VH(View Booking History)
+>  PC(Process Cancellation)
+>  UT(Update Train Info)
+>  MU(Manage Users)
+>  P --> Login & CAT & BT & CT & VH
+>  B --> VP
+>  A --> PC & UT & MU
+>  BT -- "<<include>>" --> MP
+>  BT -- "<<extend>>" --> SS
+>  MP -- "<<include>>" --> VP
 > ```
 > **Key relationships:**
 > - `Book Ticket` **<<include>>** `Make Payment` (always required)
@@ -1011,25 +1011,25 @@
 >
 > ```mermaid
 > flowchart LR
->     Applicant(("👤 Applicant"))
->     PA(("👤 Passport Admin"))
->     RA(("👤 Regional Admin"))
->     Police(("👤 Police"))
->     L(Login)
->     SA(Submit Application)
->     ECNR(Apply for ECNR)
->     VA(Verify Application)
->     PE(Process ECNR)
->     AA(Approve Application)
->     PV(Police Verification)
->     IP(Issue Passport)
->     Applicant --> L & SA
->     ECNR -- "<<extend>>" --> SA
->     PA --> VA & PE
->     RA --> AA
->     Police --> PV
->     IP -- "<<include>>" --> AA
->     IP -- "<<include>>" --> PV
+>  Applicant(("Applicant"))
+>  PA(("Passport Admin"))
+>  RA(("Regional Admin"))
+>  Police(("Police"))
+>  L(Login)
+>  SA(Submit Application)
+>  ECNR(Apply for ECNR)
+>  VA(Verify Application)
+>  PE(Process ECNR)
+>  AA(Approve Application)
+>  PV(Police Verification)
+>  IP(Issue Passport)
+>  Applicant --> L & SA
+>  ECNR -- "<<extend>>" --> SA
+>  PA --> VA & PE
+>  RA --> AA
+>  Police --> PV
+>  IP -- "<<include>>" --> AA
+>  IP -- "<<include>>" --> PV
 > ```
 
 ---
@@ -1045,19 +1045,19 @@
 > **Use Cases:**
 > ```mermaid
 > flowchart LR
->     C(("👤 Customer"))
->     B(("👤 Bank"))
->     A(("👤 Admin"))
->     L(Login) CSM(Check Streaming) CUM(Check Upcoming)
->     BT(Book Ticket) MP(Make Payment) CS(Choose Seat)
->     VP(Validate Payment) CT(Cancel Ticket) PR(Provide Review)
->     PC(Process Cancellation) UM(Update Movie Info)
->     C --> L & CSM & CUM & BT & CT & PR
->     A --> PC & UM
->     B --> VP
->     BT -- "<<include>>" --> MP
->     BT -- "<<extend>>" --> CS
->     MP -- "<<include>>" --> VP
+>  C(("Customer"))
+>  B(("Bank"))
+>  A(("Admin"))
+>  L(Login) CSM(Check Streaming) CUM(Check Upcoming)
+>  BT(Book Ticket) MP(Make Payment) CS(Choose Seat)
+>  VP(Validate Payment) CT(Cancel Ticket) PR(Provide Review)
+>  PC(Process Cancellation) UM(Update Movie Info)
+>  C --> L & CSM & CUM & BT & CT & PR
+>  A --> PC & UM
+>  B --> VP
+>  BT -- "<<include>>" --> MP
+>  BT -- "<<extend>>" --> CS
+>  MP -- "<<include>>" --> VP
 > ```
 > - `Book Ticket` **<<include>>** `Make Payment` (mandatory)
 > - `Book Ticket` **<<extend>>** `Choose Seat` (optional)
@@ -1076,21 +1076,21 @@
 > **Use Cases:**
 > ```mermaid
 > flowchart LR
->     C(("👤 Customer"))
->     BS(("👤 Bank Server"))
->     Auth(Authenticate)
->     CB(Check Balance)
->     WC(Withdraw Cash)
->     DC(Deposit Cash)
->     TF(Transfer Funds)
->     CP(Change PIN)
->     PMS(Print Mini Statement)
->     VA(Validate Account)
->     AT(Authorize Transaction)
->     UB(Update Balance)
->     C --> CB & WC & DC & TF & CP & PMS
->     BS --> VA & AT & UB
->     WC & DC & TF & CP -- "<<include>>" --> Auth
+>  C(("Customer"))
+>  BS(("Bank Server"))
+>  Auth(Authenticate)
+>  CB(Check Balance)
+>  WC(Withdraw Cash)
+>  DC(Deposit Cash)
+>  TF(Transfer Funds)
+>  CP(Change PIN)
+>  PMS(Print Mini Statement)
+>  VA(Validate Account)
+>  AT(Authorize Transaction)
+>  UB(Update Balance)
+>  C --> CB & WC & DC & TF & CP & PMS
+>  BS --> VA & AT & UB
+>  WC & DC & TF & CP -- "<<include>>" --> Auth
 > ```
 > **Relationships:**
 > - All transactions **<<include>>** `Authenticate` (PIN entry is always required)
@@ -1166,19 +1166,19 @@
 > **Example (Online Purchase):**
 > ```mermaid
 > flowchart LR
->     Start([●]) --> AC["Add to Cart"] --> PO["Place Order"]
->     PO --> D{Payment OK?}
->     D -- Yes --> CO["Confirm Order"] --> Stop1([◎])
->     D -- No --> CN["Cancel Order"] --> Stop2([◎])
+>  Start([●]) --> AC["Add to Cart"] --> PO["Place Order"]
+>  PO --> D{Payment OK?}
+>  D -- Yes --> CO["Confirm Order"] --> Stop1([◎])
+>  D -- No --> CN["Cancel Order"] --> Stop2([◎])
 > ```
 > **Fork/Join (parallel) example:**
 > ```mermaid
 > flowchart LR
->     Fork(("Fork")) --> PP["Process Payment"]
->     Fork --> NC["Notify Customer"]
->     PP --> Join(("Join"))
->     NC --> Join
->     Join --> SO["Ship Order"]
+>  Fork(("Fork")) --> PP["Process Payment"]
+>  Fork --> NC["Notify Customer"]
+>  PP --> Join(("Join"))
+>  NC --> Join
+>  Join --> SO["Ship Order"]
 > ```
 
 ---
@@ -1330,31 +1330,31 @@
 > **Via Net Bank System — Key Classes and Attributes:**
 > ```mermaid
 > classDiagram
->     class Customer {
->         -int customerId
->         -String name
->         -String address
->         +login()
->         +viewBalance()
->         +getStatement()
->     }
->     class Account {
->         -int accountNo
->         -double balance
->         -String type
->         +deposit()
->         +withdraw()
->         +getBalance()
->     }
->     class Transaction {
->         -int txnId
->         -double amount
->         -Date date
->         -String type
->         +process()
->     }
->     Customer "1" --> "*" Account : owns
->     Account "1" --> "*" Transaction : has
+>  class Customer {
+>  -int customerId
+>  -String name
+>  -String address
+>  +login()
+>  +viewBalance()
+>  +getStatement()
+>  }
+>  class Account {
+>  -int accountNo
+>  -double balance
+>  -String type
+>  +deposit()
+>  +withdraw()
+>  +getBalance()
+>  }
+>  class Transaction {
+>  -int txnId
+>  -double amount
+>  -Date date
+>  -String type
+>  +process()
+>  }
+>  Customer "1" --> "*" Account : owns
+>  Account "1" --> "*" Transaction : has
 > ```
 
 ---
@@ -1392,24 +1392,24 @@
 > **Classes and Attributes:**
 > ```mermaid
 > classDiagram
->     class Department { +String name; +String code }
->     class Session { +String name; +Date startDate; +Date endDate }
->     class Semester { +int number; +int year }
->     class Section { +String sectionId }
->     class Student { +String srn; +String name; +Date dob }
->     class Course { +String courseId; +String name; +int credits; +boolean isElective }
->     class Enrolment { +int attendance; +int ISAMarks; +int ESAMarks; +String grade }
->     class Teacher { +String empId; +String name }
->     Department "1" --> "*" Session : manages
->     Session "1" --> "*" Semester : has
->     Semester "1" --> "*" Course : offers
->     Semester "1" --> "*" Section : has
->     Section "1" --> "60..*" Student : has
->     Student "*" --> "5" Course : via Enrolment
->     Enrolment .. Student
->     Enrolment .. Course
->     Teacher "*" --> "1" Section : assignedTo
->     Teacher "0..1" --> "1" Section : classTeacher
+>  class Department { +String name; +String code }
+>  class Session { +String name; +Date startDate; +Date endDate }
+>  class Semester { +int number; +int year }
+>  class Section { +String sectionId }
+>  class Student { +String srn; +String name; +Date dob }
+>  class Course { +String courseId; +String name; +int credits; +boolean isElective }
+>  class Enrolment { +int attendance; +int ISAMarks; +int ESAMarks; +String grade }
+>  class Teacher { +String empId; +String name }
+>  Department "1" --> "*" Session : manages
+>  Session "1" --> "*" Semester : has
+>  Semester "1" --> "*" Course : offers
+>  Semester "1" --> "*" Section : has
+>  Section "1" --> "60..*" Student : has
+>  Student "*" --> "5" Course : via Enrolment
+>  Enrolment .. Student
+>  Enrolment .. Course
+>  Teacher "*" --> "1" Section : assignedTo
+>  Teacher "0..1" --> "1" Section : classTeacher
 > ```
 >
 > **Key multiplicities:**
@@ -1458,21 +1458,21 @@ i) Student–Faculty Advisor scenario. ii) Order–Item with total computation.
 >
 > ```mermaid
 > classDiagram
->     class FacultyAdvisor {
->         +String empId
->         +String name
->         +String designation
->     }
->     class Student {
->         +String srn
->         +String name
->         +int semester
->     }
->     class Dean
->     class Chairperson
->     FacultyAdvisor <|-- Dean
->     FacultyAdvisor <|-- Chairperson
->     FacultyAdvisor "1" --> "25..*" Student : advises
+>  class FacultyAdvisor {
+>  +String empId
+>  +String name
+>  +String designation
+>  }
+>  class Student {
+>  +String srn
+>  +String name
+>  +int semester
+>  }
+>  class Dean
+>  class Chairperson
+>  FacultyAdvisor <|-- Dean
+>  FacultyAdvisor <|-- Chairperson
+>  FacultyAdvisor "1" --> "25..*" Student : advises
 > ```
 > Note: Deans and Chairpersons (subclasses of FacultyAdvisor) have multiplicity 0 on the advises relationship — captured as a constraint or using generalization with an override.
 >
@@ -1481,18 +1481,18 @@ i) Student–Faculty Advisor scenario. ii) Order–Item with total computation.
 >
 > ```mermaid
 > classDiagram
->     class Order {
->         +String orderId
->         +double totalAmount
->     }
->     class Item {
->         +String itemId
->         +int quantity
->         +double price
->         +double subTotal
->     }
->     Order "1" *-- "1..*" Item : composition
->     note for Order "totalAmount = Σ(item.quantity × item.price)"
+>  class Order {
+>  +String orderId
+>  +double totalAmount
+>  }
+>  class Item {
+>  +String itemId
+>  +int quantity
+>  +double price
+>  +double subTotal
+>  }
+>  Order "1" *-- "1..*" Item : composition
+>  note for Order "totalAmount = Σ(item.quantity × item.price)"
 > ```
 > Composition (◆) because Items cannot exist without the Order; `/totalAmount` is a derived attribute.
 
@@ -1561,39 +1561,21 @@ i) Student–Faculty Advisor scenario. ii) Order–Item with total computation.
 >
 > ```mermaid
 > flowchart LR
->     subgraph ATM["ATM System"]
->         CR["⬜ CardReader
-
-«component»"]
-
->         AM["⬜ AuthenticationMgr
-
-«component»"]
-
->         TM["⬜ TransactionMgr
-
-«component»"]
-
->         CD["⬜ CashDispenser
-
-«component»"]
-
->         RP["⬜ ReceiptPrinter
-
-«component»"]
-
->         NI["⬜ NetworkInterface
-
-«component»"]
-
->     end
->     BS[("🏦 Bank Server")]
->     CR -->|ICardReader| AM
->     AM -->|IAuthenticate| TM
->     TM -->|IDispense| CD
->     TM -->|IPrint| RP
->     NI -->|IBankNetwork| BS
->     TM --> NI
+>  subgraph ATM["ATM System"]
+>  CR["⬜ CardReader<br/>«component»"]
+>  AM["⬜ AuthenticationMgr<br/>«component»"]
+>  TM["⬜ TransactionMgr<br/>«component»"]
+>  CD["⬜ CashDispenser<br/>«component»"]
+>  RP["⬜ ReceiptPrinter<br/>«component»"]
+>  NI["⬜ NetworkInterface<br/>«component»"]
+>  end
+>  BS[("Bank Server")]
+>  CR -->|ICardReader| AM
+>  AM -->|IAuthenticate| TM
+>  TM -->|IDispense| CD
+>  TM -->|IPrint| RP
+>  NI -->|IBankNetwork| BS
+>  TM --> NI
 > ```
 >
 > **Components:** CardReader, AuthenticationManager, TransactionManager, CashDispenser, ReceiptPrinter, NetworkInterface (connects to central bank server)
@@ -1621,15 +1603,9 @@ i) Student–Faculty Advisor scenario. ii) Order–Item with total computation.
 > **Example (Web Application):**
 > ```mermaid
 > flowchart LR
->     Browser["🌐 Browser"] -- "<<use>>" --> WS["⬜ WebServer
-
-«component»"]
-
->     WS -- "IDatabase (required)" --> DB["⬜ Database
-
-«component»"]
-
->     WS -. "IHttpRequest (provided)" .- Browser
+>  Browser["Browser"] -- "<<use>>" --> WS["⬜WebServer - «component»"]
+>  WS -- "IDatabase (required)" --> DB["⬜Database - «component»"]
+>  WS -. "IHttpRequest (provided)" .- Browser
 > ```
 
 ---
@@ -1657,30 +1633,18 @@ i) Student–Faculty Advisor scenario. ii) Order–Item with total computation.
 > **Example (3-tier Web Application):**
 > ```mermaid
 > flowchart LR
->     subgraph CN["🖥 Client Node"]
->         A1["«artifact»
-
-index.html"]
-
->     end
->     subgraph AS["🖥 App Server (Tomcat)"]
->         A2["«artifact»
-
-webapp.war"]
-
->         A3["«artifact»
-
-api.jar"]
-
->     end
->     subgraph DB["🖥 DB Server (MySQL)"]
->         A4["«artifact»
-
-schema.sql"]
-
->     end
->     CN -- "HTTP" --> AS
->     AS -- "JDBC" --> DB
+>  subgraph CN["Client Node"]
+>  A1["«artifact»<br/>index.html"]
+>  end
+>  subgraph AS["App Server (Tomcat)"]
+>  A2["«artifact»<br/>webapp.war"]
+>  A3["«artifact»<br/>api.jar"]
+>  end
+>  subgraph DB["DB Server (MySQL)"]
+>  A4["«artifact»<br/>schema.sql"]
+>  end
+>  CN -- "HTTP" --> AS
+>  AS -- "JDBC" --> DB
 > ```
 
 ---
@@ -1702,18 +1666,18 @@ schema.sql"]
 > **Activity Diagram (Login):**
 > ```mermaid
 > flowchart TD
->     Start([●]) --> Enter["Enter Username & Password"]
->     Enter --> Validate["Validate Credentials"]
->     Validate --> Valid{Credentials Valid?}
->     Valid -- Yes --> Session["Create Session"]
->     Valid -- No --> Attempt["Increment Attempt Count"]
->     Session --> Dashboard["Redirect to Dashboard"]
->     Attempt --> Max{Max Attempts?}
->     Max -- Yes --> Lock["Lock Account"]
->     Max -- No --> Error["Show Error Message"]
->     Error --> Enter
->     Dashboard --> Stop([◎])
->     Lock --> Stop
+>  Start([●]) --> Enter["Enter Username & Password"]
+>  Enter --> Validate["Validate Credentials"]
+>  Validate --> Valid{Credentials Valid?}
+>  Valid -- Yes --> Session["Create Session"]
+>  Valid -- No --> Attempt["Increment Attempt Count"]
+>  Session --> Dashboard["Redirect to Dashboard"]
+>  Attempt --> Max{Max Attempts?}
+>  Max -- Yes --> Lock["Lock Account"]
+>  Max -- No --> Error["Show Error Message"]
+>  Error --> Enter
+>  Dashboard --> Stop([◎])
+>  Lock --> Stop
 > ```
 >
 > **Activities:** Enter Credentials, Validate Credentials, Create Session, Increment Attempt, Lock Account, Redirect to Dashboard, Show Error Message
@@ -1730,14 +1694,14 @@ schema.sql"]
 >
 > ```mermaid
 > flowchart TD
->     Start([●]) --> Nav["Navigate to Login Page"]
->     Nav --> Enter["Enter Username & Password"]
->     Enter --> Val{Credentials Valid?}
->     Val -- Yes --> Sess["Create Session"] --> Dash["Display Dashboard"]
->     Val -- No --> Err["Show Error"] --> Enter
->     Dash --> Logout["Click Logout"]
->     Logout --> Inv["Invalidate Session"] --> Nav
->     Inv --> Stop([◎])
+>  Start([●]) --> Nav["Navigate to Login Page"]
+>  Nav --> Enter["Enter Username & Password"]
+>  Enter --> Val{Credentials Valid?}
+>  Val -- Yes --> Sess["Create Session"] --> Dash["Display Dashboard"]
+>  Val -- No --> Err["Show Error"] --> Enter
+>  Dash --> Logout["Click Logout"]
+>  Logout --> Inv["Invalidate Session"] --> Nav
+>  Inv --> Stop([◎])
 > ```
 >
 > **Key elements:**
@@ -1758,20 +1722,20 @@ schema.sql"]
 >
 > ```mermaid
 > flowchart TD
->     Start([●]) --> IC["Insert Card"]
->     IC --> EP["Enter PIN"]
->     EP --> VP{PIN Valid?}
->     VP -- No --> Err["Show Error / Return Card"] --> Stop1([◎])
->     VP -- Yes --> SW["Select Withdrawal"]
->     SW --> EA["Enter Amount"]
->     EA --> CB["Check Balance"]
->     CB --> SF{Sufficient Funds?}
->     SF -- No --> IF["Show Insufficient Funds"] --> Stop2([◎])
->     SF -- Yes --> DA["Debit Account"]
->     DA --> DC["Dispense Cash"]
->     DC --> PR["Print Receipt"]
->     PR --> RC["Return Card"]
->     RC --> Stop3([◎])
+>  Start([●]) --> IC["Insert Card"]
+>  IC --> EP["Enter PIN"]
+>  EP --> VP{PIN Valid?}
+>  VP -- No --> Err["Show Error / Return Card"] --> Stop1([◎])
+>  VP -- Yes --> SW["Select Withdrawal"]
+>  SW --> EA["Enter Amount"]
+>  EA --> CB["Check Balance"]
+>  CB --> SF{Sufficient Funds?}
+>  SF -- No --> IF["Show Insufficient Funds"] --> Stop2([◎])
+>  SF -- Yes --> DA["Debit Account"]
+>  DA --> DC["Dispense Cash"]
+>  DC --> PR["Print Receipt"]
+>  PR --> RC["Return Card"]
+>  RC --> Stop3([◎])
 > ```
 >
 > **Events:** Card inserted, PIN entered, Amount selected, Balance checked, Cash dispensed
@@ -1788,18 +1752,18 @@ schema.sql"]
 >
 > ```mermaid
 > flowchart TD
->     Start([●]) --> STR["Select Ticket Type & Route"]
->     STR --> CPD["Calculate Payment Due"]
->     CPD --> DPO["Display Payment Options"]
->     DPO --> SPM{Cash or Card?}
->     SPM -- Cash --> IC["Insert Cash"] --> CCh["Calculate Change"] --> Join((" "))
->     SPM -- Card --> SIC["Swipe / Insert Card"] --> Auth["Bank: Authorize Payment"]
->     Auth --> Authd{Authorized?}
->     Authd -- No --> Dec["Decline"] --> SIC
->     Authd -- Yes --> Join
->     Join --> IT["Issue Ticket"]
->     IT --> RC["Return Change / Card"]
->     RC --> Stop([◎])
+>  Start([●]) --> STR["Select Ticket Type & Route"]
+>  STR --> CPD["Calculate Payment Due"]
+>  CPD --> DPO["Display Payment Options"]
+>  DPO --> SPM{Cash or Card?}
+>  SPM -- Cash --> IC["Insert Cash"] --> CCh["Calculate Change"] --> Join((""))
+>  SPM -- Card --> SIC["Swipe / Insert Card"] --> Auth["Bank: Authorize Payment"]
+>  Auth --> Authd{Authorized?}
+>  Authd -- No --> Dec["Decline"] --> SIC
+>  Authd -- Yes --> Join
+>  Join --> IT["Issue Ticket"]
+>  IT --> RC["Return Change / Card"]
+>  RC --> Stop([◎])
 > ```
 
 ---
@@ -1814,42 +1778,18 @@ schema.sql"]
 >
 > ```mermaid
 > flowchart TD
->     Start([●]) --> PO["Place Order
-
-[Customer]"]
-
->     PO --> Proc["Process Order
-
-[Order Dept]"]
-
->     Proc --> Fork(("Fork"))
->     Fork --> Pick["Pick Items
-
-[Warehouse]"]
-
->     Fork --> Notify["Notify Customer
-
-[Order Dept]"]
-
->     Pick --> Pack["Pack Order
-
-[Warehouse]"]
-
->     Pack --> Join(("Join"))
->     Notify --> Join
->     Join --> Disp["Dispatch Order
-
-[Delivery]"]
-
->     Disp --> Del["Deliver Order
-
-[Delivery]"]
-
->     Del --> Conf["Confirm Delivery
-
-[Customer]"]
-
->     Conf --> Stop([◎])
+>  Start([●]) --> PO["Place Order<br/>[Customer]"]
+>  PO --> Proc["Process Order<br/>[Order Dept]"]
+>  Proc --> Fork(("Fork"))
+>  Fork --> Pick["Pick Items<br/>[Warehouse]"]
+>  Fork --> Notify["Notify Customer<br/>[Order Dept]"]
+>  Pick --> Pack["Pack Order<br/>[Warehouse]"]
+>  Pack --> Join(("Join"))
+>  Notify --> Join
+>  Join --> Disp["Dispatch Order<br/>[Delivery]"]
+>  Disp --> Del["Deliver Order<br/>[Delivery]"]
+>  Del --> Conf["Confirm Delivery<br/>[Customer]"]
+>  Conf --> Stop([◎])
 > ```
 >
 > **Significance:** Swimlanes clarify who is responsible for each activity. Fork models parallelism (Pick Items and Notify Customer happen concurrently). Join synchronizes flows — dispatch only happens after both parallel activities complete.
@@ -1869,11 +1809,8 @@ schema.sql"]
 > Represents the creation, modification, or consumption of objects during activities. Depicted as a **dotted arrow** between an activity and an object node (rectangle). The object node shows the object and optionally its state (in brackets). Example:
 > ```mermaid
 > flowchart LR
->     PO["Place Order"] -. "object flow" .-> Ord["Order
-
-{placed}"]
-
->     Ord -. "object flow" .-> CO["Confirm Order"]
+>  PO["Place Order"] -. "object flow" .-> Ord["Order<br/>{placed}"]
+>  Ord -. "object flow" .-> CO["Confirm Order"]
 > ```
 > Object flow makes explicit what data is being passed between activities, unlike control flow which just shows sequencing.
 
@@ -1910,16 +1847,16 @@ schema.sql"]
 >
 > ```mermaid
 > flowchart TD
->     Start([●]) --> SB["Search for Book"]
->     SB --> RL["Request Loan"]
->     RL --> CA["Check Availability"]
->     CA --> Avail{Available?}
->     Avail -- No --> NU["Notify Unavailable"] --> OR["Offer Reservation"]
->     Avail -- Yes --> Rec["Record Loan"]
->     Rec --> UDB["Update DB"]
->     Rec --> HO["Hand Over Book"]
->     HO --> RB["Receive Book"]
->     RB --> Stop([◎])
+>  Start([●]) --> SB["Search for Book"]
+>  SB --> RL["Request Loan"]
+>  RL --> CA["Check Availability"]
+>  CA --> Avail{Available?}
+>  Avail -- No --> NU["Notify Unavailable"] --> OR["Offer Reservation"]
+>  Avail -- Yes --> Rec["Record Loan"]
+>  Rec --> UDB["Update DB"]
+>  Rec --> HO["Hand Over Book"]
+>  HO --> RB["Receive Book"]
+>  RB --> Stop([◎])
 > ```
 >
 > This activity diagram, derived from the "Borrow Book" use case, reveals the roles, decisions, and system interactions — making the use case more precise and testable.
@@ -1943,21 +1880,21 @@ schema.sql"]
 > **Sequence:**
 > ```mermaid
 > sequenceDiagram
->     participant Caller
->     participant PhoneApp
->     participant Network
->     participant Receiver
->     Caller->>PhoneApp: dial(number)
->     PhoneApp->>Network: connect(number)
->     Network->>Receiver: ring()
->     Receiver-->>Network: answered()
->     Network-->>PhoneApp: answered()
->     PhoneApp-->>Caller: connected()
->     Note over Caller,Receiver: Voice Communication
->     Caller->>Receiver: hangUp()
->     Receiver-->>Network: terminate()
->     Network-->>PhoneApp: callEnded()
->     PhoneApp-->>Caller: callEnded()
+>  participant Caller
+>  participant PhoneApp
+>  participant Network
+>  participant Receiver
+>  Caller->>PhoneApp: dial(number)
+>  PhoneApp->>Network: connect(number)
+>  Network->>Receiver: ring()
+>  Receiver-->>Network: answered()
+>  Network-->>PhoneApp: answered()
+>  PhoneApp-->>Caller: connected()
+>  Note over Caller,Receiver: Voice Communication
+>  Caller->>Receiver: hangUp()
+>  Receiver-->>Network: terminate()
+>  Network-->>PhoneApp: callEnded()
+>  PhoneApp-->>Caller: callEnded()
 > ```
 >
 > **Message Types:**
@@ -2004,23 +1941,23 @@ schema.sql"]
 > **Sequence Diagram (ATM Deposit):**
 > ```mermaid
 > sequenceDiagram
->     participant Customer
->     participant ATM
->     participant CentralComputer
->     participant Bank
->     Customer->>ATM: insertCard()
->     Customer->>ATM: enterPIN()
->     ATM->>CentralComputer: validatePIN()
->     CentralComputer->>Bank: verifyAccount()
->     Bank-->>CentralComputer: accValid()
->     CentralComputer-->>ATM: validated()
->     Customer->>ATM: enterAmount()
->     Customer->>ATM: depositCash()
->     ATM->>CentralComputer: recordDeposit()
->     CentralComputer->>Bank: updateBalance()
->     Bank-->>CentralComputer: updated()
->     ATM->>ATM: printReceipt()
->     ATM-->>Customer: receiptPrinted()
+>  participant Customer
+>  participant ATM
+>  participant CentralComputer
+>  participant Bank
+>  Customer->>ATM: insertCard()
+>  Customer->>ATM: enterPIN()
+>  ATM->>CentralComputer: validatePIN()
+>  CentralComputer->>Bank: verifyAccount()
+>  Bank-->>CentralComputer: accValid()
+>  CentralComputer-->>ATM: validated()
+>  Customer->>ATM: enterAmount()
+>  Customer->>ATM: depositCash()
+>  ATM->>CentralComputer: recordDeposit()
+>  CentralComputer->>Bank: updateBalance()
+>  Bank-->>CentralComputer: updated()
+>  ATM->>ATM: printReceipt()
+>  ATM-->>Customer: receiptPrinted()
 > ```
 
 ---
@@ -2042,15 +1979,15 @@ schema.sql"]
 > **State Diagram:**
 > ```mermaid
 > stateDiagram-v2
->     [*] --> Available : catalogued
->     Available --> OnLoan : borrowed
->     OnLoan --> Available : returned (not overdue)
->     OnLoan --> Overdue : returned (overdue)
->     OnLoan --> Lost : 12 months overdue
->     Overdue --> Available : fine paid
->     Lost --> Available : book found
->     Available --> Disposed : damaged or not needed
->     Disposed --> [*]
+>  [*] --> Available : catalogued
+>  Available --> OnLoan : borrowed
+>  OnLoan --> Available : returned (not overdue)
+>  OnLoan --> Overdue : returned (overdue)
+>  OnLoan --> Lost : 12 months overdue
+>  Overdue --> Available : fine paid
+>  Lost --> Available : book found
+>  Available --> Disposed : damaged or not needed
+>  Disposed --> [*]
 > ```
 >
 > **Non-loanable books:** Remain in Available state forever (no borrow transition).
@@ -2067,13 +2004,13 @@ schema.sql"]
 >
 > ```mermaid
 > stateDiagram-v2
->     [*] --> Park : ignition on
->     Park --> Reverse : shift to R
->     Reverse --> Park : shift to P
->     Reverse --> Neutral : shift to N
->     Neutral --> Park : shift to P
->     Neutral --> Drive : shift to D
->     Drive --> Neutral : shift to N
+>  [*] --> Park : ignition on
+>  Park --> Reverse : shift to R
+>  Reverse --> Park : shift to P
+>  Reverse --> Neutral : shift to N
+>  Neutral --> Park : shift to P
+>  Neutral --> Drive : shift to D
+>  Drive --> Neutral : shift to N
 > ```
 > **Guard condition example:** `[shift to R] [vehicle speed == 0]` — can only shift to Reverse when stopped.
 
@@ -2090,24 +2027,18 @@ schema.sql"]
 >
 > ```mermaid
 > flowchart TD
->     Start([●]) --> Think["Thinking"]
->     Think --> Hungry["Hungry — wants to eat"]
->     Hungry --> LC{Left chopstick
-
-available?}
-
->     LC -- No --> Wait1["Wait"] --> Hungry
->     LC -- Yes --> PickL["Pick up left chopstick"]
->     PickL --> RC{Right chopstick
-
-available?}
-
->     RC -- No --> PutL["Put down left chopstick"] --> Wait2["Wait"] --> Hungry
->     RC -- Yes --> PickR["Pick up right chopstick"]
->     PickR --> Eat["Eating"]
->     Eat --> PutBoth["Put down both chopsticks"]
->     PutBoth --> Think
->     PutBoth --> Stop([◎])
+>  Start([●]) --> Think["Thinking"]
+>  Think --> Hungry["Hungry — wants to eat"]
+>  Hungry --> LC{Left chopstick available?}
+>  LC -- No --> Wait1["Wait"] --> Hungry
+>  LC -- Yes --> PickL["Pick up left chopstick"]
+>  PickL --> RC{Right chopstick available?}
+>  RC -- No --> PutL["Put down left chopstick"] --> Wait2["Wait"] --> Hungry
+>  RC -- Yes --> PickR["Pick up right chopstick"]
+>  PickR --> Eat["Eating"]
+>  Eat --> PutBoth["Put down both chopsticks"]
+>  PutBoth --> Think
+>  PutBoth --> Stop([◎])
 > ```
 >
 > **Key:** Fork/Join at the philosopher level shows concurrency among all 5 philosophers eating/thinking simultaneously.
@@ -2156,12 +2087,12 @@ available?}
 >
 > ```mermaid
 > stateDiagram-v2
->     [*] --> Idle
->     Idle --> CardInserted : cardInserted
->     CardInserted --> TransactionProcessing : pinEntered [PIN correct]
->     CardInserted --> PINError : pinEntered [PIN incorrect]
->     PINError --> CardInserted : retryPIN
->     TransactionProcessing --> Idle : transactionComplete
+>  [*] --> Idle
+>  Idle --> CardInserted : cardInserted
+>  CardInserted --> TransactionProcessing : pinEntered [PIN correct]
+>  CardInserted --> PINError : pinEntered [PIN incorrect]
+>  PINError --> CardInserted : retryPIN
+>  TransactionProcessing --> Idle : transactionComplete
 > ```
 
 ---
@@ -2192,14 +2123,14 @@ available?}
 >
 > ```mermaid
 > stateDiagram-v2
->     [*] --> New
->     New --> Ready : admitted
->     Ready --> Running : scheduler dispatch
->     Running --> Ready : interrupt
->     Running --> Waiting : I/O request
->     Running --> Terminated : exit
->     Waiting --> Ready : I/O complete
->     Terminated --> [*]
+>  [*] --> New
+>  New --> Ready : admitted
+>  Ready --> Running : scheduler dispatch
+>  Running --> Ready : interrupt
+>  Running --> Waiting : I/O request
+>  Running --> Terminated : exit
+>  Waiting --> Ready : I/O complete
+>  Terminated --> [*]
 > ```
 >
 > **States:** New, Ready, Running, Waiting/Blocked, Terminated
@@ -2401,16 +2332,16 @@ available?}
 > `Sale` aggregates `SalesLineItem` objects → `Sale` creates `SalesLineItem`.
 > ```mermaid
 > classDiagram
->     class Sale {
->         +addItem()
->         +makeLineItem()
->     }
->     class SalesLineItem {
->         +SalesLineItem(ProductDesc, qty)
->     }
->     class ProductDescription
->     Sale "1" *-- "*" SalesLineItem : creates (Creator)
->     SalesLineItem --> ProductDescription
+>  class Sale {
+>  +addItem()
+>  +makeLineItem()
+>  }
+>  class SalesLineItem {
+>  +SalesLineItem(ProductDesc, qty)
+>  }
+>  class ProductDescription
+>  Sale "1" *-- "*" SalesLineItem : creates (Creator)
+>  SalesLineItem --> ProductDescription
 > ```
 > ```java
 > class Sale {
@@ -2428,13 +2359,10 @@ available?}
 > **Example — POS System:**
 > ```mermaid
 > flowchart LR
->     UI["UI Layer"] --> PC["POSController
-
-(Controller)"]
-
->     PC --> Sale["Sale"]
->     PC --> Cat["ProductCatalog"]
->     PC --> Pay["Payment"]
+>  UI["UI Layer"] --> PC["POSController<br/>(Controller)"]
+>  PC --> Sale["Sale"]
+>  PC --> Cat["ProductCatalog"]
+>  PC --> Pay["Payment"]
 > ```
 > ```java
 > class POSController {          // Façade Controller
@@ -3014,11 +2942,11 @@ available?}
 > **Working:**
 > ```mermaid
 > flowchart LR
->     User(["👤 User"]) -- "1. interacts" --> View["View"]
->     View -- "2. user action" --> Controller["Controller"]
->     Controller -- "3. processes & updates" --> Model["Model"]
->     Model -- "4. notifies" --> View
->     View -- "5. re-renders UI" --> User
+>  User(["User"]) -- "1. interacts" --> View["View"]
+>  View -- "2. user action" --> Controller["Controller"]
+>  Controller -- "3. processes & updates" --> Model["Model"]
+>  Model -- "4. notifies" --> View
+>  View -- "5. re-renders UI" --> User
 > ```
 >
 > **Java MVC Example:**
@@ -3086,23 +3014,11 @@ available?}
 > **Layers (4-tier web app):**
 > ```mermaid
 > flowchart TD
->     P["🖥 Presentation Layer (UI)
-
-Browser · JSP · React"]
-
->     B["⚙️ Business Logic Layer
-
-Services · Rules · Calculations"]
-
->     D["🗄 Persistence Layer
-
-DAOs · ORM · Hibernate"]
-
->     DB[("💾 Database Layer
-
-MySQL · PostgreSQL")]
-
->     P --> B --> D --> DB
+>  P["Presentation Layer - UI<br/>Browser · JSP · React"]
+>  B["️Business Logic Layer<br/>Services · Rules · Calculations"]
+>  D["Persistence Layer<br/>DAOs · ORM · Hibernate"]
+>  DB[("Database Layer - MySQL / PostgreSQL")]
+>  P --> B --> D --> DB
 > ```
 >
 > **Illustrative Example (Online Banking):**
@@ -3146,28 +3062,11 @@ MySQL · PostgreSQL")]
 >
 > ```mermaid
 > flowchart TD
->     T1["🖥 Presentation Tier
-
-Client · Browser · Desktop App
-
-HTML, CSS, JavaScript, JSP"]
-
->     T2["⚙️ Application Tier
-
-Business Logic Server
-
-Java EE · Spring Boot · Node.js
-
-Validation · Rules · Transactions"]
-
->     T3[("💾 Data Tier
-
-Database Server
-
-MySQL · Oracle · MongoDB")]
-
->     T1 -- "HTTP / Web Service calls" --> T2
->     T2 -- "JDBC / ORM / SQL" --> T3
+>  T1["Presentation Tier<br/>Client · Browser · Desktop App<br/>HTML, CSS, JavaScript, JSP"]
+>  T2["️ Application Tier<br/>Business Logic Server<br/>Java EE · Spring Boot · Node.js<br/>Validation · Rules · Transactions"]
+>  T3[("Data Tier - MySQL / Oracle / MongoDB")]
+>  T1 -- "HTTP / Web Service calls" --> T2
+>  T2 -- "JDBC / ORM / SQL" --> T3
 > ```
 >
 > **Tier 1 (Presentation):** User interface — runs on the client machine or browser. Only displays data and captures input. Does not contain business logic.
@@ -3249,13 +3148,13 @@ MySQL · Oracle · MongoDB")]
 > **UML Structure:**
 > ```mermaid
 > classDiagram
->     class Singleton {
->         -Singleton instance$
->         -Singleton()
->         +getInstance()$ Singleton
->         +businessMethod()
->     }
->     Singleton --> Singleton : returns
+>  class Singleton {
+>  -Singleton instance
+>  -Singleton()
+>  +getInstance() Singleton
+>  +businessMethod()
+>  }
+>  Singleton --> Singleton : returns
 > ```
 >
 > **Consequences:**
@@ -3290,27 +3189,27 @@ MySQL · Oracle · MongoDB")]
 > **Structure:**
 > ```mermaid
 > classDiagram
->     class Creator {
->         <<abstract>>
->         +factoryMethod() Product
->         +operation()
->     }
->     class ConcreteCreatorA {
->         +factoryMethod() ConcreteProductA
->     }
->     class ConcreteCreatorB {
->         +factoryMethod() ConcreteProductB
->     }
->     class Product {
->         <<interface>>
->     }
->     class ConcreteProductA
->     class ConcreteProductB
->     Creator <|-- ConcreteCreatorA
->     Creator <|-- ConcreteCreatorB
->     Product <|.. ConcreteProductA
->     Product <|.. ConcreteProductB
->     Creator ..> Product : creates
+>  class Creator {
+>  <<abstract>>
+>  +factoryMethod() Product
+>  +operation()
+>  }
+>  class ConcreteCreatorA {
+>  +factoryMethod() ConcreteProductA
+>  }
+>  class ConcreteCreatorB {
+>  +factoryMethod() ConcreteProductB
+>  }
+>  class Product {
+>  <<interface>>
+>  }
+>  class ConcreteProductA
+>  class ConcreteProductB
+>  Creator <|-- ConcreteCreatorA
+>  Creator <|-- ConcreteCreatorB
+>  Product <|.. ConcreteProductA
+>  Product <|.. ConcreteProductB
+>  Creator ..> Product : creates
 > ```
 >
 > **Example — Vehicle Factory:**
@@ -3476,21 +3375,21 @@ MySQL · Oracle · MongoDB")]
 > **UML Diagram (Object Adapter):**
 > ```mermaid
 > classDiagram
->     class Target {
->         <<interface>>
->         +request() void
->     }
->     class Adapter {
->         -Adaptee adaptee
->         +request() void
->     }
->     class Adaptee {
->         +specificRequest() void
->     }
->     class Client
->     Target <|.. Adapter : implements
->     Adapter --> Adaptee : wraps
->     Client --> Target : uses
+>  class Target {
+>  <<interface>>
+>  +request() void
+>  }
+>  class Adapter {
+>  -Adaptee adaptee
+>  +request() void
+>  }
+>  class Adaptee {
+>  +specificRequest() void
+>  }
+>  class Client
+>  Target <|.. Adapter : implements
+>  Adapter --> Adaptee : wraps
+>  Client --> Target : uses
 > ```
 >
 > **Participants:**
@@ -3534,17 +3433,28 @@ MySQL · Oracle · MongoDB")]
 > **Class Diagram:**
 > ```mermaid
 > classDiagram
->     class MediaPlayer { <<interface>>; +play(type, file) }
->     class AdvancedMediaPlayer { <<interface>>; +playVlc(file); +playMp4(file) }
->     class AudioPlayer { +play(type, file) }
->     class MediaAdapter { +play(type, file) }
->     class VlcPlayer { +playVlc(file) }
->     class Mp4Player { +playMp4(file) }
->     MediaPlayer <|.. AudioPlayer
->     MediaPlayer <|.. MediaAdapter
->     AdvancedMediaPlayer <|.. VlcPlayer
->     AdvancedMediaPlayer <|.. Mp4Player
->     MediaAdapter --> AdvancedMediaPlayer : wraps
+>  class MediaPlayer {
+
+ <<interface>>
+
+ +play(type, file)
+
+ }
+
+>  class AdvancedMediaPlayer {
+ <<interface>>
+ +playVlc(file)
+ +playMp4(file)
+ }
+>  class AudioPlayer { +play(type, file) }
+>  class MediaAdapter { +play(type, file) }
+>  class VlcPlayer { +playVlc(file) }
+>  class Mp4Player { +playMp4(file) }
+>  MediaPlayer <|.. AudioPlayer
+>  MediaPlayer <|.. MediaAdapter
+>  AdvancedMediaPlayer <|.. VlcPlayer
+>  AdvancedMediaPlayer <|.. Mp4Player
+>  MediaAdapter --> AdvancedMediaPlayer : wraps
 > ```
 >
 > ```java
@@ -3591,17 +3501,24 @@ MySQL · Oracle · MongoDB")]
 > **Structure:**
 > ```mermaid
 > classDiagram
->     class Subject { <<interface>>; +request() }
->     class RealSubject { +request() }
->     class Proxy {
->         -RealSubject realSubject
->         +request()
->     }
->     class Client
->     Subject <|.. RealSubject
->     Subject <|.. Proxy
->     Proxy --> RealSubject : delegates to
->     Client --> Subject : uses
+>  class Subject {
+
+ <<interface>>
+
+ +request()
+
+ }
+
+>  class RealSubject { +request() }
+>  class Proxy {
+>  -RealSubject realSubject
+>  +request()
+>  }
+>  class Client
+>  Subject <|.. RealSubject
+>  Subject <|.. Proxy
+>  Proxy --> RealSubject : delegates to
+>  Client --> Subject : uses
 > ```
 >
 > **Three Main Variations:**
@@ -3631,29 +3548,40 @@ MySQL · Oracle · MongoDB")]
 > **Class Diagram:**
 > ```mermaid
 > classDiagram
->     class Book { <<interface>>; +getDetails() String; +issue(); +returnBook() }
->     class RealBook {
->         -String title
->         -String author
->         -String isbn
->         -String publisher
->         -boolean availability
->         +getDetails() String
->         +issue()
->         +returnBook()
->     }
->     class ProxyBook {
->         -String title
->         -String author
->         -boolean availability
->         -RealBook realBook
->         +getDetails() String
->         +issue()
->         +returnBook()
->     }
->     Book <|.. RealBook
->     Book <|.. ProxyBook
->     ProxyBook --> RealBook : lazy loads
+>  class Book {
+
+ <<interface>>
+
+ +getDetails() String
+
+ +issue()
+
+ +returnBook()
+
+ }
+
+>  class RealBook {
+>  -String title
+>  -String author
+>  -String isbn
+>  -String publisher
+>  -boolean availability
+>  +getDetails() String
+>  +issue()
+>  +returnBook()
+>  }
+>  class ProxyBook {
+>  -String title
+>  -String author
+>  -boolean availability
+>  -RealBook realBook
+>  +getDetails() String
+>  +issue()
+>  +returnBook()
+>  }
+>  Book <|.. RealBook
+>  Book <|.. ProxyBook
+>  ProxyBook --> RealBook : lazy loads
 > ```
 >
 > **Code:**
@@ -3808,25 +3736,25 @@ MySQL · Oracle · MongoDB")]
 > **Structure:**
 > ```mermaid
 > classDiagram
->     class HomeManager {
->         -Lights lights
->         -Thermostat thermo
->         -SecuritySystem security
->         -MusicSystem music
->         +arriveHome()
->         +leaveHome()
->         +bedtime()
->     }
->     class Lights { +on(); +off(); +dim(int) }
->     class Thermostat { +setTemp(int) }
->     class SecuritySystem { +arm(); +disarm() }
->     class MusicSystem { +play(String); +stop() }
->     class Client
->     Client --> HomeManager : uses
->     HomeManager --> Lights
->     HomeManager --> Thermostat
->     HomeManager --> SecuritySystem
->     HomeManager --> MusicSystem
+>  class HomeManager {
+>  -Lights lights
+>  -Thermostat thermo
+>  -SecuritySystem security
+>  -MusicSystem music
+>  +arriveHome()
+>  +leaveHome()
+>  +bedtime()
+>  }
+>  class Lights { +on(); +off(); +dim(int) }
+>  class Thermostat { +setTemp(int) }
+>  class SecuritySystem { +arm(); +disarm() }
+>  class MusicSystem { +play(String); +stop() }
+>  class Client
+>  Client --> HomeManager : uses
+>  HomeManager --> Lights
+>  HomeManager --> Thermostat
+>  HomeManager --> SecuritySystem
+>  HomeManager --> MusicSystem
 > ```
 >
 > **Pseudo code:**
@@ -3894,21 +3822,21 @@ MySQL · Oracle · MongoDB")]
 > **Facade Class Structure:**
 > ```mermaid
 > classDiagram
->     class Facade {
->         -SubsystemA a
->         -SubsystemB b
->         -SubsystemC c
->         +operation1()
->         +operation2()
->     }
->     class SubsystemA { +operationA1(); +operationA2() }
->     class SubsystemB { +operationB1(); +operationB2() }
->     class SubsystemC { +operationC() }
->     class Client
->     Client --> Facade : uses
->     Facade --> SubsystemA
->     Facade --> SubsystemB
->     Facade --> SubsystemC
+>  class Facade {
+>  -SubsystemA a
+>  -SubsystemB b
+>  -SubsystemC c
+>  +operation1()
+>  +operation2()
+>  }
+>  class SubsystemA { +operationA1(); +operationA2() }
+>  class SubsystemB { +operationB1(); +operationB2() }
+>  class SubsystemC { +operationC() }
+>  class Client
+>  Client --> Facade : uses
+>  Facade --> SubsystemA
+>  Facade --> SubsystemB
+>  Facade --> SubsystemC
 > ```
 
 ---
@@ -3942,23 +3870,23 @@ MySQL · Oracle · MongoDB")]
 > **Structure:**
 > ```mermaid
 > classDiagram
->     class Handler {
->         <<abstract>>
->         -Handler successor
->         +setSuccessor(Handler)
->         +handleRequest(req)*
->     }
->     class ConcreteHandlerA {
->         +handleRequest(req)
->     }
->     class ConcreteHandlerB {
->         +handleRequest(req)
->     }
->     class Client
->     Handler <|-- ConcreteHandlerA
->     Handler <|-- ConcreteHandlerB
->     Handler --> Handler : successor
->     Client --> Handler : sends request to
+>  class Handler {
+>  <<abstract>>
+>  -Handler successor
+>  +setSuccessor(Handler)
+>  +handleRequest(req)*
+>  }
+>  class ConcreteHandlerA {
+>  +handleRequest(req)
+>  }
+>  class ConcreteHandlerB {
+>  +handleRequest(req)
+>  }
+>  class Client
+>  Handler <|-- ConcreteHandlerA
+>  Handler <|-- ConcreteHandlerB
+>  Handler --> Handler : successor
+>  Client --> Handler : sends request to
 > ```
 >
 > **Example:**
@@ -4040,21 +3968,21 @@ MySQL · Oracle · MongoDB")]
 > **Class Diagram:**
 > ```mermaid
 > classDiagram
->     class EmailHandler {
->         <<abstract>>
->         -EmailHandler successor
->         +setSuccessor(EmailHandler)
->         +handle(Email)*
->     }
->     class SpamHandler { +handle(Email) }
->     class FanMailHandler { +handle(Email) }
->     class ComplaintHandler { +handle(Email) }
->     class FeatureRequestHandler { +handle(Email) }
->     EmailHandler <|-- SpamHandler
->     EmailHandler <|-- FanMailHandler
->     EmailHandler <|-- ComplaintHandler
->     EmailHandler <|-- FeatureRequestHandler
->     EmailHandler --> EmailHandler : successor
+>  class EmailHandler {
+>  <<abstract>>
+>  -EmailHandler successor
+>  +setSuccessor(EmailHandler)
+>  +handle(Email)*
+>  }
+>  class SpamHandler { +handle(Email) }
+>  class FanMailHandler { +handle(Email) }
+>  class ComplaintHandler { +handle(Email) }
+>  class FeatureRequestHandler { +handle(Email) }
+>  EmailHandler <|-- SpamHandler
+>  EmailHandler <|-- FanMailHandler
+>  EmailHandler <|-- ComplaintHandler
+>  EmailHandler <|-- FeatureRequestHandler
+>  EmailHandler --> EmailHandler : successor
 > ```
 >
 > **Code:**
@@ -4180,23 +4108,23 @@ MySQL · Oracle · MongoDB")]
 >
 > ```mermaid
 > classDiagram
->     class Iterator~T~ { <<interface>>; +hasNext() boolean; +next() T }
->     class Iterable~T~ { <<interface>>; +iterator() Iterator~T~ }
->     class ConcreteIterator~T~ {
->         -ConcreteCollection collection
->         -int index
->         +hasNext() boolean
->         +next() T
->     }
->     class ConcreteCollection~T~ {
->         -List~T~ items
->         +iterator() Iterator~T~
->         +getItem(int) T
->         +size() int
->     }
->     Iterator <|.. ConcreteIterator
->     Iterable <|.. ConcreteCollection
->     ConcreteCollection --> ConcreteIterator : creates
+>  class Iterator~T~ { <<interface>>; +hasNext() boolean; +next() T }
+>  class Iterable~T~ { <<interface>>; +iterator() Iterator~T~ }
+>  class ConcreteIterator~T~ {
+>  -ConcreteCollection collection
+>  -int index
+>  +hasNext() boolean
+>  +next() T
+>  }
+>  class ConcreteCollection~T~ {
+>  -List~T~ items
+>  +iterator() Iterator~T~
+>  +getItem(int) T
+>  +size() int
+>  }
+>  Iterator <|.. ConcreteIterator
+>  Iterable <|.. ConcreteCollection
+>  ConcreteCollection --> ConcreteIterator : creates
 > ```
 >
 > **Collaboration:**
@@ -4463,31 +4391,19 @@ MySQL · Oracle · MongoDB")]
 > **Step 2: Identify "natural homes" — create new classes**
 > ```mermaid
 > flowchart LR
->     subgraph Before["❌ Before (Blob)"]
->         CM["CustomerManager
-
-+ name, email, address
-+ cardNumber
-+ processPayment()
-+ validateCard()
-+ trackShipment()
-+ sendEmail()
-+ generateReport()"]
-
->     end
->     subgraph After["✅ After (Refactored)"]
->         C2["Customer"]
->         PS["PaymentService"]
->         SS["ShippingService"]
->         ES["EmailService"]
->         RS["ReportService"]
->         CC["CustomerController
-
-(thin coordinator)"]
-
->         CC --> C2 & PS & SS & ES & RS
->     end
->     Before -- "refactor" --> After
+>  subgraph Before["Before (Blob)"]
+>  CM["CustomerManager<br/>+ name, email, address<br/>+ cardNumber<br/>+ processPayment()<br/>+ validateCard()<br/>+ trackShipment()<br/>+ sendEmail()<br/>+ generateReport()"]
+>  end
+>  subgraph After["After (Refactored)"]
+>  C2["Customer"]
+>  PS["PaymentService"]
+>  SS["ShippingService"]
+>  ES["EmailService"]
+>  RS["ReportService"]
+>  CC["CustomerController<br/>(thin coordinator)"]
+>  CC --> C2 & PS & SS & ES & RS
+>  end
+>  Before -- "refactor" --> After
 > ```
 >
 > **Step 3: Remove redundant associations and migrate responsibilities**
@@ -4623,19 +4539,13 @@ MySQL · Oracle · MongoDB")]
 > **Phases:**
 > ```mermaid
 > flowchart LR
->     P["1. Planning"] --> R["2. Requirements
-
-Analysis"]
-
->     R --> D["3. System
-
-Design"]
-
->     D --> I["4. Implementation"]
->     I --> T["5. Testing"]
->     T --> Dep["6. Deployment"]
->     Dep --> M["7. Maintenance"]
->     M -- "change requests" --> R
+>  P["1. Planning"] --> R["2. Requirements<br/>Analysis"]
+>  R --> D["3. System<br/>Design"]
+>  D --> I["4. Implementation"]
+>  I --> T["5. Testing"]
+>  T --> Dep["6. Deployment"]
+>  Dep --> M["7. Maintenance"]
+>  M -- "change requests" --> R
 > ```
 >
 > | Phase | Activities | Output |
@@ -4751,11 +4661,11 @@ Design"]
 >
 > ```mermaid
 > flowchart LR
->     RA["Requirements Analysis"] -.-> AT["Acceptance Testing"]
->     SD["System Design"] -.-> ST["System Testing"]
->     AD["Architecture Design"] -.-> IT["Integration Testing"]
->     MD["Module Design"] -.-> UT["Unit Testing"]
->     RA --> SD --> AD --> MD --> Impl["Implementation"] --> UT --> IT --> ST --> AT
+>  RA["Requirements Analysis"] -.-> AT["Acceptance Testing"]
+>  SD["System Design"] -.-> ST["System Testing"]
+>  AD["Architecture Design"] -.-> IT["Integration Testing"]
+>  MD["Module Design"] -.-> UT["Unit Testing"]
+>  RA --> SD --> AD --> MD --> Impl["Implementation"] --> UT --> IT --> ST --> AT
 > ```
 >
 > **Phases and Deliverables:**
@@ -5079,11 +4989,11 @@ Design"]
 > **Testing Levels (bottom-up):**
 > ```mermaid
 > flowchart TD
->     UT["🧪 Unit Testing\nIndividual functions, methods, classes\nWho: Developers"]
->     IT["🔗 Integration Testing\nInterfaces between combined modules\nWho: Dev/Test team"]
->     ST["🔍 System Testing\nComplete integrated system vs requirements\nWho: Test team"]
->     AT["🎯 Acceptance Testing\nSystem meets business needs\nWho: Client / End Users"]
->     UT --> IT --> ST --> AT
+>  UT["Unit Testing<br/>Individual functions, methods, classes<br/>Who: Developers"]
+>  IT["Integration Testing<br/>Interfaces between combined modules<br/>Who: Dev/Test team"]
+>  ST["System Testing<br/>Complete integrated system vs requirements<br/>Who: Test team"]
+>  AT["Acceptance Testing<br/>System meets business needs<br/>Who: Client / End Users"]
+>  UT --> IT --> ST --> AT
 > ```
 >
 > | Level | What is tested | Who tests | Example |
@@ -5175,13 +5085,13 @@ Design"]
 >
 > ```mermaid
 > flowchart TD
->     TP["📋 Test Plan"] --> TD["✏️ Test Design\nCreate Test Cases · Test Data Prep"]
->     TD --> TE_Setup["🖥 Test Environment Setup\nConfigure hardware, OS, DB, app"]
->     TE_Setup --> TE["▶️ Test Execution\nRun cases · Log Pass/Fail · Log defects"]
->     TE --> DR["🐛 Defect Reporting\nBug report: title, steps, severity, priority"]
->     DR --> DRT["🔁 Defect Retesting\nVerify fix after developer resolves"]
->     DRT --> RT["🔄 Regression Testing\nEnsure fix didn't break existing functionality"]
->     RT --> TC["✅ Test Closure\nSummary report · Lessons learned · Metrics"]
+>  TP["Test Plan"] --> TD["Test Design<br/>Create Test Cases · Test Data Prep"]
+>  TD --> TE_Setup["Test Environment Setup<br/>Configure hardware, OS, DB, app"]
+>  TE_Setup --> TE["Test Execution<br/>Run cases · Log Pass/Fail · Log defects"]
+>  TE --> DR["Defect Reporting<br/>Bug report: title, steps, severity, priority"]
+>  DR --> DRT["Defect Retesting<br/>Verify fix after developer resolves"]
+>  DRT --> RT["Regression Testing<br/>Ensure fix didn't break existing functionality"]
+>  RT --> TC["Test Closure<br/>Summary report · Lessons learned · Metrics"]
 > ```
 >
 > **Key metrics tracked during execution:** Total test cases, passed, failed, blocked; defect density; test coverage percentage.
@@ -5518,33 +5428,13 @@ Design"]
 > **DevOps Pipeline (CI/CD Pipeline):**
 > ```mermaid
 > flowchart LR
->     Code["📝 Code
-
-Git / GitHub"] --> Build["🔨 Build
-
-Maven / Gradle"]
-
->     Build --> Test["✅ Test
-
-JUnit / Selenium"]
-
->     Test --> Release["📦 Release
-
-Docker / Nexus"]
-
->     Release --> Deploy["🚀 Deploy
-
-Jenkins / ArgoCD"]
-
->     Deploy --> Operate["⚙️ Operate
-
-Kubernetes"]
-
->     Operate --> Monitor["📊 Monitor
-
-Prometheus / Grafana"]
-
->     Monitor -- "feedback" --> Code
+>  Code["Code - Git / GitHub"] --> Build["Build - Maven / Gradle"]
+>  Build --> Test["Test - JUnit / Selenium"]
+>  Test --> Release["Release - Docker / Nexus"]
+>  Release --> Deploy["Deploy - Jenkins / ArgoCD"]
+>  Deploy --> Operate["Operate - Kubernetes"]
+>  Operate --> Monitor["Monitor - Prometheus / Grafana"]
+>  Monitor -- "feedback" --> Code
 > ```
 >
 > | Stage | Activities | Tools |
