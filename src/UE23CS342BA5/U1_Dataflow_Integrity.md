@@ -1,268 +1,634 @@
-# Dataflow and Integrity
-
-# P2P vs Distributed Systems
-
-> Peer-to-peer networks are a special kind of distributed systems.
-
--  They consist of individual computers (also called nodes), which make their computational resources (e.g., processing power, storage capacity, data or network band- width) directly available to all other members of the network without having any central point of coordination.
-- Peer-to-peer systems have interesting applications such as file sharing, content distribution, and privacy protection.
-- Most of these applications utilize a simple but powerful idea: turning the computers of the users into nodes that make up the whole distributed system.
-
-## The Definition of a Peer-to-Peer System
-
-- Peer-to-peer systems are distributed software systems that consist of nodes (individual computers), which make their computational resources (e.g., processing power, storage capacity, or information distribution) directly available to another.
-- When joining a peer-to-peer system, users turn their computers into nodes of the system that are equal concerning their rights and roles.
-- Although users may differ with respect to the resources they contribute, all the nodes in the system have the same functional capability and responsibility.
-
-## The Link Between Peer-to-Peer Systems and the Blockchain
-
-- The blockchain can be considered a tool for achieving and maintaining integrity in distributed systems.
-- Purely distributed peer-to-peer systems may use the blockchain in order to achieve and to maintain system integrity.
-- Hence, the link between purely distributed peer-to-peer systems and the blockchain is its usage for achieving and maintaining integrity in purely distributed systems.
-- Blockchain leverages the P2P network technology to provide a decentralised ledger for one or more digital assets
-
-## Disambiguating the Term: Blockchain
-
-- Blockchain is an algorithm and distributed data structure for managing electronic cash without a central administrator among people who know nothing about one another.
-- Blockchain is a Distributed Ledger Technology (DLT) that was invented to support the Bitcoin cryptocurrency.
-- Blockchain is a special instance of Distributed Ledger Technologies (DLTs), almost all of which have emerged in Bitcoin's wake.
-- **Generations**:
-- *Blockchain 1.0: The Origin of the Modern Blockchain*
-- *Blockchain 2.0: Smart Contracts*
-- *Blockchain 3.0: Decentralized Enterprise Level Application*
-
-## Blockchain Trust Model
-
-The blockchain trust model refers to the mechanism by which trust is established and maintained in a blockchain system without relying on centralized entities or intermediaries. It leverages cryptographic techniques, consensus algorithms, and distributed ledger technology to enable trust among participants in the network.
-
-## Key Features
-
-- Anonymity
-- Immutability
-- Transparency
-- Peer to peer
--  Distributed and decentralized apps
-- Logical computation
-
-## Applications
-
-- Cryptocurrencies
-	- Applications: Bitcoin, Ethereum, Litecoin.
-	- Use: Digital currency transactions and decentralized financial systems.
-- Smart Contracts
-- Applications: Ethereum, Cardano, Hyperledger Fabric.
-	- Use: Automating agreements and reducing the need for intermediaries.
-- Supply Chain Management
-- Applications: IBM Food Trust, VeChain.
-	- Use: Enhancing transparency, traceability, and reducing fraud in supply chains.
-- Healthcare
-- Applications: Medicalchain, Patientory.
-	- Use: Securely managing and sharing patient data.
-- Decentralized Finance (DeFi)
-- Applications: Uniswap, Aave, Compound.
-- Use: Peer-to-peer financial services like lending, borrowing, and trading.
+# Unit 1 — Introduction, Data Flow & Data Integrity
 
 ---
 
-#todo
+## 1. Distributed vs. Centralised Systems
+
+### 1.1 Centralised Systems
+
+A centralised system has a single authority (server, institution) that controls all data and decision-making.
+
+- **Single point of failure (SPOF):** If the central node fails, the whole system goes down.
+- **Trust bottleneck:** All participants must trust the central authority (e.g., a bank, land-record department, UIDAI).
+- **Example:** Traditional banking — the bank verifies, records, and authorises every transaction.
+
+### 1.2 Distributed / Peer-to-Peer Systems
+
+Peer-to-peer (P2P) systems are distributed software systems where individual computers (nodes) make their computational resources (processing power, storage, bandwidth) directly available to each other without a central coordinator.
+
+**Key properties:**
+
+- Every node has equal rights and responsibilities.
+- Nodes act simultaneously as both clients and servers.
+- Resilient by design — no SPOF, reduced DoS risk.
+- Data is replicated across all nodes.
+
+**Applications:** File sharing, content distribution, privacy protection, cryptocurrency.
+
+> **Historical context:** Napster (1999) disrupted the music industry using P2P principles, demonstrating the transformative power of decentralised sharing.
+
+### 1.3 Link Between P2P and Blockchain
+
+Blockchain is a tool for achieving and maintaining **integrity** in purely distributed peer-to-peer systems. It leverages P2P network technology to provide a decentralised ledger for one or more digital assets. Blockchain nodes collectively validate and store records without relying on any single entity.
 
 ---
 
-# SHA 256
+## 2. What Is Blockchain?
 
-#todo
+### 2.1 Abstract Definition
 
-## Merkle Trees
+> A blockchain provides **coordination between many parties when there is no single trusted party.**
 
-The blockchain is a proficient combination of two hash-based data structures
+### 2.2 Formal Definition
 
-1. **Linked list:** This is the structure of the blockchain itself, which is a linked list of hash pointers. A regular linked list consists of nodes. Each node has 2 parts- data and pointer. The pointer points to the next node. In the blockchain, simply replace the regular pointer with a hash pointer.
-2. **Merkle tree:** A Merkle tree is a binary tree formed by hash pointers, and named after its creator, Ralph Merkle
+> The blockchain is a purely distributed peer-to-peer system of ledgers that utilises a software unit consisting of an algorithm which negotiates the informational content of ordered and connected blocks of data together with cryptographic and security technologies in order to achieve and maintain its integrity.
 
-![[Screenshot 2026-01-20 at 09.26.00.png]]
+### 2.3 Technical Definition (Three Pillars)
 
-## Merkle Tree
+A technology that:
 
-A Merkle tree is a binary tree formed by hash pointers, and named after its creator, Ralph Merkle.
+1. **Permits** transactions to be gathered into blocks and recorded.
+2. **Cryptographically chains** blocks in chronological order.
+3. **Allows** the resulting ledger to be accessed by all servers/nodes.
 
-A Merkle Tree is a hierarchical data structure that organizes transactions or data in a tree format. It uses cryptographic hashes to ensure data integrity.
+### 2.4 What Blockchain Is NOT
 
-Efficiently verify the integrity and consistency of large data sets in blockchain.
-
-1. Leaf Nodes: Hashes of individual transactions.
-2. Intermediate Nodes: Hashes of concatenated child nodes.
-3. Merkle Root: Single hash representing the entire data set.
-
-![[Pasted image 20260120092632.png]]
-
-## How a Merkle Tree Works
-
-1. Hash Transactions: Each transaction (T1, T2, etc.) is hashed using SHA-256.
-2. Combine and Hash: Pair adjacent hashes, concatenate them, and hash again.
-3. Repeat: Continue combining and hashing until a single hash remains: the Merkle Root.
-
-## Proof of Membership
-
-A very interesting feature of the Merkle tree is that it provides proof of membership.
-
-### Merkle proof is used to decide
-
-1. If data belongs to a particular Merkle tree.
-2. To prove data belongs to a set without the need to store the whole set.
-3. To prove a certain data is included in a larger data set without revealing the larger data set or its subsets.
-
-### Example
-
-> Let us say we need to prove that transaction ‘a’ is part of this Merkle tree.
-
-Everyone in the network will be aware of the hash function used by all Merkle trees.
-
-1. 2. H(a) = Ha as per the diagram.
-
-> The hash of Ha and Hb will be Hab, which will be stored in an upper-level node.
-
-3. Finally hash of Hab and Hcd will give Habcd.
-
-> This is the Merkle root obtained by us.
-
-4. By comparing the obtained Merkle root and the Merkle root already available within the block header, we can verify the presence of transaction ‘a’ in this block.
-
-> Task: prove transaction c is a part of the Merkle tree.
+- A way to make quick money.
+- A way to privately send data (it's public and transparent by default).
+- A solution to every global problem.
+- Simply a cloud-based database.
+- All blockchains are public (there are private and consortium types too).
 
 ---
 
-## Why are Merkle Trees important
+## 3. History & Evolution of Blockchain
 
-- **Data Integrity**: Any small change in the data changes the Merkle Root.
-- **Efficient Verification**: Allows verification of specific transactions without storing the full dataset.
-- **Scalability**: Handles large numbers of transactions efficiently.
-- **Proof of Inclusion**: Enables lightweight verification that a transaction exists in a block.
+| Year | Event |
+|------|-------|
+| 1991 | Stuart Haber & Scott Stornetta propose cryptographically secured chain of blocks |
+| 2008 | Satoshi Nakamoto publishes the Bitcoin whitepaper |
+| 2009 | Bitcoin network launches; genesis block mined on 3 Jan 2009 |
+| 2011 | Litecoin introduced |
+| 2015 | Ethereum network goes live |
+| ~2016 | Term "Blockchain" popularised |
 
----
+### Versions of Blockchain
 
-# Blockchain Layers
-
-![[Pasted image 20260123115255.png]]
-
-## Consensus Layer
-
-- The Consensus Layer in a blockchain is the mechanism that ensures all nodes in a decentralized network agree on the state of the blockchain. 
-- It plays a vital role in maintaining the integrity, security, and consistency of data across the network.
-
-### Key functions
-
-- Agreement on a **Single Truth**: Ensures all nodes agree on the same version of the blockchain despite being distributed.
-- **Validation** of Transactions: Confirms that transactions are valid, preventing issues like double-spending.
-- **Decentralization**: Removes the need for a central authority to verify or validate data.
-- Network **Security**: Provides resistance against malicious actors attempting to manipulate the blockchain.
-- Transaction **Proposal**: Nodes propose new blocks with validated transactions to the network.
-- **Consensus** Mechanism: Nodes run a specific consensus algorithm to agree on the next block to be added.
-- Block **Confirmation**: Once consensus is reached, the new block is added to the chain, and all nodes update their local copies.
-- **Propagation**: The updated blockchain state is shared across the network.
-
-## Compute Layer
-
-The Compute Layer in a blockchain refers to the part of the architecture responsible for processing computations, executing smart contracts, and performing complex logic required by decentralized applications (dApps).
-
-> This layer is particularly crucial for blockchains like Ethereum that offer programmability beyond simple transaction recording.
-
-### Key Functions of the Compute Layer
-
-- Smart Contract Execution
-- Decentralized Application (dApp) Logic
-- State Management
-- Gas Measurement and Resource Management
-- Validation of Computations
-
-## Application Layers
-
-- The Application Layer in blockchain refers to the topmost layer where end-user applications and services interact with the blockchain network.
-- It provides the interface for users, developers, and systems to utilize the functionalities of the blockchain, such as decentralized applications (dApps), wallets, and decentralized finance (DeFi) solutions.
-
-### Key Functions of the Application Layer
-
-- User Interaction
-- Smart Contract Interaction
-- Access to Blockchain Services
-- Data Presentation and Visualization
+| Version | Focus | Example |
+|---------|-------|---------|
+| Blockchain 1.0 | Currency / Cryptocurrency | Bitcoin |
+| Blockchain 2.0 | Smart Contracts | Ethereum, Cardano |
+| Blockchain 3.0 | Decentralised Enterprise Applications | Hyperledger |
 
 ---
 
-## What is a Sybil Attack in Blockchain?
+## 4. Trust Model in Blockchain
 
-- A Sybil attack in blockchain occurs when a single malicious actor creates multiple fake identities (nodes) to gain disproportionate control or influence over the network.
-- Sybil Attack works like this:
-	- Creating Multiple Identities
-	- Disrupting Consensus Mechanisms
-	- Influencing the Network
+### 4.1 Traditional Trust Problem
 
-### How Blockchains Mitigate Sybil Attacks
+In traditional systems we must trust:
 
-- **Proof of Work (PoW**):
-	- Miners must perform computationally intensive work to validate blocks.
-	- Creating multiple fake nodes is expensive and infeasible due to resource costs.
-- **Proof of Stake (PoS)**:
-	- Validators are selected based on the amount of cryptocurrency staked.
-	- Creating fake identities requires significant financial investment.
-- **Proof of Authority (PoA)**
-	- Validators are pre-approved and identified, eliminating anonymity.
-- **Transaction** Fees
-	- High transaction fees discourage spamming the network with fake identities.
-- **Reputation** Systems
-	- Nodes build a reputation over time, and malicious nodes are identified and removed.
-- **Identity** Verification
-	- Some permissioned blockchains require verifiable identities to participate
+- Hardware not to leak cryptographic keys
+- OS not to peek into computation memory
+- Applications not to be hijacked
+- Institutions (banks, government bodies)
 
----
+The **double-spending attack** is the canonical problem: a digital file (money) can be copied and spent twice.
 
-## How the Application Layer Works
+### 4.2 Blockchain Trust Model
 
-- **User Request:**
-	- A user interacts with the application (e.g., sending a token via a wallet app).
-- **Smart Contract Execution:**
-	- The application sends the transaction or request to the smart contract deployed on the blockchain network.
-- **Consensus and Validation:**
-	- The blockchain processes and validates the transaction via its consensus mechanism.
-- **Response and Data Display:**
-	- The application layer retrieves the result and presents it to the user (e.g., updated token balance or successful transaction).
+Blockchain establishes trust without centralised entities through:
 
----
+- **Cryptographic techniques** — public/private key pairs, digital signatures
+- **Consensus algorithms** — majority agreement ensures no single actor can cheat
+- **Distributed ledger technology** — every participant holds a copy; no hidden manipulation is possible
 
-## Block Structure in Blockchain
+> Blockchain is recognised as the "fifth evolution of computing" — a new trust layer for the Internet. Previously, trust required certificates from central authorities (e.g., SSL).
 
-![[Pasted image 20260123120015.png]]
+### 4.3 How a Blockchain Transaction Works (Flow)
 
-- Block **Header**
-	- The header of the block contains technical information such as block height, timestamp, previous block’s hash, MerkleRoot hash, etc.
-	- Every block has this same set of attributes with a unique hash.
-	- The header distinguishes a block from other blocks, as it is a must to recognize each block separately on the blockchain.
-- The following are the most common fields in blocks:
-	- Block **Height**: A sequential number for each block that is added to the blockchain network. No block will have the same height number.
-	- **Timestamp**: The stamp of Unix time shows when the block was added to the blockchain.
-	- Previous Block’s **Hash**: A hash of the previously added block helps in maintaining the sequence.
-	- **Nonce**: It’s a number that block miners adjust to compute the puzzle for adding a new block to the blockchain.
-	- **MerkleRoot Hash**: The hash of all transactions included in the block.
-
-## Block Body
-
-- The body of the block includes all the data stored in the form of transactions.
-- It could be cryptocurrency transactions or any value that suggests changes to already existing data on the blockchain.
-- Block body attains the most block space, which is filled with transactional data.
-
-## How Data is Stored in Blockchain Blocks
-
-- The process of storing data in blocks relies on the blockchain drivers, such as miners, node operators, and validators.
-- These are blockchain participants who use specialized hardware devices and high computational power to solve complex mathematical puzzles to produce blocks.
-- This procedure ensures that all the information included in the block is legitimate.
-- The process of verifying transactions and producing blocks is a crucial aspect of the blockchain network.
+```
+User requests transaction
+        ↓
+Block representing the transaction is created
+        ↓
+Block is broadcast to ALL nodes in the network
+        ↓
+All nodes validate the block and transactions
+        ↓
+Transaction is verified and executed
+        ↓
+Block is added to the chain (immutable)
+```
 
 ---
 
-# The Proof Paradigm
+## 5. Core Components of Blockchain
 
-## Commitments
+### 5.1 Peer-to-Peer Network
 
-> *Commitments in blockchain refer to cryptographic schemes that allow a participant to "commit" to a value while keeping it hidden but ensuring that the value cannot be changed later. Commitments ensure binding and hiding properties, which are essential for privacy, integrity, and trust in blockchain systems.*
+- Decentralised model where each party acts as both client and server.
+- Eliminates intermediaries and single points of failure.
+- All nodes collaborate to manage and control data.
 
-1. Hiding: The value remains hidden until revealed
-2. Binding: The value cannot be changed after commitment
+### 5.2 Nodes
+
+Individual computers within the blockchain network. Each node stores a copy of the entire blockchain.
+
+| Node Type | Description |
+|-----------|-------------|
+| **Full Node** | Downloads all blocks and transactions; can verify all blocks; fully independent |
+| **Lightweight (Light) Node** | Stores only block headers + some transactions; uses SPV (Simplified Payment Verification) |
+| **Miner Node** | Full node that also solves the proof-of-work puzzle to propose new blocks (CPU → GPU intensive) |
+
+### 5.3 Distributed Ledger
+
+- An electronic database of all transactions.
+- Multiple blocks (each containing ≥1 transaction) linked cryptographically.
+- Eliminates the need for a central authority.
+- All participants share one copy including all updates.
+- Records are only added when stakeholders reach consensus.
+
+### 5.4 Transactions
+
+The basic unit of operation on a blockchain — records the transfer of data, assets, or information. Transactions are **immutable**, **transparent**, and **secured using cryptographic mechanisms**.
+
+**Components of a Transaction:**
+
+| Component | Description |
+|-----------|-------------|
+| Sender | Participant initiating the transaction; verified via public key + digital signature |
+| Receiver | Participant receiving the asset/information |
+| Transaction Data | Asset transfer, smart contract execution, or metadata |
+| Digital Signature | Sender signs with their private key to prove authenticity |
+| Timestamp | Time when the transaction was created |
+| Transaction Fee | Small fee paid to miners/validators |
+| Transaction Hash | Unique cryptographic hash identifying the transaction |
+
+**Types of Transactions:**
+
+- **Cryptocurrency Transactions** — e.g., Alice sends 2 BTC to Bob
+- **Smart Contract Transactions** — deploying or invoking a contract
+- **Token Transfers** — moving ERC-20 tokens
+- **Data Transactions** — recording supply-chain data, identity info
+- **Governance Transactions** — voting in DAOs
+
+### 5.5 Tokens
+
+Digital assets created and managed on a blockchain representing value, rights, or utility.
+
+**Token vs. Coin:**
+
+| Property | Coin | Token |
+|----------|------|-------|
+| Blockchain | Has its own blockchain | Built on an existing blockchain |
+| Creation | Created with the blockchain | Created via smart contracts |
+| Use | Digital money, gas fees | Utility, governance, NFTs, etc. |
+| Examples | Bitcoin, ETH | USDT, UNI, LINK |
+
+**Token Categories:**
+
+| Type | Description | Examples |
+|------|-------------|---------|
+| Utility | Access to services/features within a dApp | BAT (Brave), Filecoin (FIL) |
+| Security | Represent ownership in real-world assets; subject to regulations | Security token protocols |
+| Governance | Voting power over protocol decisions | Uniswap UNI, Maker MKR |
+| Transactional | Payments/transfers; low volatility | Stablecoins |
+| Platform | Native cryptocurrency of the ecosystem | ETH, SOL, BNB |
+| NFT | Unique, non-fungible, indivisible assets | Digital art, certificates, game items |
+
+**Crypto Token Model:**
+
+- Governed by smart contract rules (the "token contract")
+- Belongs to a blockchain domain
+- Accessible via dedicated wallet + public-private key pair
+- Only the holder of the private key is the true owner/custodian
+
+### 5.6 Consensus Mechanisms
+
+A mechanism ensuring all nodes validate and agree on the validity of transactions and their order. Examples:
+
+- **Proof of Work (PoW)** — Solve complex computational puzzles (Bitcoin)
+- **Proof of Stake (PoS)** — Validators chosen by staked cryptocurrency
+- **Delegated Proof of Stake (DPoS)** — Delegates validate on behalf of voters
+
+### 5.7 Smart Contracts
+
+Self-executing programs on the blockchain. Encode the rules and conditions of an agreement. Automatically execute when predefined conditions are met. Enable trustless, decentralised execution — no intermediaries needed.
+
+---
+
+## 6. Types of Blockchain
+
+### 6.1 Public Blockchain
+
+Open to everyone; fully decentralised, transparent and immutable.
+
+**Features:** Decentralised, open access, immutable, transparent, secured via PoW/PoS.
+
+**Examples:** Bitcoin, Ethereum (Mainnet)
+
+**Demerits:**
+
+- Scalability issues (congestion, slow TPS)
+- High energy consumption (PoW)
+- Privacy concerns (all transactions visible to public)
+
+### 6.2 Private Blockchain
+
+Restricted network; only authorised participants can join; controlled by a single organisation.
+
+**Features:** Permissioned access, centralised, limited transparency, higher performance.
+
+**Examples:** Hyperledger Fabric
+
+**Demerits:**
+
+- Centralisation concerns (undermines decentralisation principle)
+- Limited transparency
+- Security depends on trust of participating entities
+
+### 6.3 Hybrid Blockchain
+
+Combines features of public and private blockchains.
+
+**Features:** Controlled access, flexible governance, scalability, interoperability.
+
+**Demerits:**
+
+- Complex implementation
+- Reduced decentralisation (private component)
+- Trust dependency on managing entities
+- Regulatory complexity
+
+### 6.4 Consortium / Federated Blockchain
+
+Multiple organisations share control. More than one central authority grants access to pre-selected nodes for reading, writing, and auditing.
+
+**Features:** Semi-decentralised, permissioned, collaborative governance, efficient consensus.
+
+**Demerits:**
+
+- Complex governance structures
+- Interoperability challenges
+- Dependency on key member organisations
+
+---
+
+## 7. Cryptography — The Foundation of Data Integrity
+
+### 7.1 What Is Cryptography?
+
+Cryptography uses computer algorithms to safeguard data, ensuring only intended recipients can access content. It transforms information into a secure code via **encryption** that can only be decoded with the correct **decryption key**.
+
+**Key Terminology:**
+
+| Term | Meaning |
+|------|---------|
+| Plaintext | Message in natural, readable format |
+| Ciphertext | Message altered to be unreadable |
+| Key | Sequence controlling the cryptographic algorithm |
+| Key space | Total number of possible key values |
+| Initialization Vector | Random value used to ensure no patterns in encryption |
+| Cryptosystem | Combination of algorithm + key + key management |
+
+**Cryptosystem Services (CIA+):**
+
+| Service | Meaning |
+|---------|---------|
+| Confidentiality | Only authorised entities can view |
+| Integrity | Message was not altered unauthorised |
+| Authentication | Validates the source/sender identity |
+| Non-repudiation | Sender cannot deny sending the message |
+| Access Control | Access to data requires correct crypto keys |
+
+### 7.2 Types of Cryptography
+
+**Symmetric Key Cryptography:**
+
+- Single key used for both encryption and decryption.
+- Also called **Secret-Key Cryptography**.
+- Both sender and receiver must share the same key.
+
+**Asymmetric Key Cryptography:**
+
+- Two mathematically related keys: a **public key** (shared openly) and a **private key** (kept secret).
+- Also called **Public-Key Cryptography**.
+- Public key encrypts; private key decrypts (or vice-versa for signatures).
+
+### 7.3 Cryptographic Hash Functions
+
+A hash function produces a fixed-length output (digest) from variable-length input. It is the "digital fingerprint" of data.
+
+**Key Properties:**
+
+| Property | Description |
+|----------|-------------|
+| Collision-free | No two different inputs should produce the same hash |
+| Hidden (Pre-image resistance) | Cannot determine input from output |
+| Puzzle-friendly | Difficult to find input that gives a predefined output |
+| Deterministic | Same input always gives the same output |
+| Avalanche effect | A tiny input change drastically changes the output |
+
+**Common Hashing Algorithms:**
+
+- MD4, MD5 (Ron Rivest, 1990/1994) — deprecated
+- SHA-0, SHA-1 (NSA, 1993/1995) — deprecated
+- RIPEMD-160 (1996)
+- SHA-2 family: SHA-224, SHA-256, SHA-384, SHA-512 (2002)
+- SHA-3
+
+### 7.4 SHA-256 — Backbone of Blockchain Security
+
+Secure Hash Algorithm 256-bit; developed by NSA.
+
+**Key features:**
+
+- Fixed 256-bit (64-character hex) output
+- Deterministic — same input, same output
+- Irreversible — cannot reverse-engineer input
+- Collision resistant — 2²⁵⁶ possibilities
+- Avalanche effect — small change → completely different hash
+- **Double SHA-256** used in Bitcoin (hash applied twice)
+
+**SHA-256 Steps:**
+
+1. **Padding Bits** — Append `1` then `0`s until length ≡ 448 (mod 512)
+2. **Padding Length** — Append 64-bit representation of original message length
+3. **Initialise Buffers** — 8 × 32-bit buffers (H0–H7) from square-root primes
+4. **Compression Functions** — 64 rounds of bitwise ops per 512-bit block
+5. **Output** — Concatenate final H0–H7 values → 256-bit hash
+
+**Role of SHA-256 in Blockchain:**
+
+- **Data Integrity** — Detects any tampering in transactions
+- **Block Hashing** — Each block has a unique hash of its contents
+- **Linking Blocks** — Previous block's hash is included in the next block
+- **Proof of Work** — Miners find a nonce so that SHA-256(block) < target
+
+### 7.5 Digital Signatures
+
+A digital signature is a mathematical scheme to authenticate the sender of an electronic document, providing **Authenticity + Integrity + Non-repudiation**.
+
+**Process:**
+
+1. Sender hashes the message.
+2. Sender encrypts the hash with their **private key** → digital signature.
+3. Sender sends: (message + digital signature).
+4. Receiver decrypts the signature with sender's **public key** → gets the original hash.
+5. Receiver independently hashes the received message.
+6. If hashes match → message is authentic and unaltered.
+
+**Importance in Blockchain:**
+
+| Benefit | Description |
+|---------|-------------|
+| Enhanced Security | Only rightful owner can initiate a transaction |
+| Authentication | Verifies data hasn't been tampered with |
+| Non-Repudiation | Sender cannot deny involvement; signature is immutable |
+| Efficiency | Eliminates need for intermediaries in verification |
+| Decentralisation | No centralised authority needed to validate |
+
+---
+
+## 8. Blockchain Data Structures
+
+### 8.1 The Two Core Data Structures
+
+Blockchain is a combination of two hash-based data structures:
+
+1. **Linked List (of Blocks)** — Each block contains a hash pointer to the previous block instead of a regular pointer.
+2. **Merkle Tree** — A binary tree of hash pointers inside each block, used to efficiently represent all transactions.
+
+### 8.2 Block Structure
+
+| Field | Description |
+|-------|-------------|
+| **Block Header** | Technical metadata |
+| Block Height | Sequential block number (unique) |
+| Timestamp | Unix time when block was added |
+| Previous Block Hash | Hash of the previous block (creates the "chain") |
+| Nonce | Number miners adjust to solve the PoW puzzle |
+| MerkleRoot Hash | Hash of all transactions in the block |
+| **Block Body** | All transaction data stored in the block |
+
+**Block Header** distinguishes each block uniquely on the network.
+
+**Block Body** contains the actual transactional data and takes the most space.
+
+### 8.3 Merkle Trees
+
+A Merkle tree is a binary tree formed by hash pointers, named after its creator **Ralph Merkle**. It is a hierarchical data structure that organises transactions in a tree format using cryptographic hashes.
+
+**Components:**
+
+| Component | Description |
+|-----------|-------------|
+| Leaf Nodes | Hashes of individual transactions (H(Tx1), H(Tx2), ...) |
+| Intermediate Nodes | Hash of concatenated child node hashes |
+| Merkle Root | Single hash representing the entire dataset |
+
+**How It Works:**
+
+1. Hash each transaction: `H(T1)`, `H(T2)`, `H(T3)`, `H(T4)`
+2. Combine adjacent hashes: `H(T1+T2) = H(H(T1) || H(T2))`
+3. Repeat until single root hash remains.
+
+```
+         [Merkle Root]
+              /   \
+          [H12]   [H34]
+          /  \    /  \
+       [H1] [H2] [H3] [H4]
+        T1   T2   T3   T4
+```
+
+**Proof of Membership (Merkle Proof):**
+
+To prove transaction `T1` is in the block, you only need:
+
+- `H(T2)` and `H(H34)` — a logarithmically small number of hashes.
+- Recompute: `H(H(T1) || H(T2))` → `H(that || H34)` → compare with stored Merkle Root.
+
+**Why Merkle Trees Are Important:**
+
+| Property | Benefit |
+|----------|---------|
+| Data Integrity | Any change in one transaction changes the Merkle Root |
+| Efficient Verification | Verify a transaction without downloading entire blockchain |
+| Scalability | Handles large numbers of transactions efficiently |
+| Proof of Inclusion | Enables lightweight SPV verification |
+
+### 8.4 Commitments in Blockchain
+
+Commitments allow a participant to "commit" to a value while keeping it hidden, but ensuring the value cannot be changed later.
+
+**Key Properties:**
+
+1. **Hiding** — The value remains hidden until revealed.
+2. **Binding** — The value cannot be changed after commitment.
+
+**Two Phases:**
+
+1. **Commit Phase:** `C = Commit(x, r)` where `r` is random — publish `C` without revealing `x`
+2. **Reveal Phase:** Reveal `x` and `r` — anyone verifies `C = Commit(x, r)`
+
+**Types:**
+
+- **Hash-Based:** `C = Hash(x || r)` using SHA-256
+- **Pedersen Commitments (Homomorphic):** Allows arithmetic on commitments (used in Confidential Transactions — Monero, MimbleWimble)
+
+**Use Cases:**
+
+- **Commit-Reveal Schemes** — Fair voting/bidding (prevents cheating)
+- **Merkle Trees** — The Merkle Root is a commitment to all transactions
+- **Confidential Transactions** — Hide amounts while allowing verification
+
+---
+
+## 9. Blockchain Layers Architecture
+
+```
+Layer 3 | User Interface (Web3)
+Layer 2 | Application Layer (Solidity, MOVE, RUST, etc.)
+Layer 1.5 | Compute Layer
+Layer 1 | Consensus Layer
+```
+
+### Consensus Layer
+
+Ensures all nodes in the decentralised network agree on the state of the blockchain. Functions:
+
+- **Agreement on a Single Truth** — all nodes agree on the same blockchain version
+- **Validation** — confirms transactions are valid; prevents double-spending
+- **Decentralisation** — no central authority needed
+- **Security** — resists manipulation attempts
+
+### Compute Layer
+
+Responsible for processing computations, executing smart contracts, and performing complex logic for dApps. Particularly crucial for Ethereum. Functions:
+
+- Smart contract execution
+- dApp logic processing
+- State management
+- Gas measurement and resource management
+- Validation of computations
+
+### Application Layer
+
+Topmost layer where end-user applications interact with the blockchain. Provides interfaces for wallets, dApps, and DeFi solutions. Functions:
+
+- User interaction
+- Smart contract interaction
+- Access to blockchain services
+- Data presentation and visualisation
+
+---
+
+## 10. Key Features of Blockchain
+
+| Feature | Description |
+|---------|-------------|
+| **Anonymity** | Addresses instead of identities (pseudonymous) |
+| **Immutability** | Records cannot be altered once confirmed |
+| **Transparency** | All transactions visible to network participants |
+| **Peer to Peer** | Direct interactions without intermediaries |
+| **Distributed & Decentralised** | No single point of control or failure |
+| **Logical Computation** | Smart contracts automate rule-based operations |
+
+---
+
+## 11. Ownership in Blockchain
+
+Ownership = ability to control and prove access to digital/physical assets recorded on the blockchain. Achieved through **cryptographic mechanisms**.
+
+**Three Elements of Ownership:**
+
+1. Identification of the owner
+2. Identification of the object being owned
+3. A mapping of the owner to the object
+
+**Key Features:**
+
+| Feature | Description |
+|---------|-------------|
+| Decentralised Control | No intermediaries; users control assets directly |
+| Cryptographic Proof | Private key = proof of ownership; Public key = identity on blockchain |
+| Immutability | Ownership records cannot be altered |
+| Transparency | Ownership history visible and verifiable |
+| Programmability | Smart contracts automate ownership transfers |
+
+---
+
+## 12. Applications of Blockchain
+
+| Domain | Platform | Use |
+|--------|----------|-----|
+| Cryptocurrencies | Bitcoin, Ethereum, Litecoin | Digital currency transactions |
+| Smart Contracts | Ethereum, Cardano, Hyperledger | Automate agreements |
+| Supply Chain | IBM Food Trust, VeChain | Transparency, traceability |
+| Healthcare | Medicalchain, Patientory | Secure patient data |
+| DeFi | Uniswap, Aave, Compound | P2P lending, borrowing, trading |
+| Real Estate | Various | Tokenised property ownership |
+| IoT | Various | Device identity and data integrity |
+
+**Other Applications:**
+
+- **DApps (Decentralised Applications)** — DeFi, stablecoins, lending, exchanges
+- **NFTs (Non-Fungible Tokens)** — Art, game assets, domain names
+- **DAOs (Decentralised Autonomous Organisations)** — Investment, governance, charity
+
+---
+
+## 13. Development Platforms
+
+| Platform | Description |
+|----------|-------------|
+| **Ethereum** | Most widely used; supports smart contracts; Solidity language |
+| **Hyperledger Fabric** | Linux Foundation; permissioned; enterprise-grade |
+| **IBM Blue Mix** | IBM's blockchain service |
+| **Ripple** | Payment-focused; fast cross-border transactions |
+| **Multichain** | Creates and deploys private blockchains |
+
+---
+
+## 14. Myths About Blockchain
+
+| Myth | Reality |
+|------|---------|
+| Blockchain is only about Bitcoin | Blockchain has hundreds of use cases beyond cryptocurrency |
+| Blockchain is not ready for business | Hyperledger, Ethereum are production-ready |
+| Blockchain solves everything | It's a tool; not universally the best solution |
+| Blockchain is a cloud-based database | It's a distributed ledger with specific properties |
+| All blockchains are public | Private and consortium types exist |
+
+---
+
+## 15. Why Is Blockchain Expensive?
+
+> "Total computation cost of Bitcoin ecosystem is equivalent to running power in countries like Ireland, New Zealand, or Belgium."
+
+**Root Cause:** To ensure data integrity against malicious entities, massive computational effort (Proof of Work) is required.
+
+- All transactions are recorded and interconnected.
+- Everyone in the network gets a copy; each copy is linked to others.
+- Solving increasingly difficult math problems ensures immutability.
+
+This is the fundamental trade-off: **security and integrity ↔ computational cost**.
+
+---
+
+## Quick Reference — Key Concepts
+
+| Concept | One-Liner |
+|---------|-----------|
+| Blockchain | Distributed ledger with cryptographically chained blocks |
+| Hash | Fixed-length fingerprint of data; deterministic, one-way |
+| Merkle Tree | Binary tree of hashes; enables efficient transaction verification |
+| Digital Signature | Cryptographic proof of authenticity and non-repudiation |
+| Consensus | Mechanism for all nodes to agree on the ledger state |
+| Smart Contract | Self-executing code on blockchain |
+| PoW | Miners compete to solve puzzles for the right to add blocks |
+| PoS | Validators chosen proportionally by staked cryptocurrency |
+| Nonce | Number adjusted by miners to satisfy hash difficulty |
+| SPV | Simplified Payment Verification for lightweight nodes |
