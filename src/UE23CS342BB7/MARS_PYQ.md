@@ -74,17 +74,17 @@ An autonomous robot is a robotic system capable of performing tasks and making d
 
 ---
 
-# TOPIC 2: Sensors — Types, Classification, and Applications
+## TOPIC 2: Sensors — Types, Classification, and Applications
 
 ---
 
-## Q3 — How do proprioceptive and exteroceptive sensors differ? What are the key distinctions between passive and active sensors? What are the applications of LiDAR, Radar, Ultrasonic sensors, and Wheel Encoders?
+### Q3 — How do proprioceptive and exteroceptive sensors differ? What are the key distinctions between passive and active sensors? What are the applications of LiDAR, Radar, Ultrasonic sensors, and Wheel Encoders?
 
 **[ESA Jul-2024 Set-1 · Q1.b · 10 Marks]**
 
 **Answer:**
 
-### Proprioceptive vs. Exteroceptive
+#### Proprioceptive vs. Exteroceptive
 
 | Feature | Proprioceptive | Exteroceptive |
 |---------|---------------|--------------|
@@ -92,7 +92,7 @@ An autonomous robot is a robotic system capable of performing tasks and making d
 | Examples | Motor speed, wheel encoders, IMU, joint angles, battery voltage | Camera, LiDAR, ultrasonic, GPS |
 | Use | Odometry, joint control, pose estimation | Obstacle detection, mapping, localization |
 
-### Passive vs. Active
+#### Passive vs. Active
 
 | Feature | Passive | Active |
 |---------|---------|--------|
@@ -101,7 +101,7 @@ An autonomous robot is a robotic system capable of performing tasks and making d
 | Advantage | No interference, low power | Higher accuracy, more controlled measurements |
 | Risk | Affected by ambient conditions | May interfere with other sensors or environment |
 
-### Sensor Applications
+#### Sensor Applications
 
 **LiDAR (Light Detection and Ranging)**
 
@@ -128,7 +128,7 @@ An autonomous robot is a robotic system capable of performing tasks and making d
 
 ---
 
-## Q4 — Distinguish between active and passive sensors, and give examples
+### Q4 — Distinguish between active and passive sensors, and give examples
 
 **[ESA Jan–May 2024 · Q1.d · 4 Marks]**
 
@@ -144,13 +144,13 @@ An autonomous robot is a robotic system capable of performing tasks and making d
 
 ---
 
-## Q5 — Explain the role and functionality of encoders in robotics. What factors should be considered when selecting an encoder?
+### Q5 — Explain the role and functionality of encoders in robotics. What factors should be considered when selecting an encoder?
 
 **[ESA Jan–May 2024 · Q1.c · 7 Marks]**
 
 **Answer:**
 
-### What Encoders Do
+#### What Encoders Do
 
 Encoders are sensors that measure **angular position and/or speed** of a rotating shaft or wheel. In robotics they are primarily used for:
 
@@ -158,7 +158,7 @@ Encoders are sensors that measure **angular position and/or speed** of a rotatin
 - **Speed feedback:** Closed-loop motor control
 - **Joint position sensing:** In robot arms, each joint's angle
 
-### How They Work
+#### How They Work
 
 **Optical Encoder:**
 
@@ -170,7 +170,7 @@ Encoders are sensors that measure **angular position and/or speed** of a rotatin
 
 **Absolute Encoder:** Directly outputs absolute angle — never loses position even after power-off
 
-### Factors for Encoder Selection
+#### Factors for Encoder Selection
 
 | Factor | Consideration |
 |--------|--------------|
@@ -184,7 +184,7 @@ Encoders are sensors that measure **angular position and/or speed** of a rotatin
 
 ---
 
-## Q6 — What do optical encoders measure? How do they work? How does the sensor react when the encoder disk blocks the light beam?
+### Q6 — What do optical encoders measure? How do they work? How does the sensor react when the encoder disk blocks the light beam?
 
 **[ESA Jan–May 2024 · Q3.a · 7 Marks]**
 
@@ -212,11 +212,11 @@ Encoders are sensors that measure **angular position and/or speed** of a rotatin
 - If B leads A → **counter-clockwise** rotation
 - This gives both position AND direction
 
-**Resolution:** Determined by the number of slots on the disk (e.g., 1024 CPR = 1024 pulses per revolution = 0.35° resolution)
+**Resolution:** Determined by the number of slots on the disk (e.g., 1024 CPR = 1024 pulses per revolution = $0.35°$ resolution)
 
 ---
 
-## Q7 — Define the IMU and specify the number of DOF it typically estimates. Provide a schematic of its block diagram
+### Q7 — Define the IMU and specify the number of DOF it typically estimates. Provide a schematic of its block diagram
 
 **[ESA Jan–May 2024 · Q3.c · 7 Marks]**
 
@@ -232,8 +232,8 @@ An **IMU (Inertial Measurement Unit)** is an electronic device that measures and
 
 **DOF Estimates:**
 
-- 6-DOF IMU: 3-axis acceleration + 3-axis angular velocity
-- 9-DOF IMU: 6-DOF + 3-axis magnetic field (absolute heading)
+- **6-DOF IMU:** 3-axis acceleration + 3-axis angular velocity
+- **9-DOF IMU:** 6-DOF + 3-axis magnetic field (absolute heading)
 
 **IMU Block Diagram:**
 
@@ -271,7 +271,7 @@ An **IMU (Inertial Measurement Unit)** is an electronic device that measures and
 
 ---
 
-## Q8 — What is dead reckoning? Which sensor is used for dead reckoning?
+### Q8 — What is dead reckoning? Which sensor is used for dead reckoning?
 
 **[ESA Jan–May 2024 · Q3.d · 4 Marks]**
 
@@ -281,11 +281,17 @@ An **IMU (Inertial Measurement Unit)** is an electronic device that measures and
 
 **Process:**
 
-```
-x_t = x_{t-1} + Δx(v, ω, Δt)
-y_t = y_{t-1} + Δy(v, ω, Δt)
-θ_t = θ_{t-1} + ω·Δt
-```
+$$
+x_t = x_{t-1} + \Delta x(v,\, \omega,\, \Delta t)
+$$
+
+$$
+y_t = y_{t-1} + \Delta y(v,\, \omega,\, \Delta t)
+$$
+
+$$
+\theta_t = \theta_{t-1} + \omega \cdot \Delta t
+$$
 
 **Primary Sensor:** **Wheel Encoders (Odometry)**
 
@@ -301,11 +307,11 @@ y_t = y_{t-1} + Δy(v, ω, Δt)
 
 ---
 
-# TOPIC 3: Actuators
+## TOPIC 3: Actuators
 
 ---
 
-## Q9 — Provide a detailed explanation of actuators. What are the different types of actuators and their applications?
+### Q9 — Provide a detailed explanation of actuators. What are the different types of actuators and their applications?
 
 **[ESA Jul-2024 Set-1 · Q1.c · 10 Marks]**
 
@@ -315,7 +321,7 @@ y_t = y_{t-1} + Δy(v, ω, Δt)
 
 An **actuator** is a device that converts energy (electrical, pneumatic, hydraulic) into **physical motion** or force. It is the output mechanism of a robot — the component that makes things move.
 
-### Types of Actuators
+#### Types of Actuators
 
 **1. Electric Actuators**
 
@@ -335,7 +341,7 @@ An **actuator** is a device that converts energy (electrical, pneumatic, hydraul
 
 **(c) Stepper Motors:**
 
-- Rotates in discrete steps (e.g., 1.8° per step = 200 steps/revolution)
+- Rotates in discrete steps (e.g., $1.8°$ per step = 200 steps/revolution)
 - Open-loop position control — no encoder needed for basic use
 - Applications: 3D printer axes, CNC machines, camera focus mechanisms
 
@@ -372,7 +378,7 @@ An **actuator** is a device that converts energy (electrical, pneumatic, hydraul
 - Applications: High-precision positioning (atomic force microscopes), micro-robots
 - Advantage: Sub-micron precision
 
-### Comparison Table
+#### Comparison Table
 
 | Type | Power Source | Motion | Force | Precision | Typical Use |
 |------|-------------|--------|-------|-----------|-------------|
@@ -385,11 +391,11 @@ An **actuator** is a device that converts energy (electrical, pneumatic, hydraul
 
 ---
 
-# TOPIC 4: Kinematics and Robot Motion
+## TOPIC 4: Kinematics and Robot Motion
 
 ---
 
-## Q10 — What are rotational matrices in robot kinematics? Give an example and explain how it is used
+### Q10 — What are rotational matrices in robot kinematics? Give an example and explain how it is used
 
 **[ESA Jul-2024 Set-1 · Q2.a · 5 Marks]**
 
@@ -397,66 +403,57 @@ An **actuator** is a device that converts energy (electrical, pneumatic, hydraul
 
 **Rotational Matrix Definition:**
 
-A **rotation matrix** R is a 3×3 orthogonal matrix that represents a rotation in 3D space. It transforms a vector from one coordinate frame to another (rotated) frame.
+A **rotation matrix** $R$ is a $3\times3$ orthogonal matrix that represents a rotation in 3D space. It transforms a vector from one coordinate frame to another (rotated) frame.
 
 Properties:
 
-- R^T = R^{-1} (transpose = inverse)
-- det(R) = +1
+- $R^T = R^{-1}$ (transpose = inverse)
+- $\det(R) = +1$
 - Columns are orthonormal unit vectors
 
-**Rotation about the Z-axis by angle θ:**
+**Rotation about the Z-axis by angle $\theta$:**
 
-```
-Rz(θ) = | cos θ  -sin θ   0 |
-         | sin θ   cos θ   0 |
-         |   0       0     1 |
-```
+$$
+R_z(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}
+$$
 
-**Rotation about X-axis by angle α:**
+**Rotation about X-axis by angle $\alpha$:**
 
-```
-Rx(α) = | 1     0       0   |
-         | 0   cos α  -sin α |
-         | 0   sin α   cos α |
-```
+$$
+R_x(\alpha) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\alpha & -\sin\alpha \\ 0 & \sin\alpha & \cos\alpha \end{bmatrix}
+$$
 
-**Rotation about Y-axis by angle β:**
+**Rotation about Y-axis by angle $\beta$:**
 
-```
-Ry(β) = | cos β   0   sin β |
-         |   0     1     0   |
-         |-sin β   0   cos β |
-```
+$$
+R_y(\beta) = \begin{bmatrix} \cos\beta & 0 & \sin\beta \\ 0 & 1 & 0 \\ -\sin\beta & 0 & \cos\beta \end{bmatrix}
+$$
 
 **Example:**
 
-Rotate point P = (1, 0, 0) by 90° about Z-axis:
+Rotate point $P = (1,\, 0,\, 0)$ by $90°$ about the Z-axis:
 
-```
-P' = Rz(90°) × P
-   = | 0  -1  0 |   | 1 |   |  0 |
-     | 1   0  0 | × | 0 | = |  1 |
-     | 0   0  1 |   | 0 |   |  0 |
-```
+$$
+P' = R_z(90°) \cdot P = \begin{bmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+$$
 
-The point moved from (1, 0, 0) to (0, 1, 0) — a 90° rotation as expected.
+The point moved from $(1,\,0,\,0)$ to $(0,\,1,\,0)$ — a 90° rotation as expected.
 
 **Use in Robotics:**
 
 - Computing end-effector orientation given joint angles (forward kinematics)
 - Transforming sensor data from sensor frame to robot/world frame
-- Composing multiple rotations: R_total = R1 × R2 × R3
+- Composing multiple rotations: $R_{\text{total}} = R_1 \cdot R_2 \cdot R_3$
 
 ---
 
-## Q11 — Differentiate forward kinematics from inverse kinematics with an example
+### Q11 — Differentiate forward kinematics from inverse kinematics with an example
 
 **[ESA Jul-2024 Set-1 · Q2.c · 10 Marks] · [ESA Jan–May 2024 · Q1.b · 7 Marks]**
 
 **Answer:**
 
-### Forward Kinematics (FK)
+#### Forward Kinematics (FK)
 
 **Definition:** Given **joint angles/positions**, compute the **position and orientation of the end effector**.
 
@@ -467,21 +464,27 @@ The point moved from (1, 0, 0) to (0, 1, 0) — a 90° rotation as expected.
 
 **Mathematical form (2-link planar arm):**
 
-```
-x = L1·cos(θ1) + L2·cos(θ1 + θ2)
-y = L1·sin(θ1) + L2·sin(θ1 + θ2)
-```
+$$
+x = L_1\cos(\theta_1) + L_2\cos(\theta_1 + \theta_2)
+$$
+
+$$
+y = L_1\sin(\theta_1) + L_2\sin(\theta_1 + \theta_2)
+$$
 
 **Example:**
 
-2-link arm, L1 = L2 = 1 m, θ1 = 45°, θ2 = 45°:
+2-link arm, $L_1 = L_2 = 1\text{ m}$, $\theta_1 = 45°$, $\theta_2 = 45°$:
 
-```
-x = cos(45°) + cos(90°) = 0.707 + 0 = 0.707 m
-y = sin(45°) + sin(90°) = 0.707 + 1.0 = 1.707 m
-```
+$$
+x = \cos(45°) + \cos(90°) = 0.707 + 0 = 0.707\text{ m}
+$$
 
-### Inverse Kinematics (IK)
+$$
+y = \sin(45°) + \sin(90°) = 0.707 + 1.0 = 1.707\text{ m}
+$$
+
+#### Inverse Kinematics (IK)
 
 **Definition:** Given the **desired end-effector position and orientation**, compute the required **joint angles**.
 
@@ -492,24 +495,27 @@ y = sin(45°) + sin(90°) = 0.707 + 1.0 = 1.707 m
 
 **Example (same 2-link arm):**
 
-Desired position: (0.707, 1.707)
+Desired position: $(0.707,\; 1.707)$
 
-```
-cos(θ2) = (x² + y² − L1² − L2²) / (2·L1·L2)
-         = (0.5 + 2.91 − 1 − 1) / 2 = 0.707
-θ2 = ±45°
+$$
+\cos(\theta_2) = \frac{x^2 + y^2 - L_1^2 - L_2^2}{2 L_1 L_2} = \frac{0.5 + 2.91 - 1 - 1}{2} = 0.707
+$$
 
-θ1 = atan2(y, x) − atan2(L2·sin(θ2), L1 + L2·cos(θ2))
-   = 90° − 45° = 45°
-```
+$$
+\theta_2 = \pm 45°
+$$
 
-→ θ1 = 45°, θ2 = 45° (matches the FK example)
+$$
+\theta_1 = \text{atan2}(y,\, x) - \text{atan2}(L_2\sin(\theta_2),\; L_1 + L_2\cos(\theta_2)) = 90° - 45° = 45°
+$$
 
-### Comparison
+$\therefore\; \theta_1 = 45°,\; \theta_2 = 45°$ (matches the FK example)
+
+#### Comparison
 
 | Aspect | Forward Kinematics | Inverse Kinematics |
 |--------|-------------------|-------------------|
-| Input | Joint angles (θ1, θ2, ...) | End-effector pose (x, y, θ) |
+| Input | Joint angles $(\theta_1, \theta_2, \ldots)$ | End-effector pose $(x, y, \theta)$ |
 | Output | End-effector pose | Joint angles |
 | Solutions | Always unique | Multiple / none possible |
 | Complexity | Low | High (non-linear) |
@@ -518,18 +524,18 @@ cos(θ2) = (x² + y² − L1² − L2²) / (2·L1·L2)
 
 **Importance of IK:**
 
-- Without IK, you cannot tell a robot arm to "pick up this object at position (x, y, z)"
+- Without IK, you cannot tell a robot arm to "pick up this object at position $(x, y, z)$"
 - Essential for robot arm manipulators, humanoid locomotion, camera pointing, surgical robots
 
 ---
 
-## Q12 — Explain the configuration of Ackermann Steering and Synchro Drive with diagrams and equations
+### Q12 — Explain the configuration of Ackermann Steering and Synchro Drive with diagrams and equations
 
 **[ESA Jul-2024 Set-1 · Q2.b · 10 Marks]**
 
 **Answer:**
 
-### Ackermann Steering
+#### Ackermann Steering
 
 Used in car-like robots. The key constraint is that all wheels rotate about a **common instantaneous center** (ICC), so inner wheels turn at a sharper angle than outer wheels.
 
@@ -546,22 +552,22 @@ Used in car-like robots. The key constraint is that all wheels rotate about a **
 
 **Ackermann Condition:**
 
-```
-cot(δ_outer) − cot(δ_inner) = W / L
-```
+$$
+\cot(\delta_{\text{outer}}) - \cot(\delta_{\text{inner}}) = \frac{W}{L}
+$$
 
 Where:
 
-- δ_outer = steering angle of outer front wheel
-- δ_inner = steering angle of inner front wheel
-- W = track width (distance between left and right wheels)
-- L = wheelbase (distance between front and rear axles)
+- $\delta_{\text{outer}}$ = steering angle of outer front wheel
+- $\delta_{\text{inner}}$ = steering angle of inner front wheel
+- $W$ = track width (distance between left and right wheels)
+- $L$ = wheelbase (distance between front and rear axles)
 
 **Turn radius** (to center of rear axle):
 
-```
-R = L / tan(δ)
-```
+$$
+R = \frac{L}{\tan(\delta)}
+$$
 
 **Properties:**
 
@@ -572,7 +578,7 @@ R = L / tan(δ)
 
 ---
 
-### Synchro Drive
+#### Synchro Drive
 
 All wheels **steer and drive simultaneously** — all wheels always point in the same direction.
 
@@ -596,11 +602,15 @@ All wheels **steer and drive simultaneously** — all wheels always point in the
 
 **Equations:**
 
-```
-v_robot = v_wheel            (translational speed)
-ω_robot = 0                  (body does not rotate)
-Heading changed by steering motor directly
-```
+$$
+v_{\text{robot}} = v_{\text{wheel}} \qquad \text{(translational speed)}
+$$
+
+$$
+\omega_{\text{robot}} = 0 \qquad \text{(body does not rotate)}
+$$
+
+Heading is changed directly by the steering motor.
 
 **Properties:**
 
@@ -611,13 +621,13 @@ Heading changed by steering motor directly
 
 ---
 
-## Q13 — What is the difference between locomotion and manipulation? Discuss key issues and limitations affecting locomotion in robotic systems
+### Q13 — What is the difference between locomotion and manipulation? Discuss key issues and limitations affecting locomotion in robotic systems
 
 **[ESA Jan–May 2024 · Q2.a · 7 Marks]**
 
 **Answer:**
 
-### Locomotion vs. Manipulation
+#### Locomotion vs. Manipulation
 
 | Aspect | Locomotion | Manipulation |
 |--------|-----------|-------------|
@@ -628,7 +638,7 @@ Heading changed by steering motor directly
 
 **Note:** Locomotion and manipulation share the same core challenges of stability, contact, and force control. A legged robot's leg simultaneously provides locomotion (support + swing) — the distinction blurs.
 
-### Key Issues and Limitations of Locomotion
+#### Key Issues and Limitations of Locomotion
 
 1. **Stability**
    - Must maintain balance throughout motion
@@ -662,13 +672,13 @@ Heading changed by steering motor directly
 
 ---
 
-## Q14 — What is static and dynamic stability? Explain support polygon with example
+### Q14 — What is static and dynamic stability? Explain support polygon with example
 
 **[ESA Jan–May 2024 · Q2.b · 7 Marks]**
 
 **Answer:**
 
-### Static Stability
+#### Static Stability
 
 A robot is **statically stable** when it can remain balanced without any motion. Condition: the **center of gravity (CoG)** must lie **within the support polygon** formed by the ground contact points.
 
@@ -676,22 +686,21 @@ No active control is needed — the robot can stop at any instant and remain upr
 
 **Example:** A tripod (3-legged stool) — always statically stable as long as CoG is in the triangle.
 
-### Dynamic Stability
+#### Dynamic Stability
 
 A robot is **dynamically stable** when balance is maintained **only through motion** — the CoG may temporarily leave the support polygon but the robot doesn't fall because it uses inertial forces and active control to correct.
 
 **Example:** A bicycle — falls if stationary but stays balanced while moving due to gyroscopic effects and active steering.
 
-### Support Polygon
+#### Support Polygon
 
 The **support polygon** is the convex hull of all ground contact points of a robot.
 
 **4-Legged Robot Example:**
 
-```
-Contact points: FL(0,1), FR(1,1), RL(0,0), RR(1,0)
+Contact points: $FL(0,1)$, $FR(1,1)$, $RL(0,0)$, $RR(1,0)$
 
-Support Polygon:
+```
   FL ─────── FR
    │           │
    │    CoG    │  ← CoG at (0.5, 0.5) = inside = STABLE
@@ -701,9 +710,7 @@ Support Polygon:
 
 If the robot lifts one leg (e.g., FL):
 
-```
-Support Triangle: FR(1,1), RL(0,0), RR(1,0)
-```
+Support Triangle: $FR(1,1)$, $RL(0,0)$, $RR(1,0)$
 
 CoG must now remain within this triangle to maintain static stability.
 
@@ -714,7 +721,7 @@ CoG must now remain within this triangle to maintain static stability.
 
 ---
 
-## Q15 — Explain Degrees of Freedom (DOF) in robotics and describe capabilities for 2-DOF, 3-DOF, 5-DOF, and 6-DOF robots
+### Q15 — Explain Degrees of Freedom (DOF) in robotics and describe capabilities for 2-DOF, 3-DOF, 5-DOF, and 6-DOF robots
 
 **[ESA Jan–May 2024 · Q2.c · 7 Marks]**
 
@@ -724,8 +731,8 @@ CoG must now remain within this triangle to maintain static stability.
 
 | DOF | Capabilities | Example Robot | Applications |
 |-----|-------------|--------------|-------------|
-| **2-DOF** | Move in a plane (x, y) OR 2 rotations | SCARA robot arm (simplified), pan-tilt camera | Pick and place on flat surface, camera tracking |
-| **3-DOF** | Full 3D position (x, y, z) or 2 translations + 1 rotation | Basic robotic arm, Delta robot | 3D printing head, simple assembly |
+| **2-DOF** | Move in a plane $(x, y)$ OR 2 rotations | SCARA robot arm (simplified), pan-tilt camera | Pick and place on flat surface, camera tracking |
+| **3-DOF** | Full 3D position $(x, y, z)$ or 2 translations + 1 rotation | Basic robotic arm, Delta robot | 3D printing head, simple assembly |
 | **5-DOF** | 3D position + 2 orientations (pitch + yaw, no roll) | 5-axis CNC machine, some welding robots | Welding, milling curved surfaces |
 | **6-DOF** | Full 3D position + full 3D orientation (roll, pitch, yaw) | Industrial robot arm (KUKA, ABB), human arm | Assembly, painting, surgery, pick-and-place of arbitrarily oriented objects |
 
@@ -737,7 +744,7 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 
 ---
 
-## Q16 — Write four differences between legged and wheeled robots
+### Q16 — Write four differences between legged and wheeled robots
 
 **[ESA Jan–May 2024 · Q2.d · 4 Marks]**
 
@@ -754,17 +761,17 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 
 ---
 
-# TOPIC 5: Computer Vision and Feature Detection
+## TOPIC 5: Computer Vision and Feature Detection
 
 ---
 
-## Q17 — Write the advantages and disadvantages of visible spectrum cameras, infrared cameras, and sonar
+### Q17 — Write the advantages and disadvantages of visible spectrum cameras, infrared cameras, and sonar
 
 **[ESA Jul-2024 Set-1 · Q3.a · 5 Marks]**
 
 **Answer:**
 
-### Visible Spectrum Camera
+#### Visible Spectrum Camera
 
 | Advantages | Disadvantages |
 |-----------|--------------|
@@ -774,7 +781,7 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 | Low cost; widely available | Depth perception requires stereo or additional processing |
 | Basis for object detection (YOLO, R-CNN) | Computationally expensive for real-time 3D |
 
-### Infrared (IR) Camera
+#### Infrared (IR) Camera
 
 | Advantages | Disadvantages |
 |-----------|--------------|
@@ -783,7 +790,7 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 | Not affected by visible light conditions | Expensive (thermal cameras especially) |
 | Useful for night vision in autonomous vehicles | Background temperature changes affect readings |
 
-### Sonar (Ultrasonic)
+#### Sonar (Ultrasonic)
 
 | Advantages | Disadvantages |
 |-----------|--------------|
@@ -795,13 +802,13 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 
 ---
 
-## Q18 — Compare CCD and CMOS sensors. Explain the working of a CCD camera with a neat diagram
+### Q18 — Compare CCD and CMOS sensors. Explain the working of a CCD camera with a neat diagram
 
 **[ESA Jul-2024 Set-1 · Q3.b · 10 Marks]**
 
 **Answer:**
 
-### CCD vs. CMOS Comparison
+#### CCD vs. CMOS Comparison
 
 | Feature | CCD | CMOS |
 |---------|-----|------|
@@ -814,7 +821,7 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 | Rolling shutter | No — global shutter | Yes (can cause jello effect in fast motion) |
 | Use in robotics | Scientific/precision cameras | Most consumer cameras, phones, robot cameras |
 
-### CCD Camera Working Principle
+#### CCD Camera Working Principle
 
 **Step-by-step:**
 
@@ -847,19 +854,19 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 
 ---
 
-## Q19 — What is corner detection? Explain Moravec's algorithm with a diagram. What improvement does Harris introduce?
+### Q19 — What is corner detection? Explain Moravec's algorithm with a diagram. What improvement does Harris introduce?
 
 **[ESA Jan–May 2024 · Q3.b · 7 Marks] · [ESA Jul-2024 Set-1 · Q3.c · 10 Marks]**
 
 **Answer:**
 
-### Corner Detection
+#### Corner Detection
 
 **Corner detection** identifies pixels that are the intersection of two or more edges — points with high gradient change in **multiple directions**. Corners are ideal image features because they are repeatable, distinctive, and stable across viewpoints.
 
 ---
 
-### Moravec's Corner Detection Algorithm
+#### Moravec's Corner Detection Algorithm
 
 **Key Insight:**
 
@@ -869,36 +876,46 @@ A rigid body in 3D space has exactly 6 DOF (3 translation + 3 rotation). A 6-DOF
 
 **SSD (Sum of Squared Differences):**
 
-```
-SSD(Δx, Δy) = Σ [I(x+Δx, y+Δy) − I(x, y)]²
-```
+$$
+\text{SSD}(\Delta x, \Delta y) = \sum \left[ I(x + \Delta x,\; y + \Delta y) - I(x, y) \right]^2
+$$
 
 **Algorithm Steps:**
 
-1. For each pixel, define a 3×3 reference window
+1. For each pixel, define a $3\times3$ reference window
 2. Shift the window in 8 directions (up, down, left, right, 4 diagonals)
 3. Compute SSD for each shift
 4. Take the **minimum SSD** across all 8 shifts (worst-case similarity)
-5. If `min(SSD) > threshold` → **CORNER**
+5. If $\min(\text{SSD}) > \text{threshold}$ → **CORNER**
 
 **Worked Example:**
 
-```
-Reference 3×3 patch around pixel:
-[ 6  6  6]
-[15 14  0]   ← target pixel = 14
-[15  0  0]
+Reference $3\times3$ patch around pixel:
+
+$$
+\begin{bmatrix} 6 & 6 & 6 \\ 15 & 14 & 0 \\ 15 & 0 & 0 \end{bmatrix} \quad \leftarrow \text{target pixel} = 14
+$$
 
 SSD values for 8 shifts:
-SSD1(up)  = 395,  SSD2(down)  = 451
-SSD3(left)= 422,  SSD4(right) = 576
-SSD5(↖)  = 227,  SSD6(↗)    = 764
-SSD7(↙)  = 493,  SSD8(↘)    = 702
 
-min(SSD) = 227
-Threshold = 220
-227 > 220 → CORNER DETECTED ✓
-```
+| Direction | SSD |
+|-----------|-----|
+| Up | 395 |
+| Down | 451 |
+| Left | 422 |
+| Right | 576 |
+| ↖ | 227 |
+| ↗ | 764 |
+| ↙ | 493 |
+| ↘ | 702 |
+
+$$
+\min(\text{SSD}) = 227, \quad \text{Threshold} = 220
+$$
+
+$$
+227 > 220 \;\Rightarrow\; \textbf{CORNER DETECTED} \checkmark
+$$
 
 **Diagram:**
 
@@ -911,14 +928,14 @@ Threshold = 220
     │ flat  └──┘  │ ← corners at rectangle corners
     └─────────────┘
 
-   Flat: SSD all low
-   Edge: SSD high only ⊥ edge
+   Flat:   SSD all low
+   Edge:   SSD high only ⊥ edge
    Corner: SSD high in ALL directions → detected
 ```
 
 ---
 
-### Harris Corner Detector — Improvement Over Moravec
+#### Harris Corner Detector — Improvement Over Moravec
 
 **Problems with Moravec:**
 
@@ -930,29 +947,27 @@ Threshold = 220
 
 Uses **partial derivatives** (continuous gradient) of the image instead of discrete shifts.
 
-**Second Moment Matrix M:**
+**Second Moment Matrix $M$:**
 
-```
-M = Σ w(x,y) [ Ix²    IxIy ]
-              [ IxIy   Iy²  ]
-```
+$$
+M = \sum w(x,y) \begin{bmatrix} I_x^2 & I_x I_y \\ I_x I_y & I_y^2 \end{bmatrix}
+$$
 
-(w = Gaussian weighting window; Ix, Iy = image gradient components)
+where $w$ = Gaussian weighting window; $I_x$, $I_y$ = image gradient components.
 
 **Harris Response:**
 
-```
-R = det(M) − k · [trace(M)]²
-  = λ1·λ2 − k·(λ1+λ2)²
-```
+$$
+R = \det(M) - k \cdot [\text{trace}(M)]^2 = \lambda_1\lambda_2 - k(\lambda_1 + \lambda_2)^2
+$$
 
-Where k ≈ 0.04–0.15 (empirically chosen)
+where $k \approx 0.04$–$0.15$ (empirically chosen).
 
 **Decision:**
 
-- R >> 0 → **Corner**
-- R << 0 → **Edge**
-- |R| ≈ 0 → **Flat region**
+- $R \gg 0$ → **Corner**
+- $R \ll 0$ → **Edge**
+- $|R| \approx 0$ → **Flat region**
 
 **Improvements over Moravec:**
 
@@ -963,13 +978,13 @@ Where k ≈ 0.04–0.15 (empirically chosen)
 
 ---
 
-### Affine Invariant Detection (Harris-Affine)
+#### Affine Invariant Detection (Harris-Affine)
 
 Steps:
 
 1. Detect candidate features using **scale-invariant Harris-Laplacian**
-2. Compute the **second moment matrix M** to identify slowest/fastest change directions
-3. Fit an **ellipse** from M to represent the anisotropic region around the feature
+2. Compute the **second moment matrix $M$** to identify slowest/fastest change directions
+3. Fit an **ellipse** from $M$ to represent the anisotropic region around the feature
 4. **Normalize** the elliptical region to a circle
 5. Extract descriptor from the normalized circular region
 
@@ -977,11 +992,11 @@ This makes the detector invariant to **affine transformations** (non-uniform sca
 
 ---
 
-# TOPIC 6: Localization
+## TOPIC 6: Localization
 
 ---
 
-## Q20 — Explain prediction update and perception update in the localization process
+### Q20 — Explain prediction update and perception update in the localization process
 
 **[ESA Jul-2024 Set-1 · Q4.a · 5 Marks]**
 
@@ -989,130 +1004,143 @@ This makes the detector invariant to **affine transformations** (non-uniform sca
 
 Robot localization uses a **Bayes Filter** framework with two alternating steps:
 
-### Prediction Update (Motion Update)
+#### Prediction Update (Motion Update)
 
-Occurs when the robot executes a motion command u_t.
+Occurs when the robot executes a motion command $u_t$.
 
-```
-bel̄(x_t) = ∫ p(x_t | u_t, x_{t-1}) · bel(x_{t-1}) dx_{t-1}
-```
+$$
+\overline{\text{bel}}(x_t) = \int p(x_t \mid u_t,\, x_{t-1}) \cdot \text{bel}(x_{t-1})\; dx_{t-1}
+$$
 
-- **p(x_t | u_t, x_{t-1})** = motion model — probability of being at x_t given you were at x_{t-1} and executed u_t
+- $p(x_t \mid u_t, x_{t-1})$ = motion model — probability of being at $x_t$ given you were at $x_{t-1}$ and executed $u_t$
 - Since motion is imperfect (wheel slip, noise), uncertainty **increases**
 - The belief distribution spreads/blurs
 
 **Example:** Robot moves forward 1 m. The true displacement has noise → the position estimate becomes a wider Gaussian (more uncertain).
 
-### Perception Update (Sensor/Measurement Update)
+#### Perception Update (Sensor/Measurement Update)
 
-Occurs when the robot takes a sensor reading z_t.
+Occurs when the robot takes a sensor reading $z_t$.
 
-```
-bel(x_t) = η · p(z_t | x_t) · bel̄(x_t)
-```
+$$
+\text{bel}(x_t) = \eta \cdot p(z_t \mid x_t) \cdot \overline{\text{bel}}(x_t)
+$$
 
-- **p(z_t | x_t)** = sensor/observation model — how likely is observation z_t given the robot is at x_t
-- η = normalizing constant
+- $p(z_t \mid x_t)$ = sensor/observation model — how likely is observation $z_t$ given the robot is at $x_t$
+- $\eta$ = normalizing constant
 - New observation sharpens the estimate → uncertainty **decreases**
 
 **Example:** Robot's LiDAR sees a wall at 2 m to the right. Only positions in the map where a wall is 2 m to the right are plausible → belief concentrates around those positions.
 
-### Combined Cycle
+#### Combined Cycle
 
 ```
-Initial belief  →  [PREDICT: move]  →  blurred belief
+Initial belief  →  [PREDICT: move]   →  blurred belief
                 →  [UPDATE: observe] →  sharp belief
-                →  [PREDICT: move]  →  blurred again ...
+                →  [PREDICT: move]   →  blurred again ...
 ```
 
-In **Kalman Filter:**
+**In Kalman Filter:**
 
-- Predict: μ̄ = A·μ + B·u; Σ̄ = A·Σ·A^T + R
-- Update: K = Σ̄·C^T(C·Σ̄·C^T+Q)^{-1}; μ = μ̄ + K(z − C·μ̄); Σ = (I−K·C)·Σ̄
+**Predict step:**
+
+$$
+\bar{\mu} = A\mu + Bu, \qquad \bar{\Sigma} = A\Sigma A^T + R
+$$
+
+**Update step:**
+
+$$
+K = \bar{\Sigma} C^T \left(C\bar{\Sigma} C^T + Q\right)^{-1}
+$$
+
+$$
+\mu = \bar{\mu} + K(z - C\bar{\mu}), \qquad \Sigma = (I - KC)\,\bar{\Sigma}
+$$
 
 ---
 
-# TOPIC 7: SLAM
+## TOPIC 7: SLAM
 
 ---
 
-## Q21 — What are the key points in Particle Filter SLAM?
+### Q21 — What are the key points in Particle Filter SLAM?
 
 **[ESA Jul-2024 Set-1 · Q4.b · 10 Marks] · [ESA Jan–May 2024 · Q4.c · 7 Marks]**
 
 **Answer:**
 
-### 1. Particle Representation
+#### 1. Particle Representation
 
-Belief is represented as a set of **N weighted particles** (not a Gaussian):
+Belief is represented as a set of $N$ weighted particles (not a Gaussian):
 
-```
-{(x^(i), w^(i))} for i = 1 to N
-```
+$$
+\left\{\left(x^{(i)},\; w^{(i)}\right)\right\} \quad \text{for } i = 1 \text{ to } N
+$$
 
 Each particle is a complete hypothesis: the robot's pose + a full map consistent with that pose. This can represent **any distribution** — multi-modal, skewed, non-Gaussian.
 
-### 2. Bayesian Filter Foundation
+#### 2. Bayesian Filter Foundation
 
 Particle Filter SLAM is a **Bayesian filtering** approach. It maintains a probability distribution over all possible poses and maps, updated with every motion and observation.
 
-### 3. Motion Update (Sampling)
+#### 3. Motion Update (Sampling)
 
 For each particle, a new pose is sampled from the **motion model**:
 
-```
-x^(i)_t ~ p(x_t | u_t, x^(i)_{t-1})
-```
+$$
+x_t^{(i)} \sim p\!\left(x_t \mid u_t,\; x_{t-1}^{(i)}\right)
+$$
 
 This propagates each particle according to the robot's action, adding motion uncertainty.
 
-### 4. Observation Update (Weighting)
+#### 4. Observation Update (Weighting)
 
 Each particle is assigned a **weight** based on how well the current sensor observation matches the expected observation at that particle's pose:
 
-```
-w^(i)_t = p(z_t | x^(i)_t, map^(i))
-```
+$$
+w_t^{(i)} = p\!\left(z_t \mid x_t^{(i)},\; \text{map}^{(i)}\right)
+$$
 
 High-weight particles represent more likely positions.
 
-### 5. Resampling (Importance Sampling)
+#### 5. Resampling (Importance Sampling)
 
-Draw N new particles from the weighted set, with probability proportional to weight:
+Draw $N$ new particles from the weighted set, with probability proportional to weight:
 
 - High-weight particles **survive and multiply**
 - Low-weight particles are **discarded**
 - Focuses computation on high-probability regions
 
-### 6. Map Management
+#### 6. Map Management
 
-Each particle maintains its **own map**. In FastSLAM, each particle holds a separate EKF per landmark — complexity is O(N log M) instead of O(M²) for standard EKF-SLAM.
+Each particle maintains its **own map**. In FastSLAM, each particle holds a separate EKF per landmark — complexity is $O(N \log M)$ instead of $O(M^2)$ for standard EKF-SLAM.
 
-### 7. Data Association
+#### 7. Data Association
 
 Match current observations to previously seen features in each particle's map. Correct data association is critical — wrong matches cause map inconsistencies.
 
-### 8. Loop Closure Handling
+#### 8. Loop Closure Handling
 
 When the robot revisits a location, particles on the correct trajectory receive much higher weights and dominate after resampling — uncertainty collapses, improving the overall map.
 
-### 9. Challenges
+#### 9. Challenges
 
 - **Curse of dimensionality:** Number of particles grows exponentially with state space size
 - **Particle depletion:** Diversity decreases after many resamplings
-- **Computational cost:** Large N needed for accuracy
+- **Computational cost:** Large $N$ needed for accuracy
 
-### 10. Applications
+#### 10. Applications
 
 Autonomous vehicles, indoor robot navigation, augmented reality, underwater mapping.
 
 ---
 
-# TOPIC 8: Path Planning and Navigation
+## TOPIC 8: Path Planning and Navigation
 
 ---
 
-## Q22 — Explain the two types of Bug algorithm and how a robot navigates around obstacles using them
+### Q22 — Explain the two types of Bug algorithm and how a robot navigates around obstacles using them
 
 **[ESA Jan–May 2024 · Q4.a · 7 Marks]**
 
@@ -1120,15 +1148,15 @@ Autonomous vehicles, indoor robot navigation, augmented reality, underwater mapp
 
 The Bug algorithms are simple reactive navigation methods that use only **current sensor readings** and **approximate goal direction**. The core strategy is: head toward goal; if an obstacle is hit, follow its boundary to get around it.
 
-### Bug 1
+#### Bug 1
 
 **Algorithm:**
 
 1. Move straight toward the goal
-2. On encountering an obstacle: record the **hit point H**
+2. On encountering an obstacle: record the **hit point** $H$
 3. Completely circumnavigate the obstacle (full circle)
-4. During the circumnavigation, record the point with **shortest distance to goal** → **leave point L**
-5. Return to L and depart toward goal
+4. During the circumnavigation, record the point with **shortest distance to goal** → **leave point** $L$
+5. Return to $L$ and depart toward goal
 
 **Diagram:**
 
@@ -1143,14 +1171,14 @@ The Bug algorithms are simple reactive navigation methods that use only **curren
 
 ---
 
-### Bug 2
+#### Bug 2
 
 **Algorithm:**
 
 1. Define the **M-line**: straight line from Start to Goal
 2. Move along M-line toward goal
-3. On encountering an obstacle: record hit point H, follow the obstacle boundary
-4. **Depart from the boundary** as soon as the robot reaches any point **on the M-line that is closer to the goal** than H
+3. On encountering an obstacle: record hit point $H$, follow the obstacle boundary
+4. **Depart from the boundary** as soon as the robot reaches any point **on the M-line that is closer to the goal** than $H$
 
 **Diagram:**
 
@@ -1163,7 +1191,7 @@ The Bug algorithms are simple reactive navigation methods that use only **curren
 - Departs contour early when M-line is reached again
 - Still not optimal (adversarial layouts can make Bug 2 worse than Bug 1)
 
-### Bug 2 State Machine
+#### Bug 2 State Machine
 
 ```
 State GOAL_SEEK:
@@ -1180,19 +1208,19 @@ State WALL_FOLLOW:
     goal is unreachable; STOP
 ```
 
-### Tangent Bug (Extension)
+#### Tangent Bug (Extension)
 
 Uses **range sensing** and a **Local Tangent Graph (LTG)** to detect visible obstacle endpoints and navigate toward the most promising gap — yields near-optimal paths in simple environments.
 
 ---
 
-## Q23 — How are temporal decomposition and control decomposition useful in robotics? What are the four interrelated trends that correlate with temporal decomposition?
+### Q23 — How are temporal decomposition and control decomposition useful in robotics? What are the four interrelated trends that correlate with temporal decomposition?
 
 **[ESA Jul-2024 Set-1 · Q4.c · 10 Marks] · [ESA Jan–May 2024 · Q4.b · 7 Marks]**
 
 **Answer:**
 
-### Why Decompositions Are Useful
+#### Why Decompositions Are Useful
 
 Navigation architectures use decompositions to organize complex robot software into **manageable, modular, testable components**.
 
@@ -1205,7 +1233,7 @@ Navigation architectures use decompositions to organize complex robot software i
 
 ---
 
-### 1. Temporal Decomposition
+#### 1. Temporal Decomposition
 
 Distinguishes software processes by their **real-time requirements** — how fast they must respond.
 
@@ -1230,7 +1258,7 @@ Distinguishes software processes by their **real-time requirements** — how fas
 
 ---
 
-### 2. Control Decomposition
+#### 2. Control Decomposition
 
 Identifies how **different control outputs combine** to produce physical robot actions. Two major paradigms:
 
@@ -1247,7 +1275,7 @@ Identifies how **different control outputs combine** to produce physical robot a
 
 ---
 
-### Four Interrelated Trends Correlated with Temporal Decomposition
+#### Four Interrelated Trends Correlated with Temporal Decomposition
 
 | Trend | Description |
 |-------|-------------|
@@ -1260,20 +1288,20 @@ Identifies how **different control outputs combine** to produce physical robot a
 
 ---
 
-## Q24 — What are the advantages of using reinforcement learning in legged robots and autonomous vehicles?
+### Q24 — What are the advantages of using reinforcement learning in legged robots and autonomous vehicles?
 
 **[ESA Jan–May 2024 · Q4.d · 4 Marks]**
 
 **Answer:**
 
-### In Legged Robots
+#### In Legged Robots
 
 1. **Complex gait learning:** RL can discover efficient gaits (trot, gallop, bound) without manually programming each motion pattern — the robot learns what works via trial and error
 2. **Terrain adaptation:** RL policies adapt to unexpected terrain (rocks, slopes, gaps) by learning recovery behaviors from simulated falls
 3. **Energy efficiency:** RL can optimize for energy consumption — learns to minimize leg forces while maintaining stability
 4. **Robustness to damage:** RL can discover compensatory gaits when a leg is damaged (shown in Cully et al. 2015 "Intelligent Trial and Error")
 
-### In Autonomous Vehicles
+#### In Autonomous Vehicles
 
 1. **Handles edge cases:** Classical rule-based systems struggle with unusual scenarios; RL learns from millions of simulated scenarios including rare events
 2. **End-to-end learning:** RL can learn directly from raw sensor inputs (camera → steering/throttle) without hand-crafted intermediate representations
@@ -1282,15 +1310,15 @@ Identifies how **different control outputs combine** to produce physical robot a
 
 ---
 
-# TOPIC 9: Combined / Cross-Topic Questions
+## TOPIC 9: Combined / Cross-Topic Questions
 
 ---
 
-## Q25 — Define temporal decomposition in robotic navigation and illustrate with a generic architecture diagram
+### Q25 — Define temporal decomposition in robotic navigation and illustrate with a generic architecture diagram
 
 **[ESA Jan–May 2024 · Q4.b · 7 Marks]**
 
-*(See Q23 above for full answer — this is the same question. Below is the diagram specifically requested.)*
+*(See Q23 above for full answer. Below is the diagram specifically requested.)*
 
 **Generic Navigation Architecture with Temporal Decomposition:**
 
@@ -1327,9 +1355,9 @@ Identifies how **different control outputs combine** to produce physical robot a
 
 ---
 
-# Quick Reference: Questions by Paper
+## Quick Reference: Questions by Paper
 
-## ESA July 2024 — Set 1 (100 Marks)
+### ESA July 2024 — Set 1 (100 Marks)
 
 | Q | Topic | Marks | Answered In |
 |---|-------|-------|-------------|
@@ -1346,23 +1374,23 @@ Identifies how **different control outputs combine** to produce physical robot a
 | 4.b | Particle Filter SLAM key points | 10 | Q21 |
 | 4.c | Temporal & control decomposition; four trends | 10 | Q23 |
 
-## ESA Jan–May 2024 (100 Marks)
+### ESA Jan–May 2024 (100 Marks)
 
-| Q   | Topic                                                      | Marks | Answered In |
-| --- | ---------------------------------------------------------- | ----- | ----------- |
-| 1.a | Technical, social, ethical challenges in autonomous robots | 7     | Q2          |
-| 1.b | Forward & inverse kinematics; robot arm importance         | 7     | Q11         |
-| 1.c | Encoders: role, working, selection factors                 | 7     | Q5          |
-| 1.d | Active vs. passive sensors with examples                   | 4     | Q4          |
-| 2.a | Locomotion vs. manipulation; key issues                    | 7     | Q13         |
-| 2.b | Static & dynamic stability; support polygon                | 7     | Q14         |
-| 2.c | DOF: 2, 3, 5, 6-DOF robots — capabilities & examples       | 7     | Q15         |
-| 2.d | 4 differences: legged vs. wheeled robots                   | 4     | Q16         |
-| 3.a | Optical encoders: measure, work, light-blocking reaction   | 7     | Q6          |
-| 3.b | Corner detection; Moravec; Harris improvement              | 7     | Q19         |
-| 3.c | IMU: definition, DOF, block diagram                        | 7     | Q7          |
-| 3.d | Dead reckoning; which sensor                               | 4     | Q8          |
-| 4.a | Bug 1 & Bug 2 algorithms with diagram                      | 7     | Q22         |
-| 4.b | Temporal decomposition; generic architecture; four trends  | 7     | Q23/Q25     |
-| 4.c | Particle Filter SLAM — 5 key points                        | 7     | Q21         |
-| 4.d | RL advantages in legged robots & autonomous vehicles       | 4     | Q24         |
+| Q | Topic | Marks | Answered In |
+|---|-------|-------|-------------|
+| 1.a | Technical, social, ethical challenges in autonomous robots | 7 | Q2 |
+| 1.b | Forward & inverse kinematics; robot arm importance | 7 | Q11 |
+| 1.c | Encoders: role, working, selection factors | 7 | Q5 |
+| 1.d | Active vs. passive sensors with examples | 4 | Q4 |
+| 2.a | Locomotion vs. manipulation; key issues | 7 | Q13 |
+| 2.b | Static & dynamic stability; support polygon | 7 | Q14 |
+| 2.c | DOF: 2, 3, 5, 6-DOF robots — capabilities & examples | 7 | Q15 |
+| 2.d | 4 differences: legged vs. wheeled robots | 4 | Q16 |
+| 3.a | Optical encoders: measure, work, light-blocking reaction | 7 | Q6 |
+| 3.b | Corner detection; Moravec; Harris improvement | 7 | Q19 |
+| 3.c | IMU: definition, DOF, block diagram | 7 | Q7 |
+| 3.d | Dead reckoning; which sensor | 4 | Q8 |
+| 4.a | Bug 1 & Bug 2 algorithms with diagram | 7 | Q22 |
+| 4.b | Temporal decomposition; generic architecture; four trends | 7 | Q23/Q25 |
+| 4.c | Particle Filter SLAM — 5 key points | 7 | Q21 |
+| 4.d | RL advantages in legged robots & autonomous vehicles | 4 | Q24 |
